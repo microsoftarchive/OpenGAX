@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GuidancePackage 
+  Name="TestPackage" 
+  Caption="Testing Package" 
+  BindingRecipe="Binding" 
+  SchemaVersion="1.0" 
+  xmlns="http://schemas.microsoft.com/pag/gax-core">
+  <Recipes>
+    <Recipe Name="Binding">
+      <Caption>Caption</Caption>
+      <Actions>
+        <Action Name="ExecuteBinding" Type="Microsoft.Practices.RecipeFramework.RecipeTests+ExecuteBindingAction, Microsoft.Practices.RecipeFramework.Test" />
+      </Actions>
+    </Recipe>
+  </Recipes>
+</GuidancePackage>

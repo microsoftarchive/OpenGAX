@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20820</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{052BF302-4304-4453-B05A-568258F37645}</ProjectGuid>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Microsoft.Practices.RecipeFramework.VisualStudio</RootNamespace>
+    <AssemblyName>Microsoft.Practices.RecipeFramework.VisualStudio</AssemblyName>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\..\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <DelaySign>false</DelaySign>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>true</Optimize>
+    <!--<OutputPath>$(DevEnvDir)PublicAssemblies\</OutputPath>-->
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <FxCopRules>ComRules.dll;DesignRules.dll;GlobalizationRules.dll;MaintainabilityRules.dll;NamingRules.dll;PerformanceRules.dll;ReliabilityRules.dll;SecurityRules.dll;UsageRules.dll</FxCopRules>
+    <LangVersion>
+    </LangVersion>
+    <ErrorReport>
+    </ErrorReport>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>4194304</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DocumentationFile>bin\Release\Microsoft.Practices.RecipeFramework.VisualStudio.XML</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <IncrementalBuild>true</IncrementalBuild>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <NoWarn>0618 0067 0642 0219 1570 1701</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <RunFxCop>false</RunFxCop>
+    <FxCopLogFile>
+    </FxCopLogFile>
+    <FxCopProjectFile>
+    </FxCopProjectFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <!--<OutputPath>$(DevEnvDir)PublicAssemblies\</OutputPath>-->
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <FxCopRules>ComRules.dll;DesignRules.dll;GlobalizationRules.dll;MaintainabilityRules.dll;NamingRules.dll;PerformanceRules.dll;ReliabilityRules.dll;SecurityRules.dll;UsageRules.dll</FxCopRules>
+    <LangVersion>
+    </LangVersion>
+    <ErrorReport>
+    </ErrorReport>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>4194304</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <IncrementalBuild>true</IncrementalBuild>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>0618</NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <NoWarn>0618 0067 0642 0219 1570 1701 0436</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <RunFxCop>false</RunFxCop>
+    <FxCopLogFile>
+    </FxCopLogFile>
+    <FxCopProjectFile>
+    </FxCopProjectFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DeployExtension>False</DeployExtension>
+    <TargetVsixContainerName>GAX.vsix</TargetVsixContainerName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="extensibility, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
+    <Reference Include="Microsoft.VisualStudio.CommandBars, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TemplateWizard">
+      <HintPath>$(DevEnvDir)\Microsoft.VisualStudio.TemplateWizard.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TemplateWizardInterface, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.VSHelp, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Mvp.Xml, Version=2.0.2158.1055, Culture=neutral, PublicKeyToken=dd92544dc05f5671, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib\Mvp.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="VsWebSite.Interop, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.WizardFramework, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DevEnvDir)Microsoft.WizardFramework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\..\Shared\AssemblyVersionInfo.cs">
+      <Link>AssemblyVersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\Shared\GlobalAssemblyInfo.cs">
+      <Link>GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WizardFramework\Framework\Configuration\WizardFrameworkConfig.cs">
+      <Link>WizardFrameworkConfig.cs</Link>
+      <DependentUpon>WizardFrameworkConfig.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="..\UI\ShellCmdDef.Designer.CSharpPackage.cs">
+      <Link>CTC\ShellCmdDef.Designer.CSharpPackage.cs</Link>
+    </Compile>
+    <Compile Include="..\UI\ShellCmdDef.Designer.JSharpPackage.cs">
+      <Link>CTC\ShellCmdDef.Designer.JSharpPackage.cs</Link>
+    </Compile>
+    <Compile Include="..\UI\ShellCmdDef.Designer.VBPackage.cs">
+      <Link>CTC\ShellCmdDef.Designer.VBPackage.cs</Link>
+    </Compile>
+    <Compile Include="Actions\AddTemplateReferencesAction.cs" />
+    <Compile Include="AssetMenuCommand.cs" />
+    <Compile Include="Build\FindGuidancePackageConfiguration.cs" />
+    <Compile Include="Build\GenerateGuidancePackageRegistry.cs" />
+    <Compile Include="Build\GenerateMenuResource.cs" />
+    <Compile Include="Build\GuidancePackageRegistryTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GuidancePackageRegistryTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="$(ProgramFiles)\Microsoft Visual Studio 2010 SDK SP1\VisualStudioIntegration\Common\Source\CSharp\RegistrationAttributes\ProvideBindingPathAttribute.cs">
+      <Link>Registration\ProvideBindingPathAttribute.cs</Link>
+    </Compile>
+    <Compile Include="Registration\ProvidePackageSetting.cs" />
+    <Compile Include="RegistryHelper.cs" />
+    <Compile Include="ToolWindow\ExtendedTreeNode.cs" />
+    <Compile Include="ToolWindow\ExtendedTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToolWindow\GuidanceNavigatorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToolWindow\GuidanceNavigatorControl.Designer.cs">
+      <DependentUpon>GuidanceNavigatorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolWindow\GuidanceNavigatorWindow.cs" />
+    <Compile Include="IndexerBoundAssetParent.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CustomArgumentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\ReferenceRestoreService.cs">
+    </Compile>
+    <Compile Include="CTC\CTCBuilder.cs" />
+    <Compile Include="DebugUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Registration\ProvidePseudoFolder.cs" />
+    <Compile Include="Registration\ProvideTemplateInfo.cs" />
+    <Compile Include="Registration\GuidancePackageRegistration.cs" />
+    <Compile Include="SolutionFolderReference.cs" />
+    <Compile Include="TemplateMenuCommand.cs" />
+    <Compile Include="Templates\BoundTemplateReference.cs" />
+    <Compile Include="Templates\DTETemplate.cs" />
+    <Compile Include="Templates\SolutionFolderTemplateReference.cs" />
+    <Compile Include="Templates\TemplateDictionaryService.cs" />
+    <Compile Include="Templates\TemplateFilter.cs" />
+    <Compile Include="Templates\TemplateGatheringService.cs" />
+    <Compile Include="Templates\TemplateMetaData.cs">
+    </Compile>
+    <Compile Include="Templates\TemplateReference.cs" />
+    <Compile Include="Templates\UnboundTemplateReference.cs" />
+    <Compile Include="Templates\VSTemplateInfo.cs" />
+    <Compile Include="CTC\Contants.cs" />
+    <Compile Include="CTC\CTC.cs" />
+    <Compile Include="CTC\CTCFile.cs" />
+    <Compile Include="CTC\CTCGenerator.cs" />
+    <Compile Include="CTC\OfficeCmdDef.cs" />
+    <Compile Include="CTC\ShellCmdDef.cs" />
+    <Compile Include="CTC\Util.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="ProjectItemReference.cs" />
+    <Compile Include="ProjectReference.cs" />
+    <Compile Include="RecipeMenuCommand.cs" />
+    <Compile Include="SolutionPackagesContainer.cs" />
+    <Compile Include="SolutionReference.cs" />
+    <Compile Include="OutputWindowTraceListener.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="TaskList\RecipeTaskProvider.cs" />
+    <Compile Include="Services\DictionarySerializer.cs" />
+    <Compile Include="Services\OutputWindowService.cs">
+    </Compile>
+    <Compile Include="TaskList\RecipeTaskEnumerator.cs" />
+    <Compile Include="TaskList\RecipeTaskItem.cs" />
+    <Compile Include="Templates\UnfoldTemplate.cs">
+    </Compile>
+    <Compile Include="Templates\VszWizard.cs">
+    </Compile>
+    <Compile Include="ToolWindow\GuidanceNavigatorManager.cs" />
+    <Compile Include="UnsafeNativeMethods.cs" />
+    <Compile Include="RecipeManagerPackage.cs" />
+    <Compile Include="VsGuidancePackage.cs" />
+    <Compile Include="VsBoundReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Library\Library.csproj">
+      <Project>{A0862851-0BC1-4A63-B06B-154DCB09602D}</Project>
+      <Name>Library %28Library\Library%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Practices\ComponentModel\ComponentModel.csproj">
+      <Project>{24A14750-5BE7-4872-9899-A0EEF545D1FD}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+      <Name>ComponentModel</Name>
+      <Private>True</Private>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Practices\Common\Common.csproj">
+      <Project>{CD1A28C5-0278-4DA6-81C4-A3FF95FF1270}</Project>
+      <Name>Common (Practices\Common)</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RecipeFramework\Common\Common.csproj">
+      <Project>{CACBA86E-8E15-4318-822F-E4D74F3107A1}</Project>
+      <Name>Common (RecipeFramework\Common)</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RecipeFramework\Framework\RecipeFramework.csproj">
+      <Project>{F0F73757-C737-49CC-B88B-32C5817CA9C4}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+      <Name>RecipeFramework (RecipeFramework\RecipeFramework)</Name>
+      <Private>True</Private>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RecipeFramework\PackageManagement\PackageManagement.csproj">
+      <Project>{2909B932-8572-48E3-962E-F2BF3640D5C3}</Project>
+      <Name>PackageManagement</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WizardFramework\Framework\WizardFramework.csproj">
+      <Project>{08901AA0-A0CF-458C-910A-A8C0981675AC}</Project>
+      <Name>WizardFramework (WizardFramework\WizardFramework)</Name>
+      <Private>True</Private>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{C3B9B008-DF10-4288-8414-00C3F3AA582E}</Project>
+      <Name>Common (VisualStudio\Common)</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\Library\Library.csproj">
+      <Project>{E754B7DA-2C3C-408B-A7B5-AC94D37C5B1A}</Project>
+      <Name>Library %28VisualStudio\Library%29</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\RecipeFramework\Common\Configuration\GuidancePackageConfig.xsd">
+      <Link>GuidancePackageConfig.xsd</Link>
+      <SubType>Designer</SubType>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Common\Configuration\VsTemplateData.xsd">
+      <Link>VsTemplateData.xsd</Link>
+      <SubType>Designer</SubType>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\WizardFramework\Framework\Configuration\WizardFrameworkConfig.xsd">
+      <Link>WizardFrameworkConfig.xsd</Link>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <None Include="..\..\WizardFramework\Framework\Configuration\WizardFrameworkConfig.xsx">
+      <Link>WizardFrameworkConfig.xsx</Link>
+      <DependentUpon>WizardFrameworkConfig.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Build\GuidancePackageRegistryTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GuidancePackageRegistryTemplate.cs</LastGenOutput>
+    </None>
+    <Content Include="gax preview.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="gax.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="EULA.txt">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Microsoft.Practices.RecipeFramework.Build.targets">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <None Include="source.extension.vsixmanifest" />
+    <Content Include="1033\Microsoft.Practices.RecipeFramework.VisualStudioUI.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <None Include="Resources\gax.gif" />
+    <None Include="Resources\302.bmp" />
+    <None Include="Resources\gax.ico" />
+    <None Include="Resources\iconP&amp;P_01.bmp" />
+    <Content Include="Resources\Images_24bit.bmp" />
+    <Content Include="Resources\Images_32bit.bmp" />
+    <Content Include="Resources\Package.ico" />
+    <EmbeddedResource Include="ToolWindow\GuidanceNavigatorControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GuidanceNavigatorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SolutionFolderReference.bmp" />
+    <EmbeddedResource Include="ProjectItemReference.bmp" />
+    <EmbeddedResource Include="ProjectReference.bmp" />
+    <EmbeddedResource Include="Services\CustomArgumentPanel.resx">
+      <DependentUpon>CustomArgumentPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SolutionReference.bmp" />
+    <EmbeddedResource Include="Templates\BoundTemplateReference.bmp" />
+    <EmbeddedResource Include="Templates\UnboundTemplateReference.bmp" />
+    <EmbeddedResource Include="RecipeManagerPackage.resx">
+      <SubType>Designer</SubType>
+      <LastGenOutput>RecipeManagerPackage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <!--
+    To specify a different registry root to register your package, uncomment the TargetRegistryRoot
+    tag and specify a registry root in it.
+    <TargetRegistryRoot></TargetRegistryRoot>
+    -->
+    <RegisterOutputPackage>true</RegisterOutputPackage>
+    <RegisterWithCodebase>true</RegisterWithCodebase>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" />
+  <PropertyGroup>
+    <StartProgram>$(ProgramFiles)\Microsoft Visual Studio 10.0\Common7\IDE\\devenv.exe</StartProgram>
+    <StartAction>Program</StartAction>
+    <StartArguments>/rootsuffix Exp</StartArguments>
+  </PropertyGroup>
+</Project>

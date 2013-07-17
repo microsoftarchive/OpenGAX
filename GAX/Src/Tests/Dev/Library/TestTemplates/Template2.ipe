@@ -1,0 +1,66 @@
+﻿<#@ Template Language="C#" #/>
+<#@ Using Namespace="System" #/>
+<#@ Using Namespace="System.Data" #/>
+<# /* Retrieve parameters for use in the template */ 
+	System.ComponentModel.Design.IDictionaryService svc = 
+	  (System.ComponentModel.Design.IDictionaryService)GetService(typeof(System.ComponentModel.Design.IDictionaryService));
+	string method   = (string) svc.GetValue("BusinessAction");
+	string name     = (string) svc.GetValue("ClassName");
+	string ns       = (string) svc.GetValue("Namespace");
+	string request  = (string) svc.GetValue("Request");
+	string response = (string) svc.GetValue("Response");
+#/>#region info
+//===============================================================================
+// Microsoft Services Reference Architecture
+// http://msdn.microsoft.com/library/en-us/dnpag/html/EDRA.asp
+//
+// <#= name #/>.cs
+//
+// This file contains the implementation of the <#= name #/> class
+//
+//===============================================================================
+// Copyright (C) 2003-2004 Microsoft Corporation
+// All rights reserved.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//==============================================================================
+#endregion info
+
+#region using
+
+using System;
+
+#endregion using
+
+namespace <#= ns #/>
+{
+	/// <summary>
+	/// Summary description for <#= name #/>.
+	/// </summary>
+	public class <#= name #/>
+	{
+		#region Implementation
+
+		/// <summary>
+		/// This method shows the Business Action Serialization invocation method.
+		/// </summary>
+		/// <param name="request">
+		/// </param>
+<# if (response == null) { #/>
+		public void <#= method #/>(<#= (request == null ? "" : request + " request") #/>)
+		{
+			// TODO: add processing.
+		}
+<# } else { #/>
+		public <#= response #/> <#= method #/>(<#= (request == null ? "" : request + " request") #/>)
+		{
+			<#= response #/> response = new <#= response #/>();
+			// TODO: add initialization of response.
+			return response;
+		}
+<# } #/>
+		#endregion Implementation
+	}
+}

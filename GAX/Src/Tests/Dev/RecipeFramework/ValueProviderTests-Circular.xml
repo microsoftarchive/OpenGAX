@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<GuidancePackage  xmlns="http://schemas.microsoft.com/pag/gax-core"
+	Name="TestPackage" 
+	Caption="TestPackage Caption"
+	SchemaVersion="1.0">
+	<Recipes>
+		<Recipe Name="CircularDependencies">
+			<Caption>CircularDependencies</Caption>
+			<Arguments>
+				<Argument Name="A">
+					<ValueProvider Type="Whatever">
+						<MonitorArgument Name="B" />
+					</ValueProvider>
+				</Argument>
+				<Argument Name="B">
+					<ValueProvider Type="Whatever">
+						<MonitorArgument Name="C" />
+						<MonitorArgument Name="D" />
+					</ValueProvider>
+				</Argument>
+				<Argument Name="C">
+					<ValueProvider Type="Whatever">
+						<MonitorArgument Name="E" />
+					</ValueProvider>
+				</Argument>
+				<Argument Name="D">
+					<ValueProvider Type="Whatever">
+						<MonitorArgument Name="A" />
+						<MonitorArgument Name="B" />
+					</ValueProvider>
+				</Argument>
+				<Argument Name="E">
+					<ValueProvider Type="Whatever">
+						<MonitorArgument Name="C" />
+					</ValueProvider>
+				</Argument>
+			</Arguments>
+		</Recipe>
+	</Recipes>
+</GuidancePackage>

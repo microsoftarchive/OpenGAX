@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ExpressionProvider_ExpressionMissing" xml:space="preserve">
+    <value>The Expression attribute is required on the ValueProvider configuration element.</value>
+  </data>
+  <data name="RenameProjectAction_CantFindProject" xml:space="preserve">
+    <value>Project at location {0} does not exist in the current solution.</value>
+  </data>
+  <data name="CreateUnboundReferenceAction_UnsupportedConstructor" xml:space="preserve">
+    <value>The type {0} does not have required constructor that receives asset name as string.</value>
+  </data>
+  <data name="CreateUnboundReferenceAction_WrongType" xml:space="preserve">
+    <value>The type {0} is not a valid unbound reference type.</value>
+  </data>
+  <data name="UnboundReferences_AnyCSharpProject" xml:space="preserve">
+    <value>Any C# project.</value>
+  </data>
+  <data name="UnboundReferences_AnyCSharpWebProject" xml:space="preserve">
+    <value>Any C# Web project.</value>
+  </data>
+  <data name="RegexStringConverter_ExpressionMissing" xml:space="preserve">
+    <value>The converter must be configured before use with a dictionary of values containing the key "Expression" that 
+    is the expression to use for evaluating the validity of the value as a regular expression.</value>
+  </data>
+  <data name="AddCustomAction_InvalidInstallAction" xml:space="preserve">
+    <value>Value {0} for a install action is invalid.</value>
+  </data>
+  <data name="DteElementConverter_CantFindElement" xml:space="preserve">
+    <value>The value specified does not represent an element in the current solution.</value>
+  </data>
+  <data name="DteElementConverter_MustStartWithSlash" xml:space="preserve">
+    <value>The location of the element must start with a forward or backward slash, indicating the solution root.</value>
+  </data>
+  <data name="DteElementConverter_NoSolutionOpened" xml:space="preserve">
+    <value>A solution must be opened in Visual Studio.</value>
+  </data>
+  <data name="ProjectConverter_InvalidConversion" xml:space="preserve">
+    <value>The converter can only convert a project to its string representation.</value>
+  </data>
+  <data name="ProjectItemConverter_InvalidConversion" xml:space="preserve">
+    <value>The converter can only convert a project item to its string representation.</value>
+  </data>
+  <data name="SolutionConverter_InvalidConversion" xml:space="preserve">
+    <value>The converter can only convert a Solution to its string representation.</value>
+  </data>
+  <data name="ProjectConverter_InvalidPath" xml:space="preserve">
+    <value>The specified value does not identify a project in the current solution.</value>
+  </data>
+  <data name="ProjectItemConverter_InvalidPath" xml:space="preserve">
+    <value>The specified value does not identify an item in the current solution.</value>
+  </data>
+  <data name="SolutionConverter_InvalidPath" xml:space="preserve">
+    <value>The string representation of the solution must be either a forward or a backward slash.</value>
+  </data>
+  <data name="SolutionFolderConverter_InvalidConversion" xml:space="preserve">
+    <value>The converter can only convert a solution folder to its string representation.</value>
+  </data>
+  <data name="SolutionFolderConverter_InvalidPath" xml:space="preserve">
+    <value>The specified value does not identify a solution folder in the current solution.</value>
+  </data>
+  <data name="WebReferenceConverter_InvalidConversion" xml:space="preserve">
+    <value>The converter can only convert a web reference to its string representation.</value>
+  </data>
+  <data name="WebReferenceConverter_InvalidPath" xml:space="preserve">
+    <value>The specified value does not identify a web reference in a project.</value>
+  </data>
+  <data name="ReferenceConverter_InvalidConversion" xml:space="preserve">
+    <value>The converter can only convert a reference used by a project to its string representation.</value>
+  </data>
+  <data name="ReferenceConverter_InvalidPath" xml:space="preserve">
+    <value>The specified value does not identify a reference used in a project, or the project type is not supported.</value>
+  </data>
+  <data name="ReferenceConverter_ReferencesNode" xml:space="preserve">
+    <value>References</value>
+  </data>
+  <data name="Dependencies_ExecutionError" xml:space="preserve">
+    <value>Could not exclude dependency, Error: {0}</value>
+  </data>
+  <data name="UnboundReferences_AnySolutionFolder" xml:space="preserve">
+    <value>Any Solution Folder</value>
+  </data>
+  <data name="Reference_FailEnabledFor" xml:space="preserve">
+    <value>Function IsEnabledFor is not correctly implemented because it threw an exception</value>
+  </data>
+  <data name="PropertiesDirectiveProcessor_StartProcessingRunNotInvoked" xml:space="preserve">
+    <value>A required method invocation 'StartProcessingRun()' was not invoked.</value>
+  </data>
+  <data name="TextTemplateAction_RelativePathUnresolvable" xml:space="preserve">
+    <value>Relative paths are only supported if there is a TypeResolutionService implementation in the current container. 
+Can't determine base path for templates.</value>
+  </data>
+  <data name="TextTemplateAction_TemplatePathNotInPackageFolder" xml:space="preserve">
+    <value>Templates path must be relative to the guidance package root folder.</value>
+  </data>
+  <data name="PropertiesDirectiveProcessor_UndefinedValue" xml:space="preserve">
+    <value>Template uses property {0} which has not been received for execution.</value>
+  </data>
+  <data name="Reference_AppliesToThrew" xml:space="preserve">
+    <value>AppliesTo threw an exception</value>
+  </data>
+  <data name="SolutionPicker_ReferencesNode" xml:space="preserve">
+    <value>References</value>
+  </data>
+  <data name="SolutionPicker_NullRefAndType" xml:space="preserve">
+    <value>Either an unbound asset reference or the target element type must be provided.</value>
+  </data>
+  <data name="DteHelper_NoSolutionExplorer" xml:space="preserve">
+    <value>A Visual Studio solution as well as the Solution Explorer must be opened.</value>
+  </data>
+  <data name="DteHelper_InvalidItemPath" xml:space="preserve">
+    <value>Item with path {0} was not found in the current solution.</value>
+  </data>
+  <data name="DteHelper_PathNotRelativeToSln" xml:space="preserve">
+    <value>File '{0}' is not relative to the solution file '{1}'.</value>
+  </data>
+  <data name="DteHelper_UnsupportedProjectKind" xml:space="preserve">
+    <value>Project '{0}' is not a C# or VB.NET project.</value>
+  </data>
+  <data name="DteHelper_NoSelection" xml:space="preserve">
+    <value>No element is selected in the solution explorer.</value>
+  </data>
+  <data name="T4Action_CompilationWarnings" xml:space="preserve">
+    <value>There were warnings while compiling template {0}:
+{1}</value>
+  </data>
+  <data name="TemplateHost_IncludeTemplateNotInPackage" xml:space="preserve">
+    <value>Included template file {0} is not under the current package root folder {1}.</value>
+  </data>
+  <data name="TemplateHost_TemplatesNotUndeBinaries" xml:space="preserve">
+    <value>The template folder {0} is not under the binaries folder {1} for the current template execution.</value>
+  </data>
+  <data name="StringCannotBeEmpty" xml:space="preserve">
+    <value>Argument {0} value cannot be an empty string.</value>
+  </data>
+	<data name="ExpressionEvaluationService_CantEvaluate">
+		<value xml:space="preserve">Couldn't evaluate expression {0}. While processing fragment {1} the following error occurred: {2}</value>
+	</data>
+	<data name="ExpressionEvaluationService_ContextValueNotFound">
+		<value xml:space="preserve">A value with key {0} was not found in the current context, or its value was null.</value>
+	</data>
+	<data name="ExpressionEvaluationService_EmptyReference">
+		<value xml:space="preserve">Context reference can't be empty. It must be in the form '$(Key)', optionally with sub-property or method calls next to the key. Expression was '{0}'.</value>
+	</data>
+	<data name="ExpressionEvaluationService_InvalidBindingNoIndexedProperty">
+		<value xml:space="preserve">Can't find indexer property on type {0} that receives the number of parameters specified.</value>
+	</data>
+	<data name="ExpressionEvaluationService_InvalidBindingNoMember">
+		<value xml:space="preserve">Property or field {0} does not exist in type {1}.</value>
+	</data>
+	<data name="ExpressionEvaluationService_InvalidBindingParameters">
+		<value xml:space="preserve">Invalid parameters for evaluation: {0}.</value>
+	</data>
+	<data name="ExpressionEvaluationService_InvalidBindingParametersLength">
+		<value xml:space="preserve">Number of expression parameters doesn't match number of class member parameters.</value>
+	</data>
+	<data name="ExpressionEvaluationService_InvalidBindingParametersQuotes">
+		<value xml:space="preserve">Unclosed quote in parameters: {0}.</value>
+	</data>
+	<data name="ExpressionEvaluationService_InvalidBindingParameterValue">
+		<value xml:space="preserve">Parameter value {0} is not valid for parameter of type {1}.</value>
+	</data>
+	<data name="ExpressionEvaluationService_InvalidExpression">
+		<value xml:space="preserve">Expression {0} can't be evaluated.</value>
+	</data>
+	<data name="ExpressionEvaluationService_InvalidListIndex">
+		<value xml:space="preserve">Index {0} is not a valid Int32 value that can be used to access a list.</value>
+	</data>
+	<data name="ExpressionEvaluationService_InvalidReference">
+		<value xml:space="preserve">Expression {0} is an invalid context reference.</value>
+	</data>
+	<data name="ExpressionEvaluationService_OpenReference">
+		<value xml:space="preserve">Context reference not properly closed: '{0}'. It must be in the form '$(Key)', optionally with sub-property or method calls next to the key. Full expression was '{1}'. </value>
+	</data>
+	<data name="ExpressionEvaluationService_COMUnsupportedParam">
+		<value xml:space="preserve">Target object is a COM object, and the evaluator doesn't support parameters of type {0} in that case.</value>
+	</data>
+</root>

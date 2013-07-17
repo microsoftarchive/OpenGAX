@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecipeFramework SchemaVersion="1.0" TraceLevel="Error" xmlns="http://schemas.microsoft.com/pag/gax-manifest">
+  <Hosts>
+  </Hosts>
+  <GuidancePackages>
+  </GuidancePackages>
+</RecipeFramework>

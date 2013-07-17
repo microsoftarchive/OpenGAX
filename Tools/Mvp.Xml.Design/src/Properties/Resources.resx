@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value xml:space="preserve">this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value xml:space="preserve">[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value xml:space="preserve">[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value xml:space="preserve">text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value xml:space="preserve">2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value xml:space="preserve">System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value xml:space="preserve">System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Tool_AttributeMissing">
+    <value xml:space="preserve">Type '{0}' must have the '{1}' attribute.</value>
+  </data>
+  <data name="Tool_NoDTEProjectItem">
+    <value xml:space="preserve">Can't get current project item.</value>
+  </data>
+  <data name="Tool_UnsupportedProjectType">
+    <value xml:space="preserve">Current project type is unsupported for this tool.</value>
+  </data>
+  <data name="Tool_UnsupportedCodeDomOutput">
+    <value xml:space="preserve">Output of type CodeDom must be either a CodeNamespace or a CodeCompileUnit.</value>
+  </data>
+  <data name="Tool_NoCodeDomSupport">
+    <value xml:space="preserve">Current project type can't have code elements, or can't compile to a .NET language. Supported project types are C# and VB.NET.</value>
+  </data>
+  <data name="Tool_Success">
+    <value xml:space="preserve">Success.</value>
+  </data>
+  <data name="Gral_TypeMustImplementInterface">
+    <value xml:space="preserve">Type '{0}' doesn't implement required interface '{1}'.</value>
+  </data>
+  <data name="Gral_TypeMustInherit">
+    <value xml:space="preserve">Type '{0}' doesn't inherit from required base class '{1}'.</value>
+  </data>
+  <data name="Gral_ServiceUnavailable">
+    <value xml:space="preserve">Can't perform operation because service '{0}' is not setup properly. Ensure the Microsoft IPE Wizards add-in is loaded.</value>
+  </data>
+  <data name="Dte_ProjectDoesntExist">
+    <value xml:space="preserve">Project '{0}' doesn't exist in current solution.</value>
+  </data>
+  <data name="Dte_ParentItemNotFound">
+    <value xml:space="preserve">Parent item at location '{0}' doesn't exist.</value>
+  </data>
+  <data name="Dte_TargetProjectExists">
+    <value xml:space="preserve">Target project file '{0}' already exists.</value>
+  </data>
+  <data name="Gral_ComponentNotSited">
+    <value xml:space="preserve">The component hasn't been propertly initialized yet.</value>
+  </data>
+  <data name="XmlValidate_GeneralError">
+    <value xml:space="preserve">Couldn't process XML file:
+{0}</value>
+    <comment>An error happened. Exception as argument 0.</comment>
+  </data>
+  <data name="XmlValidate_NoSchemaLocation">
+    <value xml:space="preserve">No location for the schema was specified. Set an absolute or XML file-relative location for the schema in the Custom Tool Namespace property for the file.</value>
+  </data>
+  <data name="XmlValidate_Succeeded">
+    <value xml:space="preserve">Validation succeeded.</value>
+  </data>
+  <data name="XmlValidate_Failed">
+    <value xml:space="preserve">Validation failed. Errors:
+{0}</value>
+    <comment>{0}=errors.</comment>
+  </data>
+  <data name="Dte_NoActiveProject">
+    <value xml:space="preserve">A project must be selected before using this component.</value>
+  </data>
+  <data name="DteHelper_PathNotRelativeToSln">
+    <value xml:space="preserve">File '{0}' is not relative to the solution file '{1}'.</value>
+  </data>
+  <data name="DteHelper_UnsupportedProjectKind">
+    <value xml:space="preserve">Project '{0}' is not a C# or VB.NET project.</value>
+  </data>
+  <data name="Gral_LanguageCSharp">
+    <value xml:space="preserve">C#</value>
+  </data>
+  <data name="Gral_LanguageVisualBasic">
+    <value xml:space="preserve">VB</value>
+  </data>
+  <data name="XGenTool_NoClassFound">
+    <value xml:space="preserve">The selected element doesn't contain any class definitions.</value>
+  </data>
+	<data name="XGenTool_ProjectDoesNotCompile">
+		<value xml:space="preserve">#warning Containing project could not be compiled successfully. Generated code may be outdated.
+</value>
+	</data>
+	<data name="XGenTool_UnclosedBrackets">
+		<value xml:space="preserve">Could not find a matching closing bracket in input string.</value>
+	</data>
+	<data name="CustomTool_GeneralError">
+    <value xml:space="preserve">#error Couldn't generate code.
+/*
+{0}
+*/</value>
+  </data>
+	<data name="CustomTool_ToolRequiredAttributeMissing">
+		<value xml:space="preserve">Tool {0} does not contain the required {1} attribute.</value>
+	</data>
+	<data name="DteHelper_NoSolutionExplorer">
+		<value xml:space="preserve">A Visual Studio solution as well as the Solution Explorer must be opened.</value>
+	</data>
+	<data name="DteHelper_InvalidItemPath">
+		<value xml:space="preserve">Item with path {0} was not found in the current solution.</value>
+	</data>
+	<data name="DteHelper_PathNotRelativeToSln">
+		<value xml:space="preserve">File '{0}' is not relative to the solution file '{1}'.</value>
+	</data>
+	<data name="DteHelper_UnsupportedProjectKind">
+		<value xml:space="preserve">Project '{0}' is not a C# or VB.NET project.</value>
+	</data>
+	<data name="DteHelper_NoSelection">
+		<value xml:space="preserve">No element is selected in the solution explorer.</value>
+	</data>
+</root>

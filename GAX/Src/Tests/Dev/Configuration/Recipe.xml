@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Recipe Name="ReusableRecipe" xmlns="http://schemas.microsoft.com/pag/gax-core">
+  <xi:include href="types.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<Caption>Caption</Caption>
+	<Description>This is a reusable Recipe</Description>
+	<Arguments>
+		<Argument Name="XSD" Type="String" />
+	</Arguments>
+	<GatheringServiceData>
+    <xi:include href="wizard.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	</GatheringServiceData>
+	<Actions>
+		<Action Name="MyAction" Type="AddXsdToProject">
+			<Input Name="XsdFile" RecipeArgument="XSD" />
+		</Action>
+	</Actions>
+</Recipe>

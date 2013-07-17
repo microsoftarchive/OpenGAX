@@ -1,0 +1,6 @@
+﻿<#@ Template Language="C#" #/>
+<# /* Retrieve parameters for use in the template */ 
+	System.ComponentModel.Design.IDictionaryService svc = 
+	  (System.ComponentModel.Design.IDictionaryService)GetService(typeof(System.ComponentModel.Design.IDictionaryService));
+	string message	= (string) svc.GetValue("HelloMessage");
+#/><#= message #/>

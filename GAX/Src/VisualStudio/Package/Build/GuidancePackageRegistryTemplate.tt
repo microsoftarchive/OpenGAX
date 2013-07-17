@@ -1,0 +1,75 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="Microsoft.Build.Framework" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".regpkg" #>
+
+[$RootKey$\NewProjectTemplates\TemplateDirs<#= "\\{" + this.GuidancePackage.Guid #>}\/1]
+@="<#= this.GuidancePackage.Caption #>"
+"SortPriority"=dword:000000C8
+"TemplatesDir"="$PackageFolder$\Templates\Solutions.Cache"
+"NewProjectDialogOnly"=dword:00000001
+"Folder"="{c72b8446-b872-4d94-bd13-b0891cbcb4ff}"
+"Package"="{77d93a80-73fc-40f8-87db-acd3482964b2}"
+[$RootKey$\NewProjectTemplates\TemplateDirs<#= "\\{" + this.GuidancePackage.Guid #>}\/2]
+@="<#= this.GuidancePackage.Caption #>"
+"SortPriority"=dword:000000C8
+"TemplatesDir"="$PackageFolder$\Templates\Projects.Cache"
+"Folder"="{c72b8446-b872-4d94-bd13-b0891cbcb4ff}"
+"Package"="{77d93a80-73fc-40f8-87db-acd3482964b2}"
+<#
+foreach(var projectFactory in this.AddItemsProjectFactories)
+{
+#>
+[$RootKey$\Projects<#= "\\" + projectFactory.ToString("B") #>\AddItemTemplates\TemplateDirs<#= "\\{" + this.GuidancePackage.Guid #>}\/1]
+@="<#= this.GuidancePackage.Caption #>"
+"SortPriority"=dword:00000064
+"TemplatesDir"="$PackageFolder$\Templates\Items.Cache"
+<#
+}
+#>
+[$RootKey$\AutoLoadPackages\{adfc4e64-0397-11d1-9f4e-00a0c911004f}\Packages]
+[$RootKey$\AutoLoadPackages\{adfc4e64-0397-11d1-9f4e-00a0c911004f}\Packages<#= "\\{" + this.GuidancePackage.Guid #>}]
+[$RootKey$\Packages<#= "\\{" + this.GuidancePackage.Guid #>}]
+@="<#= this.GuidancePackage.Name #>"
+[$RootKey$\AutoLoadPackages\{f1536ef8-92ec-443c-9ed7-fdadf150da82}\Packages]
+[$RootKey$\AutoLoadPackages\{f1536ef8-92ec-443c-9ed7-fdadf150da82}\Packages<#= "\\{" + this.GuidancePackage.Guid #>}]
+[$RootKey$\Languages\CodeExpansions\Basic\Paths]
+<# this.GenerateCodeExpansion("Basic"); #>
+[$RootKey$\Languages\CodeExpansions\CSharp\Paths]
+<# this.GenerateCodeExpansion("CSharp"); #>
+[$RootKey$\Languages\CodeExpansions\XML\Paths]
+<# this.GenerateCodeExpansion("XML"); #>
+[$RootKey$\Menus]
+"<#= this.GuidancePackage.Name #>"="$PackageFolder$<#= "\\" + this.SatelliteDllFile #>,1000,1"
+[$RootKey$\Packages\{77d93a80-73fc-40f8-87db-acd3482964b2}\Templates<#= "\\{" + this.GuidancePackage.Guid #>}]
+<# 
+int index = 0;
+foreach(var vsTemplate in this.VsTemplates) 
+{
+#>
+"<#= (++index).ToString() #>"="$PackageFolder$<#= "\\" + vsTemplate.ItemSpec #>"
+<#
+}
+#>
+"LastTemplate"=dword:<#= index.ToString("D8") #>
+"PackageName"="<#= this.GuidancePackage.Name #>"
+
+<#+
+	internal Microsoft.Practices.RecipeFramework.Configuration.GuidancePackage GuidancePackage { get; set; }
+	internal string SatelliteDllFile { get; set; }
+	internal IEnumerable<ITaskItem> VsTemplates { get; set; }
+	internal IEnumerable<Guid> AddItemsProjectFactories { get; set; }
+
+	internal string OutputPath { get; set; }
+ 
+	private void GenerateCodeExpansion(string language)
+	{
+		string path = "Snippets\\" + language + "\\" + this.GuidancePackage.Caption;
+		if(System.IO.Directory.Exists(System.IO.Path.Combine(this.OutputPath, path)))
+		{
+#>
+"<#= this.GuidancePackage.Caption #>"="$PackageFolder$<#= "\\" + path #>"
+<#+
+		}
+	}
+#>

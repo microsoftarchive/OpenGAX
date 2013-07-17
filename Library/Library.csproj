@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20820</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A0862851-0BC1-4A63-B06B-154DCB09602D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Microsoft.Practices.RecipeFramework.Library</RootNamespace>
+    <AssemblyName>Microsoft.Practices.RecipeFramework.Library</AssemblyName>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <DelaySign>false</DelaySign>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoWarn>0618 1701</NoWarn>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <NoWarn>0618 1701</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <DocumentationFile>bin\Release\Microsoft.Practices.RecipeFramework.Library.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CustomMarshalers" />
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Design, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TextManager.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="VsWebSite.Interop, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Shared\AssemblyVersionInfo.cs">
+      <Link>AssemblyVersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Shared\GlobalAssemblyInfo.cs">
+      <Link>GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Actions\AddItemFromStringAction.cs" />
+    <Compile Include="Actions\CreateUnboundReferenceAction.cs" />
+    <Compile Include="Actions\DynamicInputAction.cs" />
+    <Compile Include="Actions\EvaluateExpressionAction.cs" />
+    <Compile Include="Actions\GetProjectAction.cs" />
+    <Compile Include="Actions\AddProjectDependencyAction.cs" />
+    <Compile Include="Actions\GetProjectItemContentAction.cs" />
+    <Compile Include="Actions\SetProjectItemContentAction.cs" />
+    <Compile Include="Actions\Vsd\AddCustomAction.cs" />
+    <Compile Include="Actions\Vsd\AddFileAction.cs" />
+    <Compile Include="Actions\Vsd\AddFolderAction.cs" />
+    <Compile Include="Actions\Vsd\AddLaunchConditionAction.cs" />
+    <Compile Include="Actions\Vsd\AddProjectOutputAction.cs" />
+    <Compile Include="Actions\CreateProjectAction.cs" />
+    <Compile Include="Actions\DoNothingAction.cs" />
+    <Compile Include="Actions\RenameProjectAction.cs" />
+    <Compile Include="Actions\Vsd\AddRegistryLocatorAction.cs" />
+    <Compile Include="Actions\Vsd\IVsdCabDependency.cs" />
+    <Compile Include="Actions\Vsd\IVsdAssemblyDependency.cs" />
+    <Compile Include="Actions\Vsd\IVsdDialogModule.cs" />
+    <Compile Include="Actions\Vsd\IVsdDialogModuleGroup.cs" />
+    <Compile Include="Actions\Vsd\IVsdDynamicProperties.cs" />
+    <Compile Include="Actions\Vsd\IVsdModuleDependency.cs" />
+    <Compile Include="Actions\Vsd\ExcludeAllDependenciesAction.cs" />
+    <Compile Include="Actions\Vsd\IVsdAssembly.cs" />
+    <Compile Include="Actions\Vsd\IVsdCollection.cs" />
+    <Compile Include="Actions\Vsd\IVsdCollectionSubset.cs" />
+    <Compile Include="Actions\Vsd\IVsdCustomActionPlugIn.cs" />
+    <Compile Include="Actions\Vsd\IVsdCustomFolder.cs" />
+    <Compile Include="Actions\Vsd\IVsdDependencyPlugIn.cs" />
+    <Compile Include="Actions\Vsd\IVsdDeployable.cs" />
+    <Compile Include="Actions\Vsd\IVsdFile.cs" />
+    <Compile Include="Actions\Vsd\IVsdFileDependency.cs" />
+    <Compile Include="Actions\Vsd\IVsdFilePlugIn.cs" />
+    <Compile Include="Actions\Vsd\IVsdFolder.cs" />
+    <Compile Include="Actions\Vsd\IVsdFolderPlugIn.cs" />
+    <Compile Include="Actions\Vsd\IVsdGetNewEnum.cs" />
+    <Compile Include="Actions\Vsd\IVsdLaunchCondition.cs" />
+    <Compile Include="Actions\Vsd\IVsdLaunchConditionPlugIn.cs" />
+    <Compile Include="Actions\Vsd\IVsdLocatorPlugIn.cs" />
+    <Compile Include="Actions\Vsd\IVsdManagedCollection.cs" />
+    <Compile Include="Actions\Vsd\IVsdMergeModulePlugIn.cs" />
+    <Compile Include="Actions\Vsd\IVsdModule.cs" />
+    <Compile Include="Actions\Vsd\IVsdProductPlugin.cs" />
+    <Compile Include="Actions\Vsd\IVsdProject.cs" />
+    <Compile Include="Actions\Vsd\IVsdCustomAction.cs" />
+    <Compile Include="Actions\Vsd\IVsdProjectOutputGroup.cs" />
+    <Compile Include="Actions\Vsd\IVsdProjectOutputPlugIn.cs" />
+    <Compile Include="Actions\Vsd\IVsdRegistryKeyLocator.cs" />
+    <Compile Include="Actions\Vsd\IVsdUserInterfacePlugin.cs" />
+    <Compile Include="Actions\Vsd\NativeMethods.cs" />
+    <Compile Include="Actions\Vsd\SetProductPropertiesAction.cs" />
+    <Compile Include="AssetReferences\UnboundReferences\CSharpProjectRecipeReference.cs">
+    </Compile>
+    <Compile Include="AssetReferences\UnboundReferences\CSharpWebProjectRecipeReference.cs" />
+    <Compile Include="CodeDom\Actions\ClassesGeneratorFromXsdFilesAction.cs" />
+    <Compile Include="CodeDom\Actions\ClassGeneratorFromCompileunitAction.cs" />
+    <Compile Include="CodeDom\Actions\CompileUnitGeneratorFromXsdAction.cs" />
+    <Compile Include="CodeDom\Helpers\CodeCompileUnitHelper.cs" />
+    <Compile Include="CodeDom\Helpers\LanguageType.cs" />
+    <Compile Include="CodeModel\Actions\AddAttributeAction.cs" />
+    <Compile Include="CodeModel\Actions\AddEventAction.cs" />
+    <Compile Include="CodeModel\Actions\AddFieldAction.cs" />
+    <Compile Include="CodeModel\Actions\AddMethodAction.cs" />
+    <Compile Include="CodeModel\Actions\AddParameterAction.cs" />
+    <Compile Include="CodeModel\Actions\AddPropertyAction.cs" />
+    <Compile Include="CodeModel\Actions\GetMemberAction.cs" />
+    <Compile Include="CodeModel\Actions\SetDocCommentAction.cs" />
+    <Compile Include="CodeModel\CodeElementEx.cs" />
+    <Compile Include="CodeModel\CodeModelUtil.cs" />
+    <Compile Include="CodeModel\Converters\CodeModelConverter.cs" />
+    <Compile Include="CodeModel\Editors\CodeModelEditor.cs" />
+    <Compile Include="CodeModel\Editors\CodeModelEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Editors\Filters\ContainsAttribute.cs" />
+    <Compile Include="CodeModel\Editors\Filters\Implements.cs" />
+    <Compile Include="CodeModel\Editors\Filters\InheritsFrom.cs" />
+    <Compile Include="CodeModel\Editors\ICodeModelEditorFilter.cs" />
+    <Compile Include="CodeModel\ValueProviders\CodeClassProvider.cs" />
+    <Compile Include="CodeModel\ValueProviders\CurrentClassProvider.cs" />
+    <Compile Include="CodeModel\ValueProviders\GenericTypeProvider.cs" />
+    <Compile Include="Configuration\Actions\AddConfigurationSectionAction.cs" />
+    <Compile Include="Configuration\Actions\GetConfigurationAction.cs" />
+    <Compile Include="Configuration\Actions\SaveConfigurationAction.cs" />
+    <Compile Include="Converters\CodeIdentifierStringConverter.cs" />
+    <Compile Include="Converters\ProjectItemOrEmptyConverter.cs" />
+    <Compile Include="Converters\ProjectOrEmptyConverter.cs" />
+    <Compile Include="Converters\ReferenceConverter.cs" />
+    <Compile Include="Converters\RegexMatchStringConverter.cs" />
+    <Compile Include="Converters\RegexNotMatchStringConverter.cs" />
+    <Compile Include="Converters\SolutionFolderOrEmptyConverter.cs" />
+    <Compile Include="Converters\SolutionOrEmptyConverter.cs" />
+    <Compile Include="Converters\WebReferenceConverter.cs" />
+    <Compile Include="Converters\SolutionFolderConverter.cs" />
+    <Compile Include="Converters\SolutionConverter.cs" />
+    <Compile Include="Converters\ProjectItemConverter.cs" />
+    <Compile Include="Converters\ProjectConverter.cs" />
+    <Compile Include="Converters\DteElementConverter.cs" />
+    <Compile Include="Converters\NamespaceStringConverter.cs" />
+    <Compile Include="DispatchObject.cs" />
+    <Compile Include="DteHelper.cs" />
+    <Compile Include="Editors\SolutionPickerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\SolutionPickerEditor.cs" />
+    <Compile Include="Editors\SolutionPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EvaluateExpressionAction2.cs" />
+    <Compile Include="ExpressionEvaluationService.cs" />
+    <Compile Include="ExpressionEvaluationService2.cs" />
+    <Compile Include="ExpressionEvaluatorValueProvider2.cs" />
+    <Compile Include="Guard.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CodeModel\Editors\CodeModelEditorForm.resx">
+      <DependentUpon>CodeModelEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\SolutionPickerControl.resx">
+      <DependentUpon>SolutionPickerControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\SolutionPickerForm.resx">
+      <DependentUpon>SolutionPickerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Solution\Actions\AddProjectReferenceAction.cs" />
+    <Compile Include="Solution\Actions\AddReferenceAction.cs" />
+    <Compile Include="Solution\Actions\CreateFolderAction.cs" />
+    <Compile Include="Solution\Actions\ExecuteVSCommandAction.cs" />
+    <Compile Include="Solution\Actions\GetProjectItemAction.cs" />
+    <Compile Include="Solution\Actions\MoveProjectItemAction.cs" />
+    <Compile Include="Solution\Actions\SetProjectItemPropertiesAction.cs" />
+    <Compile Include="Solution\ReferenceUtil.cs" />
+    <Compile Include="Solution\ValueProviders\ContainingProjectItemProvider.cs" />
+    <Compile Include="Solution\ValueProviders\CurrentProjectProvider.cs" />
+    <Compile Include="Solution\ValueProviders\ProjectByNameProvider.cs" />
+    <Compile Include="Templates\Actions\AddCodeFromTemplateAction.cs" />
+    <Compile Include="Templates\Actions\UnfoldTemplateAction.cs" />
+    <Compile Include="Templates\ValueProviders\ItemNameProvider.cs" />
+    <Compile Include="Templates\ValueProviders\ProjectItemProvider.cs" />
+    <Compile Include="ValueProviders\DefaultAuthorValueProvider.cs" />
+    <Compile Include="ValueProviders\FirstSelectedProject.cs" />
+    <Compile Include="ValueProviders\ExpressionEvaluatorValueProvider.cs" />
+    <Compile Include="ValueProviders\GlobalValueProvider.cs" />
+    <Compile Include="ValueProviders\SuffixValueProvider.cs" />
+    <Compile Include="VisualStudio\Actions\AddSolutionItemFromDirectoryAction.cs" />
+    <Compile Include="VisualStudio\Actions\AddSolutionItemFromFileAction.cs" />
+    <Compile Include="VisualStudio\Actions\DeleteProjectItemsAction.cs" />
+    <Compile Include="VisualStudio\Actions\EnsurePhysicalFolderAction.cs" />
+    <Compile Include="VisualStudio\Converters\SolutionFolderConverter.cs" />
+    <Compile Include="VisualStudio\References\FolderReference.cs" />
+    <Compile Include="VisualStudio\References\ProjectItemReference.cs" />
+    <Compile Include="XML\Actions\LoadXmlAction.cs" />
+    <Compile Include="XML\Actions\SaveXmlAction.cs" />
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GAX\Src\Practices\Common\Common.csproj">
+      <Project>{CD1A28C5-0278-4DA6-81C4-A3FF95FF1270}</Project>
+      <Name>Common %28Practices\Common%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GAX\Src\Practices\ComponentModel\ComponentModel.csproj">
+      <Project>{24A14750-5BE7-4872-9899-A0EEF545D1FD}</Project>
+      <Name>ComponentModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GAX\Src\RecipeFramework\Common\Common.csproj">
+      <Project>{CACBA86E-8E15-4318-822F-E4D74F3107A1}</Project>
+      <Name>Common %28RecipeFramework\Common%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GAX\Src\RecipeFramework\Framework\RecipeFramework.csproj">
+      <Project>{F0F73757-C737-49CC-B88B-32C5817CA9C4}</Project>
+      <Name>RecipeFramework %28RecipeFramework\RecipeFramework%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GAX\Src\RecipeFramework\PackageManagement\PackageManagement.csproj">
+      <Project>{2909B932-8572-48E3-962E-F2BF3640D5C3}</Project>
+      <Name>PackageManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GAX\Src\VisualStudio\Common\Common.csproj">
+      <Project>{C3B9B008-DF10-4288-8414-00C3F3AA582E}</Project>
+      <Name>Common %28VisualStudio\Common%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GAX\Src\VisualStudio\Library\Library.csproj">
+      <Project>{E754B7DA-2C3C-408B-A7B5-AC94D37C5B1A}</Project>
+      <Name>Library %28VisualStudio\Library%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GAX\Src\WizardFramework\Framework\WizardFramework.csproj">
+      <Project>{08901AA0-A0CF-458C-910A-A8C0981675AC}</Project>
+      <Name>WizardFramework %28WizardFramework\WizardFramework%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

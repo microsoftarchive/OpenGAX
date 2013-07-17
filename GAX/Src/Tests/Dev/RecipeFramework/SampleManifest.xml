@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RecipeFramework SchemaVersion="1.0" TraceLevel="Info" xmlns="http://schemas.microsoft.com/pag/gax-manifest">
+	<Hosts>
+		<Host Name="VisualStudio" InstallerType="TheType, TheAssembly" />
+	</Hosts>
+	<GuidancePackages>
+      <GuidancePackage
+        Name="PackageName"
+        Version="1.0" 
+        Caption="This is a sample manifest for a package" 
+        Description="Full length description"
+        Host="VisualStudio"
+        Timestamp="432243423243" 
+        ConfigurationFile="C:\Blah.xml" />
+	</GuidancePackages>
+</RecipeFramework>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- This wizard is referenced by the other included file, recipe.xml -->
+<Wizard 
+	xmlns="http://schemas.microsoft.com/pag/gax-wizards" 
+  SchemaVersion="1.0" 
+	Name="ExistingWizard">
+  <xi:include href="wizardtypes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<Pages>
+		<!-- Reference a type defined in the included types.xml file -->
+		<Page Type="CustomPage1"></Page>
+		<Page Type="CustomPage2"></Page>
+	</Pages>
+</Wizard>

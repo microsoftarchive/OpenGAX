@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GuidancePackage 
+  Name="TestPackage" 
+	Host="TestHost" 
+  Caption="Testing Package" 
+  SchemaVersion="1.0" 
+  BindingRecipe="kzu" 
+  xmlns="http://schemas.microsoft.com/pag/gax-core">
+  <Recipes>
+    <Recipe Name="TestRecipe">
+      <Caption>Dictionary service tests</Caption>
+      <Arguments>
+        <Argument Name="AValue" />
+      </Arguments>
+      <GatheringServiceData>
+        <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" 
+                SchemaVersion="1.0" 
+                Name="DictionaryWizard">
+          <Pages>
+            <Page Type="Microsoft.Practices.RecipeFramework.RecipeTestStep, Microsoft.Practices.RecipeFramework.Test">
+              <Title>Recipe Test</Title>
+              <Fields>
+                <Field ValueName="AValue" Label="A value" />
+              </Fields>
+            </Page>
+          </Pages>
+        </Wizard>
+      </GatheringServiceData>
+			<Actions>
+				<Action Name="HelloWorld" Type="Microsoft.Practices.RecipeFramework.HelloWorldAction, Microsoft.Practices.RecipeFramework.Test" />
+			</Actions>
+		</Recipe>
+	</Recipes>
+</GuidancePackage>

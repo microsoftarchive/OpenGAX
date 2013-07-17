@@ -1,0 +1,89 @@
+/***************************************************************************
+         Copyright (c) Microsoft Corporation, All rights reserved.             
+    This code sample is provided "AS IS" without warranty of any kind, 
+    it is not recommended for use in a production environment.
+***************************************************************************/
+// Package Command Bar Definition
+//
+
+#include "ShellCmdDef.h"
+#include "Guids.h"
+#include "RecipeFrameworkCmdID.h"
+#include "Resource.h"
+
+CMDS_SECTION guidRecipeFrameworkPkg
+
+    MENUS_BEGIN
+        // NewMenu                              Relative to Group                       Priority    Type        Name                    Text
+
+    MENUS_END
+
+    NEWGROUPS_BEGIN
+        // NewGroup													Parent Group                            Priority
+    guidRecipeFrameworkPkgCmdSet:igrpRecipeFrameworkMenuGroup,		guidSHLMainMenu:IDM_VS_MENU_TOOLS,      0x0600;
+
+    NEWGROUPS_END
+
+    BUTTONS_BEGIN
+    // Command													Parent Group													Priority    Image					 Type   Visibility  Text
+    guidRecipeFrameworkPkgCmdSet:icmdRecipeManagerCommand,		guidRecipeFrameworkPkgCmdSet:igrpRecipeFrameworkMenuGroup,		0x0400,		OI_ICON(bmpidGaxManager),BUTTON,DIS_DEF,	"G&uidance Package Manager";
+	guidRecipeFrameworkPkgCmdSet:icmdNavigatorWindowCommand,    guidSHLMainMenu:IDG_VS_WNDO_OTRWNDWS1,    0x0100,        OI_ICON(bmpidGaxManager),    BUTTON,    ,            "Guidance &Navigator Window";
+
+    
+    // Those commands are not defined as shared command, so they use our package CLSID
+    // as the command set GUID. Also, by specifying blank for the FLAGS, this command is
+    // default visible and enabled. Other valid values for FLAGS are the following:
+    //    DEFAULTDISABLED, DEFAULTINVISIBLE, DYNAMICVISIBILITY, TEXTCHANGES
+    // These values for FLAGS can be or'ed together, e.g. "DEFAULTINVISIBLE | DYNAMICVISIBILITY"
+
+    BUTTONS_END
+
+    BITMAPS_BEGIN
+        // Bitmap							Bitmap Index, Bitmap Index, ...
+		guidRecipeFrameworkPkg:IDB_GAX
+			/* 1 */ bmpidGaxManager,
+			/* 2 */ bmpidGaxNoIcon;
+			
+		#include "CSharpPackage.ctc"
+
+		#include "VBPackage.ctc"
+		
+		#include "JSharpPackage.ctc"
+		
+    BITMAPS_END
+
+CMDS_END
+
+CMDUSED_SECTION
+
+CMDUSED_END
+
+CMDPLACEMENT_SECTION
+    // Command                                                      Group                                   Priority
+
+CMDPLACEMENT_END
+
+VISIBILITY_SECTION
+    // Command                          GUID when visible
+
+VISIBILITY_END
+
+//////////////////////////////////////////////////////////////////////////////
+// KEYBINDINGS_SECTION
+// 
+// This sections defines the keystroke mappings for the commands.
+//
+// The Keystate field is done using the following:
+//    A = Alt, S = Shift, C = Control, W = Windows Key
+//
+// Example of the Keystate assignment, if you want a two key combination
+// of Ctrl-X, Ctrl-Shift-C then the syntax would be :
+//
+//	'x':C:'c':CS
+//
+//////////////////////////////////////////////////////////////////////////////
+
+KEYBINDINGS_SECTION
+	// Command                		when available  		emulation   			keystate
+
+KEYBINDINGS_END

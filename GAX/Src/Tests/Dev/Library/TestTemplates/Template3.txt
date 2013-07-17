@@ -1,0 +1,25 @@
+<#@ Template Language="C#" #/>
+<#@ Using Namespace="System" #/>
+<#@ Using Namespace="System.Data" #/>
+<# /* Retrieve parameters for use in the template */ 
+	System.ComponentModel.Design.IDictionaryService svc = 
+	  (System.ComponentModel.Design.IDictionaryService)GetService(typeof(System.ComponentModel.Design.IDictionaryService));
+	string class	= (string) svc.GetValue("ClassName");
+	string method	= (string) svc.GetValue("MethodName");
+	string request  = (string) svc.GetValue("RequestXsd")
+	string response = (string) svc.GetValue("ResponseXsd")
+
+#/>
+/// <summary>
+/// Sample business action.
+/// </summary>
+public class <#= class #/>
+{
+    // Return value is the class generated from schema <#= request #/>
+    // Method parameter is the class generated from schema <#= response #/>
+	public <#= request #/> <#= method #/> (<#= response #/> inputMessage)  
+	{
+        // TODO: put your business action code here
+		return null;
+	}
+}

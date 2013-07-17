@@ -1,0 +1,4 @@
+﻿<#@ Template Language="C#" #>
+<#@ assembly name="System.dll" #>
+<#@ property processor="PropertyProcessor" name="NonExistingValue" #>
+<#= this.NonExistingValue #>

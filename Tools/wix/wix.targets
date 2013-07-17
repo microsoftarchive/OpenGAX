@@ -1,0 +1,213 @@
+﻿<Project InitialTargets="CheckRequiredProperties" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!-- Some properties must be set in the main project file, before using this .TARGETS file -->
+	<Target
+			  Name="CheckRequiredProperties">
+
+		<Error  Condition="'$(OutputName)'==''"
+							Text="The &quot;OutputName&quot; property is not set in project &quot;$(MSBuildProjectFile)&quot;.  The OutputName defines the name of the output without a file extension. Please set this in the project file before the &lt;Import&gt; of the .Targets file."/>
+	</Target>
+
+	<UsingTask TaskName="Candle" AssemblyFile="WixTasks.dll" />
+	<UsingTask TaskName="Light" AssemblyFile="WixTasks.dll" />
+
+	<!--
+
+  <UsingTask TaskName="Candle" AssemblyName="Microsoft.VisualStudio.Modeling.Sdk.Deployment, Version=8.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <UsingTask TaskName="Light" AssemblyName="Microsoft.VisualStudio.Modeling.Sdk.Deployment, Version=8.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+-->
+	<PropertyGroup>
+		<MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildBinPath)\Wix.targets</MSBuildAllProjects>
+	</PropertyGroup>
+
+	<!-- Define the default file extensions -->
+	<PropertyGroup>
+		<SourceExt Condition="'$(SourceExt)'==''">.wxs</SourceExt>
+		<TargetExt Condition="'$(TargetExt)'==''">.msi</TargetExt>
+		<IntermediateExt Condition="'$(IntermediateExt)'==''">.wixobj</IntermediateExt>
+	</PropertyGroup>
+
+	<!-- Default output type and path properties -->
+	<PropertyGroup>
+		
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<OutputPath Condition=" '$(OutputPath)' == '' ">bin\$(Configuration)\</OutputPath>
+		<OutDir>$(OutputPath)</OutDir>
+		<!-- Example, bin\Debug\ -->
+		<TargetName Condition=" '$(TargetName)' == '' ">$(OutputName)</TargetName>
+		<!-- Example, MySetup -->
+		<TargetFileName Condition=" '$(TargetFileName)' == '' ">$(TargetName)$(TargetExt)</TargetFileName>
+		<!-- Example, MySetup.msi -->
+		<TargetPath Condition=" '$(TargetPath)' == '' ">$(OutDir)$(TargetFileName)</TargetPath>
+		<!-- Example, bin\Debug\MySetup.msi -->
+
+		<!-- Properties for the intermediate object output -->
+		<BaseOutputPath Condition=" '$(BaseOutputPath)' == '' ">obj\</BaseOutputPath>
+		<!-- Example, obj\ -->
+		<IntermediateOutputPath Condition=" '$(IntermediateOutputPath)' == '' ">$(BaseOutputPath)$(Configuration)\</IntermediateOutputPath>
+		<!-- Example, obj\Debug\ -->
+
+		<!-- Specify the default base path for Light if it isn't already defined -->
+		<BaseInputPath Condition="'$(BaseInputPath)' == ''">$(MSBuildProjectDirectory)</BaseInputPath>
+	</PropertyGroup>
+
+
+
+
+	<!-- Default Linker properties copied from the Compile properties. -->
+	<PropertyGroup>
+		<LinkerNoLogo Condition="'$(LinkerNoLogo)'==''">$(NoLogo)</LinkerNoLogo>
+		<LinkerExtension Condition="'$(LinkerExtension)'==''">@(Extension)</LinkerExtension>
+		<LinkerSuppressSchemaValidation Condition="'$(LinkerSuppressSchemaValidation)'==''">$(SuppressSchemaValidation)</LinkerSuppressSchemaValidation>
+		<LinkerSuppressIntermediateFileVersionMatching Condition="'$(LinkerSuppressIntermediateFileVersionMatching)'==''">$(SuppressIntermediateFileVersionMatching)</LinkerSuppressIntermediateFileVersionMatching>
+		<LinkerSuppressAllWarnings Condition="'$(LinkerSuppressAllWarnings)'==''">$(SuppressAllWarnings)</LinkerSuppressAllWarnings>
+		<LinkerUseSmallTableDefinitions Condition="'$(LinkerUseSmallTableDefinitions)'==''">$(UseSmallTableDefinitions)</LinkerUseSmallTableDefinitions>
+		<LinkerTreatWarningsAsErrors Condition="'$(LinkerTreatWarningsAsErrors)'==''">$(TreatWarningsAsErrors)</LinkerTreatWarningsAsErrors>
+		<LinkerWarningLevel Condition="'$(LinkerWarningLevel)'==''">$(WarningLevel)</LinkerWarningLevel>
+		<LinkerVerboseOutput Condition="'$(LinkerVerboseOutput)'==''">$(VerboseOutput)</LinkerVerboseOutput>
+		<LinkerVerboseOutputLevel Condition="'$(LinkerVerboseOutputLevel)'==''">$(VerboseOutputLevel)</LinkerVerboseOutputLevel>
+	</PropertyGroup>
+
+	<!-- Find the files to compile. -->
+	<Target
+		  Name="WixFindWixFiles">
+
+		<!-- 
+		  Automatically include files "None" files with the well-known extension .wxs, if they aren't already included in the Compile list. 
+			This is a workaround for the fact that the default BuildAction for Wix files is "None" in C# projects.
+		-->
+		<CreateItem Include="@(None);@(Content)" Condition="%(Extension) == '$(SourceExt)'">
+			<Output TaskParameter="Include" ItemName="WixCompile"/>
+		</CreateItem>
+	</Target>
+
+	<!-- Compile the wxs source. -->
+	<PropertyGroup>
+		<WixCompileDependsOn>WixPrepareForBuild;WixFindWixFiles</WixCompileDependsOn>
+	</PropertyGroup>
+	<PropertyGroup>
+		<ExtendedCandleProperties></ExtendedCandleProperties>
+	</PropertyGroup>
+	<Target
+			  Name="WixCompile"
+			  Inputs="@(WixCompile);$(MSBuildAllProjects)"
+			  Outputs="@(WixCompile->'$(IntermediateOutputPath)%(Filename)$(IntermediateExt)')"
+			  DependsOnTargets="$(WixCompileDependsOn)"
+			>
+		<Candle
+					SourceFiles="@(WixCompile)"
+					DefineConstants="Build.Dir=$(OutputPath);$(ExtendedCandleProperties)"
+					PreprocessToStdOut="$(PreprocessToStdOut)"
+					PreprocessToFile="$(PreprocessToFile)"
+					IncludeSearchPaths="@(IncludeSearchPath)"
+					NoLogo="$(NoLogo)"
+					OutputFile="$(IntermediateOutputPath)"
+					SuppressSchemaValidation="$(SuppressSchemaValidation)"
+					UseSmallTableDefinitions="$(UseSmallTableDefinitions)"
+					ShowSourceTrace="$(ShowSourceTrace)"
+					Extensions="@(CompileExtension)"
+					SuppressAllWarnings="$(SuppressAllWarnings)"
+					TreatWarningsAsErrors="$(TreatWarningsAsErrors)"
+					WarningLevel="$(WarningLevel)"
+					VerboseOutput="$(VerboseOutput)"
+					VerboseOutputLevel="$(VerboseOutputLevel)"
+					ToolPath="..\..\..\Tools\wix\">
+		</Candle>
+	</Target>
+
+	<Target
+		  Name="WixCopySetupFiles"
+		  Inputs="@(SetupFiles);$(DslToolsRedistPath)DSLToolsRedist.msi;$(DslToolsRedistPath)setup.exe"
+		  Outputs="@(SetupFiles->'$(OutDir)%(Filename)%(Extension)');$(OutDir)DSLToolsRedist.msi;$(OutDir)setup.exe"
+		>
+
+		<!-- Copy files specified in the project. -->
+		<Copy SourceFiles="@(SetupFiles)" DestinationFiles="@(SetupFiles->'$(OutDir)%(Filename)%(Extension)')" />
+
+	</Target>
+
+	<PropertyGroup>
+		<WixLinkDependsOn>WixPrepareForBuild;WixCompile</WixLinkDependsOn>
+	</PropertyGroup>
+
+	<!-- 
+	  Note that the task below has no inputs, so it always runs.  This is to ensures that 
+		the MSI is always rebuilt, so that if supporting files have changed, the latest versions
+		of these files will be included in the MSI.  We don't have a task yet that looks at the
+		installer manifest file to determine all the dependencies.
+	-->
+	<Target
+			  Name="WixLink"
+			  Outputs="$(OutDir)$(TargetFileName)"
+			  DependsOnTargets="$(WixLinkDependsOn)">
+
+		<Light
+					ObjectFiles="@(WixCompile->'$(IntermediateOutputPath)%(Filename)$(IntermediateExt)')"
+					BaseInputPath="$(BaseInputPath)"
+					CabinetCache="$(CabinetCache)"
+					Extensions="@(LinkExtension)"
+					BaseUncompressedImagesOutputPath="$(BaseUncompressedImagesOutputPath)"
+					LocalizedStringFile="$(LocalizedStringFile)"
+					NoLogo="$(LinkerNoLogo)"
+					LeaveTemporaryFiles="$(LeaveTemporaryFiles)"
+					ReuseCabinetCache="$(ReuseCabinetCache)"
+					OutputFile="$(OutDir)$(TargetFileName)"
+					OutputAsXml="$(OutputAsXml)"
+					SuppressDefaultAdminSequenceActions="$(SuppressDefaultAdminSequenceActions)"
+					SuppressDefaultAdvSequenceActions="$(SuppressDefaultAdvSequenceActions)"
+					SuppressAssemblies="$(SuppressAssemblies)"
+					SuppressFiles="$(SuppressFiles)"
+					SuppressLayout="$(SuppressLayout)"
+					SuppressSchemaValidation="$(LinkerSuppressSchemaValidation)"
+					SuppressDefaultUISequenceActions="$(SuppressDefaultUISequenceActions)"
+					SuppressIntermediateFileVersionMatching="$(LinkerSuppressIntermediateFileVersionMatching)"
+					SuppressAllWarnings="$(LinkerSuppressAllWarnings)"
+					UseSmallTableDefinitions="$(LinkerUseSmallTableDefinitions)"
+					TreatWarningsAsErrors="$(LinkerTreatWarningsAsErrors)"
+					WarningLevel="$(LinkerWarningLevel)"
+					VerboseOutput="$(LinkerVerboseOutput)"
+					VerboseOutputLevel="$(LinkerVerboseOutputLevel)"
+					ToolPath="..\..\..\Tools\wix\">
+		</Light>
+	</Target>
+
+	<!-- Make the build directories. -->
+	<Target
+			  Name="WixPrepareForBuild">
+
+		<MakeDir Directories="$(IntermediateOutputPath);$(OutDir)"/>
+	</Target>
+
+	<PropertyGroup>
+		<BuildDependsOn>WixPrepareForBuild;WixCompile;WixLink</BuildDependsOn>
+	</PropertyGroup>
+	<Target
+			  Name="Build"
+			  DependsOnTargets="$(BuildDependsOn)">
+	</Target>
+
+	<PropertyGroup>
+		<RebuildDependsOn>Build</RebuildDependsOn>
+	</PropertyGroup>
+	<Target
+			  Name="Rebuild"
+			  DependsOnTargets="$(RebuildDependsOn)">
+	</Target>
+
+	<!-- Clean task -->
+	<PropertyGroup>
+		<WixCleanDependsOn></WixCleanDependsOn>
+	</PropertyGroup>
+	<Target
+			  Name="WixClean"
+			  DependsOnTargets="$(WixCleanDependsOn)">
+
+		<Delete Files=
+			"$(OutDir)$(TargetFileName);
+			 @(WixCompile->'$(IntermediateOutputPath)%(Filename)$(IntermediateExt)');
+			 @(SetupFiles->'$(OutDir)%(Filename)%(Extension)');
+			 $(OutDir)DSLToolsRedist.msi;
+			 $(OutDir)setup.exe"/>
+	</Target>
+
+
+</Project>

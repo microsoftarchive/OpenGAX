@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<GuidancePackage  xmlns="http://schemas.microsoft.com/pag/gax-core"
+	Name="TypeResolutionPackage" 
+	Caption="TestPackage Caption"
+	SchemaVersion="1.0">
+	<Recipes>
+		<Recipe Name="ResolveType">
+			<Caption>Resolve type</Caption>
+			<Arguments>
+				<Argument Name="A">
+					<ValueProvider Type="MyClass, MyTestFile" />
+				</Argument>
+			</Arguments>
+		</Recipe>
+	</Recipes>
+</GuidancePackage>

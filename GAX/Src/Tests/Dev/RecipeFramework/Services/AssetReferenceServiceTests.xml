@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GuidancePackage xmlns="http://schemas.microsoft.com/pag/gax-core"
+               Name="AssetsTests"
+               Caption="Tests"
+               SchemaVersion="1.0">
+  <Recipes>
+    <Recipe Name="AddService">
+      <Caption>AddService</Caption>
+      <Arguments>
+        <Argument Name="aaa" />
+      </Arguments>
+      <Actions>
+        <Action Name="bbb" Type="ttt" />
+      </Actions>
+    </Recipe>
+    <Recipe Name="AddBusinessAction">
+      <Caption>AddBusinessAction</Caption>
+      <Arguments>
+        <Argument Name="aaa" />
+      </Arguments>
+      <Actions>
+        <Action Name="bbb" Type="ttt" />
+      </Actions>
+    </Recipe>
+  </Recipes>
+</GuidancePackage>

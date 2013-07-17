@@ -1,0 +1,62 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.dll" #>
+<#@ property processor="PropertyProcessor" name="ClassName"#>
+<#@ property processor="PropertyProcessor" name="NameSpace"#>
+<#@ property processor="PropertyProcessor" name="ColorNames"#>
+#region info
+//===============================================================================
+// Microsoft Services Reference Architecture
+// http://msdn.microsoft.com/library/en-us/dnpag/html/EDRA.asp
+//
+// <#= ClassName #>.cs
+//
+// This file contains the implementation of the <#= ClassName #> class
+//
+//===============================================================================
+// Copyright (C) 2003-2004 Microsoft Corporation
+// All rights reserved.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//==============================================================================
+#endregion info
+
+#region using
+
+using System;
+using System.Collections.Generic;
+using Microsoft.ReferenceArchitecture.Services;
+
+#endregion using
+
+namespace <#= NameSpace #>
+{
+	/// <summary>
+	/// Summary description for <#= ClassName #>.
+	/// </summary>
+
+	public enum Colors
+	{
+<# for(int idx=0; idx<ColorNames.Count; idx++) { #>
+		<#= ColorNames[idx] + "=" + idx.ToString() + "," #>
+<# } #>
+	}
+
+	public class ClassName : IBusinessAction
+	{
+		#region IBusinessAction Members
+
+		void IBusinessAction.Validate(IContext context)
+		{
+			// TODO: add semantic validation implementation
+		}
+
+		void IBusinessAction.Execute(IContext context)
+		{
+			// TODO: add code to set the context.Response.Payload
+		}
+
+		#endregion IBusinessAction Members
+	}
+}

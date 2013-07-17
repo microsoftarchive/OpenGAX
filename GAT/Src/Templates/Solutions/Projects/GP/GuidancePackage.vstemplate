@@ -1,0 +1,107 @@
+﻿<VSTemplate Version="2.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name>Guidance Package</Name>
+		<Description>Guidance Package Description</Description>
+		<Icon Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="4547" />
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>20</SortOrder>
+		<CreateNewFolder>false</CreateNewFolder>
+		<DefaultName>GuidancePackage</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="GuidancePackage.csproj" ReplaceParameters="true">     
+			<ProjectItem ReplaceParameters="true" TargetFileName="Snippets\CSharp\$PackageCaption$\sample.snippet">sample.snippet</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Actions\AddRecipeReference.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Actions\AddTemplateReference.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Actions\HelloWorldAction.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Actions\ShowCurrentSelection.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Converters\HelloWorldConverter.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Converters\RecipeNameConverter.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">CustomWizardPages\CustomWizPage1.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">CustomWizardPages\CustomWizPage1.resx</ProjectItem>
+			<ProjectItem ReplaceParameters="true">CustomWizardPages\CustomWizPage1.Designer.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">CustomWizardPages\CustomWizPage2.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">CustomWizardPages\CustomWizPage2.resx</ProjectItem>
+			<ProjectItem ReplaceParameters="true">CustomWizardPages\CustomWizPage2.Designer.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Editors\FileChooser.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Editors\MessageEditor.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Editors\MessageEditorForm.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Editors\MessageEditorForm.resx</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Editors\TemplateChooser.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Properties\AssemblyInfo.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Properties\Resources.resx</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.cs">Properties\Resources.Designer.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Properties\Settings.settings</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Settings.Designer.cs">Properties\Settings.Designer.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">References\AnyElementReference.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">References\ClassLibraryReference.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">References\SolutionFolderAReference.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">References\SolutionFolderRecipeReference.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">ValueProviders\DateNowValueProvider.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="source.extension.vsixmanifest">GuidancePackage.vsixmanifest</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="$PackageName$.xml">GuidancePackage.xml</ProjectItem>
+			<ProjectItem>TypeAlias.xml</ProjectItem>
+			<!-- Third level output files -->
+			<ProjectItem>Templates\Items\Class.cs</ProjectItem>
+			<ProjectItem>Templates\Items\Class.vstemplate</ProjectItem>
+			<ProjectItem>Templates\Items\TextTemplate.t4</ProjectItem>
+			<ProjectItem>Templates\Items\TextTemplate.vstemplate</ProjectItem>
+			<ProjectItem>Templates\Items\SerializableClass.cs</ProjectItem>
+			<ProjectItem>Templates\Items\SerializableClass.vstemplate</ProjectItem>
+			<ProjectItem>Templates\Items\CustomSerializableClass.cs</ProjectItem>
+			<ProjectItem>Templates\Items\CustomSerializableClass.vstemplate</ProjectItem>
+
+			<ProjectItem TargetFileName="Properties\AssemblyInfo.cs">Templates\Projects\ClientApplication\AssemblyInfo.cs</ProjectItem>
+			<ProjectItem TargetFileName="Properties\Resources.resx">Templates\Projects\ClientApplication\Resources.resx</ProjectItem>
+			<ProjectItem TargetFileName="Properties\Resources.Designer.cs">Templates\Projects\ClientApplication\Resources.Designer.cs</ProjectItem>
+			<ProjectItem TargetFileName="Properties\Settings.settings">Templates\Projects\ClientApplication\Settings.settings</ProjectItem>
+			<ProjectItem TargetFileName="Properties\Settings.Designer.cs">Templates\Projects\ClientApplication\Settings.Designer.cs</ProjectItem>
+			<ProjectItem >Templates\Projects\ClientApplication\Form1.cs</ProjectItem>
+			<ProjectItem >Templates\Projects\ClientApplication\Form1.Designer.cs</ProjectItem>
+			<ProjectItem >Templates\Projects\ClientApplication\Program.cs</ProjectItem>
+			<ProjectItem TargetFileName="WindowsApplication.csproj">Templates\Projects\ClientApplication\App.csproj</ProjectItem>
+			<ProjectItem TargetFileName="ClientApplication.vstemplate">Templates\Projects\ClientApplication\App.vstemplate</ProjectItem>
+
+
+			<ProjectItem TargetFileName="Properties\AssemblyInfo.cs" >Templates\Projects\SampleLibrary\AssemblyInfo.cs</ProjectItem>
+			<ProjectItem >Templates\Projects\SampleLibrary\SampleClass.cs</ProjectItem>
+			<ProjectItem TargetFileName="SampleLibrary.csproj">Templates\Projects\SampleLibrary\Lib.csproj</ProjectItem>
+			<ProjectItem TargetFileName="SampleLibrary.vstemplate">Templates\Projects\SampleLibrary\Lib.vstemplate</ProjectItem>
+      
+      <ProjectItem TargetFileName="Properties\AssemblyInfo.cs">Templates\Solutions\Projects\ConsoleApplication\AssemblyInfo.cs</ProjectItem>
+      <ProjectItem >Templates\Solutions\Projects\ConsoleApplication\Program.cs</ProjectItem>
+      <ProjectItem TargetFileName="ConsoleApplication.csproj">Templates\Solutions\Projects\ConsoleApplication\CA.csproj</ProjectItem>
+      <ProjectItem TargetFileName="ConsoleApplication.vstemplate" ReplaceParameters="true">Templates\Solutions\Projects\ConsoleApplication\CA.vstemplate</ProjectItem>
+
+      <ProjectItem>Templates\Solutions\Projects\WebSite\Web.config</ProjectItem>
+      <ProjectItem>Templates\Solutions\Projects\WebSite\WebSite.vstemplate</ProjectItem>
+      <ProjectItem>Templates\Solutions\Projects\WebSite\WebSite.webproj</ProjectItem>
+
+      <ProjectItem ReplaceParameters="true">Templates\Solutions\SampleSolution.vstemplate</ProjectItem>
+			<ProjectItem>Templates\Solutions\SampleSolution.ico</ProjectItem>
+			<ProjectItem>Templates\Text\Repeating.cs.t4</ProjectItem>
+			<ProjectItem>Templates\Text\Program.cs.t4</ProjectItem>
+			<!--The Intro.htm should be opened at the end of the unfolding in order to see it on top of the windows-->
+			<ProjectItem OpenInWebBrowser="true">Intro.htm</ProjectItem>
+      <Folder Name="img" TargetFolderName="img">
+        <ProjectItem ReplaceParameters="false">logo.gif</ProjectItem>
+        <ProjectItem ReplaceParameters="false">header.gif</ProjectItem>
+      </Folder>
+    </Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</Assembly>
+		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+	</WizardExtension>
+	<WizardData>
+		<Template xmlns="http://schemas.microsoft.com/pag/gax-template"
+              SchemaVersion="1.0">
+			<References>
+				<RecipeReference Name="AddActionParameter" Target="/Actions/HelloWorldAction.cs"/>
+				
+				<TemplateReference Name="\Items\Action\Action.vstemplate" Target="\Actions"/>
+			</References>
+		</Template>
+	</WizardData>
+</VSTemplate>

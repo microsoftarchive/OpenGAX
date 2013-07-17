@@ -1,0 +1,32 @@
+﻿<VSTemplate 
+	Version="2.0" 
+	Type="ProjectGroup"
+	xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name>Guidance Package</Name>
+		<Description>Creates a solution to develop a Guidance Package</Description>
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>90</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>GuidancePackage</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<Icon>GuidancePackageSolution.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectCollection>
+			<ProjectTemplateLink ProjectName="$PackageName$">Projects\GP\GuidancePackage.vstemplate</ProjectTemplateLink>
+		</ProjectCollection>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</Assembly>
+		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+	</WizardExtension>
+	<WizardData>
+		<Template xmlns="http://schemas.microsoft.com/pag/gax-template"
+              SchemaVersion="1.0"
+              Recipe="CreateGuidancePackage">
+			<References>
+			</References>
+		</Template>
+	</WizardData>
+</VSTemplate>

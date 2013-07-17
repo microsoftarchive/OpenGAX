@@ -1,0 +1,45 @@
+﻿<#@ template language="C#" #>
+<#@ property processor="PropertyProcessor" name="ClassName" #>
+<#@ property processor="PropertyProcessor" name="TargetNamespace" #>
+<#@ property processor="PropertyProcessor" name="InputValue" #>
+<#@ property processor="PropertyProcessor" name="Iterations" #>
+<#@ assembly name="System.dll" #>
+#region info
+//===============================================================================
+// Microsoft VS Integrated Guidance Package
+//
+// This file contains the implementation of the <#= this.ClassName #> class
+// This file was generated automatically by a tool.
+//
+//===============================================================================
+// Copyright (C) 2003-2004 Microsoft Corporation
+// All rights reserved.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//==============================================================================
+#endregion info
+
+// This value is passed as input without a property: <#= this.InputValue #>
+
+using System;
+using System.Text;
+
+namespace <#= this.TargetNamespace #>
+{
+	/// <summary>
+	/// The code in this class uses a for loop to generate multiple lines of code.
+	/// </summary>
+	public class <#= this.ClassName #>
+	{
+		public void Repeat()
+		{
+<# int count = this.Iterations; //note that the property is emitted strong-typed
+for (int i = 0; i < count; i++) { #>
+			Console.WriteLine("Hello iteration: " + <#= i #>);
+<# } #>
+		}
+	}
+}
+

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<GuidancePackage  xmlns='http://schemas.microsoft.com/pag/gax-core'
+	Name='ActionTestPackage' 
+	Caption='Package that tests actions execution'
+	SchemaVersion='1.0'>
+  <Recipes>
+    <Recipe Name='FailAction'>
+      <Caption>FailAction</Caption>
+      <Arguments>
+        <Argument Name='A' />
+      </Arguments>
+      <Actions>
+        <Action Name='Fail' Type='Microsoft.Practices.RecipeFramework.FailAction, Microsoft.Practices.RecipeFramework.Test'>
+          <Input Name='A' RecipeArgument='A' />
+          <Input Name='A' RecipeArgument='A'/>
+        </Action>
+      </Actions>
+    </Recipe>
+  </Recipes>
+</GuidancePackage>

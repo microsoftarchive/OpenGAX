@@ -1,0 +1,65 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.dll" #>
+<#@ assembly name="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Test.dll" #>
+<#@ import namespace="Microsoft.Practices.RecipeFramework.Library.TextTemplate.Tests.Mocks" #>
+#region info
+//===============================================================================
+// Copyright (C) 2003-2004 Microsoft Corporation
+// All rights reserved.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//==============================================================================
+#endregion info
+
+#region using
+
+using System;
+using Microsoft.ReferenceArchitecture.Services;
+
+#endregion using
+
+namespace Microsoft.Practices.RecipeFramework.Library.TextTemplate.Test
+{
+	/// <summary>
+	/// Summary description for TestClass
+	/// </summary>
+	public class TestClass : IBusinessAction
+	{
+		#region IBusinessAction Members
+
+		void IBusinessAction.Validate(IContext context)
+		{
+			// TODO: add semantic validation implementation
+		}
+
+		void IBusinessAction.Execute(IContext context)
+		{
+			// TODO: add code to set the context.Response.Payload
+		}
+
+		#endregion IBusinessAction Members
+		
+		public string GetName()
+		{
+			return <#=MockAssemblyClass.GetName()#>;
+		}
+
+		public decimal GetTotalAmounts()
+		{
+	            <#
+        	    decimal totalAmounts = 0;
+	            foreach (string key in MockAssemblyClass.ClientAmounts.Keys)
+        	    {
+	            #>
+        	        // <#= key#> = <#= MockAssemblyClass.ClientAmounts[key] #>
+	                <#
+        	        totalAmounts += MockAssemblyClass.ClientAmounts[key];
+	            }
+        	    #>
+			
+			return <#=totalAmounts#>;
+		}
+	}
+}

@@ -1,0 +1,101 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1000  CTMENU       ""RecipeFrameworkCmd.cto""\r\n"
+    "#define VER_FILEDESCRIPTION_STR ""Recipe Framework Package Resources\\0""\r\n"
+    "#define VER_INTERNALNAME_STR ""Microsoft.Practices.Recipeframework.VisualStudioUI.dll\\0""\r\n"
+    "#define VER_ORIGINALFILENAME_STR ""Microsoft.Practices.Recipeframework.VisualStudioUI.dll\\0""\r\n"
+    "#include ""..\\..\\Version.ver""\r\n"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_PACKAGE_ICON        ICON                    "RecipeFrameworkPackage.ico"
+
+IDB_GAX 				BITMAP		DISCARDABLE			"RecipeFramework.bmp"
+IDB_CSharpPackage		BITMAP		DISCARDABLE			"CSharpPackage.bmp"
+IDB_VBPackage			BITMAP		DISCARDABLE			"VBPackage.bmp"
+IDB_JSharpPackage		BITMAP		DISCARDABLE			"JSharpPackage.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_OFFICIALNAME        "Microsoft Recipe Framework Package"
+    IDS_PRODUCTDETAILS      "This package provides services to the guidance packages."
+    IDS_PSEUDOFOLDER        "Guidance Packages"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PLK                 "QEJRCHQ1MDKARMJQZCCQZ1REPCZ9EAHDDRE2KCERK9ZJH2J8ICR2R1IEQ0Q8CEIHMCIRK0JRQPJ1P9AIPQCRPDHPCKC3IERZM0PTKPD1HPHCQPAEZDITAPP8D9AJI2EI"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1000  CTMENU       "RecipeFrameworkCmd.cto"
+#define VER_FILEDESCRIPTION_STR "Recipe Framework Package Resources\0"
+#define VER_INTERNALNAME_STR "Microsoft.Practices.Recipeframework.VisualStudioUI.dll\0"
+#define VER_ORIGINALFILENAME_STR "Microsoft.Practices.Recipeframework.VisualStudioUI.dll\0"
+#include "..\..\Version.ver"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

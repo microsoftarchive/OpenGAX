@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvp.Xml.Design", "Mvp.Xml.Design.csproj", "{A379C40D-C984-4E63-933A-BE96E9A599B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A379C40D-C984-4E63-933A-BE96E9A599B7}.Debug|Default.ActiveCfg = Debug|Any CPU
+		{A379C40D-C984-4E63-933A-BE96E9A599B7}.Debug|Default.Build.0 = Debug|Any CPU
+		{A379C40D-C984-4E63-933A-BE96E9A599B7}.Release|Default.ActiveCfg = Release|Any CPU
+		{A379C40D-C984-4E63-933A-BE96E9A599B7}.Release|Default.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<GuidancePackage xmlns="http://schemas.microsoft.com/pag/gax-core"
+    Name="DictionaryServiceTestPackage" 
+    Caption="Test Package Caption"
+    SchemaVersion="1.0">
+	<Recipes>
+		<Recipe Name="TestDictionary">
+			<Caption>Dictionary service tests</Caption>
+			<Arguments>
+				<Argument Name="AColor" Type="System.Drawing.Color, System.Drawing, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+				<Argument Name="ABoolean" Type="System.Boolean" />
+				<Argument Name="AnEnum" Type="System.PlatformID" />
+        <Argument Name="ADate" Type="System.DateTime">
+          <Converter Type="System.ComponentModel.DateTimeConverter, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+        </Argument>
+      </Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" 
+                SchemaVersion="1.0" 
+                Name="DictionaryWizard">
+					<Pages>
+						<Page Type="Microsoft.Practices.RecipeFramework.Services.DictionaryTestStep, Microsoft.Practices.RecipeFramework.Test">
+							<Title>Dictionary test step</Title>
+							<Fields>
+								<Field ValueName="AColor" Label="A color" />
+								<Field ValueName="ABoolean" Label="A boolean" />
+								<Field ValueName="AnEnum" Label="An enumeration" />
+                <Field  ValueName="ADate" Label="A date">
+                  <Editor Type="System.ComponentModel.Design.DateTimeEditor, System.Design, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+                </Field>
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+			<Actions>
+				<Action Name="HelloWorld" Type="Microsoft.Practices.RecipeFramework.HelloWorldAction, Microsoft.Practices.RecipeFramework.Test" />
+			</Actions>
+		</Recipe>
+    <Recipe Name="TestConverters">
+      <Caption>Converters tests</Caption>
+      <Arguments>
+        <Argument Name="AColor" Type="System.Drawing.Color, System.Drawing, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+        <Argument Name="ABoolean" Type="System.Boolean" />
+        <Argument Name="AnEnum" Type="System.PlatformID" />
+        <Argument Name="ADate" Type="System.DateTime">
+          <Converter Type="System.ComponentModel.DateTimeConverter, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+        </Argument> 
+      </Arguments>
+      <Actions>
+        <Action Name="HelloWorld" Type="Microsoft.Practices.RecipeFramework.HelloWorldAction, Microsoft.Practices.RecipeFramework.Test" />
+      </Actions>
+    </Recipe>
+  </Recipes>
+</GuidancePackage>

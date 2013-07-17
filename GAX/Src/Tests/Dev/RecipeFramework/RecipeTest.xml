@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GuidancePackage Name="RecipeTestsTestPackage" Caption="Testing Package" SchemaVersion="1.0" xmlns="http://schemas.microsoft.com/pag/gax-core">
+  <Recipes>
+    <Recipe Name="TestRecipe">
+      <Caption>Dictionary service tests</Caption>
+      <Arguments>
+        <Argument Name="AValue" />
+      </Arguments>
+      <GatheringServiceData>
+        <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" 
+                SchemaVersion="1.0" 
+                Name="DictionaryWizard">
+          <Pages>
+            <Page Type="Microsoft.Practices.RecipeFramework.RecipeTests+RecipeTestStep, Microsoft.Practices.RecipeFramework.Test">
+              <Title>Recipe Test</Title>
+              <Fields>
+                <Field ValueName="AValue" Label="A value" />
+              </Fields>
+            </Page>
+          </Pages>
+        </Wizard>
+      </GatheringServiceData>
+      <Actions>
+        <Action Name="HelloWorld" Type="Microsoft.Practices.RecipeFramework.HelloWorldAction, Microsoft.Practices.RecipeFramework.Test" />
+      </Actions>
+    </Recipe>
+    <Recipe Name="TypeAliasArgument">
+      <Types>
+        <TypeAlias Name="int" Type="System.Int32"/>
+        <TypeAlias Name="int64" Type="System.Int64"/>
+      </Types>
+      <Caption>Types with aliases</Caption>
+      <Arguments>
+        <Argument Name="AnInt" Type="int" />
+        <Argument Name="ABigInt" Type="int64" />
+      </Arguments>
+      <GatheringServiceData>
+        <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" 
+                SchemaVersion="1.0">
+          <Pages>
+            <Page Type="Microsoft.Practices.RecipeFramework.RecipeTests+ExecuteRecipeTypeAliasStep, Microsoft.Practices.RecipeFramework.Test">
+              <Title>Recipe Test</Title>
+              <Fields>
+                <Field ValueName="AnInt" Label="A value" />
+                <Field ValueName="ABigInt" Label="A value" />
+              </Fields>
+            </Page>
+          </Pages>
+        </Wizard>
+      </GatheringServiceData>
+    </Recipe>
+    <Recipe Name="NullNoWizard">
+      <Caption>Caption</Caption>
+      <Arguments>
+        <Argument Name="AValue" Type="System.Boolean" />
+      </Arguments>
+    </Recipe>
+    <Recipe Name="InstallExecuteByName">
+      <Caption>Caption</Caption>
+      <Arguments>
+        <Argument Name="AValue" Type="System.Boolean" />
+      </Arguments>
+      <Actions>
+        <Action Name="ExecutedByName" Type="Microsoft.Practices.RecipeFramework.RecipeManagerTest+ExecutedByNameAction, Microsoft.Practices.RecipeFramework.Test" />
+      </Actions>
+    </Recipe>
+  </Recipes>
+</GuidancePackage>

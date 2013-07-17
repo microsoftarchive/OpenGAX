@@ -1,0 +1,31 @@
+---------------------------------------------------------
+October 31, 2005
+
+Finished port to v2 of XGen and XsdGen.
+Removed XmlValidate as the new XML editor has built-in support for validation.
+
+---------------------------------------------------------
+January 09, 2005
+
+Added class picker to XGen tool, so that multiple target classes can be selected on a single file to be generated.
+
+---------------------------------------------------------
+December 30, 2004
+
+Added XmlValidate custom tool, that allows validation of the file against multiple schemas if necessary.
+
+---------------------------------------------------------
+October 21, 2004
+
+Renamed tool to XGen, added setup and test project.
+
+---------------------------------------------------------
+October 10, 2004
+
+Initial release of the SGen custom tool.
+
+---------------------------------------------------------
+April 01, 2004
+
+Initial setup.
+Folder contains main project source files.

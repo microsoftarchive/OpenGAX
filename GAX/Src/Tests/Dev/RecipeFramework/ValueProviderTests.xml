@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GuidancePackage  xmlns="http://schemas.microsoft.com/pag/gax-core"
+	Name="ValueProvidersTestPackage" 
+	Caption="TestPackage Caption"
+	SchemaVersion="1.0">
+  <Recipes>
+    <Recipe Name="TestLifeCycle">
+      <Caption>Providers</Caption>
+      <Arguments>
+        <Argument Name="ForFinishWizard" Required="false" />
+        <Argument Name="First">
+          <ValueProvider Type="Microsoft.Practices.RecipeFramework.ValueProviderTests+LifeCycleProvider, Microsoft.Practices.RecipeFramework.Test" />
+        </Argument>
+      </Arguments>
+      <GatheringServiceData>
+        <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" 
+                SchemaVersion="1.0" 
+                Name="FinishWizard">
+          <Pages>
+            <Page Type="Microsoft.Practices.RecipeFramework.FinishWizardStep, Microsoft.Practices.RecipeFramework.Test">
+              <Title>Finish automatically</Title>
+              <Fields>
+                <Field ValueName="ForFinishWizard" Label="Dummy" />
+              </Fields>
+            </Page>
+          </Pages>
+        </Wizard>
+      </GatheringServiceData>
+    </Recipe>
+    <Recipe Name="ValueEditorChangeMonitoring">
+      <Caption>Change</Caption>
+      <Arguments>
+        <Argument Name="A">
+          <ValueProvider Type="Microsoft.Practices.RecipeFramework.ValueProviderTests+FirstValueProvider, Microsoft.Practices.RecipeFramework.Test" />
+        </Argument>
+        <Argument Name="B">
+          <ValueProvider Type="Microsoft.Practices.RecipeFramework.ValueProviderTests+ConcatValueProvider, Microsoft.Practices.RecipeFramework.Test">
+            <MonitorArgument Name="A" />
+          </ValueProvider>
+        </Argument>
+        <!-- A null argument so the wizard shows up. -->
+        <Argument Name="ANull" Required="false" />
+      </Arguments>
+      <GatheringServiceData>
+        <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" 
+                SchemaVersion="1.0" 
+                Name="ValueEditorChangeMonitoringWizard">
+          <Pages>
+            <Page Type="Microsoft.Practices.RecipeFramework.ValueProviderTests+ValueEditorChangeMonitoringWizard, Microsoft.Practices.RecipeFramework.Test">
+              <Title>Monitor and finish</Title>
+              <Fields>
+                <Field ValueName="A" Label="DummyA" />
+                <Field ValueName="B" Label="DummyB" />
+              </Fields>
+            </Page>
+          </Pages>
+        </Wizard>
+      </GatheringServiceData>
+    </Recipe>
+    <Recipe Name="TestChangeNotification">
+      <Caption>Change</Caption>
+      <Arguments>
+        <Argument Name="A" />
+        <Argument Name="B" />
+      </Arguments>
+      <GatheringServiceData>
+        <Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" 
+                SchemaVersion="1.0" 
+                Name="ChangeMonitoringWizard">
+          <Pages>
+            <Page Type="Microsoft.Practices.RecipeFramework.ValueProviderTests+ChangeMonitoringStep, Microsoft.Practices.RecipeFramework.Test">
+              <Title>Monitor and finish</Title>
+              <Fields>
+                <Field ValueName="A" Label="DummyA" />
+                <Field ValueName="B" Label="DummyB" />
+              </Fields>
+            </Page>
+          </Pages>
+        </Wizard>
+      </GatheringServiceData>
+    </Recipe>
+    <Recipe Name="ValueEditorConfig">
+      <Caption>Config</Caption>
+      <Arguments>
+        <Argument Name="A">
+          <ValueProvider Type="Microsoft.Practices.RecipeFramework.ValueProviderTests+ValueEditorConfigurable, Microsoft.Practices.RecipeFramework.Test"
+                         Value1="TheValue"/>
+        </Argument>
+      </Arguments>
+    </Recipe>
+  </Recipes>
+</GuidancePackage>

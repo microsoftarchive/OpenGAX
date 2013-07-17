@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GuidancePackage xmlns="http://schemas.microsoft.com/pag/gax-core"
+    Name="$PackageName$" 
+    Caption="$PackageCaption$"
+    Description="$PackageDescription$"
+    BindingRecipe="BindingRecipe"
+    Guid="$guid1$" 
+    SchemaVersion="1.0">
+	<Recipes>
+		<Recipe Name="BindingRecipe">
+			<Types>
+				<TypeAlias Name="RefCreator" Type="Microsoft.Practices.RecipeFramework.Library.Actions.CreateUnboundReferenceAction, Microsoft.Practices.RecipeFramework.Library"/>
+			</Types>
+			<Caption>Creates unbound references to the guidance package</Caption>
+			<Actions>
+				<Action Name="UnboundT4Template" Type="RefCreator" AssetName="GenerateRepeatingClassT4"
+						ReferenceType="Microsoft.Practices.RecipeFramework.Library.AssetReferences.UnboundReferences.CSharpProjectRecipeReference, Microsoft.Practices.RecipeFramework.Library" />
+				<Action Name="CreateSampleUnboundTemplateRef" Type="RefCreator" AssetName="Projects\SampleLibrary\SampleLibrary.vstemplate"
+						ReferenceType="$PackageNamespace$.References.SolutionFolderAReference, $PackageName$" />
+				<Action Name="CreateSampleUnboundItemTemplateRef" Type="RefCreator" AssetName="Items\Class.vstemplate"
+						ReferenceType="$PackageNamespace$.References.ClassLibraryReference, $PackageName$" />
+				<Action Name="CreateUnboundItemTemplateRef" Type="RefCreator" AssetName="AddItemTemplateReference"
+						ReferenceType="Microsoft.Practices.RecipeFramework.Library.AssetReferences.UnboundReferences.CSharpProjectRecipeReference, Microsoft.Practices.RecipeFramework.Library" />
+				<Action Name="CreateUnboundProjectTemplateRef" Type="RefCreator" AssetName="AddProjectTemplateReference"
+						ReferenceType="$PackageNamespace$.References.SolutionFolderRecipeReference, $PackageName$" />
+				<Action Name="CreateUnboundRecipeRef" Type="RefCreator" AssetName="AddRecipeReference"
+						ReferenceType="$PackageNamespace$.References.AnyElementReference, $PackageName$" />
+			</Actions>
+		</Recipe>
+		<Recipe Name="CreateSolution">
+			<Caption>Collects information for the new sample solution.</Caption>
+			<Arguments>
+				<Argument Name="ProjectName">
+					<Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.NamespaceStringConverter, Microsoft.Practices.RecipeFramework.Library"/>
+				</Argument>
+				<Argument Name="WebSiteName">
+					<Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.NamespaceStringConverter, Microsoft.Practices.RecipeFramework.Library"/>
+				</Argument>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page>
+							<Title>Initial values for the new solution</Title>
+							<Fields>
+								<Field Label="Project Name" ValueName="ProjectName" />
+								<Field Label="WebSite Name" ValueName="WebSiteName" />
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+		</Recipe>
+		<Recipe Name="GenerateRepeatingClassT4" Bound="false">
+			<xi:include href="TypeAlias.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<Caption>Add class with T4 generated content</Caption>
+			<HostData>
+				<Icon ID="689" />
+				<CommandBar Name="Project" />
+			</HostData>
+			<Arguments>
+				<Argument Name="CurrentProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+					<ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.FirstSelectedProject, Microsoft.Practices.RecipeFramework.Library" />
+				</Argument>
+				<Argument Name="ClassName">
+					<Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.CodeIdentifierStringConverter, Microsoft.Practices.RecipeFramework.Library"/>
+				</Argument>
+				<Argument Name="TargetFile">
+					<ValueProvider Type="Evaluator"
+									 Expression="$(ClassName).cs">
+						<MonitorArgument Name="ClassName" />
+					</ValueProvider>
+				</Argument>
+				<Argument Name="TargetNamespace">
+					<Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.NamespaceStringConverter, Microsoft.Practices.RecipeFramework.Library"/>
+					<ValueProvider Type="Evaluator"
+									 Expression="$(CurrentProject.Properties.Item('DefaultNamespace').Value)" />
+				</Argument>
+				<!-- Show that T4 receives typed values in the dictionary -->
+				<Argument Name="Iterations" Type="System.Int32" />
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page>
+							<Title>Class information</Title>
+							<Fields>
+								<Field ValueName="ClassName" Label="Class Name" />
+								<Field ValueName="TargetNamespace" Label="Namespace" />
+								<Field ValueName="Iterations" Label="Iterations"
+									InvalidValueMessage="Must enter a valid integer value to use for the number of iterations." />
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+			<Actions>
+				<Action Name="GenerateClass" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+						Template="Text\Repeating.cs.t4" 
+						InputValue="Configured Static Value">
+					<!-- InputValue shows a configured attribute in T4 template that doesn't need a property on the class -->
+					<Input Name="ClassName" RecipeArgument="ClassName" />
+					<Input Name="TargetNamespace" RecipeArgument="TargetNamespace" />
+					<Input Name="Iterations" RecipeArgument="Iterations" />
+					<Output Name="Content" />
+				</Action>
+				<Action Name="AddClass" Type="Microsoft.Practices.RecipeFramework.Library.Actions.AddItemFromStringAction, Microsoft.Practices.RecipeFramework.Library"
+						Open="true">
+					<!--Shows how to specify a property as a fixed value in config-->
+					<Input Name="Content" ActionOutput="GenerateClass.Content" />
+					<Input Name="TargetFileName" RecipeArgument="TargetFile" />
+					<Input Name="Project" RecipeArgument="CurrentProject" />
+				</Action>
+			</Actions>
+		</Recipe>
+		<Recipe Name="NewItemClass" Recurrent="true">
+			<xi:include href="TypeAlias.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			<Caption>Collects information from the user</Caption>
+			<Description>
+				This recipe doesn't perform any actions, but showcases the features
+				available to build highly functional wizards by taking advantage of
+				type converters and editors.
+			</Description>
+			<HostData>
+				<Icon ID="1429"/>
+				<CommandBar Name="Project" />
+			</HostData>
+			<Arguments>
+				<Argument Name="Developer" />
+				<!-- Example of automatic UITypeEditor provided by .NET, and a custom value provider -->
+				<Argument Name="Date" Type="System.DateTime">
+					<ValueProvider Type="$PackageNamespace$.ValueProviders.DateNowValueProvider, $PackageName$" />
+				</Argument>
+				<!-- Example of automatic converter provided by .NET -->
+				<Argument Name="Platform" Type="System.PlatformID" />
+				<Argument Name="Iterations" Type="System.Int32">
+					<!-- Shows how to use the expression evaluator to assign simple default values, which are typed nevertheless -->
+					<!-- The full type of the evaluator is included using XInclude from a reusable file -->
+					<ValueProvider Type="Evaluator" Expression="5" />
+				</Argument>
+				<!-- The following two arguments are not shown to the user, but collaborate to retrieve a value -->
+				<Argument Name="CurrentProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+					<ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.FirstSelectedProject, Microsoft.Practices.RecipeFramework.Library" />
+				</Argument>
+				<Argument Name="TargetNamespace">
+					<Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.NamespaceStringConverter, Microsoft.Practices.RecipeFramework.Library"/>
+					<!-- Shows an argument with a custom type defined in-place, and not collected by the wizard -->
+					<ValueProvider Type="Evaluator" Expression="$(CurrentProject.Properties.Item('DefaultNamespace').Value).Generated" />
+				</Argument>
+				<Argument Name="Project" Type="EnvDTE.Project, EnvDTE" Required="false">
+					<!-- Converter ensures that a string representation of a project is valid, and also allows conversion to/from it to the Project instance. -->
+					<Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.ProjectConverter, Microsoft.Practices.RecipeFramework.Library" />
+				</Argument>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page>
+							<Title>Collect information using editors, converters and value providers.</Title>
+							<Fields>
+								<Field ValueName="Developer" Label="Your name">
+									<Tooltip>Custom editor provided by the guidance package, the MessageEditor, also used in the "Say a message" recipe.</Tooltip>
+									<Editor Type="$PackageNamespace$.Editors.MessageEditor, $PackageName$" />
+								</Field>
+								<Field ValueName="Date" Label="Date">
+									<Tooltip>Automatic editor provided by .NET.</Tooltip>
+								</Field>
+								<Field ValueName="Iterations" Label="Iterations"
+									InvalidValueMessage="Must enter a valid integer value to use for the number of iterations.">
+									<Tooltip>Value retrieved using the value editor, with a fixed value but converted to the proper type automatically.</Tooltip>
+								</Field>
+								<Field ValueName="Platform" Label="Platform">
+									<Tooltip>Automatic converter and values provided by .NET to all Enum types.</Tooltip>
+								</Field>
+								<Field ValueName="TargetNamespace" Label="Target Namespace">
+									<Tooltip>This value was calculated using the ExpressionEvaluatorValueProvider, and referring to other recipe arguments (one containing the current project in this case).</Tooltip>
+								</Field>
+								<Field ValueName="Project" Label="Reference Project">
+									<Tooltip>Shows a complex editor for selecting a project in the current solution, provided with the Library.</Tooltip>
+									<Editor Type="Microsoft.Practices.RecipeFramework.Library.Editors.SolutionPickerEditor, Microsoft.Practices.RecipeFramework.Library" />
+								</Field>
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+		</Recipe>
+		<Recipe Name="HelloWorldRecipe" Bound="true">
+			<Caption>Say a message</Caption>
+			<Description>Accepts a message as input and shows a message box with it.</Description>
+			<HostData>
+				<Icon ID="1046"/>
+				<CommandBar Name="Solution Folder"/>
+				<CommandBar Name="Project"/>
+				<CommandBar Name="Web Project"/>
+				<CommandBar Name="Web Item"/>
+				<CommandBar Name="Web Folder"/>
+			</HostData>
+			<Arguments>
+				<Argument Name="Message" />
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page>
+							<Title>Collect message to show</Title>
+							<LinkTitle>Provide a message that will be used by the HelloWorldAction.</LinkTitle>
+							<Help>You shouldn't need a lot of help!</Help>
+							<Fields>
+								<Field ValueName="Message" Label="Message">
+									<Editor Type="$PackageNamespace$.Editors.MessageEditor, $PackageName$" />
+								</Field>
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+			<Actions>
+				<Action Name="HelloWorld" Type="$PackageNamespace$.Actions.HelloWorldAction, $PackageName$">
+					<Input Name="HelloMessage" RecipeArgument="Message" />
+				</Action>
+			</Actions>
+		</Recipe>
+		<Recipe Name="CustomWizardPages">
+			<Caption>Example of Custom Wizard Pages</Caption>
+			<Description>This recurrent recipe demonstrates use of custom wizard pages</Description>
+			<HostData>
+				<Icon ID="1047"/>
+				<CommandBar Name="Solution Folder"/>
+			</HostData>
+			<Arguments>
+				<Argument Name="Argument1" Type="System.String" />
+				<Argument Name="Argument2" Type="System.String" />
+				<Argument Name="Argument3" Type="System.Drawing.Font, System.Drawing, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page Type="$PackageNamespace$.CustomWizardPages.CustomWizPage1, $PackageName$" Width="800" Height="500" />
+						<Page Type="$PackageNamespace$.CustomWizardPages.CustomWizPage2, $PackageName$" />
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+			<Actions>
+				<Action Name="HelloWorld" Type="$PackageNamespace$.Actions.HelloWorldAction, $PackageName$">
+					<Input Name="HelloMessage" RecipeArgument="Argument1" />
+				</Action>
+				<Action Name="HelloWorld2" Type="$PackageNamespace$.Actions.HelloWorldAction, $PackageName$">
+					<Input Name="HelloMessage" RecipeArgument="Argument2" />
+				</Action>
+			</Actions>
+		</Recipe>
+		<Recipe Name="AddItemTemplateReference" Bound="false">
+			<Caption>Add an item template reference to a Project</Caption>
+			<HostData>
+				<Icon ID="525" />
+				<CommandBar Name="Project" />
+			</HostData>
+			<Arguments>
+				<Argument Name="TemplateFilename" Type="System.String"/>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page>
+							<Title>New Template Reference</Title>
+							<Fields>
+								<Field ValueName="TemplateFilename" Label="Template filename">
+									<Editor Type="$PackageNamespace$.Editors.ItemTemplateChooser, $PackageName$" />
+								</Field>
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+			<Actions>
+				<Action Type="$PackageNamespace$.Actions.AddTemplateReference, $PackageName$"
+						Name="AddItemTemplateReference">
+					<Input Name="TemplateFilename" RecipeArgument="TemplateFilename"/>
+				</Action>
+			</Actions>
+		</Recipe>
+		<Recipe Name="AddProjectTemplateReference" Bound="false">
+			<Caption>Add a project template reference to a Solution Folder or Solution</Caption>
+			<HostData>
+				<Icon ID="680" />
+				<CommandBar Name="Solution Folder" />
+				<CommandBar Name="Solution" />
+			</HostData>
+			<Arguments>
+				<Argument Name="TemplateFilename" Type="System.String"/>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page>
+							<Title>New Template Reference</Title>
+							<Fields>
+								<Field ValueName="TemplateFilename" Label="Template filename">
+									<Editor Type="$PackageNamespace$.Editors.ProjectTemplateChooser, $PackageName$" />
+								</Field>
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+			<Actions>
+				<Action Type="$PackageNamespace$.Actions.AddTemplateReference, $PackageName$"
+						Name="AddItemTemplateReference">
+					<Input Name="TemplateFilename" RecipeArgument="TemplateFilename"/>
+				</Action>
+			</Actions>
+		</Recipe>
+		<Recipe Name="RecipeWithInitialState">
+			<Caption>Recipe that is loaded with preset values in the invoking .vstemplate file</Caption>
+			<Arguments>
+				<Argument Name="StringParameter" Type="System.String"/>
+				<Argument Name="IntParameter" Type="System.Int32"/>
+				<Argument Name="DoubleParameter" Type="System.Double"/>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page>
+							<Title>Wizard with initial state</Title>
+							<Help>Wizard values are set in the .vstemplate</Help>
+							<Fields>
+								<Field ValueName="StringParameter" Label="String parameter">
+									<Help>String parameter with initial state specified</Help>
+								</Field>
+								<Field ValueName="IntParameter" Label="Integer parameter">
+									<Help>Integer parameter with initial state specified</Help>
+								</Field>
+								<Field ValueName="DoubleParameter" Label="Double parameter">
+									<Help>Double parameter with initial state specified</Help>
+								</Field>
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+			<Actions>
+				<Action Name="HelloWorld" Type="$PackageNamespace$.Actions.HelloWorldAction, $PackageName$">
+					<Input Name="HelloMessage" RecipeArgument="StringParameter" />
+				</Action>
+			</Actions>
+		</Recipe>
+		<Recipe Name="InitialStateSerializableClass">
+			<Caption>Recipe called from the unfolding of a .vstemplate file</Caption>
+			<Arguments>
+				<Argument Name="SerializableField" Type="System.String"/>
+				<Argument Name="SerializableType" Type="System.String"/>
+				<Argument Name="NonSerializableField" Type="System.String"/>
+				<Argument Name="NonSerializableType" Type="System.String"/>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page>
+							<Title>Wizard with initial state from unfolding</Title>
+							<Help>Wizard values are set in the .vstemplate</Help>
+							<Fields>
+								<Field ValueName="SerializableField" Label="Serializable field">
+									<Help>Name of a serializable field of the new class</Help>
+								</Field>
+								<Field ValueName="SerializableType" Label="Serializable type">
+									<Help>Type of the previous serializable field</Help>
+								</Field>
+								<Field ValueName="NonSerializableField" Label="Non Serializable field">
+									<Help>Name of a non serializable field of the new class</Help>
+								</Field>
+								<Field ValueName="NonSerializableType" Label="Non Serializable field">
+									<Help>Type of the previous non serializable field</Help>
+								</Field>
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+		</Recipe>
+		<Recipe Name="AddRecipeReference" Bound="false">
+			<Caption>Add a recipe reference to a solution element</Caption>
+			<HostData>
+				<Icon ID="525" />
+				<CommandBar Name="Solution" />
+				<CommandBar Name="Solution Folder" />
+				<CommandBar Name="Project" />
+				<CommandBar Name="Folder" />
+				<CommandBar Name="Item" />
+				<CommandBar Name="Web Project" />
+				<CommandBar Name="Web Folder" />
+				<CommandBar Name="Web Item" />
+			</HostData>
+			<Arguments>
+				<Argument Name="RecipeName" Type="System.String">
+					<Converter Type="$PackageNamespace$.Converters.RecipeNameConverter, $PackageName$"/>
+				</Argument>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page>
+							<Title>New Template Reference</Title>
+							<Fields>
+								<Field ValueName="RecipeName" Label="Recipe" />
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+			<Actions>
+				<Action Type="$PackageNamespace$.Actions.AddRecipeReference, $PackageName$"
+						Name="AddRecipeReference">
+					<Input Name="RecipeName" RecipeArgument="RecipeName"/>
+				</Action>
+			</Actions>
+		</Recipe>
+		<Recipe Name="ShowCurrentSelection">
+			<Caption>Show current selection</Caption>
+			<HostData>
+				<Icon ID="172" />
+				<CommandBar Name="Solution" />
+				<CommandBar Name="Solution Folder" />
+				<CommandBar Name="Project" />
+				<CommandBar Name="Folder" />
+				<CommandBar Name="Item" />
+				<CommandBar Name="Web Project" />
+				<CommandBar Name="Web Folder" />
+				<CommandBar Name="Web Item" />
+			</HostData>
+			<Actions>
+				<Action Name="ShowCurrent" Type="$PackageNamespace$.Actions.ShowCurrentSelection, $PackageName$" />
+			</Actions>
+		</Recipe>
+		<Recipe Name="AddMainClass" Recurrent="false">
+			<Types>
+				<TypeAlias Name="Evaluator" Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.ExpressionEvaluatorValueProvider,Microsoft.Practices.RecipeFramework.Library" />
+			</Types>
+			<Caption>Add class with Main method</Caption>
+			<HostData>
+				<Icon ID="630" />
+				<CommandBar Name="Project" />
+			</HostData>
+			<Arguments>
+				<Argument Name="CurrentProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+					<ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.FirstSelectedProject, Microsoft.Practices.RecipeFramework.Library" />
+				</Argument>
+				<Argument Name="ClassName">
+					<Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.CodeIdentifierStringConverter, Microsoft.Practices.RecipeFramework.Library"/>
+				</Argument>
+				<Argument Name="TargetFile">
+					<ValueProvider Type="Evaluator"
+									 Expression="$(ClassName).cs">
+						<MonitorArgument Name="ClassName" />
+					</ValueProvider>
+				</Argument>
+				<Argument Name="TargetNamespace">
+					<Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.NamespaceStringConverter, Microsoft.Practices.RecipeFramework.Library"/>
+					<ValueProvider Type="Evaluator"
+									 Expression="$(CurrentProject.Properties.Item('DefaultNamespace').Value)" />
+				</Argument>
+				<Argument Name="HelloMessage">
+					<Converter Type="$PackageNamespace$.Converters.HelloWorldConverter, $PackageName$" />
+				</Argument>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page>
+							<Title>Hello World</Title>
+							<Fields>
+								<Field ValueName="ClassName" Label="Class Name" />
+								<Field ValueName="TargetNamespace" Label="Namespace" />
+								<Field ValueName="HelloMessage" Label="Message" />
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+			<Actions>
+				<Action Name="GenerateMainClass" Type="Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates.TextTemplateAction, Microsoft.Practices.RecipeFramework.VisualStudio.Library"
+						Template="Text\Program.cs.t4">
+					<Input Name="Hello" RecipeArgument="HelloMessage" />
+					<Input Name="ClassName" RecipeArgument="ClassName"/>
+					<Input Name="TargetNamespace" RecipeArgument="TargetNamespace"/>
+					<Output Name="Content" />
+				</Action>
+				<Action Name="AddMainClass" Type="Microsoft.Practices.RecipeFramework.Library.Actions.AddItemFromStringAction, Microsoft.Practices.RecipeFramework.Library"
+						Open="true">
+					<!--Shows how to specify a property as a fixed value in config-->
+					<Input Name="Content" ActionOutput="GenerateMainClass.Content" />
+					<Input Name="TargetFileName" RecipeArgument="TargetFile" />
+					<Input Name="Project" RecipeArgument="CurrentProject" />
+				</Action>
+			</Actions>
+		</Recipe>
+	</Recipes>
+</GuidancePackage>

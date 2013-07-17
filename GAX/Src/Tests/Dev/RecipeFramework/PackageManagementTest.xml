@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<GuidancePackage Name="TestPackage" BindingRecipe="HostBinding" Caption="Testing Package" Description="Sample package for management tests" Host="PackageManagementHost" SchemaVersion="1.0" xmlns="http://schemas.microsoft.com/pag/gax-core">
+	<Recipes>
+		<Recipe Name="ValidateSolution">
+			<Caption>Validate Solution Structure</Caption>
+			<Description>Validates that the current solution is valid according to its kind and some other argument values.</Description>
+			<Arguments>
+				<Argument Name="SolutionKind" Type="System.Boolean" />
+				<Argument Name="SomOtherArgument" Type="System.String" Required="false" />
+			</Arguments>
+		</Recipe>
+		<Recipe Name="PublishServices">
+			<Caption>Publish Configured Services</Caption>
+			<Description>Publishes the configured services in the solution on a central deployment server.</Description>
+			<Arguments>
+				<Argument Name="ServerLocation" Type="System.Boolean" Required="false" />
+			</Arguments>
+			<Actions>
+				<Action Name="CopyToServer" Type="Microsoft.Practices.RecipeFramework.PackageManagementTest+TestAction, Microsoft.Practices.RecipeFramework.Test" />
+			</Actions>
+		</Recipe>
+		<Recipe Name="HostBinding">
+			<Caption>Package Binding Recipe</Caption>
+			<Description>Creates the references required for this package.</Description>
+			<Actions>
+				<Action Name="DoBinding" Type="Microsoft.Practices.RecipeFramework.PackageManagementTest+BindingAction, Microsoft.Practices.RecipeFramework.Test" />
+			</Actions>
+		</Recipe>
+	</Recipes>
+</GuidancePackage>

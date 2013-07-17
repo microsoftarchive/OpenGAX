@@ -1,0 +1,56 @@
+<#@ Template Language="C#" #/>
+<#@ Using Namespace="System" #/>
+<#@ Using Namespace="System.Data" #/>
+<# /* Retrieve parameters for use in the template */ 
+	System.ComponentModel.Design.IDictionaryService svc = 
+	  (System.ComponentModel.Design.IDictionaryService)GetService(typeof(System.ComponentModel.Design.IDictionaryService));
+	string name	= (string) svc.GetValue("BusinessAction");
+	string ns	= (string) svc.GetValue("Namespace");
+#/>#region info
+//===============================================================================
+// Microsoft Services Reference Architecture
+// http://msdn.microsoft.com/library/en-us/dnpag/html/EDRA.asp
+//
+// <#= name #/>.cs
+//
+// This file contains the implementation of the <#= name #/> class
+//
+//===============================================================================
+// Copyright (C) 2003-2004 Microsoft Corporation
+// All rights reserved.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//==============================================================================
+#endregion info
+
+#region using
+
+using System;
+using Microsoft.ReferenceArchitecture.Services;
+
+#endregion using
+
+namespace <#= ns #/>
+{
+	/// <summary>
+	/// Summary description for <#= name #/>.
+	/// </summary>
+	public class <#= name #/> : IBusinessAction
+	{
+		#region IBusinessAction Members
+
+		void IBusinessAction.Validate(IContext context)
+		{
+			// TODO: add semantic validation implementation
+		}
+
+		void IBusinessAction.Execute(IContext context)
+		{
+			// TODO: add code to set the context.Response.Payload
+		}
+
+		#endregion IBusinessAction Members
+	}
+}

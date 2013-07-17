@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<GuidancePackage  xmlns="http://schemas.microsoft.com/pag/gax-core"
+    Name="TestPackage" 
+	Caption="TestPackage Caption"
+	SchemaVersion="1.0">
+	<Recipes>
+		<Recipe Name="TryChangeValueProviderBefore">
+			<Caption>TryChangeValueProviderBefore</Caption>
+			<Arguments>
+				<Argument Name="A">
+					<ValueProvider Type="Microsoft.Practices.RecipeFramework.ReadOnlyDictionaryServiceTests+TryChangeDictionaryValueProviderBefore, Microsoft.Practices.RecipeFramework.Test" />
+				</Argument>
+			</Arguments>
+		</Recipe>
+		<Recipe Name="TryChangeValueProviderAfter">
+			<Caption>TryChangeValueProviderAfter</Caption>
+			<Arguments>
+				<Argument Name="A">
+					<ValueProvider Type="Microsoft.Practices.RecipeFramework.ReadOnlyDictionaryServiceTests+TryChangeDictionaryValueProviderAfter, Microsoft.Practices.RecipeFramework.Test" />
+				</Argument>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" 
+                SchemaVersion="1.0" 
+                Name="FinishWizard">
+					<Pages>
+						<Page Type="Microsoft.Practices.RecipeFramework.FinishWizardStep, Microsoft.Practices.RecipeFramework.Test">
+							<Title>Finish automatically</Title>
+							<Fields>
+								<Field ValueName="A" Label="Dummy" />
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+		</Recipe>
+		<Recipe Name="TryChangeValueProviderOnChange">
+			<Caption>TryChangeValueProviderOnChange</Caption>
+			<Arguments>
+				<Argument Name="A" Required="false" />
+				<Argument Name="B" Required="false" >
+					<ValueProvider Type="Microsoft.Practices.RecipeFramework.ReadOnlyDictionaryServiceTests+TryChangeDictionaryValueProviderOnChange, Microsoft.Practices.RecipeFramework.Test">
+						<MonitorArgument Name="A" />						
+					</ValueProvider>
+				</Argument>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" 
+                SchemaVersion="1.0" 
+                Name="TryChangeValueProviderOnChangeWizard">
+					<Pages>
+						<Page Type="Microsoft.Practices.RecipeFramework.ReadOnlyDictionaryServiceTests+ChangeValueWizard, Microsoft.Practices.RecipeFramework.Test">
+							<Title>Monitor and finish</Title>
+							<Fields>
+								<Field ValueName="A" Label="DummyA" />
+								<Field ValueName="B" Label="DummyB" />
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+		</Recipe>
+		<Recipe Name="TryChangeAction">
+			<Caption>TryChangeAction</Caption>
+			<Arguments>
+				<Argument Name="A" Required="false" />
+			</Arguments>
+			<Actions>
+				<Action Name="TryChangeAction" Type="Microsoft.Practices.RecipeFramework.ReadOnlyDictionaryServiceTests+ChangeAction, Microsoft.Practices.RecipeFramework.Test" />
+			</Actions>
+		</Recipe>
+	</Recipes>
+</GuidancePackage>

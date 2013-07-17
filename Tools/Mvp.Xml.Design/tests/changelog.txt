@@ -1,0 +1,11 @@
+---------------------------------------------------------
+October 31, 2005
+
+Finished port to v2 of XGen and XsdGen.
+
+
+---------------------------------------------------------
+April 01, 2004
+
+Initial setup.
+Folder should preferably contain NUnit tests.

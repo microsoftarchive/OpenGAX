@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GuidancePackage xmlns="http://schemas.microsoft.com/pag/gax-core"
+    Name="PackageName" 
+    Caption="Package Caption" 
+    SchemaVersion="1.0">
+	<Recipes>
+		<!-- Include the reusable recipe from recipe.xml -->
+    <xi:include href="recipe.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+		<Recipe Name="TestRecipeFromConfig">
+			<Types>
+				<TypeAlias Name="AddRemotingToProject" Type=" assembly + class + version + ..."/>
+				<TypeAlias Name="FolderNameProvider" Type="assembly + class + version + ..."/>
+			</Types>
+			<Caption>Test Recipe from Config</Caption>
+			<Description>This is a recipe defined in ShadowFax.config</Description>
+			<Arguments>
+				<Argument Name="ProjectName" Type="DTE.Project" />
+				<Argument Name="FolderName" Type="DTE.Folder">
+					<ValueProvider Type="FolderNameProvider" />
+				</Argument>
+				<Argument Name="BoolArgument1" Type="Boolean" />
+				<Argument Name="BoolArgument2" Type="Boolean" />
+				<Argument Name="BoolArgument3" Type="Boolean" />
+				<Argument Name="ColorArgument1" Type="System.Drawing.Color" />
+				<Argument Name="ColorArgument2" Type="System.Drawing.Color" />
+				<Argument Name="ColorArgument3" Type="System.Drawing.Color" />
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" 
+                SchemaVersion="1.0" 
+                Name="MyWizard">
+					<!-- Include the common types -->
+          <xi:include href="wizardtypes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+					<Pages>
+						<Page>
+							<Title>MyWizard Title</Title>
+							<LinkTitle>MyWizard Subtitle</LinkTitle>
+							<Help>MyWizard Help</Help>
+							<Fields>
+                <Field ValueName="ProjectName" Label="ProjectName"> 
+                  <Tooltip>"..."</Tooltip>
+                  <!-- Include help from external file. -->
+                  <xi:include href="help.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                  <Editor Type="ProjectNameSelector" />
+                </Field>
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+			<Actions>
+				<Action Name="MyAction" Type="AddRemotingToProject">
+					<Input Name="Parameter01" RecipeArgument="ProjectName" />
+				</Action>
+				<Action Type="DisplayMessage" Name="An optional friendly Name do display in some Undo/Redo facility">
+					<!-- There may be no arguments whatsoever. -->
+				</Action>
+			</Actions>
+		</Recipe>
+		<Recipe Name="TestRecipeWithIncludedWizard">
+			<Types>
+				<TypeAlias Name="AddRemotingToProject" Type=" assembly + class + version + ..."/>
+				<TypeAlias Name="FolderNameProvider" Type="assembly + class + version + ..."/>
+			</Types>
+			<Caption>Test Recipe from Config</Caption>
+			<Description>This is a recipe defined in ShadowFax.config</Description>
+			<Arguments>
+				<Argument Name="ProjectName" Type="DTE.Project" />
+				<Argument Name="FolderName" Type="DTE.Folder">
+					<ValueProvider Type="FolderNameProvider" />
+				</Argument>
+			</Arguments>
+			<GatheringServiceData>
+				<!-- Include the reusable wizard from wizard.xml -->
+        <xi:include href="wizard.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+			</GatheringServiceData>
+			<Actions>
+				<Action Name="MyAction" Type="HelloWorldAction">
+				</Action>
+			</Actions>
+		</Recipe>
+	</Recipes>
+</GuidancePackage>

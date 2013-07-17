@@ -1,0 +1,88 @@
+﻿<VSTemplate Version="2.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name>Sample Console Client</Name>
+		<Description>Sample console application</Description>
+		<Icon Package="{FAE04EC1-301F-11d3-BF4B-00C04F79EFBC}" ID="4547" />
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>20</SortOrder>
+		<CreateNewFolder>false</CreateNewFolder>
+		<DefaultName>SampleConsole</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="ConsoleApplication.csproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true">Properties\AssemblyInfo.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true">Program.cs</ProjectItem>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</Assembly>
+		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+	</WizardExtension>
+	<WizardData>
+		<Template xmlns="http://schemas.microsoft.com/pag/gax-template"
+              SchemaVersion="1.0">
+			<References>
+				<RecipeReference Name="AddMainClass" Target="/" />
+				<RecipeReference Name="NewItemClass" Target="/" />
+				<RecipeReference Name="RecipeWithInitialState" Target="/">
+					<InitialState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+						<Entry>
+							<Key>StringParameter</Key>
+							<Value>First string parameter</Value>
+						</Entry>
+						<Entry>
+							<Key>IntParameter</Key>
+							<Value>52537</Value>
+						</Entry>
+						<Entry>
+							<Key>DoubleParameter</Key>
+							<Value>3.1416</Value>
+						</Entry>
+					</InitialState>
+				</RecipeReference>
+				<TemplateReference Name="Items\TextTemplate.vstemplate" Target="/" />
+				<TemplateReference Name="Items\SerializableClass.vstemplate" Target="/" >
+					<InitialState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+						<Entry>
+							<Key>SerializableField</Key>
+							<Value>Name</Value>
+						</Entry>
+						<Entry>
+							<Key>SerializableType</Key>
+							<Value>string</Value>
+						</Entry>
+						<Entry>
+							<Key>NonSerializableField</Key>
+							<Value>CalculatedValue</Value>
+						</Entry>
+						<Entry>
+							<Key>NonSerializableType</Key>
+							<Value>int</Value>
+						</Entry>
+					</InitialState>
+				</TemplateReference>
+				<TemplateReference Name="Items\CustomSerializableClass.vstemplate" Target="/" >
+					<InitialState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+						<Entry>
+							<Key>SerializableField</Key>
+							<Value>CustomName</Value>
+						</Entry>
+						<Entry>
+							<Key>SerializableType</Key>
+							<Value>string</Value>
+						</Entry>
+						<Entry>
+							<Key>NonSerializableField</Key>
+							<Value>CustomCalculatedValue</Value>
+						</Entry>
+						<Entry>
+							<Key>NonSerializableType</Key>
+							<Value>double</Value>
+						</Entry>
+					</InitialState>
+				</TemplateReference>
+			</References>
+		</Template>
+	</WizardData>
+</VSTemplate>

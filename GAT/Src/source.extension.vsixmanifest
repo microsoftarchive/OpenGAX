@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+  <Identifier Id="Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
+    <Name>GAT 2010</Name>
+    <Author>Microsoft patterns and practices</Author>
+    <Version>2.0.20406.0</Version>
+    <Description xml:space="preserve">The Guidance Automation Toolkit (GAT) is a Visual Studio extension that helps build guidance packages, which empower software teams to automate key development tasks (like custom templates, wizards, and code generation) inside Visual Studio.</Description>
+    <Locale>1033</Locale>
+    <License>EULA.txt</License>
+    <Icon>gat.ico</Icon>
+    <PreviewImage>gat preview.png</PreviewImage>
+    <InstalledByMsi>false</InstalledByMsi>
+    <SupportedProducts>
+      <VisualStudio Version="10.0">
+        <Edition>Pro</Edition>
+      </VisualStudio>
+    </SupportedProducts>
+    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
+    <AllUsers>true</AllUsers>
+  </Identifier>
+  <References>
+    <Reference Id="Microsoft.VisualStudio.SDK" MinVersion="10.0">
+      <Name>Microsoft Visual Studio SDK</Name>
+    </Reference>
+    <Reference Id="Microsoft.Practices.RecipeFramework.VisualStudio" MinVersion="2.0">
+      <Name>Guidance Automation Extensions</Name>
+    </Reference>
+  </References>
+  <Content>
+    <CustomExtension Type="GuidancePackage">Microsoft.Practices.RecipeFramework.MetaGuidancePackage.xml</CustomExtension>
+  </Content>
+</Vsix>

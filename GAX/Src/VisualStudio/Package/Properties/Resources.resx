@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SolutionPackagesContainer_PackageVersionDiffersTitle" xml:space="preserve">
+    <value>Different Version</value>
+  </data>
+  <data name="Item_CreationAborted" xml:space="preserve">
+    <value>The user cancelled the creation of the {0}</value>
+  </data>
+  <data name="Templates_TemplateNotFound" xml:space="preserve">
+    <value>Template file not found.</value>
+  </data>
+  <data name="CTC_MenuDoesNotExist" xml:space="preserve">
+    <value>Menu group {0} does not exist.</value>
+  </data>
+  <data name="ReferenceRestoreService_PageTitle" xml:space="preserve">
+    <value>Please specify the new targets for the disconnected references [Page {0}/{1}]</value>
+  </data>
+  <data name="CTC_LabelUnknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="SolutionPackagesContainer_RestoringFailed" xml:space="preserve">
+    <value>Cannot finish restoring of original bound references.</value>
+  </data>
+  <data name="Templates_ProjectInvalidReference" xml:space="preserve">
+    <value>Project template {0} can only be unfolded under project solution folders and not under project {1}. Invalid template is {0}.</value>
+  </data>
+  <data name="TaskList_CannotRegister" xml:space="preserve">
+    <value>Cannot register task list provider.</value>
+  </data>
+  <data name="Type_AlreadyContainsProgId" xml:space="preserve">
+    <value>The Type {0} must not have a ProgId attribute</value>
+  </data>
+  <data name="ReferenceRestoreService_StartDanglingReferences" xml:space="preserve">
+    <value>This solution contains references to recipes or templates, but
+the solution items that contained the references have changed or no longer exist.
+{0} 
+Would you like to remove the references and continue to load the solution,
+or try to resolve the references by reattaching them?</value>
+  </data>
+  <data name="Template_MultipleTemplateDirs" xml:space="preserve">
+    <value>The folder {0} is already been used by another package, only one folder will be used.</value>
+  </data>
+  <data name="Item_ProjectItem" xml:space="preserve">
+    <value>Project item</value>
+  </data>
+  <data name="UnboundReference_AllItems" xml:space="preserve">
+    <value>All solution elements</value>
+  </data>
+  <data name="Templates_SolutionCannotBeBound" xml:space="preserve">
+    <value>Solution templates cannot be bound to any element. Invalid template is {0}.</value>
+  </data>
+  <data name="Templates_ItemCantHaveTemplates" xml:space="preserve">
+    <value>Item cannot have template references. Invalid template is {0}.</value>
+  </data>
+  <data name="ReferenceRestoreService_RemoveButton" xml:space="preserve">
+    <value>Re&amp;move</value>
+  </data>
+  <data name="TemplateReference_Category" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="Item_CreationFailed" xml:space="preserve">
+    <value>An error occurred creating the {0}</value>
+  </data>
+  <data name="Templates_CannotLoadRecipeManager" xml:space="preserve">
+    <value>Cannot load recipe manager service. Cannot continue.</value>
+  </data>
+  <data name="CommandBar_NotFound" xml:space="preserve">
+    <value>The referenced command bar {0} cannot be found, check your configuration.</value>
+  </data>
+  <data name="Templates_InitialStateError" xml:space="preserve">
+    <value>Initial state for asset named "{0}" with target "{1}" is invalid and will be removed.</value>
+  </data>
+  <data name="ReferenceRestoreService_StartTitle" xml:space="preserve">
+    <value>Solution contains disconnected references to recipes or templates</value>
+  </data>
+  <data name="ProjectItemReference_AppliesTo" xml:space="preserve">
+    <value>Item at: {1}</value>
+  </data>
+  <data name="ReferenceRestoreService_TemplateOldPath" xml:space="preserve">
+    <value>    Template: {0} pointed to {1}
+</value>
+  </data>
+  <data name="Templates_CorruptMultipleFactories" xml:space="preserve">
+    <value>The registry is corrupt, multiple project factories found for language {0}</value>
+  </data>
+  <data name="Templates_InvalidTemplateFile" xml:space="preserve">
+    <value>Unexpected error loading template file name {0}. Make sure that the template is well formed and try again.</value>
+  </data>
+  <data name="Templates_MissingType" xml:space="preserve">
+    <value>The .vstemplate file does not contain a VSTemplate/@Type attribute, so the type of the template is indeterminate.</value>
+  </data>
+  <data name="ReferenceRestoreService_FieldCheckTooltip" xml:space="preserve">
+    <value>Delete the reference to {0}</value>
+  </data>
+  <data name="Templates_Category" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="GuidanceNavigatorWindow_CannotCreate" xml:space="preserve">
+    <value>Can not create Guidance Navigator Window</value>
+  </data>
+  <data name="ReferenceRestoreService_Error" xml:space="preserve">
+    <value>Error trying to reconnect the references</value>
+  </data>
+  <data name="Reference_FailEnabledFor" xml:space="preserve">
+    <value>Function IsEnabledFor is not correctly implemented because it threw an exception</value>
+  </data>
+  <data name="Templates_TemplateNotEnabled" xml:space="preserve">
+    <value>Template can't be executed given the current selection.</value>
+  </data>
+  <data name="OutputWindowService_WindowName" xml:space="preserve">
+    <value>Microsoft Recipe Framework</value>
+  </data>
+  <data name="ReferenceRestoreService_FieldInvalid" xml:space="preserve">
+    <value>Selected target must be of kind {0}.</value>
+  </data>
+  <data name="OutputWindowService_InitializedMsg" xml:space="preserve">
+    <value>Output window created.</value>
+  </data>
+  <data name="Reference_AppliesToThrew" xml:space="preserve">
+    <value>AppliesTo method threw an exception</value>
+  </data>
+  <data name="Templates_KindMismatch" xml:space="preserve">
+    <value>Template {0} is not compatible with template {1}.</value>
+  </data>
+  <data name="SolutionPackagesContainer_PackageVersionDiffers" xml:space="preserve">
+    <value>The version of the package {0} enabled for the solution
+is different than the one currently installed.
+Therefore if the binding recipe is specified in the package 
+configuration file it will be executed again.</value>
+  </data>
+  <data name="TaskList_ColumnName" xml:space="preserve">
+    <value>Recipe</value>
+  </data>
+  <data name="Templates_ContextMenu" xml:space="preserve">
+    <value>{0}...</value>
+  </data>
+  <data name="ReferenceRestoreService_PageHelp" xml:space="preserve">
+    <value>The displayed references to recipes or templates have become disconnected from their original solution elements. For each reference, you can choose to delete it, or specify the solution element that is should be reattached to.</value>
+  </data>
+  <data name="WebProjectReference_FileSystemWebNotUnderSolution" xml:space="preserve">
+    <value>The web project {0} is file system-based, and it is not located in a folder under the solution. References will be connected to the full path of the website. If the site is moved, the references will need to be reconnected.</value>
+  </data>
+  <data name="ReferenceRestoreService_PageLinkTitle" xml:space="preserve">
+    <value>References {0}/{1}</value>
+  </data>
+  <data name="Templates_ItemCannotBeRoot" xml:space="preserve">
+    <value>Solution root cannot have item template references. Invalid item template is {0}.</value>
+  </data>
+  <data name="Package_NoSolutionOpened" xml:space="preserve">
+    <value>A solution must be opened to run the guidance package manager.</value>
+  </data>
+  <data name="Item_Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="ReferenceRestoreService_ResolveButton" xml:space="preserve">
+    <value>Re&amp;solve</value>
+  </data>
+  <data name="SolutionPackagesContainer_PackageRemovePersistence" xml:space="preserve">
+    <value>{0}
+Do you want to permanently remove the package from the current solution?</value>
+  </data>
+  <data name="Templates_ErrorsProcessingReferences" xml:space="preserve">
+    <value>There were errors processing the references in the template {0}.</value>
+  </data>
+  <data name="Templates_InvalidTypeItemForSolutionFolder" xml:space="preserve">
+    <value>Item template {0} with project type element set to {1} in the template file cannot be unfolded under the solution folder {2}. Only the item templates with element value set to "General" are allowed to be unfolded under solution folders.</value>
+  </data>
+  <data name="Recipes_MaximumExceeded" xml:space="preserve">
+    <value>The number of recipes must not exceed a maximum of 256.</value>
+  </data>
+  <data name="General_AttributeMissing" xml:space="preserve">
+    <value>Type {0} must have a {1} attribute.</value>
+  </data>
+  <data name="IDD_ADDPROJECTDLG" xml:space="preserve">
+    <value>Add New Project</value>
+  </data>
+  <data name="Templates_MaximumExceeded" xml:space="preserve">
+    <value>The number of templates must not exceed a maximum of 256.</value>
+  </data>
+  <data name="General_TypeMustImplement" xml:space="preserve">
+    <value>Type {0} doesn't implement required interface {1}.</value>
+  </data>
+  <data name="Templates_NotRegistered" xml:space="preserve">
+    <value>Cannot find registration information for template "{0}". Package templates may not be properly registered. Run package installation again and verify template name and location.</value>
+  </data>
+  <data name="Templates_CantFindTarget" xml:space="preserve">
+    <value>Target {0} specified for reference to asset {1} doesn't exist.</value>
+  </data>
+  <data name="SolutionPackagesContainer_UpdatingReference" xml:space="preserve">
+    <value>Updating reference to {0} from package {1}</value>
+  </data>
+  <data name="TaskList_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ReferenceRestoreService_DialogTitle" xml:space="preserve">
+    <value>Resolve disconnected references to recipes or templates</value>
+  </data>
+  <data name="Package_ServiceRequired" xml:space="preserve">
+    <value>The service {0} is not found. Cannot continue.</value>
+  </data>
+  <data name="Item_Solution" xml:space="preserve">
+    <value>Solution</value>
+  </data>
+  <data name="WebProjectReference_InvalidProject" xml:space="preserve">
+    <value>Project is not a web site project.</value>
+  </data>
+  <data name="Templates_CantFindTargets" xml:space="preserve">
+    <value>The following errors happened when trying to create the asset references: {0}</value>
+  </data>
+  <data name="Templates_PackageNotActive" xml:space="preserve">
+    <value>The package {0} could not activated, the template cannot be unfolded.</value>
+  </data>
+  <data name="SolutionPicker_NullRefAndType" xml:space="preserve">
+    <value>Either an unbound asset reference or the target element type must be provided.</value>
+  </data>
+  <data name="ReferenceRestoreService_StartDanglingReference" xml:space="preserve">
+    <value>This solution contains a reference to a recipe or template, but
+the solution item that contained the reference have changed or no longer exist.
+{0}
+Would you like to remove the reference and continue to load the solution,
+or try to resolve the reference by reattaching it?</value>
+  </data>
+  <data name="ReferenceRestoreService_RecipeOldPath" xml:space="preserve">
+    <value>    Recipe: {0} pointed to {1}
+</value>
+  </data>
+  <data name="Missing_RegRoot" xml:space="preserve">
+    <value>Cannot continue with installation until DefaultRegistryRootAttribute is used</value>
+  </data>
+  <data name="Templates_ProjectFactoryNotFound" xml:space="preserve">
+    <value>The project factory {0} is not registered, template {1} cannot be installed.</value>
+  </data>
+  <data name="Templates_NoExtension" xml:space="preserve">
+    <value>The template does not have the correct WizardExtension data.</value>
+  </data>
+  <data name="SolutionPicker_ReferencesNode" xml:space="preserve">
+    <value>References</value>
+  </data>
+  <data name="Package_CantGetManagerService" xml:space="preserve">
+    <value>Couldn't retrieve the recipe manager service.</value>
+  </data>
+  <data name="BoundReference_InvalidItem" xml:space="preserve">
+    <value>The referenced item {0} does not exist in the current solution. </value>
+  </data>
+  <data name="IDD_NEWPROJECTDLG" xml:space="preserve">
+    <value>New Project</value>
+  </data>
+  <data name="TaskList_ProjectItem" xml:space="preserve">
+    <value>Bound To</value>
+  </data>
+  <data name="Templates_InvalidRegistry" xml:space="preserve">
+    <value>Invalid registry found {0}, it should be a GUID</value>
+  </data>
+  <data name="CTC_RepeatedCommandBar" xml:space="preserve">
+    <value>Command bar {0} already used in this command.</value>
+  </data>
+  <data name="ReferenceRestoreService_FieldRecipeHelp" xml:space="preserve">
+    <value>An element of type {0} should be selected for the recipe {1}</value>
+  </data>
+  <data name="Templates_ItemTargetInvalid" xml:space="preserve">
+    <value>The reference target {0} specified in item template {1} is invalid, as it must always be the string "\". Item templates can only point to the item itself.</value>
+  </data>
+  <data name="ReferenceRestoreService_FieldTemplateHelp" xml:space="preserve">
+    <value>An element of type {0} should be selected for the template with 
+the relative path as {1}</value>
+  </data>
+  <data name="Template_IgnoreKeyInitialState" xml:space="preserve">
+    <value>Ignoring invalid initial state with key {0} for reference that applies to {1}.</value>
+  </data>
+  <data name="Package_PackageNeedsGuid" xml:space="preserve">
+    <value>Package {0} doesn't have the Guid attribute required to install on the Visual Studio host.</value>
+  </data>
+  <data name="General_TypeMustInheritFrom" xml:space="preserve">
+    <value>Type {0} doesn't inherit from required base class {1}.</value>
+  </data>
+  <data name="Reference_InvalidAttributes" xml:space="preserve">
+    <value>The reference has not correctly implemented some attributes because one or some of them threw an exception. The failure ocurred in the attribute(s): {0}</value>
+  </data>
+  <data name="Template_DoesntExist" xml:space="preserve">
+    <value>The filename specified for the template "{0}" does not exist.</value>
+  </data>
+  <data name="GuidanceNavigatorWindow_GuidancePackageManagerOptionText" xml:space="preserve">
+    <value>Guidance Package Manager...</value>
+  </data>
+  <data name="ReferenceRestoreService_Cancelled" xml:space="preserve">
+    <value>You have cancelled the restoring of the references.
+If you continue all the references will be deleted.
+Do you want to try again the reconnection of the references?</value>
+  </data>
+  <data name="GuidanceNavigatorWindow_Title" xml:space="preserve">
+    <value>Guidance Navigator</value>
+  </data>
+  <data name="SolutionPackagesContainer_SerializationError" xml:space="preserve">
+    <value>Unexpected error loading property {0}</value>
+  </data>
+  <data name="Templates_InvalidProjectForItemTemplate" xml:space="preserve">
+    <value>Item template {0} cannot be unfolded under the project {1}. Invalid item template is {0}.</value>
+  </data>
+  <data name="Templates_InvalidWizardData" xml:space="preserve">
+    <value>Template configuration is missing or invalid, cannot continue.</value>
+  </data>
+  <data name="SolutionPackagesContainer_CannotLoadPackage" xml:space="preserve">
+    <value>Guidance Package {0} failed to load. Do you want to permanently remove the package from the current solution?</value>
+  </data>
+  <data name="ProjectReference_AppliesTo" xml:space="preserve">
+    <value>Project at: {0}</value>
+  </data>
+  <data name="ReferenceRestoreService_FieldTooltip" xml:space="preserve">
+    <value>Target was originally at {0}, 
+and its expected type is {1}.</value>
+  </data>
+  <data name="SolutionReference_AppliesTo" xml:space="preserve">
+    <value>Solution root</value>
+  </data>
+  <data name="Templates_ArgumentsShared" xml:space="preserve">
+    <value>Argument {0} is defined in both recipe {1} and recipe {2}. Shared arguments are not supported when unfolding a multi project template.</value>
+  </data>
+  <data name="Package_FailedToLoad" xml:space="preserve">
+    <value>Failed to load Recipe Framework package.</value>
+  </data>
+  <data name="NativeMethods_GetStringResourceException" xml:space="preserve">
+    <value>An error ocurred while trying to get the {0} string resource from {1}</value>
+  </data>
+  <data name="Navigator_CannotGetHelpResource" xml:space="preserve">
+    <value>An error occurred trying to display {0} help resource.</value>
+  </data>
+  <data name="Navigator_NextStepsTitle" xml:space="preserve">
+    <value>Suggested Next Steps:</value>
+  </data>
+  <data name="Navigator_RunThisRecipe" xml:space="preserve">
+    <value>Run this recipe</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="301" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gax.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Navigator_UnfoldThisTemplate" xml:space="preserve">
+    <value>Unfold this template</value>
+  </data>
+  <data name="Navigator_ReferenceThrowException" xml:space="preserve">
+    <value>Reference {0} throw an exception: {1}.\n</value>
+  </data>
+  <data name="Navigator_RunThisRecipeAgain" xml:space="preserve">
+    <value>Run this recipe again</value>
+  </data>
+  <data name="Navigator_StaleReference" xml:space="preserve">
+    <value>The item you selected is not available anymore. Please press OK to refresh the list of available guidance.</value>
+  </data>
+  <data name="Navigator_StaleReferenceTitle" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Navigator_TemplateCaptionMask" xml:space="preserve">
+    <value>Add {0}</value>
+  </data>
+  <data name="Checkout_Failed" xml:space="preserve">
+    <value>Cannot check out {0} file.</value>
+  </data>
+  <data name="Reference_AppliesToTooltip" xml:space="preserve">
+    <value>Applies to: {0}</value>
+  </data>
+  <data name="Registration_CannotFindGuidancePackage" xml:space="preserve">
+    <value>Cannot find guidance package name '{0}' with Guid '{1}'.</value>
+  </data>
+  <data name="Registration_CannotFindRegistryKey" xml:space="preserve">
+    <value>Cannot find registry key '{0}' in hive '{1}'.</value>
+  </data>
+  <data name="Registration_CannotFindSourceHive" xml:space="preserve">
+    <value>Cannot open source registry hive '{0}'.</value>
+  </data>
+  <data name="Registration_CannotFindTargetHive" xml:space="preserve">
+    <value>Cannot open target registry hive '{0}'.</value>
+  </data>
+  <data name="Registration_CannotRetrieveGaxRegFile" xml:space="preserve">
+    <value>Cannot retrieve embedded GAX registration file</value>
+  </data>
+  <data name="Registration_FailedGaxRegistrationIntoExpHive" xml:space="preserve">
+    <value>Registration of GAX into VS experimental hive failed.</value>
+  </data>
+  <data name="Build_GuidancePackageConfigurationFileNotFound" xml:space="preserve">
+    <value>The Guidance Package configuration file could not be found: '{0}'</value>
+  </data>
+  <data name="Build_GuidancePackageCustomExtensionNotFound" xml:space="preserve">
+    <value>The VSIX manifest must define one Guidance Package custom extension</value>
+  </data>
+</root>

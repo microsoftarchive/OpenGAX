@@ -1,0 +1,44 @@
+﻿<VSTemplate 
+	Version="2.0" 
+	Type="ProjectGroup"
+	xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name>$PackageName$ Sample Solution</Name>
+		<Description>$PackageName$ Sample Solution</Description>
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>90</SortOrder>
+		<Icon>SampleSolution.ico</Icon>
+		<CreateNewFolder>false</CreateNewFolder>
+		<DefaultName>$PackageName$Solution</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectCollection>
+			<SolutionFolder Name="SampleFolder">
+				<ProjectTemplateLink ProjectName="$ProjectName$">Projects\ConsoleApplication\ConsoleApplication.vstemplate</ProjectTemplateLink>
+			</SolutionFolder>
+			<SolutionFolder Name="Other Projects" />
+			<SolutionFolder Name="WebSites">
+				<ProjectTemplateLink ProjectName="$WebSiteName$">Projects\WebSite\WebSite.vstemplate</ProjectTemplateLink>
+			</SolutionFolder>
+		</ProjectCollection>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</Assembly>
+		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
+	</WizardExtension>
+	<WizardData>
+		<Template xmlns="http://schemas.microsoft.com/pag/gax-template"
+              SchemaVersion="1.0"
+              Recipe="CreateSolution">
+			<References>
+				<RecipeReference Name="HelloWorldRecipe" Target="\SampleFolder" />
+				<RecipeReference Name="CustomWizardPages" Target="\SampleFolder" />
+				<RecipeReference Name="HelloWorldRecipe" Target="\WebSites\$WebSiteName$" />
+				<RecipeReference Name="HelloWorldRecipe" Target="\WebSites\$WebSiteName$\Web.config" />
+				<RecipeReference Name="HelloWorldRecipe" Target="\WebSites\$WebSiteName$\Other" />
+				<TemplateReference Name="Projects\ClientApplication\ClientApplication.vstemplate" Target="\SampleFolder" />
+			</References>
+		</Template>
+	</WizardData>
+</VSTemplate>

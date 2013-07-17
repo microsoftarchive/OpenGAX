@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AssetReference_NotSitedOnService" xml:space="preserve">
+    <value>An asset reference must be sited on the appropriate reference service before execution.</value>
+  </data>
+  <data name="AssetReferenceService_DuplicateReference" xml:space="preserve">
+    <value>A reference that applies to {0} already exists. Reference key is {1}.</value>
+  </data>
+  <data name="AssetReferenceService_NoIndexer" xml:space="preserve">
+    <value>Indexer of type {0} was not found in the service.</value>
+  </data>
+  <data name="AssetReferenceService_NotSitedOnPackage" xml:space="preserve">
+    <value>The reference service can only be sited on a GuidancePackage container.</value>
+  </data>
+  <data name="AssetReferenceService_WrongForBound" xml:space="preserve">
+    <value>Bound recipe {0} on package {1} can't be used on an unbound reference.</value>
+  </data>
+  <data name="AssetReferenceService_WrongForUnbound" xml:space="preserve">
+    <value>Unbound recipe {0} on package {1} can't be used on a bound reference.</value>
+  </data>
+  <data name="AssetReferenceSerializer_CantSerialize" xml:space="preserve">
+    <value>Can't serialize references. Check that all asset reference types are serializable.</value>
+  </data>
+  <data name="AssetReferenceSerializer_CantDeserialize" xml:space="preserve">
+    <value>Can't deserialize references. Check that asset reference types can be resolved.</value>
+  </data>
+  <data name="ErrorHelper_Abort" xml:space="preserve">
+    <value>&amp;Abort</value>
+  </data>
+  <data name="ErrorHelper_Cancel" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="ErrorHelper_Caption" xml:space="preserve">
+    <value>Recipe Framework Error</value>
+  </data>
+  <data name="ErrorHelper_Ignore" xml:space="preserve">
+    <value>&amp;Ignore</value>
+  </data>
+  <data name="ErrorHelper_No" xml:space="preserve">
+    <value>&amp;No</value>
+  </data>
+  <data name="ErrorHelper_OK" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="ErrorHelper_Retry" xml:space="preserve">
+    <value>&amp;Retry</value>
+  </data>
+  <data name="ErrorHelper_Yes" xml:space="preserve">
+    <value>&amp;Yes</value>
+  </data>
+  <data name="General_ArgumentEmpty" xml:space="preserve">
+    <value>Argument can not be null or have an empty value.</value>
+  </data>
+  <data name="General_ComponentMustBeSited" xml:space="preserve">
+    <value>Component {0} must be sited in a container in order to function properly.</value>
+  </data>
+  <data name="General_InvalidArgumentType" xml:space="preserve">
+    <value>Argument {0} must be of type {1}.</value>
+  </data>
+  <data name="General_TypeIsNotAssignable" xml:space="preserve">
+    <value>Type {0} can not be assigned to required type {1}.</value>
+  </data>
+  <data name="General_WrongContainer" xml:space="preserve">
+    <value>Component {0} must be sited in a container of type {1} in order to function properly.</value>
+  </data>
+  <data name="IDictionaryService_InvalidKey" xml:space="preserve">
+    <value>Key {0} does not correspond to any argument in the recipe.</value>
+  </data>
+  <data name="IDictionaryService_InvalidType" xml:space="preserve">
+    <value>Value {0} specified for argument {1} can't be converted to the argument type {2}.</value>
+  </data>
+  <data name="IDictionaryService_InvalidValue" xml:space="preserve">
+    <value>Value for argument {0} is not valid.</value>
+  </data>
+  <data name="IDictionaryService_ReadOnlyException" xml:space="preserve">
+    <value>The dictionary service is read-only.</value>
+  </data>
+  <data name="Indexer_RequiredArgCount" xml:space="preserve">
+    <value>The indexer {0} requires at least {1} arguments to locate references.</value>
+  </data>
+  <data name="Indexer_AtMostOnUnboundPerAsset" xml:space="preserve">
+    <value>At most one unbound reference can point to a given asset. Asset {0} already contains has reference.</value>
+  </data>
+  <data name="IPersistenceService_InvalidPath" xml:space="preserve">
+    <value>Path contains invalid characters, is empty, or contains only white spaces.</value>
+  </data>
+  <data name="LoggingService_Category" xml:space="preserve">
+    <value>Recipe Framework</value>
+  </data>
+  <data name="GuidancePackage_CorruptedManifest" xml:space="preserve">
+    <value>There was an error reading the manifest file for the Guidance Automation Extensions. The error is --&gt; {0}</value>
+  </data>
+  <data name="GuidancePackage_MissingManifest" xml:space="preserve">
+    <value>The manifest file for the Guidance Automation Runtime is missing, please try to repair the installation.</value>
+  </data>
+  <data name="ManifestInstaller_BadArguments" xml:space="preserve">
+    <value>Invalid installer arguments. For host binding installation, Host (name) and Installer (full type name) arguments need to be passed. For package installation, the Configuration argument must contain the full path of the package configuration file.</value>
+  </data>
+  <data name="ManifestInstaller_NoHosts" xml:space="preserve">
+    <value>Couldn't locate Hosts node on the manifest configuration file. It may be corrupted. Try deleting the manifest and reinstalling the product.</value>
+  </data>
+  <data name="ManifestInstaller_DevenvRunning" xml:space="preserve">
+    <value>Close any instances of Visual Studio before running the installer. You can locate them through the Task Manager, as "devenv.exe".</value>
+  </data>
+  <data name="ManifestInstaller_PackageAlreadyInstalled" xml:space="preserve">
+    <value>Package named {0} is already installed. If you are upgrading, uninstall the existing one first.</value>
+  </data>
+  <data name="ManifestInstaller_DuplicatedPackageGuid" xml:space="preserve">
+    <value>Package with Guid {0} is already installed.</value>
+  </data>
+  <data name="ManifestInstaller_HostAlreadyInstalled" xml:space="preserve">
+    <value>Warning: host binding {0} is already installed on this machine.</value>
+  </data>
+  <data name="ManifestInstaller_HostBindingNotFound" xml:space="preserve">
+    <value>No binding has been installed in the current machine for host {0}.</value>
+  </data>
+  <data name="ManifestInstaller_InvalidHostInstaller" xml:space="preserve">
+    <value>Installer type {0} is not valid as it doesn't implement the required IHostInstaller interface.</value>
+  </data>
+  <data name="ManifestInstaller_UninstallingPackage" xml:space="preserve">
+    <value>Uninstalling guidance package {0}.</value>
+  </data>
+  <data name="Recipe_ActionExecutionFailed" xml:space="preserve">
+    <value>Action {0} failed to execute:
+{1}</value>
+  </data>
+  <data name="Recipe_ActionOutputNull" xml:space="preserve">
+    <value>Action {0} takes its input named {1} from the output of an action named {2} that doesn't exist in the current recipe.</value>
+  </data>
+  <data name="Recipe_ActionOutputMissing" xml:space="preserve">
+    <value>Action named {2} uses output {0} from action named {1}, but its type {3} doesn't have a corresponding property with the required OutputAttribute.</value>
+  </data>
+  <data name="Recipe_NoRecipeExecuting" xml:space="preserve">
+    <value>The operation requires a currently executing recipe.</value>
+  </data>
+  <data name="Recipe_CantSetActionProperty" xml:space="preserve">
+    <value>Cannot set value on property {0}.</value>
+  </data>
+  <data name="Recipe_ActionPropertyMissing" xml:space="preserve">
+    <value>Property {0} does not exist on type {1}.</value>
+  </data>
+  <data name="Recipe_ActionUndoException" xml:space="preserve">
+    <value>Action {0} failed to perform undo operation:
+{1}</value>
+  </data>
+  <data name="Recipe_ValueProviderLoadFailed" xml:space="preserve">
+    <value>Failed to load value providers.</value>
+  </data>
+  <data name="Recipe_ArgumentCantMonitorItself" xml:space="preserve">
+    <value>Value provider {0} can't monitor the same argument it's attached to (argument {1}).</value>
+  </data>
+  <data name="Recipe_ArgumentGatheringRequired" xml:space="preserve">
+    <value>A wizard was specified to collect missing arguments for the recipe, but no argument gathering strategy is in place.</value>
+  </data>
+  <data name="Recipe_CantSuspendRecipe" xml:space="preserve">
+    <value>Recipe can't be suspended.</value>
+  </data>
+  <data name="Recipe_InvalidDefaultValue" xml:space="preserve">
+    <value>Argument {0} has an invalid default value.</value>
+  </data>
+  <data name="Recipe_MissingRequiredArguments" xml:space="preserve">
+    <value>The following arguments are required and don't have values: {0}. Can't continue execution.</value>
+  </data>
+  <data name="Recipe_ValueProviderException" xml:space="preserve">
+    <value>An error happened while calling the value provider or evaluating the default value of argument {0}.</value>
+  </data>
+  <data name="GuidancePackage_AlreadyExecutingRecipe" xml:space="preserve">
+    <value>Can't execute a new recipe while another one is already executing. Currently running {0} recipe.</value>
+  </data>
+  <data name="GuidancePackage_AlreadyInitialized" xml:space="preserve">
+    <value>A package can not be initialized multiple times with different configurations.</value>
+  </data>
+  <data name="Recipe_ArgumentUndefined" xml:space="preserve">
+    <value>Argument named {0} is not defined in the currently executing recipe.</value>
+  </data>
+  <data name="GuidancePackage_CantLoadConfig" xml:space="preserve">
+    <value>Package configuration is invalid.</value>
+  </data>
+  <data name="GuidancePackage_ConfigurationNotFound" xml:space="preserve">
+    <value>Package configuration file {0} doesn't exist.</value>
+  </data>
+  <data name="GuidancePackage_InvalidConfigurationFile" xml:space="preserve">
+    <value>The configuration file associated with the package is invalid: {0}.</value>
+  </data>
+  <data name="Recipe_ExecutionException" xml:space="preserve">
+    <value>An exception occurred during the binding of reference or execution of recipe {0}. Error was: {1}. 
+You can remove the reference to this recipe through the Guidance Package Manager.</value>
+  </data>
+  <data name="GuidancePackage_LoggingMesage" xml:space="preserve">
+    <value>{0}:{1}</value>
+  </data>
+  <data name="GuidancePackage_NoBaseURI" xml:space="preserve">
+    <value>The configuration received doesn't have a BaseURI, so it's not possible to determine its initial location. Ensure you don't use a constructor for an XmlReader that receives a stream.Pass the complete file location instead. Base location of the package will be set to the location of the framework installation.</value>
+  </data>
+  <data name="GuidancePackage_NotInitialized" xml:space="preserve">
+    <value>The guidance package must be initialized with appropriate configuration before being used.</value>
+  </data>
+  <data name="GuidancePackage_PersistenceServiceRequired" xml:space="preserve">
+    <value>In order to suspend a recipe execution, a persistence service must be in place.</value>
+  </data>
+  <data name="GuidancePackage_RecipeDoesntExist" xml:space="preserve">
+    <value>Recipe {0} does not exist in package {1}.</value>
+  </data>
+  <data name="GuidancePackage_RecipeNotExists" xml:space="preserve">
+    <value>Recipe {0} does not exist in package {1}.</value>
+  </data>
+  <data name="GuidancePackage_UriNoFile" xml:space="preserve">
+    <value>For security reasons, the location of the package configuration must be file path.</value>
+  </data>
+  <data name="RecipeManager_PackageHostMismatch" xml:space="preserve">
+    <value>Package {0} can only be used on host {1}. Current host {2} is not supported.</value>
+  </data>
+  <data name="RecipeManager_PackageNotTrusted" xml:space="preserve">
+    <value>Package {0} configuration file is located at {1} which is not a trusted location.</value>
+  </data>
+  <data name="RecipeManager_PackageModified" xml:space="preserve">
+    <value>Configuration file {0} for package {1} has been modified. Reinstallation is required.</value>
+  </data>
+  <data name="RecipeManager_PackageNotInstalled" xml:space="preserve">
+    <value>Package named {0} enabled for this solution is not installed.</value>
+  </data>
+  <data name="RecipeManager_InvalidPackageLocation" xml:space="preserve">
+    <value>Framework manifest contains location {0} for package {1} configuration file, but the file was not found.</value>
+  </data>
+  <data name="RecipeManager_NameDoesntMatch" xml:space="preserve">
+    <value>Component name {0} doesn't match package name {1}.</value>
+  </data>
+  <data name="RecipeManager_UnconfiguredPackage" xml:space="preserve">
+    <value>Package must be configured in order to be loaded by the manager.</value>
+  </data>
+  <data name="RecipeReferenceService_DuplicateRecipeItem" xml:space="preserve">
+    <value>Recipe reference {0} already exists.</value>
+  </data>
+  <data name="RecipeReferenceService_InvalidComponentType" xml:space="preserve">
+    <value>Only recipe reference components can be added to this container.</value>
+  </data>
+  <data name="ReflectionHelper_CantAssignTo" xml:space="preserve">
+    <value>Type {0} is not assignable to type {1}.</value>
+  </data>
+  <data name="ReflectionHelper_CantLoadAssembly" xml:space="preserve">
+    <value>Couldn't load assembly {0}. Verify if the type {1} syntax is correct.</value>
+  </data>
+  <data name="ReflectionHelper_CantLoadType" xml:space="preserve">
+    <value>Couldn't load type {0}.</value>
+  </data>
+  <data name="ReflectionHelper_InvalidAssemblyName" xml:space="preserve">
+    <value>Invalid assembly name {0}.</value>
+  </data>
+  <data name="ReflectionHelper_InvalidQName" xml:space="preserve">
+    <value>Invalid qualified type name {0}.</value>
+  </data>
+  <data name="AssetReferenceService_MustBeBoundOrUnbound" xml:space="preserve">
+    <value>References must be either bound or unbound, so they must implement the IBoundAssetReference interface in the first case, or IUnboundAssetReference in the later.</value>
+  </data>
+  <data name="RecipeManager_ManifestMangled" xml:space="preserve">
+    <value>The framework manifest file was improperly modified and package {0} registered host no longer matches the one in the package configuration file. Package can't be loaded unless the Host value is the same in both files.</value>
+  </data>
+  <data name="IDictionaryService_InvalidConvertedValue" xml:space="preserve">
+    <value>Type converter for argument {0} returned a value which is not compatible with the argument type.</value>
+  </data>
+  <data name="Recipe_NotMarkedInput" xml:space="preserve">
+    <value>Property {0} of type {1} must be annotated with the the InputAttribute.</value>
+  </data>
+  <data name="Recipe_InvalidOptionalValueType" xml:space="preserve">
+    <value>Arguments that are value types cannot be made optional unless they are Nullable&lt;T&gt;. Invalid arguments are:  {0}.</value>
+  </data>
+  <data name="Recipe_ActionOutputInvalid" xml:space="preserve">
+    <value>Property {0} on action of type {2} doesn't have the OutputAttribute required to be declared in order to be used as output from the configuration for action {1}.</value>
+  </data>
+  <data name="GuidancePackage_InvalidStateValue" xml:space="preserve">
+    <value>Initial state for argument {0} has an invalid value and is being removed.</value>
+  </data>
+  <data name="GuidancePackage_InvalidStateKey" xml:space="preserve">
+    <value>Initial state contained an entry with a null key and is being removed.</value>
+  </data>
+  <data name="Recipe_ArgumentsSaved" xml:space="preserve">
+    <value>Found {0} arguments in persisted state.</value>
+  </data>
+  <data name="Recipe_ExecutionResult" xml:space="preserve">
+    <value>Execution result was {0}</value>
+  </data>
+  <data name="Recipe_NoPersistence" xml:space="preserve">
+    <value>No persistence service found.</value>
+  </data>
+  <data name="Recipe_NoSavedState" xml:space="preserve">
+    <value>No previously saved state found.</value>
+  </data>
+  <data name="Recipe_ReferenceApplied" xml:space="preserve">
+    <value>Reference applied to item {0}</value>
+  </data>
+  <data name="Recipe_StartingExecution" xml:space="preserve">
+    <value>Starting execution of recipe {0}.</value>
+  </data>
+  <data name="ManifestInstaller_ErrorPackageInstalled" xml:space="preserve">
+    <value>The uninstallation of the Guidance Automation Runtime cannot be done. You must first uninstall the following guidance package(s): {0}</value>
+  </data>
+  <data name="ManifestInstaller_PackageUninstallNotInManifest" xml:space="preserve">
+    <value>The manifest file does not contain an entry for the guidance package {0}  or the manifest file does not exist, uninstallation cannot continue.</value>
+  </data>
+  <data name="ManifestInstaller_ManifestNotExist" xml:space="preserve">
+    <value>The manifest file does not exist, uninstallation cannot continue.</value>
+  </data>
+  <data name="ManifestInstaller_VSRemoved" xml:space="preserve">
+    <value>In order to succesfully uninstall the product, Visual Studio must be installed. The file {0} cannot be found and the uninstallation will fail.</value>
+  </data>
+  <data name="AssetReferenceService_FailEnabledFor" xml:space="preserve">
+    <value>Function IsEnabledFor is not correctly implemented because it threw an exception</value>
+  </data>
+  <data name="Reference_AppliesToThrew" xml:space="preserve">
+    <value>AppliesTo threw an exception</value>
+  </data>
+  <data name="ManifestInstaller_CannotChangeGuid" xml:space="preserve">
+    <value>A package with the name {0} already exists with a different Guid. Unregister that package before registering a new package with the same name and a different GUID, or use both the same GUID and the same name in new package.</value>
+  </data>
+  <data name="XmlNodeListFactory_IHasXmlNodeMissing" xml:space="preserve">
+    <value>The XPath query was not executed against an XmlNode-based object (such as XmlDocument).</value>
+  </data>
+  <data name="XPathCache_BadSortObject" xml:space="preserve">
+    <value>Sort expression must be either a string or an XPathExpression.</value>
+  </data>
+  <data name="ManifestInstaller_InvalidHive" xml:space="preserve">
+    <value>The {0} specified hive is invalid or does not exists.</value>
+  </data>
+</root>

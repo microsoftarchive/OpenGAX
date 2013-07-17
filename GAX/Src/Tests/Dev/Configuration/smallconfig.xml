@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GuidancePackage xmlns="http://schemas.microsoft.com/pag/gax-core" 
+    Name="PackageName" 
+    Caption="Package Caption"
+    SchemaVersion="1.0" >
+	<Recipes>
+		<Recipe Name="TestRecipeFromConfig">
+			<Caption>Test Recipe from Config</Caption>
+			<Description>Test Description</Description>
+			<Arguments>
+				<Argument Name="XSD" Type="String" />
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" 
+                SchemaVersion="1.0" 
+                Name="MyWizard">
+					<Pages>
+						<Page>
+							<Title>MyWizard Title</Title>
+							<LinkTitle>MyWizard Subtitle</LinkTitle>
+							<Help>MyWizard Help</Help>
+							<Fields>
+                <Field ValueName="XSD" Label="XSD">
+                  <Tooltip>"..."</Tooltip>
+                  <Editor Type="ProjectNameSelector" />
+                </Field>
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+			<Actions>
+				<Action Name="MyAction" Type="AddXsdToProject">
+					<Input Name="XsdFile" RecipeArgument="XSD" />
+				</Action>
+			</Actions>
+		</Recipe>
+	</Recipes>
+</GuidancePackage>

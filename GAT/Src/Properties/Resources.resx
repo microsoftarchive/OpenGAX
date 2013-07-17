@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CredUIReturn" xml:space="preserve">
+    <value>Invalid operation: {0}</value>
+  </data>
+  <data name="FunctionNotSupported" xml:space="preserve">
+    <value>The Credential Management API requires Windows XP / Windows Server 2003 or later.</value>
+  </data>
+  <data name="InvalidCaptionLength" xml:space="preserve">
+    <value>The caption has a maximum length of {0} characters.</value>
+  </data>
+  <data name="InvalidImageHeight" xml:space="preserve">
+    <value>The banner image height must be {0} pixels.</value>
+  </data>
+  <data name="InvalidImageWidth" xml:space="preserve">
+    <value>The banner image width must be {0} pixels.</value>
+  </data>
+  <data name="InvalidMessageLength" xml:space="preserve">
+    <value>The message has a maximum length of {0} characters.</value>
+  </data>
+  <data name="InvalidPasswordLength" xml:space="preserve">
+    <value>The password has a maximum length of {0} characters.</value>
+  </data>
+  <data name="InvalidPrincipalLength" xml:space="preserve">
+    <value>The principal name has a maximum length of {0} characters.</value>
+  </data>
+  <data name="InvalidTargetLength" xml:space="preserve">
+    <value>The target has a maximum length of {0} characters.</value>
+  </data>
+  <data name="Dte_NoProjectSelected" xml:space="preserve">
+    <value>No project is currently selected.</value>
+  </data>
+  <data name="Registration_FailedStatus" xml:space="preserve">
+    <value>{0} of Package failed.</value>
+  </data>
+  <data name="Registration_SucceedStatus" xml:space="preserve">
+    <value>{0} of Package succeeded.</value>
+  </data>
+  <data name="Registration_Failed" xml:space="preserve">
+    <value>Failed to process package. See the Guidance Package Development output window for more information about the error.</value>
+  </data>
+  <data name="Registration_NoPackageConfig" xml:space="preserve">
+    <value>There is no XML file under the project that defines a guidance package.</value>
+  </data>
+  <data name="Registration_InProgress" xml:space="preserve">
+    <value>{0} of Package in progress... This may take a while, please be patient</value>
+  </data>
+  <data name="Registration_RegistrationText" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="Registration_UnregistrationText" xml:space="preserve">
+    <value>Unregistration</value>
+  </data>
+  <data name="Actions_ItemsBuildProps_Confirmation" xml:space="preserve">
+    <value>This recipe will set the ‘Copy to Output’ property to ‘Copy if newer’
+and the ‘Build Action’ property to ‘Content’ for all project items.
+Would you like to continue?</value>
+  </data>
+  <data name="Actions_ItemsBuildProps_Fail" xml:space="preserve">
+    <value>Set Items’ Build Properties: Completed Failed. No SubItems to apply the settings</value>
+  </data>
+  <data name="Actions_ItemsBuildProps_Progress" xml:space="preserve">
+    <value>Applying settings to all sub items of folder {0}</value>
+  </data>
+  <data name="Actions_ItemsBuildProps_Success" xml:space="preserve">
+    <value>Set Items’ Build Properties: Completed Successfully</value>
+  </data>
+  <data name="Actions_ItemsBuildProps_Title" xml:space="preserve">
+    <value>Set Items' Build Properties</value>
+  </data>
+  <data name="UnboundPackageReference_AppliesTo" xml:space="preserve">
+    <value>Guidance package project</value>
+  </data>
+  <data name="Registration_CredentialsDialogCancelled" xml:space="preserve">
+    <value>Credentials dialog cancelled by the user. Administrator credentials required to perform action.</value>
+  </data>
+  <data name="Registration_NonAdminOnOldPlatform" xml:space="preserve">
+    <value>Registration of packages running as a non-administrator user is only supported in Windows XP, Windows 2003 or greater.</value>
+  </data>
+  <data name="Registration_CredentialsPrompt" xml:space="preserve">
+    <value>This operation requires administrator permissions. Please provide alternate credentials.</value>
+  </data>
+  <data name="Registration_CredentialsTitle" xml:space="preserve">
+    <value>Connect to Guidance Automation</value>
+  </data>
+  <data name="Registration_InstallerProjectNotFound" xml:space="preserve">
+    <value>Guidance package registration depends on an installer project. The package project must have a build dependency with that project, and the installer project must contain a class that inherits from the {0} class.</value>
+  </data>
+  <data name="Registration_LogonUserException" xml:space="preserve">
+    <value>{4}{3}User: {0}\{1}.{3}Machine: {5}{3}Check if user has {2} privileges enabled or if running under Windows 2000, the privilege 'Act as part of the operating system' enabled for user {6}.</value>
+  </data>
+  <data name="Registration_QuickRegistration" xml:space="preserve">
+    <value>Quick registration</value>
+  </data>
+  <data name="InvalidPackageProject" xml:space="preserve">
+    <value>Project {0} is not a valid Guidance Package project</value>
+  </data>
+  <data name="PackageProjectNotRegistered" xml:space="preserve">
+    <value>Package {0} is not registered.</value>
+  </data>
+  <data name="Registration_QuickRegistrationDone" xml:space="preserve">
+    <value>Quick registration finished.</value>
+  </data>
+  <data name="Registration_QuickRegistrationFailed" xml:space="preserve">
+    <value>Quick registration failed.</value>
+  </data>
+  <data name="ExecutingAction" xml:space="preserve">
+    <value>Executing action {0}</value>
+  </data>
+  <data name="InvalidConditionException" xml:space="preserve">
+    <value>Invalid Condition {0}/n{1}</value>
+  </data>
+  <data name="StatusBarProgressMessage" xml:space="preserve">
+    <value>Processing Actions...</value>
+  </data>
+  <data name="Registration_InvalidHive" xml:space="preserve">
+    <value>The specified '{0}' registration setting is not valid</value>
+  </data>
+  <data name="UnboundNonVsixPackageReference_AppliesTo" xml:space="preserve">
+    <value>Non VSIX Guidance package project</value>
+  </data>
+</root>
