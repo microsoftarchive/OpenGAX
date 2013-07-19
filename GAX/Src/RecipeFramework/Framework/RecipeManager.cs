@@ -723,7 +723,7 @@ namespace Microsoft.Practices.RecipeFramework
                 return regRoot.Split('\\')[0];
             }
 
-            return "10.0";
+            return "12.0_Config";
         }
 
         /// <summary>

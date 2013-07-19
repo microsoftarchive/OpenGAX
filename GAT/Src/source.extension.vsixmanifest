@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
-  <Identifier Id="Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
-    <Name>GAT 2010</Name>
+  <Identifier Id="OpenGAT-VS2013">
+    <Name>GAT 2010 for Visual Studio 2013</Name>
     <Author>Microsoft patterns and practices</Author>
-    <Version>2.0.20406.0</Version>
+    <Version>1.0.0.0</Version>
     <Description xml:space="preserve">The Guidance Automation Toolkit (GAT) is a Visual Studio extension that helps build guidance packages, which empower software teams to automate key development tasks (like custom templates, wizards, and code generation) inside Visual Studio.</Description>
     <Locale>1033</Locale>
     <License>EULA.txt</License>
@@ -11,22 +11,23 @@
     <PreviewImage>gat preview.png</PreviewImage>
     <InstalledByMsi>false</InstalledByMsi>
     <SupportedProducts>
-      <VisualStudio Version="10.0">
+      <VisualStudio Version="12.0">
         <Edition>Pro</Edition>
       </VisualStudio>
     </SupportedProducts>
-    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
+    <SupportedFrameworkRuntimeEdition MinVersion="1.0" MaxVersion="9.0" />
     <AllUsers>true</AllUsers>
   </Identifier>
   <References>
-    <Reference Id="Microsoft.VisualStudio.SDK" MinVersion="10.0">
+    <Reference Id="Microsoft.VisualStudio.SDK" MinVersion="12.0">
       <Name>Microsoft Visual Studio SDK</Name>
     </Reference>
-    <Reference Id="Microsoft.Practices.RecipeFramework.VisualStudio" MinVersion="2.0">
+    <Reference Id="OpenGAX-VS2013" MinVersion="1.0">
       <Name>Guidance Automation Extensions</Name>
     </Reference>
   </References>
   <Content>
+    <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>
     <CustomExtension Type="GuidancePackage">Microsoft.Practices.RecipeFramework.MetaGuidancePackage.xml</CustomExtension>
   </Content>
 </Vsix>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -13,33 +13,32 @@
   <PropertyGroup Label="Globals">
     <ProjectGUID>{B97714EB-FCE0-429C-87CC-918530B5A01C}</ProjectGUID>
     <RootNamespace>VisualStudioUI</RootNamespace>
-    <SccProjectName>
-    </SccProjectName>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>SAK</SccProjectName>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
     <Keyword>Win32Proj</Keyword>
+    <VCTargetsPath Condition="'$(VCTargetsPath12)' != '' and '$(VSVersion)' == '' and $(VisualStudioVersion) == ''">$(VCTargetsPath12)</VCTargetsPath>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\12.0\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(LocalAppData)\Microsoft\VisualStudio\12.0\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\12.0\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(LocalAppData)\Microsoft\VisualStudio\12.0\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -65,7 +64,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PreBuildEvent>
-      <Command>attrib -r ..\Package\1033\Microsoft.Practices.RecipeFramework.VisualStudioUI.dll</Command>
+      <Command>if exist "..\Package\1033\Microsoft.Practices.RecipeFramework.VisualStudioUI.dll" attrib -r "..\Package\1033\Microsoft.Practices.RecipeFramework.VisualStudioUI.dll"</Command>
     </PreBuildEvent>
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -133,17 +132,17 @@
     <None Include="RecipeFramework.bmp" />
     <CustomBuild Include="RecipeFramework.ctc">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\tools\CreateImageList\bin\CreateImageList {FAE04EC1-301F-11D3-BF4B-00C04F79EFBC} CSharpPackage %(RootDir)%(Directory)
-$(SolutionDir)\..\tools\CreateImageList\bin\CreateImageList {164B10B9-B200-11D0-8C61-00A0C91E29D5} VBPackage %(RootDir)%(Directory)
-$(SolutionDir)\..\tools\CreateImageList\bin\CreateImageList {E6FDF8B0-F3D1-11D4-8576-0002A516ECE8} JSharpPackage %(RootDir)%(Directory)
-$(SolutionDir)\..\lib\ctc.exe -nologo %(FullPath) $(IntDir)%(FileName)Cmd.cto -Ccl -s-
-</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+        $(SolutionDir)\..\lib\CreateImageList {FAE04EC1-301F-11D3-BF4B-00C04F79EFBC} CSharpPackage %(RootDir)%(Directory) 12.0
+        $(SolutionDir)\..\lib\CreateImageList {164B10B9-B200-11D0-8C61-00A0C91E29D5} VBPackage %(RootDir)%(Directory) 12.0
+        $(SolutionDir)\..\lib\ctc.exe -nologo %(FullPath) $(IntDir)%(FileName)Cmd.cto -Ccl -s-
+      </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(FileName)Cmd.cto;%(Outputs)</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\tools\CreateImageList\bin\CreateImageList {FAE04EC1-301F-11D3-BF4B-00C04F79EFBC} CSharpPackage %(RootDir)%(Directory)
-$(SolutionDir)\..\tools\CreateImageList\bin\CreateImageList {164B10B9-B200-11D0-8C61-00A0C91E29D5} VBPackage %(RootDir)%(Directory)
-$(SolutionDir)\..\tools\CreateImageList\bin\CreateImageList {E6FDF8B0-F3D1-11D4-8576-0002A516ECE8} JSharpPackage %(RootDir)%(Directory)
-$(SolutionDir)\..\lib\ctc.exe -nologo %(FullPath) $(IntDir)%(FileName)Cmd.cto -Ccl -s-
-</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+        $(SolutionDir)\..\lib\CreateImageList {FAE04EC1-301F-11D3-BF4B-00C04F79EFBC} CSharpPackage %(RootDir)%(Directory) 12.0
+        $(SolutionDir)\..\lib\CreateImageList {164B10B9-B200-11D0-8C61-00A0C91E29D5} VBPackage %(RootDir)%(Directory) 12.0
+        $(SolutionDir)\..\lib\ctc.exe -nologo %(FullPath) $(IntDir)%(FileName)Cmd.cto -Ccl -s-
+      </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(FileName)Cmd.cto;%(Outputs)</Outputs>
     </CustomBuild>
     <None Include="RecipeFrameworkPackage.ico" />
