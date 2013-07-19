@@ -58,7 +58,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
     [ServiceDependency(typeof(IVsSolution))]
     [ServiceDependency(typeof(DTE))]
     [ServiceDependency(typeof(IVsTemplatesService))]
-    internal sealed class SolutionPackagesContainer : Microsoft.Practices.ComponentModel.ServiceContainer, IHostService, IVsSolutionEvents, IVsSolutionEvents4, IPersistenceService, IOleComponent
+    internal sealed class SolutionPackagesContainer : Microsoft.Practices.ComponentModel.ServiceContainer, IHostService, IVsSolutionEvents, IVsSolutionEvents4, IPersistenceService, IOleComponent, IVsSolutionLoadEvents
     {
         [Serializable]
         private struct PackageHeader
@@ -398,85 +398,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
 
         int IVsSolutionEvents.OnAfterOpenSolution(object pUnkReserved, int fNewSolution)
         {
-            // enable and show the Guidance Package Manager menu
-            guidancePackageManagerMenuCmd.Enabled = true;
-            guidancePackageManagerMenuCmd.Visible = true;
-
-            // enable and show the Guidance Navigator Window menu
-            guidanceNavigatorMenuCmd.Enabled = true;
-            guidanceNavigatorMenuCmd.Visible = true;
-
-            IRecipeManagerService recipeManager = GetService<IRecipeManagerService>(true);
-
-            // load list and state for all binded packages to the current solution
-            LoadPackagesData();
-
-            // iterate over all packages binded to the current solution
-            foreach (string packageName in packagePersistenceData.Keys)
-            {
-                try
-                {
-                    // try to get to the package
-                    if (recipeManager.GetPackage(packageName) == null)
-                    {
-                        // now try to enable the package
-                        recipeManager.EnablePackage(packageName);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // for some reason we couldn't get to the package OR the loading failed
-                    // ask the user if he wants to permanently remove the package binding from the solution
-                    DialogResult result = ErrorHelper.Show(this, ex, String.Format(CultureInfo.CurrentUICulture,
-                                Properties.Resources.SolutionPackagesContainer_CannotLoadPackage,
-                                packageName), MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            // try to get to the package
-                            if (recipeManager.GetPackage(packageName) != null)
-                            {
-                                // we got it, now try to remove the binding from the solution.
-                                recipeManager.DisablePackage(packageName);
-                            }
-                        }
-                        finally
-                        {
-                            // we need to make sure we always remove the binding for the current run
-                            IPersistenceService persist = GetService<IPersistenceService>();
-                            if (persist != null)
-                            {
-                                persist.RemoveReferences(packageName);
-                            }
-                            packagePersistenceData.Remove(packageName);
-                        }
-                    }
-                }
-            }
-            if (UnfoldTemplate.UnfoldingTemplates.Count == 0)
-            {
-                IReferenceRestoreService restoreService = GetService<IReferenceRestoreService>();
-                bool useBuiltIn = restoreService == null;
-                try
-                {
-                    if (useBuiltIn)
-                    {
-                        restoreService = new ReferenceRestoreService();
-                        Add(restoreService);
-                    }
-                    restoreService.PerformValidation();
-                }
-                finally
-                {
-                    if (useBuiltIn && restoreService != null)
-                    {
-                        Remove(restoreService);
-                    }
-                }
-            }
-
-            return VSConstants.S_OK;
+            return VSConstants.E_NOTIMPL;
         }
 
         int IVsSolutionEvents.OnBeforeCloseProject(IVsHierarchy pHierarchy, int fRemoved)
@@ -1401,17 +1323,21 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             GuidancePackagesState gps = new GuidancePackagesState();
             gps.Packages = packages.ToArray();
 
-            XmlSerializer stateFile = new XmlSerializer(typeof(GuidancePackagesState));
-            XmlWriterSettings writerSettings = new XmlWriterSettings();
-            writerSettings.Indent = true;
-
-            // make sure we checkout the file (if its under SCC) or reset its read-only bit in order to be able to write to it
-            EnsureWritable(solutionStateFilename);
-
-            using (XmlWriter gpStateFile = XmlWriter.Create(solutionStateFilename, writerSettings))
+            // don't create a file if there are no packages to persist
+            if (gps.Packages.Length > 0)
             {
-                stateFile.Serialize(gpStateFile, gps);
-                gpStateFile.Close();
+                XmlSerializer stateFile = new XmlSerializer(typeof(GuidancePackagesState));
+                XmlWriterSettings writerSettings = new XmlWriterSettings();
+                writerSettings.Indent = true;
+
+                // make sure we checkout the file (if its under SCC) or reset its read-only bit in order to be able to write to it
+                EnsureWritable(solutionStateFilename);
+
+                using (XmlWriter gpStateFile = XmlWriter.Create(solutionStateFilename, writerSettings))
+                {
+                    stateFile.Serialize(gpStateFile, gps);
+                    gpStateFile.Close();
+                }
             }
         }
 
@@ -1711,6 +1637,119 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
 
         void IOleComponent.Terminate()
         {
+        }
+
+        #endregion
+
+        #region IVsSolutionLoadEvents Members
+
+        int IVsSolutionLoadEvents.OnAfterBackgroundSolutionLoadComplete()
+        {
+            // enable and show the Guidance Package Manager menu
+            guidancePackageManagerMenuCmd.Enabled = true;
+            guidancePackageManagerMenuCmd.Visible = true;
+
+            // enable and show the Guidance Navigator Window menu
+            guidanceNavigatorMenuCmd.Enabled = true;
+            guidanceNavigatorMenuCmd.Visible = true;
+
+            IRecipeManagerService recipeManager = GetService<IRecipeManagerService>(true);
+
+            // load list and state for all binded packages to the current solution
+            LoadPackagesData();
+
+            // iterate over all packages binded to the current solution
+            foreach (string packageName in packagePersistenceData.Keys)
+            {
+                try
+                {
+                    // try to get to the package
+                    if (recipeManager.GetPackage(packageName) == null)
+                    {
+                        // now try to enable the package
+                        recipeManager.EnablePackage(packageName);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // for some reason we couldn't get to the package OR the loading failed
+                    // ask the user if he wants to permanently remove the package binding from the solution
+                    DialogResult result = ErrorHelper.Show(this, ex, String.Format(CultureInfo.CurrentUICulture,
+                                Properties.Resources.SolutionPackagesContainer_CannotLoadPackage,
+                                packageName), MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            // try to get to the package
+                            if (recipeManager.GetPackage(packageName) != null)
+                            {
+                                // we got it, now try to remove the binding from the solution.
+                                recipeManager.DisablePackage(packageName);
+                            }
+                        }
+                        finally
+                        {
+                            // we need to make sure we always remove the binding for the current run
+                            IPersistenceService persist = GetService<IPersistenceService>();
+                            if (persist != null)
+                            {
+                                persist.RemoveReferences(packageName);
+                            }
+                            packagePersistenceData.Remove(packageName);
+                        }
+                    }
+                }
+            }
+            if (UnfoldTemplate.UnfoldingTemplates.Count == 0)
+            {
+                IReferenceRestoreService restoreService = GetService<IReferenceRestoreService>();
+                bool useBuiltIn = restoreService == null;
+                try
+                {
+                    if (useBuiltIn)
+                    {
+                        restoreService = new ReferenceRestoreService();
+                        Add(restoreService);
+                    }
+                    restoreService.PerformValidation();
+                }
+                finally
+                {
+                    if (useBuiltIn && restoreService != null)
+                    {
+                        Remove(restoreService);
+                    }
+                }
+            }
+
+            return VSConstants.S_OK;
+        }
+
+        int IVsSolutionLoadEvents.OnAfterLoadProjectBatch(bool fIsBackgroundIdleBatch)
+        {
+            return VSConstants.E_NOTIMPL;
+        }
+
+        int IVsSolutionLoadEvents.OnBeforeBackgroundSolutionLoadBegins()
+        {
+            return VSConstants.E_NOTIMPL;
+        }
+
+        int IVsSolutionLoadEvents.OnBeforeLoadProjectBatch(bool fIsBackgroundIdleBatch)
+        {
+            return VSConstants.E_NOTIMPL;
+        }
+
+        int IVsSolutionLoadEvents.OnBeforeOpenSolution(string pszSolutionFilename)
+        {
+            return VSConstants.E_NOTIMPL;
+        }
+
+        int IVsSolutionLoadEvents.OnQueryBackgroundLoadProjectBatch(out bool pfShouldDelayLoadToNextIdle)
+        {
+            pfShouldDelayLoadToNextIdle = false;
+            return VSConstants.E_NOTIMPL;
         }
 
         #endregion
