@@ -62,7 +62,7 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 		<SupportedFrameworkRuntimeEdition MinVersion=""4.0"" MaxVersion=""4.5"" />
 	</Identifier>
 	<References>
-		<Reference Id=""Microsoft.Practices.RecipeFramework.VisualStudio"" MinVersion=""2.0"">
+		<Reference Id=""OpenGAX"" MinVersion=""3.0"">
 			<Name>Guidance Automation Extensions</Name>
 		</Reference>
 	</References>
