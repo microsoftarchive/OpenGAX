@@ -61,7 +61,7 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>bin\Release\Microsoft.Practices.WizardFramework.XML</DocumentationFile>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <DefineConstants>TRACE</DefineConstants>
     <RunFxCop>false</RunFxCop>
     <DebugType>pdbonly</DebugType>
@@ -100,7 +100,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ArgumentPanelTypeEditor.cs">
-      <SubType>Component</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Configuration\WizardFrameworkConfig.cs">
       <AutoGen>True</AutoGen>

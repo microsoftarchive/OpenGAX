@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -18,27 +18,27 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccProvider>SAK</SccProvider>
     <Keyword>Win32Proj</Keyword>
-    <VCTargetsPath Condition="'$(VCTargetsPath12)' != '' and '$(VSVersion)' == '' and $(VisualStudioVersion) == ''">$(VCTargetsPath12)</VCTargetsPath>
+    <VCTargetsPath Condition="'$(VCTargetsPath14)' != '' and '$(VSVersion)' == '' and $(VisualStudioVersion) == ''">$(VCTargetsPath14)</VCTargetsPath>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\12.0\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(LocalAppData)\Microsoft\VisualStudio\12.0\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\14.0\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(LocalAppData)\Microsoft\VisualStudio\14.0\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\12.0\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(LocalAppData)\Microsoft\VisualStudio\12.0\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\14.0\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(LocalAppData)\Microsoft\VisualStudio\14.0\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -133,14 +133,14 @@
     <CustomBuild Include="RecipeFramework.ctc">
       <FileType>Document</FileType>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-        $(SolutionDir)\..\lib\CreateImageList {FAE04EC1-301F-11D3-BF4B-00C04F79EFBC} CSharpPackage %(RootDir)%(Directory) 12.0
-        $(SolutionDir)\..\lib\CreateImageList {164B10B9-B200-11D0-8C61-00A0C91E29D5} VBPackage %(RootDir)%(Directory) 12.0
+        $(SolutionDir)\..\lib\CreateImageList {FAE04EC1-301F-11D3-BF4B-00C04F79EFBC} CSharpPackage %(RootDir)%(Directory) 14.0
+        $(SolutionDir)\..\lib\CreateImageList {164B10B9-B200-11D0-8C61-00A0C91E29D5} VBPackage %(RootDir)%(Directory) 14.0
         $(SolutionDir)\..\lib\ctc.exe -nologo %(FullPath) $(IntDir)%(FileName)Cmd.cto -Ccl -s-
       </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(FileName)Cmd.cto;%(Outputs)</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-        $(SolutionDir)\..\lib\CreateImageList {FAE04EC1-301F-11D3-BF4B-00C04F79EFBC} CSharpPackage %(RootDir)%(Directory) 12.0
-        $(SolutionDir)\..\lib\CreateImageList {164B10B9-B200-11D0-8C61-00A0C91E29D5} VBPackage %(RootDir)%(Directory) 12.0
+        $(SolutionDir)\..\lib\CreateImageList {FAE04EC1-301F-11D3-BF4B-00C04F79EFBC} CSharpPackage %(RootDir)%(Directory) 14.0
+        $(SolutionDir)\..\lib\CreateImageList {164B10B9-B200-11D0-8C61-00A0C91E29D5} VBPackage %(RootDir)%(Directory) 14.0
         $(SolutionDir)\..\lib\ctc.exe -nologo %(FullPath) $(IntDir)%(FileName)Cmd.cto -Ccl -s-
       </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(FileName)Cmd.cto;%(Outputs)</Outputs>

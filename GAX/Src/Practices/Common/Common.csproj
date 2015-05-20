@@ -56,7 +56,7 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <NoWarn>0618 1570</NoWarn>
     <DocumentationFile>bin\Release\Microsoft.Practices.Common.XML</DocumentationFile>
     <DebugType>pdbonly</DebugType>

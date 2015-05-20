@@ -334,7 +334,52 @@ namespace Microsoft.Practices.RecipeFramework.MockServices
 				{
 					get { return new Version(); }
 				}
-			}
+
+                public IList<System.Xml.XmlElement> AdditionalElements
+                {
+                    get { throw new NotImplementedException(); }
+                }
+
+                public bool GlobalScope
+                {
+                    get { throw new NotImplementedException(); }
+                }
+
+                public IList<System.Xml.XmlElement> LocalizedAdditionalElements
+                {
+                    get { throw new NotImplementedException(); }
+                }
+
+                public Uri ReleaseNotes
+                {
+                    get { throw new NotImplementedException(); }
+                }
+
+                public byte[] ReleaseNotesContent
+                {
+                    get { throw new NotImplementedException(); }
+                }
+
+                public string ReleaseNotesFormat
+                {
+                    get { throw new NotImplementedException(); }
+                }
+
+                public VersionRange SupportedFrameworkVersionRange
+                {
+                    get { throw new NotImplementedException(); }
+                }
+
+                public IEnumerable<string> Tags
+                {
+                    get { throw new NotImplementedException(); }
+                }
+
+                public string ShortcutPath
+                {
+                    get { throw new NotImplementedException(); }
+                }
+            }
 
 			class MockCustomExtension : IExtensionContent
 			{
@@ -359,13 +404,59 @@ namespace Microsoft.Practices.RecipeFramework.MockServices
 				{
 					get { return Path.GetFileName(guidancePackageConfigurationFilename); }
 				}
-			}
+
+                public IList<System.Xml.XmlElement> AdditionalElements
+                {
+                    get { throw new NotImplementedException(); }
+                }
+            }
 
 
             public Version SchemaVersion
             {
                 get { throw new NotImplementedException(); }
             }
+
+
+            DateTimeOffset? IInstalledExtension.InstalledOn
+            {
+                get { throw new NotImplementedException(); }
+            }
+
+            public bool IsPackComponent
+            {
+                get { throw new NotImplementedException(); }
+            }
+
+            public IList<System.Xml.XmlElement> AdditionalElements
+            {
+                get { throw new NotImplementedException(); }
+            }
+
+            public bool IsProductSupported(string productId, Version version)
+            {
+                throw new NotImplementedException();
+            }
+
+            public IList<System.Xml.XmlElement> LocalizedAdditionalElements
+            {
+                get { throw new NotImplementedException(); }
+            }
+
+            public IEnumerable<IExtensionRequirement> Targets
+            {
+                get { throw new NotImplementedException(); }
+            }
         }
-	}
+
+        public void Close()
+        {
+            throw new NotImplementedException();
+        }
+
+        public long GetLastExtensionsChangedTimestamp()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

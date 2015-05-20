@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
-  <Identifier Id="OpenGAT-VS2013">
-    <Name>GAT 2010 for Visual Studio 2013</Name>
+  <Identifier Id="OpenGAT-VS2015">
+    <Name>GAT 2010 for Visual Studio 2015</Name>
     <Author>Microsoft patterns and practices</Author>
     <Version>1.0.0.0</Version>
     <Description xml:space="preserve">The Guidance Automation Toolkit (GAT) is a Visual Studio extension that helps build guidance packages, which empower software teams to automate key development tasks (like custom templates, wizards, and code generation) inside Visual Studio.</Description>
@@ -11,7 +11,7 @@
     <PreviewImage>gat preview.png</PreviewImage>
     <InstalledByMsi>false</InstalledByMsi>
     <SupportedProducts>
-      <VisualStudio Version="12.0">
+      <VisualStudio Version="14.0">
         <Edition>Pro</Edition>
       </VisualStudio>
     </SupportedProducts>
@@ -19,10 +19,10 @@
     <AllUsers>true</AllUsers>
   </Identifier>
   <References>
-    <Reference Id="Microsoft.VisualStudio.SDK" MinVersion="12.0">
+    <Reference Id="Microsoft.VisualStudio.SDK" MinVersion="14.0">
       <Name>Microsoft Visual Studio SDK</Name>
     </Reference>
-    <Reference Id="OpenGAX-VS2013" MinVersion="1.0">
+    <Reference Id="OpenGAX-VS2015" MinVersion="1.0">
       <Name>Guidance Automation Extensions</Name>
     </Reference>
   </References>
