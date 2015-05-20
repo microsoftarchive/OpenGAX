@@ -295,8 +295,6 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
             {
                 if (projectFactories.Count == 0)
                 {
-					string projectPath = Path.Combine(RegistryHelper.GetCurrentVsRootHive(), "Projects");
-
                     if (regRoot == null)
                     {
 						regRoot = RegistryHelper.GetCurrentVsRegistryKey(false);
@@ -310,7 +308,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
                             {
                                 string lang = projectKey.GetValue("Language(VSTemplate)") as string;
                                 // Important, the factory must not be a sub group
-                                if (lang != null && projectKey.GetValue("TemplateGroupIDs(VsTemplate)") == null)
+                                if (lang != null && projectKey.GetValue("TemplateGroupIDs(VsTemplate)") == null && projectKey.GetValue("TemplateIDs(VsTemplate)") == null)
                                 {
                                     Guid projectGuid = Guid.Empty;
                                     try
