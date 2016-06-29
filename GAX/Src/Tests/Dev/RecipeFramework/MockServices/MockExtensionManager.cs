@@ -379,6 +379,14 @@ namespace Microsoft.Practices.RecipeFramework.MockServices
                 {
                     get { throw new NotImplementedException(); }
                 }
+
+                public bool IsExperimental
+                {
+                    get
+                    {
+                        throw new NotImplementedException();
+                    }
+                }
             }
 
 			class MockCustomExtension : IExtensionContent
@@ -434,6 +442,11 @@ namespace Microsoft.Practices.RecipeFramework.MockServices
             }
 
             public bool IsProductSupported(string productId, Version version)
+            {
+                throw new NotImplementedException();
+            }
+
+            public string GetContentLocation(IExtensionContent content)
             {
                 throw new NotImplementedException();
             }
