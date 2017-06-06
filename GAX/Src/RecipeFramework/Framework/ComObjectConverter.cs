@@ -91,7 +91,7 @@ namespace Microsoft.Practices.RecipeFramework
                 Guid guid = Guid.Empty;
                 string[] names = new string[] { "Name" };
                 int[] dispIds = new int[] { 0 };
-                int hr = dispatch.GetIDsOfNames(ref guid, names, names.Length, 0, dispIds);
+                dispatch.GetIDsOfNames(ref guid, names, names.Length, 0, dispIds);
                 if (dispIds[0] != -1)
                 {
                     ComTypes.DISPPARAMS[] dispParams = new ComTypes.DISPPARAMS[1];
@@ -102,7 +102,7 @@ namespace Microsoft.Practices.RecipeFramework
                     try
                     {
                         Marshal.GetNativeVariantForObject(theName, dispParams[0].rgvarg);
-                        hr = dispatch.Invoke(
+                        dispatch.Invoke(
                             dispIds[0],
                             ref guid,
                             CultureInfo.CurrentCulture.LCID,

@@ -460,6 +460,10 @@ namespace Microsoft.Practices.RecipeFramework.MockServices
             {
                 get { throw new NotImplementedException(); }
             }
+
+            public IExtensionInstallerInformation InstallerInformation => throw new NotImplementedException();
+
+            public VsixType PackageType => throw new NotImplementedException();
         }
 
         public void Close()

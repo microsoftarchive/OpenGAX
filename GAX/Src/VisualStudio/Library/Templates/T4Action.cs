@@ -74,6 +74,9 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
         /// <returns>The rendered result</returns>
         protected string Render(string templateCode,string templateFile)
         {
+            //TODO:Eliminare
+            //System.Windows.Forms.MessageBox.Show(string.Format("Please attach the debugger (elevated on Vista or Win 7) to process [{0}].", System.Diagnostics.Process.GetCurrentProcess().Id), "Debug");
+            //TODO:Eliminare
             // Get the package root folder.
             string basePath = GetBasePath();
 
@@ -119,6 +122,9 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
             // Looking for errors
             if (host.Errors.HasErrors)
             {
+                //TODO:Eliminare
+                //System.Windows.Forms.MessageBox.Show(string.Format("error [{0}].", host.Errors[0].ErrorText), "Debug");
+                //TODO:Eliminare
                 throw new TemplateException(host.Errors);
             }
             else if (host.Errors.HasWarnings)

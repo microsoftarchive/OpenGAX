@@ -8,14 +8,14 @@
 		<Locale>1033</Locale>
 		<InstalledByMsi>false</InstalledByMsi>
 		<SupportedProducts>
-			<VisualStudio Version="14.0">
+			<VisualStudio Version="15.0">
 				<Edition>Pro</Edition>
 			</VisualStudio>
 		</SupportedProducts>
-		<SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.5.1" />
+		<SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.6" />
 	</Identifier>
 	<References>
-		<Reference Id="OpenGAX-VS2015" MinVersion="1.0">
+		<Reference Id="OpenGAX-VS2017" MinVersion="1.0">
 			<Name>Guidance Automation Extensions</Name>
 		</Reference>
 	</References>

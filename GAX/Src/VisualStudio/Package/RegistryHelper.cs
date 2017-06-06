@@ -90,6 +90,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
 
 		internal static RegistryKey GetCurrentVsRegistryKey(bool writeable)
 		{
+            //System.Windows.Forms.MessageBox.Show("GetCurrentVsRegistryKey:Process Id:" + System.Diagnostics.Process.GetCurrentProcess().Id.ToString());
 			IGaxLocalRegistry localRegistry = Package.GetGlobalService(typeof(SLocalRegistry)) as IGaxLocalRegistry;
 
 			if (localRegistry != null)
@@ -111,10 +112,13 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
 			}
 			else
 			{
-				return Registry.LocalMachine.OpenSubKey(GetCurrentVsRootHive());
-			}
+                //TODO: Ripristinare quando ci sarà la risposta al seguente thread https://developercommunity.visualstudio.com/content/problem/63670/visual-studio-registry-config.html
+                //return Registry.CurrentUser.OpenSubKey(GetCurrentVsRootHive());
+                return RegistryNativeMethods.OpenSubKey(GetCurrentVsRootHive());
+                //TODO: 
+            }
 
-			return null;
+            return null;
 		}
 
 		internal static string GetCurrentVsRootHive()

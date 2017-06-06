@@ -838,10 +838,10 @@ namespace Microsoft.Practices.RecipeFramework
 			// Wrap reader in including reader to enable XInclude.
 			if (!(configReader is XIncludingReader))
 			{
-				// Temporarily render included file because of 
-				// an error in deserialization otherwise.
-				MemoryStream mem = new MemoryStream();
-				XIncludingReader xir = new XIncludingReader(configReader);
+                // Temporarily render included file because of 
+                // an error in deserialization otherwise.
+                XIncludingReader xir = new XIncludingReader(configReader);
+                MemoryStream mem = new MemoryStream();
 				XmlWriter writer = XmlWriter.Create(mem);
 				writer.WriteNode(xir, false);
 				writer.Flush();
@@ -911,7 +911,7 @@ namespace Microsoft.Practices.RecipeFramework
 				baseuri = reader.BaseURI;
 			}
 
-			Uri baselocation = new CompatibleUri(baseuri);
+            CompatibleUri baselocation = new CompatibleUri(baseuri);
 			if (!baselocation.IsFile)
 			{
 				throw new System.Configuration.ConfigurationException(

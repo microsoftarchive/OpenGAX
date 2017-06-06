@@ -617,12 +617,10 @@ namespace Microsoft.Practices.RecipeFramework.Library
                 }
 
                 // We need to probe for methods, then for property value indexer.
-                MethodInfo[] methods = target.GetType().GetMethods(
-                    BindingFlags.Public | BindingFlags.InvokeMethod | BindingFlags.Instance);
                 // See if we have a method with the same number of parameters.
                 MethodInfo method = null;
                 ParameterInfo[] methodparams = null;
-                foreach (MethodInfo mi in methods)
+                foreach (MethodInfo mi in target.GetType().GetMethods(BindingFlags.Public | BindingFlags.InvokeMethod | BindingFlags.Instance))
                 {
                     // Skip property access methods, including indexer.
                     if (mi.Name == methodName && !mi.Name.StartsWith("get_"))

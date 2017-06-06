@@ -473,10 +473,9 @@ namespace Microsoft.Practices.RecipeFramework.Services
                 throw new ArgumentNullException("reference");
             }
             CheckState();
-            IDictionary state = persistence.RemoveState(Package.Configuration.Name, reference);
             // Normal removal procedure.
             Remove((IComponent)reference);
-            return state;
+            return persistence.RemoveState(Package.Configuration.Name, reference);
         }
 
         #endregion Add/Remove references
