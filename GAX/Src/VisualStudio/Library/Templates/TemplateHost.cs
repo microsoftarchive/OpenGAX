@@ -152,17 +152,18 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 					}
 				}
 			}
-
+            //TODO:Fabio;2017.06.03 Remove check id it's works
             // Search for reference assemblies of the currently targeted .NET Framework verion.
             // These are stored in "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v<version>".
-            var targetFramework = new FrameworkName(AppDomain.CurrentDomain.SetupInformation.TargetFrameworkName);
-            var referenceAssembliesBasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), @"Reference Assemblies\Microsoft\Framework\.NETFramework");
-            var referenceAssembliesPath = Path.Combine(referenceAssembliesBasePath, "v" + targetFramework.Version.ToString());
-            var referenceAssemblyPath = Path.Combine(referenceAssembliesPath, assemblyReference);
-            if (File.Exists(referenceAssemblyPath))
-            {
-                return referenceAssemblyPath;
-            }
+            //var targetFramework = new FrameworkName(AppDomain.CurrentDomain.SetupInformation.TargetFrameworkName);
+            //var referenceAssembliesBasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), @"Reference Assemblies\Microsoft\Framework\.NETFramework");
+            //var referenceAssembliesPath = Path.Combine(referenceAssembliesBasePath, "v" + targetFramework.Version.ToString());
+            //var referenceAssemblyPath = Path.Combine(referenceAssembliesPath, assemblyReference);
+            //if (File.Exists(referenceAssemblyPath))
+            //{
+            //    return referenceAssemblyPath;
+            //}
+            //TODO:Fabio;2017.06.03 Remove check id it's works
 
             // Will fail at template compilation time.
             return assemblyReference;

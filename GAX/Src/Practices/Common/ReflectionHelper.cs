@@ -390,8 +390,7 @@ namespace Microsoft.Practices.Common
                 throw new ArgumentException(Properties.Resources.General_ArgumentEmpty, "targetAssembly.CodeBase");
             }
 			
-			Uri uri = new CompatibleUri(targetAssembly.CodeBase);
-			return uri.LocalPath;
+			return new CompatibleUri(targetAssembly.CodeBase).LocalPath;
 		}
 
 		/// <summary>

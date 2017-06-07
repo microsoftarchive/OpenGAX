@@ -126,9 +126,22 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.CTC
 		public const int IDM_VS_CTXT_WEBFOLDER         = 0x0471;
 		public const int IDM_VS_CTXT_WEBITEMNODE       = 0x0472;
 		public const int IDM_VS_CTXT_WEBSUBWEBNODE     = 0x0474;
+         
+        static ShellCmdDef()
+        {
+            mapCSharpPackage = MapCSharpPackage;
+            mapJSharpPackage = MapJSharpPackage;
+            mapVBPackage = MapVBPackage;
+            guidSHLMainMenu = new Guid("{d309f791-903f-11d0-9efc-00a0c911004f}");
+            guidOfficeIcon = new Guid("{d309f794-903f-11d0-9efc-00a0c911004f}");
+            Group_Undefined = new Guid(0x83285929, 0x227c, 0x11d3, 0xb8, 0x70, 0x0, 0xc0, 0x4f, 0x79, 0xf8, 0x2);
+            vsCommandBars = null;
+            undefinedGroup = null;
+            projectPackages = ProjectPackages;
+        }
 
 
-		public static Hashtable VSCommandBars
+        public static Hashtable VSCommandBars
 		{
 			get
 			{

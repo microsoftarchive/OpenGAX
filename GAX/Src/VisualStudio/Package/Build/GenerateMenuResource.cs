@@ -97,7 +97,10 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 		/// <returns></returns>
 		public override bool Execute()
 		{
-			string tempCTO = null;
+            //TODO:Eliminare
+            //System.Windows.Forms.MessageBox.Show(string.Format("Please attach the debugger (elevated on Vista or Win 7) to process [{0}].", System.Diagnostics.Process.GetCurrentProcess().Id), "Debug");
+            //TODO:Eliminare
+            string tempCTO = null;
 			CTCFile ctcFile = null;
 			try
 			{
@@ -112,6 +115,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 						File.Delete(satelliteDllFileName);
 					}
 					File.Copy(gatSatelliteDllFileName, satelliteDllFileName);
+                    File.SetAttributes(satelliteDllFileName, FileAttributes.Normal);
 					IntPtr hUpdate = NativeMethods.BeginUpdateResource(satelliteDllFileName, 1);
 					try
 					{
@@ -152,6 +156,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 			string tempCTC = null;
 			string tempCPP = null;
 			string tempCTCEXE = null;
+            CTCFile file3;
 			try
 			{
 				var templates = new List<IVsTemplate>();
@@ -189,7 +194,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 				tempCTCEXE += ".exe";
 
 				using (Stream ctcExeStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(
-					ReflectionHelper.GetAssemblyName(Assembly.GetExecutingAssembly()) + ".CTC.ctc.exe"))
+					ReflectionHelper.GetAssemblyName(Assembly.GetExecutingAssembly()) + ".CTC.CTC.exe"))
 				{
 					using (FileStream ctcExeFile = new FileStream(tempCTCEXE, FileMode.OpenOrCreate))
 					{
