@@ -17,7 +17,6 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Windows.Forms;
 using Microsoft.Practices.ComponentModel;
 using Microsoft.Practices.Common.Services;
 using System.ComponentModel.Design;
@@ -26,14 +25,18 @@ using System.ComponentModel.Design;
 
 namespace Microsoft.Practices.WizardFramework
 {
-	/// <summary>
-	/// A WizardPage defined a step inside a WizardForm
-	/// </summary>
-	[ServiceDependency(typeof(IServiceProvider))]
+    /// <summary>
+    /// A WizardPage defined a step inside a WizardForm
+    /// </summary>
+    [ServiceDependency(typeof(IServiceProvider))]
 	[ServiceDependency(typeof(IValueInfoService))]
-	public abstract class WizardPage : Microsoft.WizardFramework.WizardPage, ISupportInitialize
+#if DEBUG
+    public class WizardPage : Microsoft.WizardFramework.WizardPage, ISupportInitialize
+#else
+    public abstract class WizardPage : Microsoft.WizardFramework.WizardPage, ISupportInitialize
+#endif
     {
-        #region Designer Stuff
+#region Designer Stuff
 
         private System.ComponentModel.IContainer components = null;
         /// <summary>
@@ -50,24 +53,24 @@ namespace Microsoft.Practices.WizardFramework
             }
             base.Dispose(disposing);
         }
-        #region Designer generated code
+#region Designer generated code
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-			this.SuspendLayout();
-			// 
-			// WizardPage
-			// 
-			this.Name = "WizardPage";
-			this.Size = new System.Drawing.Size(505, 304);
-			this.InfoRTBoxSize = new System.Drawing.Size(496, 60);
-			this.Skippable = true;
-			this.ResumeLayout(false);
+            this.SuspendLayout();
+            // 
+            // WizardPage
+            // 
+            this.Name = "WizardPage";
+            this.Size = new System.Drawing.Size(505, 304);
+            this.InfoRTBoxSize = new System.Drawing.Size(496, 60);
+            this.Skippable = true;
+            this.ResumeLayout(false);
+        }
 
-		}
         #endregion
 
         #endregion Designer Stuff
@@ -75,9 +78,9 @@ namespace Microsoft.Practices.WizardFramework
         #region Constructor
 
         /// <summary>
-		/// Creates a WizardPage inside the Windows Form Designer
-		/// </summary>
-		public WizardPage()
+        /// Creates a WizardPage inside the Windows Form Designer
+        /// </summary>
+        public WizardPage()
 		{
 			arguments = new Hashtable();
 			InitializeComponent();
@@ -93,9 +96,9 @@ namespace Microsoft.Practices.WizardFramework
 			InitializeComponent();
 		}
 
-		#endregion Constructor
-		
-		#region Overrides
+        #endregion Constructor
+
+        #region Overrides
 
         /// <summary>
         /// Is called to ask the page whether or not it is OK to deactivate the page.  True means OK to
@@ -165,9 +168,9 @@ namespace Microsoft.Practices.WizardFramework
 			return newSize;
 		}
 
-		#endregion
+#endregion
 
-		#region Properties
+#region Properties
 
 		/// <summary>
 		/// Returns whether this Page have some argument with a null value
@@ -227,23 +230,27 @@ namespace Microsoft.Practices.WizardFramework
 			get { return arguments; }
 		} Hashtable arguments;
 
-		#endregion Properties
+#endregion Properties
 
-		#region Abstract Members
+#region Abstract Members
 
-		/// <summary>
-		/// Fills the arguments hashtable with ArgumentMetaData objects corresponsing to the arguments that this Page collects.
-		/// </summary>
-		protected abstract void BuildRecipeArguments();
+        /// <summary>
+        /// Fills the arguments hashtable with ArgumentMetaData objects corresponsing to the arguments that this Page collects.
+        /// </summary>
+#if DEBUG
+        protected virtual void BuildRecipeArguments() { throw new NotImplementedException("abstract method."); }
+#else
+        protected abstract void BuildRecipeArguments();
+#endif
 
-		#endregion
+#endregion
 
-		#region ISupportInitialize Members
+#region ISupportInitialize Members
 
-		/// <summary>
-		/// Begins component initialization
-		/// </summary>
-		public virtual void BeginInit()
+        /// <summary>
+        /// Begins component initialization
+        /// </summary>
+        public virtual void BeginInit()
 		{
 			initializing = true;
 		}
@@ -280,7 +287,7 @@ namespace Microsoft.Practices.WizardFramework
 			}
 		}
 
-		#endregion ISupportInitialize Members
+#endregion ISupportInitialize Members
 
 	}
 }

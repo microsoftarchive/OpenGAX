@@ -15,15 +15,10 @@
 
 using System;
 using System.Collections;
-using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Drawing;
 using System.Globalization;
-using System.Windows.Forms;
 
 using Microsoft.Practices.ComponentModel;
-//using Services = Microsoft.Practices.RecipeFramework.Services;
-//using Configuration = Microsoft.Practices.RecipeFramework.Configuration;
 using Microsoft.Practices.Common.Services;
 using System.Reflection;
 using Microsoft.Practices.Common;
@@ -72,7 +67,7 @@ namespace Microsoft.Practices.WizardFramework
     /// <seealso cref="IDictionaryService"/>
     /// <seealso cref="CustomWizardPage.RecipeArgumentAttribute"/>
 
-	[ServiceDependency(typeof(IValueInfoService))]
+    [ServiceDependency(typeof(IValueInfoService))]
 	[ServiceDependency(typeof(ITypeResolutionService))]
 	[ServiceDependency(typeof(IServiceProvider))]
 	public class CustomWizardPage : WizardPage

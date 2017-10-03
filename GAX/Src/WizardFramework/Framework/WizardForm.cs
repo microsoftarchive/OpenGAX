@@ -66,15 +66,17 @@ namespace Microsoft.Practices.WizardFramework
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WizardForm));
             this.SuspendLayout();
             // 
             // WizardForm
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.ClientSize = new System.Drawing.Size(878, 655);
+            this.MinimumSize = new System.Drawing.Size(900, 711);
             this.Name = "WizardForm";
-            this.HelpButton = !string.IsNullOrEmpty(this.wizardConfig.Help);
-			this.ResumeLayout(false);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.ResumeLayout(false);
+
         }
         #endregion
 
@@ -132,9 +134,10 @@ namespace Microsoft.Practices.WizardFramework
             this.basePath = basePath;
 			this.wizardConfig = wizardConfig;
 			gatheringResult = ExecutionResult.Cancel;
-			((ISupportInitialize)this).BeginInit();
-			// This call is required by the Windows Form Designer.
-			InitializeComponent();
+            ((ISupportInitialize)this).BeginInit();
+            this.HelpButton = !string.IsNullOrEmpty(this.wizardConfig.Help); // moved from InitializeComponent
+            // This call is required by the Windows Form Designer.
+            InitializeComponent();
 			((ISupportInitialize)this).EndInit();
 		}
 

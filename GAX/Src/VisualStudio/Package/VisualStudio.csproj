@@ -143,7 +143,6 @@
     <Reference Include="Microsoft.VisualStudio.Shell.Immutable.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.Shell.Immutable.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="Microsoft.VisualStudio.Shell.Interop.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.Shell.Interop.12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.Shell.Interop.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.Shell.Interop.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -326,10 +325,9 @@
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
     </ProjectReference>
     <ProjectReference Include="..\..\WizardFramework\Framework\WizardFramework.csproj">
-      <Project>{08901AA0-A0CF-458C-910A-A8C0981675AC}</Project>
-      <Name>WizardFramework (WizardFramework\WizardFramework)</Name>
-      <Private>True</Private>
-      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+      <Project>{08901aa0-a0cf-458c-910a-a8c0981675ac}</Project>
+      <Name>WizardFramework</Name>
+      <IncludeOutputGroupsInVSIX> BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
     </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{C3B9B008-DF10-4288-8414-00C3F3AA582E}</Project>

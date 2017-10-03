@@ -88,13 +88,6 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PackageManager));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items"), ((System.Int32)(resources.GetObject("lstRecipes.Items1"))));
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items2"), ((System.Int32)(resources.GetObject("lstRecipes.Items3"))));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items4"), ((System.Int32)(resources.GetObject("lstRecipes.Items5"))));
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items6"), ((System.Int32)(resources.GetObject("lstRecipes.Items7"))));
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items8"), ((System.Int32)(resources.GetObject("lstRecipes.Items9"))));
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items10"), ((System.Int32)(resources.GetObject("lstRecipes.Items11"))));
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items12"), ((System.Int32)(resources.GetObject("lstRecipes.Items13"))));
             this.imgImages = new System.Windows.Forms.ImageList(this.components);
             this.executeButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -102,11 +95,12 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
             this.PackagesButton = new System.Windows.Forms.Button();
             this.splitter = new System.Windows.Forms.SplitContainer();
             this.lstRecipes = new System.Windows.Forms.ListView();
-            this.Reference = new System.Windows.Forms.ColumnHeader(resources.GetString("lstRecipes.Columns"));
-            this.AppliesTo = new System.Windows.Forms.ColumnHeader(resources.GetString("lstRecipes.Columns1"));
-            this.Package = new System.Windows.Forms.ColumnHeader(resources.GetString("lstRecipes.Columns2"));
+            this.Reference = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.AppliesTo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Package = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.splitter)).BeginInit();
             this.splitter.Panel1.SuspendLayout();
             this.splitter.Panel2.SuspendLayout();
             this.splitter.SuspendLayout();
@@ -116,6 +110,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
             // imgImages
             // 
             this.imgImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgImages.ImageStream")));
+            this.imgImages.TransparentColor = System.Drawing.Color.Transparent;
             this.imgImages.Images.SetKeyName(0, "IBoundAssetReference.bmp");
             this.imgImages.Images.SetKeyName(1, "IUnboundAssetReference.bmp");
             this.imgImages.Images.SetKeyName(2, "ProjectItemReference.bmp");
@@ -152,7 +147,6 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
             // 
             resources.ApplyResources(this.splitter, "splitter");
             this.splitter.Name = "splitter";
-            this.splitter.TabStop = false;
             // 
             // splitter.Panel1
             // 
@@ -161,6 +155,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
             // splitter.Panel2
             // 
             this.splitter.Panel2.Controls.Add(this.groupBox4);
+            this.splitter.TabStop = false;
             // 
             // lstRecipes
             // 
@@ -171,23 +166,23 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
             this.Package});
             resources.ApplyResources(this.lstRecipes, "lstRecipes");
             this.lstRecipes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7});
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items"))),
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items1"))),
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items2"))),
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items3"))),
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items4"))),
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items5"))),
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items6")))});
             this.lstRecipes.MultiSelect = false;
             this.lstRecipes.Name = "lstRecipes";
             this.lstRecipes.SmallImageList = this.imgImages;
-            this.lstRecipes.Sorting = System.Windows.Forms.SortOrder.None;
+            this.lstRecipes.UseCompatibleStateImageBehavior = false;
             this.lstRecipes.View = System.Windows.Forms.View.Details;
             this.lstRecipes.SelectedIndexChanged += new System.EventHandler(this.lstRecipes_SelectedIndexChanged);
             this.lstRecipes.DoubleClick += new System.EventHandler(this.lstRecipes_DoubleClick);
             this.lstRecipes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstRecipes_KeyDown);
-			this.lstRecipes.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstRecipes_MouseDown);
-			// 
+            this.lstRecipes.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstRecipes_MouseDown);
+            // 
             // Reference
             // 
             resources.ApplyResources(this.Reference, "Reference");
@@ -215,7 +210,6 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ReadOnly = true;
-            this.txtDescription.TabStop = true;
             // 
             // PackageManager
             // 
@@ -235,6 +229,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
             this.ShowInTaskbar = false;
             this.splitter.Panel1.ResumeLayout(false);
             this.splitter.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitter)).EndInit();
             this.splitter.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);

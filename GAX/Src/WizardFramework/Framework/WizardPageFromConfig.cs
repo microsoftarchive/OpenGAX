@@ -100,11 +100,11 @@ namespace Microsoft.Practices.WizardFramework
 			InitializeComponent();
 		}
 
-		#endregion
+        #endregion
 
-		#region UI Building
+        #region UI Building
 
-		private ArgumentPanel CreateEditingPanel(Configuration.Field field)
+        private ArgumentPanel CreateEditingPanel(Configuration.Field field)
 		{
             IValueInfoService metaDataService =
                 (IValueInfoService)GetService(typeof(IValueInfoService));

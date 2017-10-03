@@ -22,7 +22,6 @@ using System.Security;
 using Microsoft.Win32;
 using System.Globalization;
 using System.ComponentModel.Design;
-using System.Runtime.Versioning;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 {
@@ -153,19 +152,8 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 				}
 			}
 
-            // Search for reference assemblies of the currently targeted .NET Framework verion.
-            // These are stored in "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v<version>".
-            var targetFramework = new FrameworkName(AppDomain.CurrentDomain.SetupInformation.TargetFrameworkName);
-            var referenceAssembliesBasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), @"Reference Assemblies\Microsoft\Framework\.NETFramework");
-            var referenceAssembliesPath = Path.Combine(referenceAssembliesBasePath, "v" + targetFramework.Version.ToString());
-            var referenceAssemblyPath = Path.Combine(referenceAssembliesPath, assemblyReference);
-            if (File.Exists(referenceAssemblyPath))
-            {
-                return referenceAssemblyPath;
-            }
-
-            // Will fail at template compilation time.
-            return assemblyReference;
+			// Will fail at template compilation time.
+			return assemblyReference;
 		}
 
 		/// <summary>
@@ -296,7 +284,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
         /// </summary>
         public object GetHostOption(string optionName)
         {
-            return null;
+            throw new Exception("The method or operation is not implemented.");
         }
 
         /// <summary>

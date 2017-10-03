@@ -408,6 +408,6 @@
     <value xml:space="preserve">PackageViewer</value>
   </data>
   <data name="&gt;&gt;$this.Type">
-    <value xml:space="preserve">Microsoft.Practices.RecipeFramework.PackageManagement.ManagerForm, Microsoft.Practices.RecipeFramework.PackageManagement, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
+    <value xml:space="preserve">Microsoft.Practices.RecipeFramework.PackageManagement.ManagerForm, Microsoft.Practices.RecipeFramework.PackageManagement, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

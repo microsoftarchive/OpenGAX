@@ -14,23 +14,17 @@
 #region Using directives
 
 using System;
-using System.Collections;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Globalization;
-using System.Drawing;
 using System.Drawing.Design;
-using System.Data;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
-using System.Diagnostics;
 using Microsoft.Practices.ComponentModel;
 
 #endregion
 
 namespace Microsoft.Practices.WizardFramework
 {
-	[ServiceDependency(typeof(IWindowsFormsEditorService))]
+    [ServiceDependency(typeof(IWindowsFormsEditorService))]
 	internal class DefaultValueEditor : UITypeEditor
 	{
 		PropertyGrid propertyGrid;

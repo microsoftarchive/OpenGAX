@@ -14,16 +14,13 @@
 #region using
 
 using System;
-using System.Text;
 using System.Collections;
 using System.Globalization;
 using Microsoft.Practices.Common;
 using Microsoft.Practices.ComponentModel;
 using Microsoft.Practices.RecipeFramework.Services;
-using Microsoft.Practices.RecipeFramework.VisualStudio.Services;
 using Microsoft.Practices.WizardFramework.Configuration;
 using Config = Microsoft.Practices.RecipeFramework.Configuration;
-using Microsoft.Practices.WizardFramework;
 using System.Xml;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Templates;
 using System.IO;
@@ -31,7 +28,6 @@ using EnvDTE;
 using EnvDTE80;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Microsoft.Win32;
 using System.Windows.Forms.Design;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Library.Converters;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Common;
@@ -40,11 +36,11 @@ using Microsoft.Practices.RecipeFramework.VisualStudio.Common;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.Services
 {
-	/// <summary>
+    /// <summary>
     /// Class in charge of collecting the broken references
     /// and to show a wizard with the dangling references
     /// </summary>
-	[System.ComponentModel.DesignerCategory("Code")]
+    [System.ComponentModel.DesignerCategory("Code")]
 	[ServiceDependency(typeof(IRecipeManagerService))]
 	[ServiceDependency(typeof(DTE))]
 	[ServiceDependency(typeof(IHostService))]
@@ -658,7 +654,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Services
 
 namespace DummyDTE
 {
-	internal class EmptyDteElement : EnvDTE.Solution, EnvDTE.ProjectItem, EnvDTE.Project, EnvDTE80.SolutionFolder
+    internal class EmptyDteElement : EnvDTE.Solution, EnvDTE.ProjectItem, EnvDTE.Project, EnvDTE80.SolutionFolder
 	{
 		#region _Solution Members
 

@@ -112,6 +112,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 						File.Delete(satelliteDllFileName);
 					}
 					File.Copy(gatSatelliteDllFileName, satelliteDllFileName);
+                    File.SetAttributes(satelliteDllFileName, FileAttributes.Normal);
 					IntPtr hUpdate = NativeMethods.BeginUpdateResource(satelliteDllFileName, 1);
 					try
 					{
@@ -189,7 +190,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 				tempCTCEXE += ".exe";
 
 				using (Stream ctcExeStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(
-					ReflectionHelper.GetAssemblyName(Assembly.GetExecutingAssembly()) + ".CTC.ctc.exe"))
+					ReflectionHelper.GetAssemblyName(Assembly.GetExecutingAssembly()) + ".CTC.CTC.exe"))
 				{
 					using (FileStream ctcExeFile = new FileStream(tempCTCEXE, FileMode.OpenOrCreate))
 					{

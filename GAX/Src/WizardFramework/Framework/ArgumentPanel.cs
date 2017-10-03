@@ -1,9 +1,6 @@
 #region Using directives
 
 using System;
-using System.Drawing;
-using System.Collections;
-using System.Globalization;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.ComponentModel.Design;
@@ -17,10 +14,10 @@ using System.Windows.Forms.Design;
 
 namespace Microsoft.Practices.WizardFramework
 {
-	/// <summary>
-	/// An ArgumentPanel is a UI artifact that collects the value of a RecipeArgument.
-	/// </summary>
-	[ServiceDependency(typeof(IServiceProvider))]
+    /// <summary>
+    /// An ArgumentPanel is a UI artifact that collects the value of a RecipeArgument.
+    /// </summary>
+    [ServiceDependency(typeof(IServiceProvider))]
 	[ServiceDependency(typeof(IDictionaryService))]
 	[ServiceDependency(typeof(ITypeResolutionService))]
     [ServiceDependency(typeof(IValueInfoService))]

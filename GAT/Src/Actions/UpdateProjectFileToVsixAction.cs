@@ -71,7 +71,7 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 
 			// Add imports
 			Trace.TraceInformation("\tAdding VS SDK targets...");
-			AddImport(project, @"$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets");
+			AddImport(project, @"$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\VSSDK\Microsoft.VsSDK.targets");
 			Trace.TraceInformation("\tAdding GAX targets...");
 			AddImport(project, @"$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.Build.targets");
 			

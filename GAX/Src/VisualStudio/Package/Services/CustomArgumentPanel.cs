@@ -1,23 +1,17 @@
 using System;
-using System.Collections;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
-using System.ComponentModel.Design;
-using System.Windows.Forms.Design;
 using System.Globalization;
 using Microsoft.Practices.ComponentModel;
 using Microsoft.Practices.Common.Services;
-using System.Drawing.Design;
 using Microsoft.Practices.WizardFramework;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.Services
 {
-	/// <summary>
-	/// Summary description for CustomArgumentPanel
-	/// </summary>
-	[DesignerCategory("Form")]
+    /// <summary>
+    /// Summary description for CustomArgumentPanel
+    /// </summary>
+    [DesignerCategory("Form")]
 	[ServiceDependency(typeof(IValueInfoService))]
 	public class CustomArgumentPanel : ArgumentPanelTypeEditor, ISupportInitialize
     {

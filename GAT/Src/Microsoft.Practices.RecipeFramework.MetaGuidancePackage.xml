@@ -165,25 +165,25 @@
 					Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.IncludeContentInVsixAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
 					<Input Name="Project" RecipeArgument="PackageProject" />
 				</Action>
-        <Action
-					Name="UpdateWizardExtensionAssemblyVersionFrom12To20"
-					Path=".vstemplate"
-					OldText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-					NewText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
-					Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.ReplaceFileContentAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
-          <Input Name="Project" RecipeArgument="PackageProject" />
-        </Action>
-        <Action
-					Name="UpdateWizardExtensionAssemblyVersionFrom14To20"
-					Path=".vstemplate"
-					OldText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-					NewText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
-					Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.ReplaceFileContentAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
-          <Input Name="Project" RecipeArgument="PackageProject" />
-        </Action>
-        <Action
-					Name="AddVsixManifest"
-					Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.AddVsixManifestAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
+				<Action
+							Name="UpdateWizardExtensionAssemblyVersionFrom12To20"
+							Path=".vstemplate"
+							OldText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+							NewText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null"
+							Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.ReplaceFileContentAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
+					<Input Name="Project" RecipeArgument="PackageProject" />
+				</Action>
+				<Action
+							Name="UpdateWizardExtensionAssemblyVersionFrom14To20"
+							Path=".vstemplate"
+							OldText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+							NewText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null"
+							Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.ReplaceFileContentAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
+					<Input Name="Project" RecipeArgument="PackageProject" />
+				</Action>
+				<Action
+							Name="AddVsixManifest"
+							Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.AddVsixManifestAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
 					<Input Name="PackageProject" RecipeArgument="PackageProject" />
 				</Action>
 				<Action

@@ -163,8 +163,10 @@
     <None Include="Actions\VsixManifestTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>VsixManifestTemplate.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="source.extension.vsixmanifest" />
+    <None Include="readme.txt" />
     <Content Include="Templates\Solutions\Projects\GP\CustomWizardPages\CustomWizPage1.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
