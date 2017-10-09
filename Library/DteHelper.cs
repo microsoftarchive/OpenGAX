@@ -568,8 +568,8 @@ namespace Microsoft.Practices.RecipeFramework.Library
 			if (project != null && project.Kind == VsWebSite.PrjKind.prjKindVenusProject)
 			{
 				string simpleName = Path.GetDirectoryName(item.Name);
-				simpleName = simpleName.Substring(simpleName.LastIndexOf(Path.DirectorySeparatorChar) + 1);
-				if (name == simpleName)
+				string str = simpleName.Substring(simpleName.LastIndexOf(Path.DirectorySeparatorChar) + 1);
+				if (name == str)
 				{
 					return true;
 				}
@@ -848,11 +848,9 @@ namespace Microsoft.Practices.RecipeFramework.Library
 			GetAndSelectSolutionExplorerHierarchy(vs, out hier, out sol);
 
 			Dictionary<UIHierarchyItems, bool> expandedItems = new Dictionary<UIHierarchyItems, bool>();
-
-			UIHierarchyItem locatedItem = LocateInUICollection(sol.UIHierarchyItems, target, expandedItems);
 			RestoreExpandedItems(expandedItems);
 
-			return locatedItem;
+            return LocateInUICollection(sol.UIHierarchyItems, target, expandedItems);
 		}
 
 		private static void RestoreExpandedItems(Dictionary<UIHierarchyItems, bool> expandedItems)
@@ -980,21 +978,18 @@ namespace Microsoft.Practices.RecipeFramework.Library
 		{
 			Guard.ArgumentNotNull(provider, "provider");
 
-			IVsMonitorSelection pSelection =
-				(IVsMonitorSelection)provider.GetService(typeof(SVsShellMonitorSelection));
-			IntPtr ptrHierchary = IntPtr.Zero;
+            IntPtr ptrHierchary = IntPtr.Zero;
 			IVsMultiItemSelect ppMIS = null;
 			IntPtr ppSC = IntPtr.Zero;
-			pSelection.GetCurrentSelection(out ptrHierchary, out pitemid, out ppMIS, out ppSC);
+			((IVsMonitorSelection)provider.GetService(typeof(SVsShellMonitorSelection))).GetCurrentSelection(out ptrHierchary, out pitemid, out ppMIS, out ppSC);
 			if (ptrHierchary != IntPtr.Zero)
 			{
 				return (IVsHierarchy)Marshal.GetObjectForIUnknown(ptrHierchary);
 			}
 			else // There is not selection, so let's return the solution
 			{
-				IVsHierarchy solution = (IVsHierarchy)provider.GetService(typeof(SVsSolution));
 				pitemid = __VSITEMID.ROOT;
-				return solution;
+				return (IVsHierarchy)provider.GetService(typeof(SVsSolution));
 			}
 		}
 

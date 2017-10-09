@@ -11,7 +11,7 @@
 		<RootNamespace>$PackageNamespace$</RootNamespace>
 		<AssemblyName>$PackageName$</AssemblyName>
 		<WarningLevel>4</WarningLevel>
-		<TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+		<TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
 		<GeneratePkgDefFile>false</GeneratePkgDefFile>
 		<IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
 		<IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
@@ -311,7 +311,7 @@
 		</EmbeddedResource>
 	</ItemGroup>
 	<Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
-	<Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" />
+	<Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v15.0\VSSDK\Microsoft.VsSDK.targets" />
 	<Import Project="$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.Build.targets"/>
 	<PropertyGroup>
 		<StartProgram>$(DevEnvDir)\devenv.exe</StartProgram>

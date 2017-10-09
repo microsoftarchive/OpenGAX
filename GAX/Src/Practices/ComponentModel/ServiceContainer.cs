@@ -107,8 +107,8 @@ namespace Microsoft.Practices.ComponentModel
 			// Dispose services that are disposable.
 			foreach (object svc in services.Values)
 			{
-				// Don't dispose ourselves again.
                 IDisposable disposable = svc as IDisposable;
+				// Don't dispose ourselves again.
                 if (disposable != null && disposable != this)
 				{
                     disposable.Dispose();
@@ -275,9 +275,8 @@ namespace Microsoft.Practices.ComponentModel
 
 			if (serviceInstance != null && serviceInstance is ServiceCreatorCallback)
 			{
-				ServiceCreatorCallback cbk = (ServiceCreatorCallback)serviceInstance;
+                serviceInstance = ((ServiceCreatorCallback)serviceInstance)(this, service);
 				// Create the instance through the callback.
-				serviceInstance = cbk(this, service);
 
 				if (IsInvalidInstance(service, serviceInstance))
 				{

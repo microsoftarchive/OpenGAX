@@ -192,7 +192,6 @@ namespace Microsoft.Practices.RecipeFramework
                 }
                 catch
                 {
-                    IPersistenceService persistanceService = package.GetService<IPersistenceService>(true);
                     // Notify host that we're disabling.
                     if (DisablingPackage != null)
                     {
@@ -204,7 +203,7 @@ namespace Microsoft.Practices.RecipeFramework
                     {
                         DisabledPackage(this, new PackageEventArgs(package));
                     }
-                    persistanceService.ClearState(package.Configuration.Name);
+                    package.GetService<IPersistenceService>(true).ClearState(package.Configuration.Name);
                     throw;
                 }
             }
@@ -354,7 +353,7 @@ namespace Microsoft.Practices.RecipeFramework
 
 		private IVsExtensionManager GetExtensionManager()
 		{
-			return (IVsExtensionManager)this.GetService(typeof(SVsExtensionManager));
+            return (IVsExtensionManager)this.GetService(typeof(SVsExtensionManager));
 		}
 
         /// <summary>
@@ -587,10 +586,8 @@ namespace Microsoft.Practices.RecipeFramework
 				throw new ArgumentNullException("serviceProvider");
 			}
 
-			var extensionManager = serviceProvider.GetService(typeof(SVsExtensionManager)) as IVsExtensionManager;
-
-			var package = extensionManager
-				.GetGuidancePackages()
+			var package = (serviceProvider.GetService(typeof(SVsExtensionManager)) as IVsExtensionManager)
+                .GetGuidancePackages()
 				.Select(extension => extension.AsGuidancePackage())
 				.FirstOrDefault(p => p.Name == packageName);
 
@@ -665,14 +662,14 @@ namespace Microsoft.Practices.RecipeFramework
 
         private static XmlReader ResolveXInclude(string configfile)
         {
-            MemoryStream mem = new MemoryStream();
             XIncludingReader xir = new XIncludingReader(configfile);
+            MemoryStream mem = new MemoryStream();
             XmlWriter writer = XmlWriter.Create(mem);
             writer.WriteNode(xir, false);
             writer.Flush();
 
             mem.Position = 0;
-            XmlReaderSettings settings = new XmlReaderSettings();
+            new XmlReaderSettings();
             return new FixedBaseURIWrappingReader(XmlReader.Create(mem), configfile);
         }
 
@@ -681,12 +678,11 @@ namespace Microsoft.Practices.RecipeFramework
         private static void CheckPackageSecurity(string package, string location)
         {
             // Ensures that the package location is included in the MyComputer trusted zone.
-            ZoneMembershipCondition condition = new ZoneMembershipCondition(SecurityZone.MyComputer);
             Evidence ev = new Evidence();
             Zone zone = Zone.CreateFromUrl(location);
             ev.AddHost(zone);
 
-            if (!condition.Check(ev))
+            if (!new ZoneMembershipCondition(SecurityZone.MyComputer).Check(ev))
             {
                 throw new SecurityException(String.Format(
                     System.Globalization.CultureInfo.CurrentCulture,
@@ -723,7 +719,7 @@ namespace Microsoft.Practices.RecipeFramework
                 return regRoot.Split('\\')[0];
             }
 
-            return "14.0_Config";
+            return "15.0_" + VisualStudioInstance.GetCurrentInstance + "_Config";
         }
 
         /// <summary>

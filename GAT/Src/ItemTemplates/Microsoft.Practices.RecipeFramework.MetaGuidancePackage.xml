@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GuidancePackage xmlns="http://schemas.microsoft.com/pag/gax-core"
+								 xmlns:xi="http://www.w3.org/2001/XInclude"
+								 Caption="Guidance Package Development"
+								 Guid="23FC29C9-FAFE-47f1-B633-B548E788DDDF"
+								 TraceLevel="Info"
+								 Name="MetaGuidancePackage"
+								 SortPriority="200"
+								 BindingRecipe="BindRegistrationRecipes"
+								 SchemaVersion="1.0">
+	<Overview Url="Templates\Overview\intro.htm"/>
+	<Recipes>
+		<Recipe Name="BindRegistrationRecipes">
+			<Caption>Package binding recipe.</Caption>
+			<Description>Creates unbound references for package registration recipes.</Description>
+			<Actions>
+				<Action Name="ConvertToGuidancePackageVsixReference"
+						Type="Microsoft.Practices.RecipeFramework.Library.Actions.CreateUnboundReferenceAction, Microsoft.Practices.RecipeFramework.Library"
+						AssetName="ConvertToGuidancePackageVsix"
+						ReferenceType="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.References.UnboundNonVsixPackageReference, Microsoft.Practices.RecipeFramework.MetaGuidancePackage" />
+				<Action Name="SetItemsBuildPropertiesBinding"
+						Type="Microsoft.Practices.RecipeFramework.Library.Actions.CreateUnboundReferenceAction, Microsoft.Practices.RecipeFramework.Library"
+						AssetName="SetItemsBuildProperties"
+						ReferenceType="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.References.ProjectFolderReference, Microsoft.Practices.RecipeFramework.MetaGuidancePackage"
+						FolderName="Templates"          />
+			</Actions>
+		</Recipe>
+		<Recipe Name="CreateGuidancePackage">
+			<Types>
+				<TypeAlias Name="ExpressionEvaluatorValueProvider"
+          Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.ExpressionEvaluatorValueProvider,Microsoft.Practices.RecipeFramework.Library"/>
+				<TypeAlias Name="DefaultAuthorValueProvider"
+          Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.DefaultAuthorValueProvider,Microsoft.Practices.RecipeFramework.Library"/>
+			</Types>
+			<Caption>Create New Guidance Package</Caption>
+			<Description>Creates a new Guidance Package</Description>
+			<Arguments>
+				<Argument Name="PackageName">
+					<Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.RegexMatchStringConverter, Microsoft.Practices.RecipeFramework.Library"
+												   Expression="[a-zA-Z][a-zA-Z_0-9]*(\.[a-zA-Z][a-zA-Z_0-9]*)*"/>
+					<ValueProvider Type="ExpressionEvaluatorValueProvider" Expression="$(safeprojectname)"/>
+				</Argument>
+				<Argument Name="PackageCaption">
+					<ValueProvider Type="ExpressionEvaluatorValueProvider" Expression="$(safeprojectname)"/>
+				</Argument>
+				<Argument Name="PackageNamespace">
+					<Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.NamespaceStringConverter, Microsoft.Practices.RecipeFramework.Library"/>
+				</Argument>
+				<Argument Name="PackageDescription" />
+				<Argument Name="PackageProject" Type="EnvDTE.Project, EnvDTE">
+					<Converter Type="Microsoft.Practices.RecipeFramework.Library.Converters.ProjectConverter, Microsoft.Practices.RecipeFramework.Library" />
+					<ValueProvider Type="ExpressionEvaluatorValueProvider" Expression="$(PackageName)" Stage="OnBeforeActions" />
+				</Argument>
+				<Argument Name="Author" Type="System.String">
+					<ValueProvider Type="DefaultAuthorValueProvider" />
+				</Argument>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page>
+							<Title>New Guidance Package</Title>
+							<Fields>
+								<Field ValueName="PackageName" Label="Package Name" />
+								<Field ValueName="PackageCaption" Label="Package Caption" />
+								<Field ValueName="PackageDescription" Label="Package Description" />
+								<Field ValueName="PackageNamespace" Label="Package Namespace" />
+								<Field ValueName="Author" Label="Author"/>
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+		</Recipe>
+		<Recipe Name="CreateNewAction">
+			<Types>
+				<TypeAlias Name="ExpressionEvaluatorValueProvider"
+          Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.ExpressionEvaluatorValueProvider, Microsoft.Practices.RecipeFramework.Library"/>
+			</Types>
+			<Caption>Create New Action</Caption>
+			<Description>Creates a new action class</Description>
+			<Arguments>
+				<Argument Name="ActionName" Type ="System.String">
+					<ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.Templates.ValueProviders.ItemNameProvider, Microsoft.Practices.RecipeFramework.Library" />
+				</Argument>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page>
+							<Title>New Action</Title>
+							<Fields>
+								<Field ValueName="ActionName" Label="What is the name of the Action?" />
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+		</Recipe>
+		<Recipe Name="AddActionParameter">
+			<Caption>Add new action parameter</Caption>
+			<Description>Adds a new parameter in the selected Action class</Description>
+			<HostData>
+				<Icon ID="296"/>
+				<CommandBar Name="Item"/>
+			</HostData>
+			<Arguments>
+				<Argument Name="ParameterName" Type ="System.String"/>
+				<Argument Name="ParameterIsOutput" Type ="System.Boolean"/>
+				<Argument Name="ParameterType" Type ="System.String"/>
+			</Arguments>
+			<GatheringServiceData>
+				<Wizard xmlns="http://schemas.microsoft.com/pag/gax-wizards" SchemaVersion="1.0">
+					<Pages>
+						<Page>
+							<Title>New Action Parameter</Title>
+							<Fields>
+								<Field ValueName="ParameterName" Label="What is the name of the Parameter?" />
+								<Field ValueName="ParameterType" Label="What is the type of the Parameter?" />
+								<Field ValueName="ParameterIsOutput" Label="Is the parameter an output parameter?" />
+							</Fields>
+						</Page>
+					</Pages>
+				</Wizard>
+			</GatheringServiceData>
+			<Actions>
+				<Action Name="AddActionParameter" Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.AddActionParameter, Microsoft.Practices.RecipeFramework.MetaGuidancePackage" >
+					<Input Name="ParameterName" RecipeArgument="ParameterName"/>
+					<Input Name="ParameterType" RecipeArgument="ParameterType"/>
+					<Input Name="ParameterIsOutput" RecipeArgument="ParameterIsOutput"/>
+				</Action>
+			</Actions>
+		</Recipe>
+		<Recipe Name="SetItemsBuildProperties" Bound="false">
+			<Caption>Set Content Files Build Properties</Caption>
+			<Description>Set Build Properties of all sub items inside the folder Templates to "Copy if newer" and "Content"</Description>
+			<HostData>
+				<Icon ID="301"/>
+				<CommandBar Name="Folder"/>
+			</HostData>
+			<Actions>
+				<Action Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.SetItemsBuildProperties, Microsoft.Practices.RecipeFramework.MetaGuidancePackage"
+                Name="SetItemsBuildProperties"/>
+			</Actions>
+		</Recipe>
+		<Recipe Name="ConvertToGuidancePackageVsix" Bound="false">
+			<Caption>Update Guidance Package to VSIX</Caption>
+			<Description>Updates the Guidance Package to VSIX</Description>
+			<HostData>
+				<Icon ID="9566"/>
+				<CommandBar Name="Project" />
+			</HostData>
+			<Arguments>
+				<Argument Name="PackageProject" Type="EnvDTE.Project, EnvDTE">
+					<ValueProvider Type="Microsoft.Practices.RecipeFramework.Library.ValueProviders.FirstSelectedProject, Microsoft.Practices.RecipeFramework.Library" />
+				</Argument>
+			</Arguments>
+			<Actions>
+				<Action
+					Name="ActivateOutputWindow"
+					Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.ActivateOutputWindowAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
+				</Action>
+				<Action
+					Name="IncludeContentFilesInVsix"
+					Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.IncludeContentInVsixAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
+					<Input Name="Project" RecipeArgument="PackageProject" />
+				</Action>
+        <Action
+					Name="UpdateWizardExtensionAssemblyVersionFrom12To20"
+					Path=".vstemplate"
+					OldText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+					NewText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+					Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.ReplaceFileContentAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
+          <Input Name="Project" RecipeArgument="PackageProject" />
+        </Action>
+        <Action
+					Name="UpdateWizardExtensionAssemblyVersionFrom14To20"
+					Path=".vstemplate"
+					OldText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+					NewText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+					Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.ReplaceFileContentAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
+          <Input Name="Project" RecipeArgument="PackageProject" />
+        </Action>
+        <Action
+					Name="AddVsixManifest"
+					Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.AddVsixManifestAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
+					<Input Name="PackageProject" RecipeArgument="PackageProject" />
+				</Action>
+				<Action
+					Name="UpdateProjectFileToVsix"
+					Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.UpdateProjectFileToVsixAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
+					<Input Name="PackageProject" RecipeArgument="PackageProject" />
+				</Action>
+			</Actions>
+		</Recipe>
+	</Recipes>
+</GuidancePackage>
