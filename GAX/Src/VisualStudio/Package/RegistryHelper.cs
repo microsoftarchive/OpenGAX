@@ -90,6 +90,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
 
 		internal static RegistryKey GetCurrentVsRegistryKey(bool writeable)
 		{
+            //System.Windows.Forms.MessageBox.Show("GetCurrentVsRegistryKey:Process Id:" + System.Diagnostics.Process.GetCurrentProcess().Id.ToString());
 			IGaxLocalRegistry localRegistry = Package.GetGlobalService(typeof(SLocalRegistry)) as IGaxLocalRegistry;
 
 			if (localRegistry != null)
@@ -111,7 +112,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
 			}
 			else
 			{
-				return Registry.LocalMachine.OpenSubKey(GetCurrentVsRootHive());
+				return Registry.CurrentUser.OpenSubKey(GetCurrentVsRootHive());
 			}
 
 			return null;

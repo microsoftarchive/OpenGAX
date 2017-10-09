@@ -220,6 +220,16 @@ namespace Microsoft.Practices.Common.Services
                     // See http://blogs.msdn.com/suzcook/archive/2003/05/29/57143.aspx
                     asm = Assembly.LoadFrom(asmpath);
                 }
+                if (asm == null)
+                {
+                    try
+                    {
+                        asm = Assembly.LoadWithPartialName(name.Name);
+                    }
+                    catch (BadImageFormatException)
+                    {
+                    }
+                }
             }
 
             if (asm == null && parentService != null)

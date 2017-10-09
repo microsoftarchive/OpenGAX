@@ -156,6 +156,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="TestTemplates\TextTemplate\AddsPropertyForDynamicValues.ipe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

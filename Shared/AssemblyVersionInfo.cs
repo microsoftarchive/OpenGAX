@@ -1,3 +1,4 @@
+
 //===================================================================================
 // Microsoft patterns & practices
 // Guidance Automation Extensions

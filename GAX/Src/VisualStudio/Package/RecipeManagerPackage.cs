@@ -391,19 +391,19 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
                 isOpeningSolution = true;
             }
 
-            if (guidanceNavigatorManager == null)
-            {
-                guidanceNavigatorManager = new GuidanceNavigatorManager(this as System.IServiceProvider);
-            }
+            //if (guidanceNavigatorManager == null)
+            //{
+            //    guidanceNavigatorManager = new GuidanceNavigatorManager(this as System.IServiceProvider);
+            //}
 
-            IRecipeManagerService rms = (IRecipeManagerService)GetService(typeof(IRecipeManagerService));
-            rms.EnabledPackage += new PackageEventHandler(OnEnabledPackage);
+            //IRecipeManagerService rms = (IRecipeManagerService)GetService(typeof(IRecipeManagerService));
+            //rms.EnabledPackage += new PackageEventHandler(OnEnabledPackage);
 
             IVsSolutionEvents hostService =
                 (IVsSolutionEvents)GetService(typeof(IHostService));
             int result = hostService.OnAfterOpenSolution(pUnkReserved, fNewSolution);
 
-            isOpeningSolution = false;
+            //isOpeningSolution = false;
             return result;
         }
 

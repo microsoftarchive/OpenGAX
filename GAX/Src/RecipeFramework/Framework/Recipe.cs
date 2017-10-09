@@ -148,8 +148,8 @@ namespace Microsoft.Practices.RecipeFramework
 			try
 			{
 				CallProviders(providers, readonlyargs, arguments, true);
-
-				IConfigurationService configservice = GetService<IConfigurationService>(true);
+                ThrowIfValueTypeArgumentIsOptionalNotNullable();
+                IConfigurationService configservice = GetService<IConfigurationService>(true);
 				object wizardconfig = configservice.CurrentGatheringServiceData;
 
 				// Check if we have null values.
@@ -444,9 +444,8 @@ namespace Microsoft.Practices.RecipeFramework
 
 		private T GetInstance<T>(ITypeResolutionService resolution, string concreteType)
 		{
-			Type instanceType = resolution.GetType(concreteType, true);
-			ReflectionHelper.EnsureAssignableTo(instanceType, typeof(T));
-			return (T)Activator.CreateInstance(instanceType);
+			ReflectionHelper.EnsureAssignableTo(resolution.GetType(concreteType, true), typeof(T));
+			return (T)Activator.CreateInstance(resolution.GetType(concreteType, true));
 		}
 
 		private bool HasActions()
@@ -694,7 +693,7 @@ namespace Microsoft.Practices.RecipeFramework
 				return;
 			}
 
-			IValueInfoService infoSvc = GetService<IValueInfoService>(true);
+			GetService<IValueInfoService>(true);
 			ArrayList missingReqArgs = new ArrayList(Configuration.Arguments.Length);
 			foreach (Config.Argument arg in Configuration.Arguments)
 			{
