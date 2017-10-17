@@ -29,9 +29,9 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library
 	/// <summary>
 	/// Provides utility methods for working with the DTE.
 	/// </summary>
-	internal sealed class DteHelper
+	public class DteHelper
 	{
-		private DteHelper() { }
+		protected DteHelper() { }
 
 		#region BuildPath
 
@@ -839,7 +839,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library
 		/// <remarks>
 		/// If selection fails, returned object will be null too.
 		/// </remarks>
-		public static UIHierarchyItem SelectItem(_DTE vs, object target)
+		internal static UIHierarchyItem SelectItem(_DTE vs, object target)
 		{
 			Guard.ArgumentNotNull(vs, "vs");
 			Guard.ArgumentNotNull(target, "target");
