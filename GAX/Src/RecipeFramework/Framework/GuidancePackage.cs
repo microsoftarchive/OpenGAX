@@ -19,11 +19,8 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
-using System.Text;
 using System.Xml;
 using System.Xml.Schema;
-using System.Windows.Forms.Design;
 
 using Microsoft.Practices.ComponentModel;
 using Microsoft.Practices.Common;

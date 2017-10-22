@@ -14,8 +14,6 @@
 #region Using directives
 
 using System;
-using System.Collections;
-using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing;
 using System.Globalization;
@@ -26,7 +24,6 @@ using Microsoft.Practices.Common.Services;
 using System.Drawing.Design;
 using Microsoft.Practices.Common;
 using System.Xml;
-using System.Threading;
 using System.Windows.Forms.Design;
 //using Services = Microsoft.Practices.RecipeFramework.Services;
 //using Configuration = Microsoft.Practices.RecipeFramework.Configuration;
@@ -35,7 +32,7 @@ using System.Windows.Forms.Design;
 
 namespace Microsoft.Practices.WizardFramework
 {
-    [ServiceDependency(typeof(IValueInfoService))]
+	[ServiceDependency(typeof(IValueInfoService))]
 	[ServiceDependency(typeof(ITypeResolutionService))]
 	[ServiceDependency(typeof(IServiceProvider))]
 	internal class WizardPageFromConfig : WizardPage

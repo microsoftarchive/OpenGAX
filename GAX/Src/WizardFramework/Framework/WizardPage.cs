@@ -60,15 +60,22 @@ namespace Microsoft.Practices.WizardFramework
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // WizardPage
-            // 
-            this.Name = "WizardPage";
-            this.Size = new System.Drawing.Size(505, 304);
-            this.InfoRTBoxSize = new System.Drawing.Size(496, 60);
-            this.Skippable = true;
-            this.ResumeLayout(false);
+			this.SuspendLayout();
+			// 
+			// infoPanel
+			// 
+			this.infoPanel.Size = new System.Drawing.Size(505, 459);
+			// 
+			// WizardPage
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.InfoRTBoxSize = new System.Drawing.Size(496, 60);
+			this.Name = "WizardPage";
+			this.Size = new System.Drawing.Size(505, 459);
+			this.Skippable = true;
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
         }
 
         #endregion

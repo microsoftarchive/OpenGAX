@@ -2,12 +2,10 @@
 
 using System;
 using System.IO;
-using System.Text;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using Mvp.Xml.XInclude;
-using System.Globalization;
 using Microsoft.Practices.RecipeFramework.Configuration.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Practices.WizardFramework.Configuration;
