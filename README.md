@@ -63,7 +63,7 @@ If your guidance package is referencing assemblies that were previously built ag
 
 ### Update Public Key References
 
-All references to the Microsoft public key token ‚Äú31bf3856ad364e35‚Äù must be updated to point to ‚Äúnull‚Äù or a new public key token if you are signing the assemblies. One place where you will find this is in .vstemplate files containing a Wizard Extension because these reference a GAX 2010 assembly using its strong name, for example:
+All references to the Microsoft public key token ‚Ä?1bf3856ad364e35‚Ä?must be updated to point to ‚Äúnull‚Ä?or a new public key token if you are signing the assemblies. One place where you will find this is in .vstemplate files containing a Wizard Extension because these reference a GAX 2010 assembly using its strong name, for example:
 
 ```
 <WizardExtension>
@@ -86,3 +86,17 @@ This can simply be replaced by the following:
 In the VSIX manifest file, you must update the reference to GAX from the previous VSIX ID (`Microsoft.Practices.RecipeFramework.VisualStudio` for GAX and `Microsoft.Practices.RecipeFramework.MetaGuidancePackage` for GAT) to the new open source ID.
 
 See the table above for the correct ID depending on the version of Visual Studio you are targeting.
+
+### T4 Reference
+The syntax: <#@ assembly name="[assembly strong name|assembly file path]" #> 
+
+Auto included assembly:
+Microsoft.VisualStudio.TextTemplating.1*.dll
+System.dll
+WindowsBase.dll
+
+Senerio:
+1. Runtime templating: by MS definition, means the preprocessed template, this directive has no effect, use project references.
+2. Design time templating
+The list of assemblies seen by the template is separate from the list of References in the application project.
+3. Runtime templating but no preprocessed, same as 2, regardless of appdomain

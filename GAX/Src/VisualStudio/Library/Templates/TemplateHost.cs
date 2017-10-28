@@ -16,15 +16,23 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.VisualStudio.TextTemplating;
-using System.Runtime.Remoting;
-using System.Security.Policy;
-using System.Security;
-using Microsoft.Win32;
 using System.Globalization;
-using System.ComponentModel.Design;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 {
+	/* 
+	 simple assembly reference in t4 not working.
+	 work around: 1. delegate to a host by MS.
+	 2. use type.Assembly.Location
+	 3. use full path or full name when authoring t4.
+
+	assembly Microsoft.VisualStudio.TextTemplating.VSHost.14.0
+	namespace: Microsoft.VisualStudio.TextTemplating.VSHost
+	internal sealed class TextTemplatingService : MarshalByRefObject, STextTemplating, 
+	IDebugTextTemplating, ITextTemplating, ITextTemplatingComponents, ITextTemplatingSessionHost, 
+	ITextTemplatingEngineHost, ITextTemplatingOrchestrator, IServiceProvider, IServiceProvider, IDisposable
+	*/
+
 	/// <summary>
 	/// Provides Arguments-PropertyData pairs for the <see cref="PropertiesDirectiveProcessor"/>. 
 	/// Resolves the physical path for a logical filename passed in as argument. 
@@ -92,6 +100,8 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 			get { return this.errors; }
 		}
 
+		public ITextTemplatingEngineHost SysHost { get; set; }
+
 		#endregion
 
 		#region ITextTemplatingEngineHost Members
@@ -152,6 +162,9 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 				}
 			}
 
+			if (SysHost != null)			
+				return SysHost.ResolveAssemblyReference(assemblyReference);
+
 			// Will fail at template compilation time.
 			return assemblyReference;
 		}
@@ -161,7 +174,9 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 		/// </summary>
 		public IList<string> StandardAssemblyReferences
 		{
-			get { return null; }
+			get { return new string[] {
+				typeof(System.Uri).Assembly.Location
+			}; }
 		}
 
 		/// <summary>
@@ -169,7 +184,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 		/// </summary>
 		public IList<string> StandardImports
 		{
-			get { return null; }
+			get { return new string[] { "System" }; }
 		}
 
         private string templateFileName;
@@ -230,6 +245,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 		/// </summary>
 		public AppDomain ProvideTemplatingAppDomain(string content)
 		{
+			// currently using AppDomain.CreateDomain("Generator AppDomain") produces some errors.
 			return AppDomain.CurrentDomain;
 		}
 

@@ -17,7 +17,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using System.ComponentModel;
 using System.Globalization;
 using Microsoft.VisualStudio.TextTemplating;
 using Microsoft.Practices.Common.Services;
@@ -26,15 +25,16 @@ using System.ComponentModel.Design;
 using System.CodeDom.Compiler;
 using System.Diagnostics;
 using Microsoft.Practices.RecipeFramework.Services;
+using Microsoft.VisualStudio.TextTemplating.VSHost;
 
 #endregion
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 {
-    /// <summary>
-    /// Abstract action that implementes T4 rendering.
-    /// </summary>
-    [ServiceDependency(typeof(ITypeResolutionService))]
+	/// <summary>
+	/// Abstract action that implementes T4 rendering.
+	/// </summary>
+	[ServiceDependency(typeof(ITypeResolutionService))]
     public abstract class T4Action : DynamicInputAction
     {
         #region Private Implementation
@@ -77,8 +77,8 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
             // Get the package root folder.
             string basePath = GetBasePath();
 
-            // Create the Engine
-            ITextTemplatingEngine engine = new Engine();
+			// Create the Engine
+			ITextTemplatingEngine engine = new Engine();
 
             // Build arguments.
             IValueInfoService mdService = (IValueInfoService)GetService(typeof(IValueInfoService));
@@ -109,13 +109,19 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
                 args.Add(key, propertyData);
             }
 
-            // Create the Host. References will be resolved relative to the guidance 
+			// Create the Host. References will be resolved relative to the guidance 
 			// package installation folder.
-            TemplateHost host = new TemplateHost(basePath, args);
-            host.TemplateFile = templateFile;
 
-            // Set the output
-            string content = engine.ProcessTemplate(templateCode, host);
+			Type hostServiceType = typeof(STextTemplating);
+			// hostServiceType = hostServiceType.Assembly.GetType("TextTemplatingService");
+			ITextTemplatingEngineHost syshost = this.GetService(hostServiceType) as ITextTemplatingEngineHost;
+
+			TemplateHost host = new TemplateHost(basePath, args);
+            host.TemplateFile = templateFile;
+			host.SysHost = syshost;
+
+			// Set the output
+			string content = engine.ProcessTemplate(templateCode, host);
             // Looking for errors
             if (host.Errors.HasErrors)
             {
