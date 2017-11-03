@@ -66,41 +66,41 @@ namespace Microsoft.Practices.WizardFramework
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ValueEditor));
-            this.buttonDropDown = new System.Windows.Forms.Button();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.edit = new ValueEditorTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.edit)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // buttonDropDown
-            // 
-            resources.ApplyResources(this.buttonDropDown, "buttonDropDown");
-            this.buttonDropDown.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonDropDown.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonDropDown.Name = "buttonDropDown";
-            this.buttonDropDown.TabStop = false;
-            this.buttonDropDown.UseVisualStyleBackColor = false;
-            this.buttonDropDown.Click += new System.EventHandler(this.EditDropDownBtn);
-            // 
-            // edit
-            // 
-            resources.ApplyResources(this.edit, "edit");
-            this.edit.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.edit.Name = "edit";
-            this.edit.Font = SystemFonts.IconTitleFont;
-            // 
-            // ValueEditor
-            // 
-            this.BackColor = System.Drawing.SystemColors.Window;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Controls.Add(this.edit);
-            this.Controls.Add(this.buttonDropDown);
-            this.Name = "ValueEditor";
-            resources.ApplyResources(this, "$this");
-            ((System.ComponentModel.ISupportInitialize)(this.edit)).EndInit();
-            this.ResumeLayout(false);
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ValueEditor));
+			this.buttonDropDown = new System.Windows.Forms.Button();
+			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.edit = new ValueEditorTextBox();
+			((System.ComponentModel.ISupportInitialize)(this.edit)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// buttonDropDown
+			// 
+			resources.ApplyResources(this.buttonDropDown, "buttonDropDown");
+			this.buttonDropDown.BackColor = System.Drawing.SystemColors.Control;
+			this.buttonDropDown.ForeColor = System.Drawing.SystemColors.Window;
+			this.buttonDropDown.Name = "buttonDropDown";
+			this.buttonDropDown.TabStop = false;
+			this.buttonDropDown.UseVisualStyleBackColor = false;
+			this.buttonDropDown.Click += new System.EventHandler(this.EditDropDownBtn);
+			// 
+			// edit
+			// 
+			resources.ApplyResources(this.edit, "edit");
+			this.edit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.edit.Name = "edit";
+			// 
+			// ValueEditor
+			// 
+			this.BackColor = System.Drawing.SystemColors.Window;
+			this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.Controls.Add(this.edit);
+			this.Controls.Add(this.buttonDropDown);
+			this.Name = "ValueEditor";
+			resources.ApplyResources(this, "$this");
+			((System.ComponentModel.ISupportInitialize)(this.edit)).EndInit();
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
         #endregion

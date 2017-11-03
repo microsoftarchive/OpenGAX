@@ -14,7 +14,6 @@ using System.Windows.Forms;
 namespace Microsoft.Practices.RecipeFramework
 {
     [TestClass]
-	[Ignore]
 	public class RecipeManagerTest
 	{
 		RecipeManager Manager;
@@ -119,6 +118,7 @@ namespace Microsoft.Practices.RecipeFramework
 		}
 
 		[TestMethod]
+		[Ignore]
 		public void ExecuteHost()
 		{
 			// Load the package from the config.
@@ -134,6 +134,7 @@ namespace Microsoft.Practices.RecipeFramework
 		}
 
 		[TestMethod]
+		[Ignore]
 		public void EnableCancel()
 		{
 			// Load the package from the config.
@@ -148,6 +149,7 @@ namespace Microsoft.Practices.RecipeFramework
 		}
 
 		[TestMethod]
+		[Ignore]
 		public void DisableCancel()
 		{
 			// Load the package from the config.

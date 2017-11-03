@@ -149,6 +149,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\Resources.resx" />
     <EmbeddedResource Include="SolutionPickerControl.resx">
       <DependentUpon>SolutionPickerControl.cs</DependentUpon>
       <SubType>Designer</SubType>

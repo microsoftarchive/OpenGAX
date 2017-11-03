@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -71,6 +72,7 @@
               <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -88,6 +90,7 @@
               <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,60 +112,60 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PackageViewer_ActionsNode">
-    <value xml:space="preserve">Actions</value>
+  <data name="PackageViewer_ActionsNode" xml:space="preserve">
+    <value>Actions</value>
   </data>
-  <data name="PackageViewer_ArgumentsNode">
-    <value xml:space="preserve">Arguments</value>
+  <data name="PackageViewer_ArgumentsNode" xml:space="preserve">
+    <value>Arguments</value>
   </data>
-  <data name="PackageViewer_PackageNode">
-    <value xml:space="preserve">{0} [Version {1}]</value>
+  <data name="PackageViewer_PackageNode" xml:space="preserve">
+    <value>{0} [Version {1}]</value>
   </data>
-  <data name="PackageViewer_RecipesNode">
-    <value xml:space="preserve">Recipes</value>
+  <data name="PackageViewer_RecipesNode" xml:space="preserve">
+    <value>Recipes</value>
   </data>
-  <data name="PackageManager_CannotLoadPackage">
-    <value xml:space="preserve">Cannot load Package {0}</value>
+  <data name="PackageManager_CannotLoadPackage" xml:space="preserve">
+    <value>Cannot load Package {0}</value>
   </data>
-  <data name="EnableDisablePackages_MustSelectPackage">
-    <value xml:space="preserve">You must select the Package to explore.</value>
+  <data name="EnableDisablePackages_MustSelectPackage" xml:space="preserve">
+    <value>You must select the Package to explore.</value>
   </data>
-  <data name="General_ServiceNotFound">
-    <value xml:space="preserve">Service {0} is required but was not found in container {1}.</value>
+  <data name="General_ServiceNotFound" xml:space="preserve">
+    <value>Service {0} is required but was not found in container {1}.</value>
   </data>
-  <data name="PackageManager_MustSelectRecipe">
-    <value xml:space="preserve">You must select the recipe to execute.</value>
+  <data name="PackageManager_MustSelectRecipe" xml:space="preserve">
+    <value>You must select the recipe to execute.</value>
   </data>
-  <data name="PackageManager_NoRecipeManagerService">
-    <value xml:space="preserve">Recipe manager service couldn't be retrieved from the current service provider.</value>
+  <data name="PackageManager_NoRecipeManagerService" xml:space="preserve">
+    <value>Recipe manager service couldn't be retrieved from the current service provider.</value>
   </data>
-  <data name="PackageManager_UnknownReferenceCategory">
-    <value xml:space="preserve">Unknown References</value>
+  <data name="PackageManager_UnknownReferenceCategory" xml:space="preserve">
+    <value>Unknown References</value>
   </data>
-  <data name="PackageManager_HostDidntSelect">
-    <value xml:space="preserve">A valid target for execution was not selected.</value>
+  <data name="PackageManager_HostDidntSelect" xml:space="preserve">
+    <value>A valid target for execution was not selected.</value>
   </data>
-  <data name="PackageManager_ConfirmDeleteReference">
-    <value xml:space="preserve">Do you want to delete the selected reference?</value>
+  <data name="PackageManager_ConfirmDeleteReference" xml:space="preserve">
+    <value>Do you want to delete the selected reference?</value>
   </data>
-  <data name="PackageManager_DeleteRecipe">
-    <value xml:space="preserve">&amp;Delete Selected Reference</value>
+  <data name="PackageManager_DeleteRecipe" xml:space="preserve">
+    <value>&amp;Delete Selected Reference</value>
   </data>
-  <data name="PackageManager_ExecuteRecipe">
-    <value xml:space="preserve">&amp;Execute Selected Reference</value>
+  <data name="PackageManager_ExecuteRecipe" xml:space="preserve">
+    <value>&amp;Execute Selected Reference</value>
   </data>
-  <data name="PackageManager_CannotLoadPackageAsking">
-    <value xml:space="preserve">Cannot load Package {0}. Do you want to continue?</value>
+  <data name="PackageManager_CannotLoadPackageAsking" xml:space="preserve">
+    <value>Cannot load Package {0}. Do you want to continue?</value>
   </data>
-  <data name="Reference_InvalidAttributes">
-    <value xml:space="preserve">The reference has not correctly implemented some attributes because one or some of them threw an exception. The failure ocurred in the attribute(s): {0}</value>
+  <data name="Reference_InvalidAttributes" xml:space="preserve">
+    <value>The reference has not correctly implemented some attributes because one or some of them threw an exception. The failure ocurred in the attribute(s): {0}</value>
   </data>
-  <data name="Reference_AppliesToThrew">
-    <value xml:space="preserve">AppliesTo threw an exception</value>
+  <data name="Reference_AppliesToThrew" xml:space="preserve">
+    <value>AppliesTo threw an exception</value>
   </data>
 </root>

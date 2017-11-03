@@ -125,6 +125,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
             // Looking for errors
             if (host.Errors.HasErrors)
             {
+				Trace.TraceError(host.Errors[0].ToString());
                 throw new TemplateException(host.Errors);
             }
             else if (host.Errors.HasWarnings)

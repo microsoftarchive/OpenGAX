@@ -66,16 +66,16 @@ namespace Microsoft.Practices.WizardFramework
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // WizardForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.ClientSize = new System.Drawing.Size(878, 655);
-            this.MinimumSize = new System.Drawing.Size(900, 711);
-            this.Name = "WizardForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.ResumeLayout(false);
+			this.SuspendLayout();
+			// 
+			// WizardForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+			this.ClientSize = new System.Drawing.Size(889, 656);
+			this.MinimumSize = new System.Drawing.Size(900, 712);
+			this.Name = "WizardForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.ResumeLayout(false);
 
         }
         #endregion

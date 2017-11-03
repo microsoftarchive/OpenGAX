@@ -48,50 +48,50 @@ namespace Microsoft.Practices.Common
 			// 
 			// labelMessage
 			// 
-			this.labelMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.labelMessage.Location = new System.Drawing.Point(50, 14);
+			this.labelMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.labelMessage.Location = new System.Drawing.Point(80, 20);
 			this.labelMessage.Name = "labelMessage";
 			this.labelMessage.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-			this.labelMessage.Size = new System.Drawing.Size(414, 66);
+			this.labelMessage.Size = new System.Drawing.Size(560, 97);
 			this.labelMessage.TabIndex = 0;
 			// 
 			// exceptionDetails
 			// 
-			this.exceptionDetails.Location = new System.Drawing.Point(10, 131);
+			this.exceptionDetails.Location = new System.Drawing.Point(16, 191);
 			this.exceptionDetails.Multiline = true;
 			this.exceptionDetails.Name = "exceptionDetails";
 			this.exceptionDetails.ReadOnly = true;
 			this.exceptionDetails.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.exceptionDetails.Size = new System.Drawing.Size(452, 136);
+			this.exceptionDetails.Size = new System.Drawing.Size(723, 142);
 			this.exceptionDetails.TabIndex = 1;
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(102, 92);
+			this.button1.Location = new System.Drawing.Point(163, 134);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(88, 20);
+			this.button1.Size = new System.Drawing.Size(141, 30);
 			this.button1.TabIndex = 2;
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(202, 92);
+			this.button2.Location = new System.Drawing.Point(323, 134);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(88, 20);
+			this.button2.Size = new System.Drawing.Size(141, 30);
 			this.button2.TabIndex = 3;
 			// 
 			// button3
 			// 
-			this.button3.Location = new System.Drawing.Point(302, 92);
+			this.button3.Location = new System.Drawing.Point(483, 134);
 			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(88, 20);
+			this.button3.Size = new System.Drawing.Size(141, 30);
 			this.button3.TabIndex = 4;
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.Location = new System.Drawing.Point(12, 14);
+			this.pictureBox1.Location = new System.Drawing.Point(19, 20);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+			this.pictureBox1.Size = new System.Drawing.Size(51, 47);
 			this.pictureBox1.TabIndex = 5;
 			this.pictureBox1.TabStop = false;
 			// 
@@ -99,9 +99,9 @@ namespace Microsoft.Practices.Common
 			// 
 			this.buttonException.ImageIndex = 0;
 			this.buttonException.ImageList = this.imageList1;
-			this.buttonException.Location = new System.Drawing.Point(12, 98);
+			this.buttonException.Location = new System.Drawing.Point(19, 143);
 			this.buttonException.Name = "buttonException";
-			this.buttonException.Size = new System.Drawing.Size(16, 14);
+			this.buttonException.Size = new System.Drawing.Size(26, 21);
 			this.buttonException.TabIndex = 6;
 			this.buttonException.Click += new System.EventHandler(this.buttonException_Click);
 			// 
@@ -121,8 +121,8 @@ namespace Microsoft.Practices.Common
 			// 
 			// ErrorForm
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(474, 121);
+			this.AutoScaleBaseSize = new System.Drawing.Size(8, 19);
+			this.ClientSize = new System.Drawing.Size(656, 176);
 			this.ControlBox = false;
 			this.Controls.Add(this.buttonException);
 			this.Controls.Add(this.pictureBox1);
@@ -138,6 +138,7 @@ namespace Microsoft.Practices.Common
 			this.Text = "ErrorDialog";
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 

@@ -46,55 +46,58 @@ namespace Microsoft.Practices.WizardFramework
         /// </summary>
         private void InitializeComponent()
         {
-            this.valueEditor = new Microsoft.Practices.WizardFramework.ValueEditor();
-            this.argumentLabel = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.valueEditor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // valueEditor
-            // 
-            this.valueEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.valueEditor.BackColor = System.Drawing.SystemColors.Window;
-            this.valueEditor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.valueEditor.ConverterInstance = null;
-            this.valueEditor.EditorType = null;
-            this.valueEditor.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.valueEditor.Location = new System.Drawing.Point(3, 18);
-            this.valueEditor.MinimumSize = new System.Drawing.Size(100, 18);
-            this.valueEditor.Name = "valueEditor";
-            this.valueEditor.Size = new System.Drawing.Size(200, 18);
-            this.valueEditor.TabIndex = 0;
-            this.valueEditor.ToolTip = "";
-            this.valueEditor.ValueRequired = false;
-            this.valueEditor.ValueType = null;
-            this.valueEditor.ValueChanged += new System.ComponentModel.Design.ComponentChangedEventHandler(this.ValueChanged);
-            this.valueEditor.InvalidValue += new System.ComponentModel.Design.ComponentChangedEventHandler(this.InvalidValue);
-            // 
-            // argumentLabel
-            // 
-            this.argumentLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.argumentLabel.AutoSize = false;
-            this.argumentLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            //this.argumentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.argumentLabel.Location = new System.Drawing.Point(0, 0);
-            this.argumentLabel.Multiline = true;
-            this.argumentLabel.Name = "argumentLabel";
-            this.argumentLabel.ReadOnly = true;
-            this.argumentLabel.Size = new System.Drawing.Size(200, 18);
-            this.argumentLabel.TabIndex = 0;
-            this.argumentLabel.TabStop = false;
-            this.argumentLabel.Text = "argumentLabel";
-            // 
-            // ArgumentPanelTypeEditor
-            // 
-            this.Controls.Add(this.valueEditor);
-            this.Controls.Add(this.argumentLabel);
-            this.InvalidValueMessage = "Invalid Value";
-            this.Size = new System.Drawing.Size(218, 42);
-            ((System.ComponentModel.ISupportInitialize)(this.valueEditor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
-            this.ResumeLayout(false);
+			this.valueEditor = new Microsoft.Practices.WizardFramework.ValueEditor();
+			this.argumentLabel = new System.Windows.Forms.TextBox();
+			((System.ComponentModel.ISupportInitialize)(this.invalidValuePictureBox)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.valueEditor)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// valueEditor
+			// 
+			this.valueEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.valueEditor.BackColor = System.Drawing.SystemColors.Window;
+			this.valueEditor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.valueEditor.ConverterInstance = null;
+			this.valueEditor.EditorType = null;
+			this.valueEditor.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.valueEditor.Location = new System.Drawing.Point(3, 18);
+			this.valueEditor.MinimumSize = new System.Drawing.Size(100, 18);
+			this.valueEditor.Name = "valueEditor";
+			this.valueEditor.Size = new System.Drawing.Size(200, 18);
+			this.valueEditor.TabIndex = 0;
+			this.valueEditor.ToolTip = "";
+			this.valueEditor.ValueRequired = false;
+			this.valueEditor.ValueType = null;
+			this.valueEditor.ValueChanged += new System.ComponentModel.Design.ComponentChangedEventHandler(this.ValueChanged);
+			this.valueEditor.InvalidValue += new System.ComponentModel.Design.ComponentChangedEventHandler(this.InvalidValue);
+			// 
+			// argumentLabel
+			// 
+			this.argumentLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.argumentLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.argumentLabel.Location = new System.Drawing.Point(0, 0);
+			this.argumentLabel.Multiline = true;
+			this.argumentLabel.Name = "argumentLabel";
+			this.argumentLabel.ReadOnly = true;
+			this.argumentLabel.Size = new System.Drawing.Size(200, 18);
+			this.argumentLabel.TabIndex = 0;
+			this.argumentLabel.TabStop = false;
+			this.argumentLabel.Text = "argumentLabel";
+			// 
+			// ArgumentPanelTypeEditor
+			// 
+			this.Controls.Add(this.valueEditor);
+			this.Controls.Add(this.argumentLabel);
+			this.InvalidValueMessage = "Invalid Value";
+			this.Size = new System.Drawing.Size(218, 42);
+			this.Controls.SetChildIndex(this.argumentLabel, 0);
+			this.Controls.SetChildIndex(this.valueEditor, 0);
+			this.Controls.SetChildIndex(this.invalidValuePictureBox, 0);
+			((System.ComponentModel.ISupportInitialize)(this.invalidValuePictureBox)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.valueEditor)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+			this.ResumeLayout(false);
 
         }
         #endregion

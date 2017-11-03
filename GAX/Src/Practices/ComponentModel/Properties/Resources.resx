@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,27 +112,27 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ServiceContainer_InvalidServiceInstance">
-    <value xml:space="preserve">Service instance of type {0} is not assignable to service type {1}.</value>
+  <data name="ServiceContainer_InvalidServiceInstance" xml:space="preserve">
+    <value>Service instance of type {0} is not assignable to service type {1}.</value>
   </data>
-  <data name="ServiceContainer_ServiceExists">
-    <value xml:space="preserve">Service {0} already exists in the container.</value>
+  <data name="ServiceContainer_ServiceExists" xml:space="preserve">
+    <value>Service {0} already exists in the container.</value>
   </data>
-  <data name="ServiceMissingException_Message">
-	  <value xml:space="preserve">Service {0}, required for component {1} is not available in the current container.</value>
+  <data name="ServiceMissingException_Message" xml:space="preserve">
+    <value>Service {0}, required for component {1} is not available in the current container.</value>
   </data>
-  <data name="ServiceHelper_ComponentNotSited">
-    <value xml:space="preserve">Component {0} must be sited in a container in order to function properly.</value>
+  <data name="ServiceHelper_ComponentNotSited" xml:space="preserve">
+    <value>Component {0} must be sited in a container in order to function properly.</value>
   </data>
-  <data name="ServiceHelper_ComponentNull">
-    <value xml:space="preserve">The component can not be null.</value>
+  <data name="ServiceHelper_ComponentNull" xml:space="preserve">
+    <value>The component can not be null.</value>
   </data>
-  <data name="ServiceHelper_ProviderNull">
-    <value xml:space="preserve">The service provider to look for dependencies can not be null.</value>
+  <data name="ServiceHelper_ProviderNull" xml:space="preserve">
+    <value>The service provider to look for dependencies can not be null.</value>
   </data>
 </root>

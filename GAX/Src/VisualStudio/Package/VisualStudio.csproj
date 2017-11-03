@@ -182,11 +182,10 @@
     <Compile Include="..\..\..\..\Shared\GlobalAssemblyInfo.cs">
       <Link>GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="..\..\WizardFramework\Framework\Configuration\WizardFrameworkConfig.cs">
+    <None Include="..\..\WizardFramework\Framework\Configuration\WizardFrameworkConfig.cs">
       <Link>WizardFrameworkConfig.cs</Link>
       <DependentUpon>WizardFrameworkConfig.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
+    </None>
     <Compile Include="..\UI\ShellCmdDef.Designer.CSharpPackage.cs">
       <Link>CTC\ShellCmdDef.Designer.CSharpPackage.cs</Link>
     </Compile>

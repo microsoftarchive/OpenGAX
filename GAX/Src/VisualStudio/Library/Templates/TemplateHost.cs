@@ -296,12 +296,22 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
         }
 
         /// <summary>
-        /// Not used by this host.
+        /// see msdn for more info.
         /// </summary>
         public object GetHostOption(string optionName)
         {
-            throw new Exception("The method or operation is not implemented.");
-        }
+			object returnObject;
+			switch (optionName)
+			{
+				case "CacheAssemblies":
+					returnObject = true;
+					break;
+				default:
+					returnObject = null;
+					break;
+			}
+			return returnObject;
+		}
 
         /// <summary>
         /// Not used by this host.

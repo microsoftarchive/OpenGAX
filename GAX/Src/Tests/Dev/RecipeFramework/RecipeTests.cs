@@ -54,14 +54,6 @@ namespace Microsoft.Practices.RecipeFramework
 		#endregion SetUp
 
         [TestMethod]
-        [Ignore]
-        public void MiscTests()
-        {
-            string path = Path.GetDirectoryName("http://www.com/file.csproj");
-            Assert.AreEqual("", path);
-        }
-
-        [TestMethod]
         public void EmbeddedResourceTest()
         {
             Stream resource = this.GetType().Assembly.GetManifestResourceStream("Microsoft.Practices.RecipeFramework.RecipeTest.xml");

@@ -27,11 +27,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 		const string GaxPackageGuid = "{77D93A80-73FC-40f8-87DB-ACD3482964B2}";
 
 		#region Designer stuff
-		private System.Windows.Forms.ColumnHeader columnHeader3;
-		private System.Windows.Forms.ColumnHeader columnHeader4;
 		private System.Windows.Forms.ImageList imageList1;
-		private System.Windows.Forms.ColumnHeader columnHeader1;
-		private System.Windows.Forms.ColumnHeader columnHeader2;
 		private System.Windows.Forms.ImageList imageList2;
 		private System.Windows.Forms.Button btnExplore;
 		private System.Windows.Forms.Label label1;
@@ -70,125 +66,110 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnableDisablePackages));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.btnExplore = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lstPackages = new System.Windows.Forms.ListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // columnHeader3
-            // 
-            resources.ApplyResources(this.columnHeader3, "columnHeader3");
-            // 
-            // columnHeader4
-            // 
-            resources.ApplyResources(this.columnHeader4, "columnHeader4");
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "");
-            this.imageList1.Images.SetKeyName(1, "");
-            // 
-            // columnHeader1
-            // 
-            resources.ApplyResources(this.columnHeader1, "columnHeader1");
-            // 
-            // columnHeader2
-            // 
-            resources.ApplyResources(this.columnHeader2, "columnHeader2");
-            // 
-            // imageList2
-            // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "");
-            this.imageList2.Images.SetKeyName(1, "");
-            // 
-            // btnExplore
-            // 
-            resources.ApplyResources(this.btnExplore, "btnExplore");
-            this.btnExplore.Name = "btnExplore";
-            this.btnExplore.Click += new System.EventHandler(this.OnExplorePackage);
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // lstPackages
-            // 
-            resources.ApplyResources(this.lstPackages, "lstPackages");
-            this.lstPackages.CheckBoxes = true;
-            this.lstPackages.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnableDisablePackages));
+			
+
+			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+
+			this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+			this.btnExplore = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.lstPackages = new System.Windows.Forms.ListView();
+			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.btnOK = new System.Windows.Forms.Button();
+			this.btnCancel = new System.Windows.Forms.Button();
+			this.SuspendLayout();
+			
+			// 
+			// imageList1
+			// 
+			this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+			this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+			this.imageList1.Images.SetKeyName(0, "");
+			this.imageList1.Images.SetKeyName(1, "");
+			// 
+			// imageList2
+			// 
+			this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+			this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+			this.imageList2.Images.SetKeyName(0, "");
+			this.imageList2.Images.SetKeyName(1, "");
+			// 
+			// btnExplore
+			// 
+			resources.ApplyResources(this.btnExplore, "btnExplore");
+			this.btnExplore.Name = "btnExplore";
+			this.btnExplore.Click += new System.EventHandler(this.OnExplorePackage);
+			// 
+			// label1
+			// 
+			resources.ApplyResources(this.label1, "label1");
+			this.label1.BackColor = System.Drawing.SystemColors.Control;
+			this.label1.Name = "label1";
+			// 
+			// lstPackages
+			// 
+			resources.ApplyResources(this.lstPackages, "lstPackages");
+			this.lstPackages.CheckBoxes = true;
+			this.lstPackages.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
-            this.lstPackages.MultiSelect = false;
-            this.lstPackages.Name = "lstPackages";
-            this.lstPackages.SmallImageList = this.imageList1;
-            this.lstPackages.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.lstPackages.UseCompatibleStateImageBehavior = false;
-            this.lstPackages.View = System.Windows.Forms.View.Details;
-            this.lstPackages.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lstPackages_ItemChecked);
-            this.lstPackages.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstPackages_MouseDoubleClick);
-            // 
-            // columnHeader5
-            // 
-            resources.ApplyResources(this.columnHeader5, "columnHeader5");
-            // 
-            // columnHeader6
-            // 
-            resources.ApplyResources(this.columnHeader6, "columnHeader6");
-            // 
-            // columnHeader7
-            // 
-            resources.ApplyResources(this.columnHeader7, "columnHeader7");
-            // 
-            // btnOK
-            // 
-            resources.ApplyResources(this.btnOK, "btnOK");
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Click += new System.EventHandler(this.OnOkClick);
-            // 
-            // btnCancel
-            // 
-            resources.ApplyResources(this.btnCancel, "btnCancel");
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // EnableDisablePackages
-            // 
-            this.AcceptButton = this.btnOK;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.CancelButton = this.btnCancel;
-            resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.btnExplore);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lstPackages);
-            this.Controls.Add(this.btnCancel);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "EnableDisablePackages";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.ResumeLayout(false);
+			this.lstPackages.MultiSelect = false;
+			this.lstPackages.Name = "lstPackages";
+			this.lstPackages.SmallImageList = this.imageList1;
+			this.lstPackages.Sorting = System.Windows.Forms.SortOrder.Ascending;
+			this.lstPackages.UseCompatibleStateImageBehavior = false;
+			this.lstPackages.View = System.Windows.Forms.View.Details;
+			this.lstPackages.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lstPackages_ItemChecked);
+			this.lstPackages.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstPackages_MouseDoubleClick);
+			// 
+			// columnHeader5
+			// 
+			resources.ApplyResources(this.columnHeader5, "columnHeader5");
+			// 
+			// columnHeader6
+			// 
+			resources.ApplyResources(this.columnHeader6, "columnHeader6");
+			// 
+			// columnHeader7
+			// 
+			resources.ApplyResources(this.columnHeader7, "columnHeader7");
+			// 
+			// btnOK
+			// 
+			resources.ApplyResources(this.btnOK, "btnOK");
+			this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.btnOK.Name = "btnOK";
+			this.btnOK.Click += new System.EventHandler(this.OnOkClick);
+			// 
+			// btnCancel
+			// 
+			resources.ApplyResources(this.btnCancel, "btnCancel");
+			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btnCancel.Name = "btnCancel";
+			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+			// 
+			// EnableDisablePackages
+			// 
+			this.AcceptButton = this.btnOK;
+			this.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.CancelButton = this.btnCancel;
+			resources.ApplyResources(this, "$this");
+			this.Controls.Add(this.btnOK);
+			this.Controls.Add(this.btnExplore);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.lstPackages);
+			this.Controls.Add(this.btnCancel);
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
+			this.Name = "EnableDisablePackages";
+			this.ShowIcon = false;
+			this.ShowInTaskbar = false;
+			this.ResumeLayout(false);
 
 		}
 		#endregion

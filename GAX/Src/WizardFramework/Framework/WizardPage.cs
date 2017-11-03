@@ -73,6 +73,7 @@ namespace Microsoft.Practices.WizardFramework
 			this.Name = "WizardPage";
 			this.Size = new System.Drawing.Size(505, 459);
 			this.Skippable = true;
+			this.SizeChanged += new System.EventHandler(this.WizardPage_SizeChanged);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -294,8 +295,15 @@ namespace Microsoft.Practices.WizardFramework
 			}
 		}
 
-#endregion ISupportInitialize Members
+		#endregion ISupportInitialize Members
 
+		public bool SuncInfoRTWidth { get; set; } = true;
+
+		private void WizardPage_SizeChanged(object sender, EventArgs e)
+		{ 
+			if(SuncInfoRTWidth && this.InfoRTBoxSize. Width != this.infoPanel.Width)
+				this.InfoRTBoxSize = new Size(this.infoPanel.Width, this.InfoRTBoxSize.Height);
+		}
 	}
 }
 

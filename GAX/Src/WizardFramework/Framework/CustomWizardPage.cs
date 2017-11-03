@@ -98,13 +98,22 @@ namespace Microsoft.Practices.WizardFramework
         /// </summary>
         private void InitializeComponent()
         {
-            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
-            // 
-            // WizardPageFromConfig
-            // 
-            this.Name = "WizardPageFromConfig";
-            this.Size = new System.Drawing.Size(700, 469);
-            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// infoPanel
+			// 
+			this.infoPanel.Location = new System.Drawing.Point(0, 10);
+			this.infoPanel.Size = new System.Drawing.Size(620, 459);
+			// 
+			// CustomWizardPage
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.Name = "CustomWizardPage";
+			this.Size = new System.Drawing.Size(620, 469);
+			((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
         #endregion

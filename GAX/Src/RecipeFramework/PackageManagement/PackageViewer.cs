@@ -71,6 +71,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.txtDescription = new System.Windows.Forms.TextBox();
 			this.CloseButton = new System.Windows.Forms.Button();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
@@ -88,6 +89,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			// icons
 			// 
 			this.icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("icons.ImageStream")));
+			this.icons.TransparentColor = System.Drawing.Color.Transparent;
 			this.icons.Images.SetKeyName(0, "Dot.gif");
 			this.icons.Images.SetKeyName(1, "Package.gif");
 			this.icons.Images.SetKeyName(2, "Recipes.ico");
@@ -112,14 +114,14 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			// 
 			// panel1
 			// 
-			this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.panel1.BackColor = System.Drawing.SystemColors.Control;
 			this.panel1.Controls.Add(this.groupBox1);
 			resources.ApplyResources(this.panel1, "panel1");
 			this.panel1.Name = "panel1";
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.groupBox1.BackColor = System.Drawing.SystemColors.ControlDark;
 			this.groupBox1.Controls.Add(this.txtDescription);
 			resources.ApplyResources(this.groupBox1, "groupBox1");
 			this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -129,7 +131,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			// txtDescription
 			// 
 			resources.ApplyResources(this.txtDescription, "txtDescription");
-			this.txtDescription.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.txtDescription.BackColor = System.Drawing.SystemColors.Control;
 			this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.txtDescription.Name = "txtDescription";
 			this.txtDescription.ReadOnly = true;
@@ -156,6 +158,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			this.ShowInTaskbar = false;
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.groupBox1.ResumeLayout(false);

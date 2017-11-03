@@ -16,12 +16,14 @@ namespace Microsoft.Practices.Common
     {
         #region Settings
 
-        private const int allHeight = 344;
+        // private const int allHeight = 400; // scale will cause real height be different.
         private int cutHeight = 0;
         private int separationButton = 16;
         private AlignButtons align = AlignButtons.AlignCenter;
 
-        #endregion
+		#endregion
+
+		int allHeight; // scale will cause real height be different.
 
 		public ErrorForm(string caption, string text, string questiondetails, string yesString, string noString)
 		{
@@ -39,6 +41,8 @@ namespace Microsoft.Practices.Common
 			this.buttonException.Visible = true;
 			this.button1.Text = yesString;
 			this.button2.Text = noString;
+
+			this.allHeight = this.exceptionDetails.Location.Y + this.exceptionDetails.Height + separationButton;
 		}
 
 		public ErrorForm(string caption, string text, Exception exception, MessageBoxButtons buttons)
@@ -58,6 +62,8 @@ namespace Microsoft.Practices.Common
 			this.hideDetailsMessage = Properties.Resources.ErrorHelper_HideDetailsException;
 			this.toolTip1.SetToolTip(buttonException, this.showDetailsMessage);
             SetupButtons();
+
+			this.allHeight = this.exceptionDetails.Location.Y + this.exceptionDetails.Height + separationButton;
 		}
 
         private void SetupButtons()
