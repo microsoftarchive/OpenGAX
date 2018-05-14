@@ -270,7 +270,7 @@ namespace Microsoft.Practices.WizardFramework
             }
             catch (Exception e)
             {
-                ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+                ErrorHelper.Show(this.Site, e);
             }
         }
 

@@ -106,7 +106,7 @@
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\RecipeFramework\Common\Common.csproj">
+    <ProjectReference Include="..\..\..\RecipeFramework\Common\RecipeFramework.Common.csproj">
       <Project>{CACBA86E-8E15-4318-822F-E4D74F3107A1}</Project>
       <Name>Common %28RecipeFramework\Common%29</Name>
     </ProjectReference>

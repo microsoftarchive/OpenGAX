@@ -174,7 +174,6 @@
     <Compile Include="Services\ReferenceService.cs" />
     <Compile Include="Services\DictionaryService.cs">
     </Compile>
-    <Compile Include="Services\IOutputWindowService.cs" />
     <Compile Include="Services\ReadOnlyDictionaryService.cs" />
     <Compile Include="Services\IPersistenceService.cs" />
     <Compile Include="Services\IRecipeManagerService.cs" />
@@ -189,11 +188,11 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Practices\Common\Common.csproj">
       <Project>{CD1A28C5-0278-4DA6-81C4-A3FF95FF1270}</Project>
-      <Name>Common (Practices\Common)</Name>
+      <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Common\Common.csproj">
+    <ProjectReference Include="..\Common\RecipeFramework.Common.csproj">
       <Project>{CACBA86E-8E15-4318-822F-E4D74F3107A1}</Project>
-      <Name>Common (RecipeFramework\Common)</Name>
+      <Name>RecipeFramework.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

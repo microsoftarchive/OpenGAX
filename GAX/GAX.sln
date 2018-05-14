@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.20617.1 PREVIEW
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RecipeFramework", "RecipeFramework", "{79C5701A-D421-4BB9-B200-0B21E5F331BF}"
 	ProjectSection(FolderStartupServices) = postProject
@@ -42,13 +42,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisualStudioUI", "Src\Visua
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageManagement", "Src\RecipeFramework\PackageManagement\PackageManagement.csproj", "{2909B932-8572-48E3-962E-F2BF3640D5C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Src\RecipeFramework\Common\Common.csproj", "{CACBA86E-8E15-4318-822F-E4D74F3107A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeFramework.Common", "Src\RecipeFramework\Common\RecipeFramework.Common.csproj", "{CACBA86E-8E15-4318-822F-E4D74F3107A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Src\Practices\Common\Common.csproj", "{CD1A28C5-0278-4DA6-81C4-A3FF95FF1270}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Src\VisualStudio\Common\Common.csproj", "{C3B9B008-DF10-4288-8414-00C3F3AA582E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio.Common", "Src\VisualStudio\Common\VisualStudio.Common.csproj", "{C3B9B008-DF10-4288-8414-00C3F3AA582E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Src\VisualStudio\Library\Library.csproj", "{E754B7DA-2C3C-408B-A7B5-AC94D37C5B1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualStudio.Library", "Src\VisualStudio\Library\VisualStudio.Library.csproj", "{E754B7DA-2C3C-408B-A7B5-AC94D37C5B1A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentModel.Test", "Src\Tests\Dev\ComponentModel\ComponentModel.Test.csproj", "{297A315B-3EC5-4587-A0DA-3F1987291320}"
 EndProject
@@ -61,72 +61,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "..\Library\Library.csproj", "{A0862851-0BC1-4A63-B06B-154DCB09602D}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 16
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs14
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Src\\RecipeFramework\\Framework\\RecipeFramework.csproj
-		SccProjectTopLevelParentUniqueName1 = GAX.sln
-		SccProjectName1 = Src/RecipeFramework/Framework
-		SccLocalPath1 = Src\\RecipeFramework\\Framework
-		SccProjectUniqueName2 = Src\\Practices\\ComponentModel\\ComponentModel.csproj
-		SccProjectTopLevelParentUniqueName2 = GAX.sln
-		SccProjectName2 = Src/Practices/ComponentModel
-		SccLocalPath2 = Src\\Practices\\ComponentModel
-		SccProjectUniqueName3 = Src\\VisualStudio\\Package\\VisualStudio.csproj
-		SccProjectTopLevelParentUniqueName3 = GAX.sln
-		SccProjectName3 = Src/VisualStudio/Package
-		SccLocalPath3 = Src\\VisualStudio\\Package
-		SccProjectUniqueName4 = Src\\WizardFramework\\Framework\\WizardFramework.csproj
-		SccProjectTopLevelParentUniqueName4 = GAX.sln
-		SccProjectName4 = Src/WizardFramework/Framework
-		SccLocalPath4 = Src\\WizardFramework\\Framework
-		SccProjectUniqueName5 = Src\\VisualStudio\\UI\\VisualStudioUI.vcxproj
-		SccProjectTopLevelParentUniqueName5 = GAX.sln
-		SccProjectName5 = Src/VisualStudio/UI
-		SccLocalPath5 = Src\\VisualStudio\\UI
-		SccProjectUniqueName6 = Src\\RecipeFramework\\PackageManagement\\PackageManagement.csproj
-		SccProjectTopLevelParentUniqueName6 = GAX.sln
-		SccProjectName6 = Src/RecipeFramework/PackageManagement
-		SccLocalPath6 = Src\\RecipeFramework\\PackageManagement
-		SccProjectUniqueName7 = Src\\RecipeFramework\\Common\\Common.csproj
-		SccProjectTopLevelParentUniqueName7 = GAX.sln
-		SccProjectName7 = Src/RecipeFramework/Common
-		SccLocalPath7 = Src\\RecipeFramework\\Common
-		SccProjectUniqueName8 = Src\\Practices\\Common\\Common.csproj
-		SccProjectTopLevelParentUniqueName8 = GAX.sln
-		SccProjectName8 = Src/Practices/Common
-		SccLocalPath8 = Src\\Practices\\Common
-		SccProjectUniqueName9 = Src\\VisualStudio\\Common\\Common.csproj
-		SccProjectTopLevelParentUniqueName9 = GAX.sln
-		SccProjectName9 = Src/VisualStudio/Common
-		SccLocalPath9 = Src\\VisualStudio\\Common
-		SccProjectUniqueName10 = Src\\VisualStudio\\Library\\Library.csproj
-		SccProjectTopLevelParentUniqueName10 = GAX.sln
-		SccProjectName10 = Src/VisualStudio/Library
-		SccLocalPath10 = Src\\VisualStudio\\Library
-		SccProjectUniqueName11 = Src\\Tests\\Dev\\ComponentModel\\ComponentModel.Test.csproj
-		SccProjectTopLevelParentUniqueName11 = GAX.sln
-		SccProjectName11 = Src/Tests/Dev/ComponentModel
-		SccLocalPath11 = Src\\Tests\\Dev\\ComponentModel
-		SccProjectUniqueName12 = Src\\Tests\\Dev\\Configuration\\Configuration.Test.csproj
-		SccProjectTopLevelParentUniqueName12 = GAX.sln
-		SccProjectName12 = Src/Tests/Dev/Configuration
-		SccLocalPath12 = Src\\Tests\\Dev\\Configuration
-		SccProjectUniqueName13 = Src\\Tests\\Dev\\Library\\Library.Test.csproj
-		SccProjectTopLevelParentUniqueName13 = GAX.sln
-		SccProjectName13 = Src/Tests/Dev/Library
-		SccLocalPath13 = Src\\Tests\\Dev\\Library
-		SccProjectUniqueName14 = Src\\Tests\\Dev\\RecipeFramework\\RecipeFramework.Test.csproj
-		SccProjectTopLevelParentUniqueName14 = GAX.sln
-		SccProjectName14 = Src/Tests/Dev/RecipeFramework
-		SccLocalPath14 = Src\\Tests\\Dev\\RecipeFramework
-		SccProjectUniqueName15 = ..\\Library\\Library.csproj
-		SccProjectTopLevelParentUniqueName15 = GAX.sln
-		SccProjectName15 = ../Library
-		SccLocalPath15 = ..\\Library
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -291,20 +225,20 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F0F73757-C737-49CC-B88B-32C5817CA9C4} = {79C5701A-D421-4BB9-B200-0B21E5F331BF}
+		{24A14750-5BE7-4872-9899-A0EEF545D1FD} = {83B1205F-3131-4FDB-AAEE-5843430E5F29}
+		{052BF302-4304-4453-B05A-568258F37645} = {FFDA0FC7-AC7B-4CE4-87F8-1780A3049465}
+		{08901AA0-A0CF-458C-910A-A8C0981675AC} = {9A93D279-34ED-41A5-A9FD-2CBE7E29A948}
+		{B97714EB-FCE0-429C-87CC-918530B5A01C} = {FFDA0FC7-AC7B-4CE4-87F8-1780A3049465}
 		{2909B932-8572-48E3-962E-F2BF3640D5C3} = {79C5701A-D421-4BB9-B200-0B21E5F331BF}
 		{CACBA86E-8E15-4318-822F-E4D74F3107A1} = {79C5701A-D421-4BB9-B200-0B21E5F331BF}
-		{24A14750-5BE7-4872-9899-A0EEF545D1FD} = {83B1205F-3131-4FDB-AAEE-5843430E5F29}
 		{CD1A28C5-0278-4DA6-81C4-A3FF95FF1270} = {83B1205F-3131-4FDB-AAEE-5843430E5F29}
-		{08901AA0-A0CF-458C-910A-A8C0981675AC} = {9A93D279-34ED-41A5-A9FD-2CBE7E29A948}
-		{052BF302-4304-4453-B05A-568258F37645} = {FFDA0FC7-AC7B-4CE4-87F8-1780A3049465}
-		{B97714EB-FCE0-429C-87CC-918530B5A01C} = {FFDA0FC7-AC7B-4CE4-87F8-1780A3049465}
 		{C3B9B008-DF10-4288-8414-00C3F3AA582E} = {FFDA0FC7-AC7B-4CE4-87F8-1780A3049465}
 		{E754B7DA-2C3C-408B-A7B5-AC94D37C5B1A} = {FFDA0FC7-AC7B-4CE4-87F8-1780A3049465}
-		{A0862851-0BC1-4A63-B06B-154DCB09602D} = {7154EAAC-F895-4D81-8FBD-6516572B0074}
 		{297A315B-3EC5-4587-A0DA-3F1987291320} = {13C05A3E-5A1E-4E02-BD55-DA55D232FE8C}
 		{5CC80DDC-361C-4DB7-BCD7-64AEA41306D3} = {13C05A3E-5A1E-4E02-BD55-DA55D232FE8C}
 		{18255D58-1FD6-457C-9EF5-0705CB24619E} = {13C05A3E-5A1E-4E02-BD55-DA55D232FE8C}
 		{97BFC1D8-952F-431C-A9A2-8F771BF474F4} = {13C05A3E-5A1E-4E02-BD55-DA55D232FE8C}
+		{A0862851-0BC1-4A63-B06B-154DCB09602D} = {7154EAAC-F895-4D81-8FBD-6516572B0074}
 	EndGlobalSection
 	GlobalSection(TextTemplating) = postSolution
 		TextTemplating = 1

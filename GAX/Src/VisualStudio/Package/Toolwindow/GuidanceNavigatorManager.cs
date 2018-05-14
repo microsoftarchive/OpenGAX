@@ -13,27 +13,18 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
+using Microsoft.Practices.ComponentModel;
 using Microsoft.Practices.RecipeFramework.Services;
 using Microsoft.Practices.RecipeFramework.Configuration;
 using EnvDTE;
-using Microsoft.Practices.RecipeFramework.VisualStudio.Library;
-using System.Collections.Specialized;
-using System.Collections;
 using System.Diagnostics;
-using Microsoft.Practices.RecipeFramework.VisualStudio.Templates;
 using VSLangProj;
 using EnvDTE80;
-using Microsoft.Practices.Common;
-using System.Windows.Forms.Design;
-using Microsoft.VisualStudio.Shell;
-using System.Runtime.InteropServices;
-using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Properties;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.ToolWindow
 {
-    internal class GuidanceNavigatorManager
+	internal class GuidanceNavigatorManager
     {
         IServiceProvider serviceProvider;
         IRecipeManagerService rms;

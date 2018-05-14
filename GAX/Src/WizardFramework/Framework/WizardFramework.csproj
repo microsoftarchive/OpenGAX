@@ -184,7 +184,7 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Practices\Common\Common.csproj">
       <Project>{CD1A28C5-0278-4DA6-81C4-A3FF95FF1270}</Project>
-      <Name>Common (Practices\Common)</Name>
+      <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

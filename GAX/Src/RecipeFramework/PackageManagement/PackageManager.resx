@@ -724,6 +724,6 @@
     <value>PackageManager</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Microsoft.Practices.RecipeFramework.PackageManagement.ManagerForm, Microsoft.Practices.RecipeFramework.PackageManagement, Version=2.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0</value>
+    <value>Microsoft.Practices.RecipeFramework.PackageManagement.ManagerForm, Microsoft.Practices.RecipeFramework.PackageManagement, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0</value>
   </data>
 </root>

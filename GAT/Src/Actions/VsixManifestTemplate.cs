@@ -16,7 +16,7 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\GaxGat-VS2015\GAT\Src\Actions\VsixManifestTemplate.tt"
+    #line 1 "D:\GaxGat-VS2015\OpenGax\GAT\Src\Actions\VsixManifestTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     public partial class VsixManifestTemplate : VsixManifestTemplateBase
     {
@@ -26,60 +26,62 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Vsix xmlns:xsi=\"http://www.w3.org/2001/X" +
-                    "MLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" Version=\"1.0.0\" " +
-                    "xmlns=\"http://schemas.microsoft.com/developer/vsx-schema/2010\">\r\n\t<Identifier Id" +
-                    "=\"");
+            this.Write("<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<PackageManifest Version=\"2.0.0\" xmlns=\"h" +
+                    "ttp://schemas.microsoft.com/developer/vsx-schema/2011\"\r\n\txmlns:d=\"http://schemas" +
+                    ".microsoft.com/developer/vsx-schema-design/2011\">\r\n\t<Metadata>\r\n\t\t<Identity Id=\"" +
+                    "");
             
-            #line 6 "D:\GaxGat-VS2015\GAT\Src\Actions\VsixManifestTemplate.tt"
+            #line 8 "D:\GaxGat-VS2015\OpenGax\GAT\Src\Actions\VsixManifestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GuidancePackage.Name));
             
             #line default
             #line hidden
-            this.Write("\">\r\n\t\t<Name>");
+            this.Write("\" Publisher=\"Author\" Version=\"1.0\" Language=\"en-US\" />\r\n\t\t<DisplayName>");
             
-            #line 7 "D:\GaxGat-VS2015\GAT\Src\Actions\VsixManifestTemplate.tt"
+            #line 9 "D:\GaxGat-VS2015\OpenGax\GAT\Src\Actions\VsixManifestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GuidancePackage.Caption));
             
             #line default
             #line hidden
-            this.Write("</Name>\r\n\t\t<Author>Author</Author>\r\n\t\t<Version>1.0</Version>\r\n\t\t<Description xml:" +
-                    "space=\"preserve\">");
+            this.Write("</DisplayName>\r\n\t\t<Description xml:space=\"preserve\">");
             
-            #line 10 "D:\GaxGat-VS2015\GAT\Src\Actions\VsixManifestTemplate.tt"
+            #line 10 "D:\GaxGat-VS2015\OpenGax\GAT\Src\Actions\VsixManifestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GuidancePackage.Caption));
             
             #line default
             #line hidden
             this.Write(@"</Description>
-		<Locale>1033</Locale>
-		<InstalledByMsi>false</InstalledByMsi>
-		<SupportedProducts>
-			<VisualStudio Version=""14.0"">
-				<Edition>Pro</Edition>
-			</VisualStudio>
-		</SupportedProducts>
-		<SupportedFrameworkRuntimeEdition MinVersion=""4.0"" MaxVersion=""4.5.1"" />
-	</Identifier>
-	<References>
-		<Reference Id=""OpenGAX-VS2015"" MinVersion=""1.0"">
-			<Name>Guidance Automation Extensions</Name>
-		</Reference>
-	</References>
-	<Content>
-    <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>
-    <CustomExtension Type=""GuidancePackage"">");
+		<License>Optional-EULA.txt</License>
+	</Metadata>
+	<Installation InstalledByMsi=""false"" AllUsers=""true"" SystemComponent=""false"" Scope=""ProductExtension"">
+		<InstallationTarget Id=""Microsoft.VisualStudio.Pro"" Version=""[14.0, 16.0)"" />
+		<InstallationTarget Id=""Microsoft.VisualStudio.Enterprise"" Version=""[14.0, 16.0)"" />
+	</Installation>
+	<Prerequisites>
+		<Prerequisite Id=""Microsoft.VisualStudio.Component.CoreEditor"" Version=""[15.0,16.0)"" DisplayName=""Visual Studio core editor"" />
+	</Prerequisites>
+	<Dependencies>
+		<Dependency Id=""Microsoft.Framework.NDP"" DisplayName=""Microsoft .NET Framework""
+					d:Source=""Manual"" Version=""[4.5, 4,8)"" />
+		<Dependency Id=""Microsoft.VisualStudio.MPF.14.0"" DisplayName=""Visual Studio MPF 14.0""
+					d:Source=""Installed"" Version=""[14.0, 15.0)"" />
+		<Dependency Id=""OpenGAX-VS2015"" DisplayName=""Guidance Automation Extensions"" d:Source=""Installed"" Version=""[1.0, 2.0)"" />
+	</Dependencies>
+	<Assets>
+		<Asset Type=""Microsoft.VisualStudio.VsPackage"" d:Source=""Project""
+			d:ProjectName=""%CurrentProject%"" Path=""|%CurrentProject%;PkgdefProjectOutputGroup|"" />
+		<Asset Type=""GuidancePackage"" d:Source=""File"" Path=""");
             
-            #line 27 "D:\GaxGat-VS2015\GAT\Src\Actions\VsixManifestTemplate.tt"
+            #line 30 "D:\GaxGat-VS2015\OpenGax\GAT\Src\Actions\VsixManifestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.ConfigurationFile));
             
             #line default
             #line hidden
-            this.Write("</CustomExtension>\r\n\t</Content>\r\n</Vsix>\r\n");
+            this.Write("\" />\r\n\t</Assets>\r\n</PackageManifest>\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 30 "D:\GaxGat-VS2015\GAT\Src\Actions\VsixManifestTemplate.tt"
+        #line 33 "D:\GaxGat-VS2015\OpenGax\GAT\Src\Actions\VsixManifestTemplate.tt"
 
 	public Microsoft.Practices.RecipeFramework.Configuration.GuidancePackage GuidancePackage { get; set; }
 

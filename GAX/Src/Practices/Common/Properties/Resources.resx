@@ -117,30 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ErrorHelper_Abort" xml:space="preserve">
-    <value>&amp;Abort</value>
-  </data>
-  <data name="ErrorHelper_Cancel" xml:space="preserve">
-    <value>&amp;Cancel</value>
-  </data>
-  <data name="ErrorHelper_Caption" xml:space="preserve">
-    <value>Recipe Framework Error</value>
-  </data>
-  <data name="ErrorHelper_Ignore" xml:space="preserve">
-    <value>&amp;Ignore</value>
-  </data>
-  <data name="ErrorHelper_No" xml:space="preserve">
-    <value>&amp;No</value>
-  </data>
-  <data name="ErrorHelper_OK" xml:space="preserve">
-    <value>&amp;OK</value>
-  </data>
-  <data name="ErrorHelper_Retry" xml:space="preserve">
-    <value>&amp;Retry</value>
-  </data>
-  <data name="ErrorHelper_Yes" xml:space="preserve">
-    <value>&amp;Yes</value>
-  </data>
   <data name="ReflectionHelper_CantAssignTo" xml:space="preserve">
     <value>Type {0} is not assignable to type {1}.</value>
   </data>
@@ -161,31 +137,5 @@
   </data>
   <data name="TypeResolutionService_AssemblyNotFound" xml:space="preserve">
     <value>Couldn't find assembly {0}.</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Icon1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  
-	<data name="Icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Icon2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Icon3.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Icon4.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ErrorHelper_HideDetails" xml:space="preserve">
-    <value>Hide details</value>
-  </data>
-  <data name="ErrorHelper_ShowDetails" xml:space="preserve">
-    <value>Show details</value>
-  </data>
-  <data name="ErrorHelper_HideDetailsException" xml:space="preserve">
-    <value>Hide details</value>
-  </data>
-  <data name="ErrorHelper_ShowDetailsException" xml:space="preserve">
-    <value>Show details</value>
   </data>
 </root>

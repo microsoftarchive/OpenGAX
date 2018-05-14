@@ -38,8 +38,8 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library
     /// Sets the context of an project item, even if the project item is opened by Visual Studio
     /// </summary>
     [ServiceDependency(typeof(ILocalRegistry))]
-    internal sealed class SetProjectItemContentAction : Action
-    {
+    internal sealed class SetProjectItemContentAction : Microsoft.Practices.RecipeFramework.Action
+	{
         #region Input Properties
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library
 					}
 					catch(Exception ex)
 					{
-						Trace.TraceError(ex.ToString());
+						this.TraceError(ex.ToString());
 						reOpenItem = false;
 					}
                 }

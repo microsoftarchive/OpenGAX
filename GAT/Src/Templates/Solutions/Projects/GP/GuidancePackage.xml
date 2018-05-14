@@ -4,7 +4,8 @@
     Caption="$PackageCaption$"
     Description="$PackageDescription$"
     BindingRecipe="BindingRecipe"
-    Guid="$guid1$" 
+    Guid="$guid1$"
+    SourceLevels="Information"
     SchemaVersion="1.0">
 	<Recipes>
 		<Recipe Name="BindingRecipe">

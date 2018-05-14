@@ -11,21 +11,15 @@
 // License: MS-LPL
 //===================================================================================
 
-#region using
-
-using System;
 using System.CodeDom.Compiler;
-using System.Diagnostics;
 using System.IO;
 using EnvDTE;
 using System.Globalization;
 
-#endregion using 
-
-	/// <summary>
-	/// Utility methods for working with the IDE while debugging.
-	/// </summary>
-internal class DebugUtils
+/// <summary>
+/// Utility methods for working with the IDE while debugging.
+/// </summary>
+public class DebugUtils
 {
 	public static void DumpUIHierarchy(UIHierarchy hierarchy)
 	{

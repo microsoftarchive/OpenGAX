@@ -130,15 +130,15 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Practices\Common\Common.csproj">
       <Project>{CD1A28C5-0278-4DA6-81C4-A3FF95FF1270}</Project>
-      <Name>Common (Practices\Common)</Name>
+      <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Common\Common.csproj">
+    <ProjectReference Include="..\Common\RecipeFramework.Common.csproj">
       <Project>{CACBA86E-8E15-4318-822F-E4D74F3107A1}</Project>
-      <Name>Common (RecipeFramework\Common)</Name>
+      <Name>RecipeFramework.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework\RecipeFramework.csproj">
       <Project>{F0F73757-C737-49CC-B88B-32C5817CA9C4}</Project>
-      <Name>RecipeFramework (RecipeFramework\RecipeFramework)</Name>
+      <Name>RecipeFramework</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>

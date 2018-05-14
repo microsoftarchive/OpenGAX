@@ -11,14 +11,9 @@
 // License: MS-LPL
 //===================================================================================
 
-#region Using directives
 
-using System;
-using System.ComponentModel;
-using System.Collections;
 using Microsoft.Practices.ComponentModel;
 
-#endregion Using directives
 
 namespace Microsoft.Practices.RecipeFramework
 {

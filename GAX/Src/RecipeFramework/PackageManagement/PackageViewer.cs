@@ -1,14 +1,12 @@
 #region Using directives
 
 using System;
-using System.Drawing;
-using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 
 using Config = Microsoft.Practices.RecipeFramework.Configuration;
 using Microsoft.Practices.RecipeFramework.Services;
-using Microsoft.Practices.Common;
+using Microsoft.Practices.ComponentModel;
 using System.Windows.Forms.Design;
 
 #endregion Using directives
@@ -301,7 +299,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 		}
 
@@ -370,7 +368,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 		}
 	}

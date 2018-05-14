@@ -125,7 +125,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
             // Looking for errors
             if (host.Errors.HasErrors)
             {
-				Trace.TraceError(host.Errors[0].ToString());
+				this.TraceError(host.Errors[0].ToString());
                 throw new TemplateException(host.Errors);
             }
             else if (host.Errors.HasWarnings)
@@ -136,7 +136,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
                     warnings.AppendLine(warning.ToString());
                 }
 
-                Trace.WriteLine(String.Format( 
+                this.TraceInformation(String.Format( 
                     CultureInfo.CurrentCulture,
                     Properties.Resources.T4Action_CompilationWarnings, 
                     templateFile,

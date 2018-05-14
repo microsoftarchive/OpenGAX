@@ -2,31 +2,34 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ output extension=".regpkg" #>
 <?xml version="1.0" encoding="utf-8"?>
-<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
-	<Identifier Id="<#= this.GuidancePackage.Name #>">
-		<Name><#= this.GuidancePackage.Caption #></Name>
-		<Author>Author</Author>
-		<Version>1.0</Version>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011"
+	xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+	<Metadata>
+		<Identity Id="<#= this.GuidancePackage.Name #>" Publisher="Author" Version="1.0" Language="en-US" />
+		<DisplayName><#= this.GuidancePackage.Caption #></DisplayName>
 		<Description xml:space="preserve"><#= this.GuidancePackage.Caption #></Description>
-		<Locale>1033</Locale>
-		<InstalledByMsi>false</InstalledByMsi>
-		<SupportedProducts>
-			<VisualStudio Version="14.0">
-				<Edition>Pro</Edition>
-			</VisualStudio>
-		</SupportedProducts>
-		<SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.5.1" />
-	</Identifier>
-	<References>
-		<Reference Id="OpenGAX-VS2015" MinVersion="1.0">
-			<Name>Guidance Automation Extensions</Name>
-		</Reference>
-	</References>
-	<Content>
-    <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>
-    <CustomExtension Type="GuidancePackage"><#= this.ConfigurationFile #></CustomExtension>
-	</Content>
-</Vsix>
+		<License>Optional-EULA.txt</License>
+	</Metadata>
+	<Installation InstalledByMsi="false" AllUsers="true" SystemComponent="false" Scope="ProductExtension">
+		<InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[14.0, 16.0)" />
+		<InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[14.0, 16.0)" />
+	</Installation>
+	<Prerequisites>
+		<Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,16.0)" DisplayName="Visual Studio core editor" />
+	</Prerequisites>
+	<Dependencies>
+		<Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework"
+					d:Source="Manual" Version="[4.5, 4,8)" />
+		<Dependency Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0"
+					d:Source="Installed" Version="[14.0, 15.0)" />
+		<Dependency Id="OpenGAX-VS2015" DisplayName="Guidance Automation Extensions" d:Source="Installed" Version="[1.0, 2.0)" />
+	</Dependencies>
+	<Assets>
+		<Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project"
+			d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+		<Asset Type="GuidancePackage" d:Source="File" Path="<#= this.ConfigurationFile #>" />
+	</Assets>
+</PackageManifest>
 <#+
 	public Microsoft.Practices.RecipeFramework.Configuration.GuidancePackage GuidancePackage { get; set; }
 

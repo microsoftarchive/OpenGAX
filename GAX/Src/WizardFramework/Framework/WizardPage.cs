@@ -17,6 +17,7 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
+using System.Windows.Forms;
 using Microsoft.Practices.ComponentModel;
 using Microsoft.Practices.Common.Services;
 using System.ComponentModel.Design;
@@ -69,26 +70,45 @@ namespace Microsoft.Practices.WizardFramework
 			// WizardPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-			this.InfoRTBoxSize = new System.Drawing.Size(496, 60);
+			this.InfoRTBoxSize = new System.Drawing.Size(496, 60);			
 			this.Name = "WizardPage";
 			this.Size = new System.Drawing.Size(505, 459);
 			this.Skippable = true;
 			this.SizeChanged += new System.EventHandler(this.WizardPage_SizeChanged);
+
+			Control _infoRTBox = null;
+			foreach (Control c in this.infoPanel.Controls)
+			{
+				if (c.Name == "_infoRTBox")
+					_infoRTBox = c;
+			}
+			_infoRTBox.BackColor = Color.FromArgb( _infoRTBox.ForeColor.ToArgb() + 0x181818) ;  //CalcContrastColor(_infoRTBox.ForeColor);
+
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
         }
 
-        #endregion
+		#endregion
 
-        #endregion Designer Stuff
+		#endregion Designer Stuff
 
-        #region Constructor
+		//static Color CalcContrastColor(Color color)
+		//{
+		//	if (Math.Abs(color.R - 0x80) <= 0x20 &&
+		//		Math.Abs(color.G - 0x80) <= 0x20 &&
+		//		Math.Abs(color.B - 0x80) <= 0x20)
+		//		return Color.FromArgb((0x7F7F7F + color.ToArgb()) & 0xFFFFFF);
+		//	else
+		//		return Color.FromArgb(color.ToArgb() ^ 0xFFFFFF);
+		//}
 
-        /// <summary>
-        /// Creates a WizardPage inside the Windows Form Designer
-        /// </summary>
-        public WizardPage()
+		#region Constructor
+
+			/// <summary>
+			/// Creates a WizardPage inside the Windows Form Designer
+			/// </summary>
+		public WizardPage()
 		{
 			arguments = new Hashtable();
 			InitializeComponent();

@@ -3,7 +3,7 @@
 								 xmlns:xi="http://www.w3.org/2001/XInclude"
 								 Caption="Guidance Package Development"
 								 Guid="23FC29C9-FAFE-47f1-B633-B548E788DDDF"
-								 TraceLevel="Info"
+								 SourceLevels="Information"
 								 Name="MetaGuidancePackage"
 								 SortPriority="200"
 								 BindingRecipe="BindRegistrationRecipes"
@@ -166,18 +166,18 @@
 					<Input Name="Project" RecipeArgument="PackageProject" />
 				</Action>
 				<Action
-							Name="UpdateWizardExtensionAssemblyVersionFrom12To20"
+							Name="UpdateWizardExtensionAssemblyVersionFrom12To30"
 							Path=".vstemplate"
 							OldText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-							NewText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null"
+							NewText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0"
 							Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.ReplaceFileContentAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
 					<Input Name="Project" RecipeArgument="PackageProject" />
 				</Action>
 				<Action
-							Name="UpdateWizardExtensionAssemblyVersionFrom14To20"
+							Name="UpdateWizardExtensionAssemblyVersionFrom14To30"
 							Path=".vstemplate"
 							OldText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=1.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-							NewText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null"
+							NewText="Microsoft.Practices.RecipeFramework.VisualStudio, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0"
 							Type="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions.ReplaceFileContentAction, Microsoft.Practices.RecipeFramework.MetaGuidancePackage">
 					<Input Name="Project" RecipeArgument="PackageProject" />
 				</Action>

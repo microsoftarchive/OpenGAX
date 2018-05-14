@@ -156,7 +156,7 @@ namespace Microsoft.Practices.RecipeFramework.Library.Actions
 					}
 					catch(Exception ex)
 					{
-						Trace.TraceError(ex.ToString());
+						this.TraceError(ex.ToString());
 						reOpenItem = false;
 					}
                 }

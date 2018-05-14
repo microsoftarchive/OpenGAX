@@ -11,7 +11,7 @@
     <ProjectItem ReplaceParameters="true">SerializableClass.cs</ProjectItem>
   </TemplateContent>
   <WizardExtension>
-    <Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</Assembly>
+    <Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0</Assembly>
     <FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
   </WizardExtension>
   <WizardData>

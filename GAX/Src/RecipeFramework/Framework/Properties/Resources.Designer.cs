@@ -484,7 +484,7 @@ namespace Microsoft.Practices.RecipeFramework.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Recipe Framework.
+        ///   Looks up a localized string similar to Microsoft Recipe Framework.
         /// </summary>
         internal static string LoggingService_Category {
             get {

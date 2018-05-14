@@ -280,7 +280,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 		}
 
@@ -368,7 +368,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 		}
 	}

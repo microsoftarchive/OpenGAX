@@ -86,7 +86,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
 									}
 									else
 									{
-										Trace.TraceWarning(
+										this.TraceWarning(
 											String.Format(
 												CultureInfo.CurrentCulture,
 												Properties.Resources.Template_MultipleTemplateDirs,

@@ -181,7 +181,7 @@
     <value>edit</value>
   </data>
   <data name="&gt;&gt;edit.Type" xml:space="preserve">
-    <value>Microsoft.Practices.WizardFramework.ValueEditor+ValueEditorTextBox, Microsoft.Practices.WizardFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0</value>
+    <value>Microsoft.Practices.WizardFramework.ValueEditor+ValueEditorTextBox, Microsoft.Practices.WizardFramework, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0</value>
   </data>
   <data name="&gt;&gt;edit.Parent" xml:space="preserve">
     <value>$this</value>

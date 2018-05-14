@@ -12,18 +12,14 @@
 //===================================================================================
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.Win32;
-using System.Diagnostics;
 using System.IO;
-using System.Reflection;
-using Microsoft.Practices.RecipeFramework.VisualStudio.Library;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
+using Microsoft.Practices.ComponentModel;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio
 {
@@ -146,7 +142,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
                 RegistryKey rootKey = parent.OpenSubKey(root, true);
                 if (rootKey != null)
                 {
-                    Trace.TraceInformation("Removing Registry value Root: {0} ValueName: {1}.", root, valueName);
+					TraceUtil.GaxTraceSource.TraceInformation("Removing Registry value Root: {0} ValueName: {1}.", root, valueName);
                     rootKey.DeleteValue(valueName, false);
                 }
             }
@@ -164,7 +160,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
 
                         if (subKeyToBeDeleted != null)
                         {
-                            Trace.TraceInformation("Removing SubKey Registry Tree Root:  {0} - Key: {1}", root, keyName);
+							TraceUtil.GaxTraceSource.TraceInformation("Removing SubKey Registry Tree Root:  {0} - Key: {1}", root, keyName);
                             rootKey.DeleteSubKeyTree(keyName);
                         }
 

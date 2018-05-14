@@ -14,14 +14,10 @@
 #region Using Directives
 
 using System;
-using System.Text;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.Practices.RecipeFramework.Services;
 using System.ComponentModel.Design;
-using Microsoft.Practices.Common;
-using System.Diagnostics;
-using System.Collections;
 using EnvDTE;
+using Microsoft.Practices.ComponentModel;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Library;
 
 #endregion

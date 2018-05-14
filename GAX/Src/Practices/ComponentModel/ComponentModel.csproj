@@ -65,8 +65,12 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -79,17 +83,29 @@
     <Compile Include="ContainerComponent.cs" />
     <Compile Include="CategoryResourceAttribute.cs" />
     <Compile Include="DescriptionResourceAttribute.cs" />
+    <Compile Include="ErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorForm.Designer.cs">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorHelper.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="IErrorInfo.cs" />
+    <Compile Include="IOutputWindowService.cs" />
+    <Compile Include="OutputWindowService.cs" />
+    <Compile Include="OutputWindowTraceListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="TraceUtil.cs" />
+    <EmbeddedResource Include="ErrorForm.resx">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <Compile Include="ServiceAdapterDictionary.cs" />
     <Compile Include="ServiceContainer.cs" />
     <Compile Include="ServiceDependencyAttribute.cs" />
@@ -98,9 +114,19 @@
     <Compile Include="Site.cs" />
     <Compile Include="SitedComponent.cs" />
     <AppDesigner Include="Properties\" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Icon1.ico" />
+    <Content Include="Properties\Icon2.ico" />
+    <Content Include="Properties\Icon3.ico" />
+    <Content Include="Properties\Icon4.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
 </Project>

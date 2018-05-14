@@ -14,7 +14,6 @@
 #region Using Directives
 
 using System;
-using System.Text;
 using System.IO;
 using System.Xml;
 using System.Collections;
@@ -26,11 +25,8 @@ using System.Collections.Generic;
 using System.Windows.Forms.Design;
 using System.ComponentModel.Design;
 using System.Runtime.Serialization;
-using System.Collections.Specialized;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
-
-using Microsoft.Win32;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
@@ -54,7 +50,7 @@ using Microsoft.Practices.RecipeFramework.VisualStudio.ToolWindow;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio
 {
-    [ServiceDependency(typeof(IRecipeManagerService))]
+	[ServiceDependency(typeof(IRecipeManagerService))]
     [ServiceDependency(typeof(IVsSolution))]
     [ServiceDependency(typeof(DTE))]
     [ServiceDependency(typeof(IVsTemplatesService))]
@@ -181,7 +177,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception ex)
             {
-                Trace.TraceError(ex.ToString());
+                this.TraceError(ex.ToString());
                 throw new RecipeFrameworkException(
                     Properties.Resources.Package_FailedToLoad, ex);
             }
@@ -302,7 +298,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
                 IRecipeManagerService manager = GetService<IRecipeManagerService>();
                 if (manager == null)
                 {
-                    Trace.TraceError(
+                    this.TraceError(
                         Properties.Resources.Package_CantGetManagerService);
                     if (uiService != null)
                     {
@@ -354,7 +350,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show(GetService<IUIService>(), e);
+                ErrorHelper.Show(this, e);
             }
         }
 
@@ -381,7 +377,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show(GetService<IUIService>(), e);
+                ErrorHelper.Show(this, e);
                 return VSConstants.E_FAIL;
             }
         }
@@ -427,7 +423,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show(GetService<IUIService>(), e);
+                ErrorHelper.Show(this, e);
                 return VSConstants.E_FAIL;
             }
         }
@@ -538,11 +534,11 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
                 e.Package.AddService(typeof(IValueGatheringService), new WizardFramework.WizardGatheringService());
                 // Service will be disposed if it fails to load.
                 e.Package.AddService(typeof(IOutputWindowService), new OutputWindowService(
-                    e.Package.Configuration.Caption, e.Package.TraceSwitch));
-            }
-            catch (Exception ex)
+                    e.Package.Configuration.Caption, e.Package.SourceSwitch));
+			}
+			catch (Exception ex)
             {
-                ErrorHelper.Show(GetService<IUIService>(), ex);
+                ErrorHelper.Show(this, ex);
             }
         }
 
@@ -558,7 +554,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception ex)
             {
-                ErrorHelper.Show(GetService<IUIService>(), ex);
+                ErrorHelper.Show(this, ex);
             }
         }
 
@@ -581,7 +577,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception ex)
             {
-                ErrorHelper.Show(GetService<IUIService>(), ex);
+                ErrorHelper.Show(this, ex);
             }
         }
 
@@ -685,7 +681,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show(GetService<IUIService>(), e);
+                ErrorHelper.Show(this, e);
             }
         }
 
@@ -729,7 +725,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show(GetService<IUIService>(), e);
+                ErrorHelper.Show(this, e);
             }
         }
 
@@ -762,7 +758,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show(GetService<IUIService>(), e);
+                ErrorHelper.Show(this, e);
             }
         }
 
@@ -804,7 +800,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show(GetService<IUIService>(), e);
+                ErrorHelper.Show(this, e);
             }
         }
 
@@ -873,7 +869,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             catch (Exception ex)
             {
                 // This is meant to catch "Project unavailable" exception
-                Trace.TraceError(ex.ToString());
+                this.TraceError(ex.ToString());
             }
             finally
             {
@@ -913,7 +909,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             catch (Exception ex)
             {
                 // This is meant to catch "Project unavailable" exception
-                Trace.TraceError(ex.ToString());
+                this.TraceError(ex.ToString());
             }
             finally
             {

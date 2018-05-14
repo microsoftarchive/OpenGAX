@@ -41,6 +41,7 @@
 			<ProjectItem ReplaceParameters="true">ValueProviders\DateNowValueProvider.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="source.extension.vsixmanifest">GuidancePackage.vsixmanifest</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="$PackageName$.xml">GuidancePackage.xml</ProjectItem>
+			<ProjectItem TargetFileName="packages.config" >nuget_packages.config</ProjectItem>
 			<ProjectItem>TypeAlias.xml</ProjectItem>
 			<!-- Third level output files -->
 			<ProjectItem>Templates\Items\Class.cs</ProjectItem>
@@ -79,11 +80,12 @@
       <ProjectItem>Templates\Solutions\Projects\WebSite\WebSite.webproj</ProjectItem>
 
       <ProjectItem ReplaceParameters="true">Templates\Solutions\SampleSolution.vstemplate</ProjectItem>
-			<ProjectItem>Templates\Solutions\SampleSolution.ico</ProjectItem>
-			<ProjectItem>Templates\Text\Repeating.cs.t4</ProjectItem>
-			<ProjectItem>Templates\Text\Program.cs.t4</ProjectItem>
+	  <ProjectItem>Templates\Solutions\SampleSolution.ico</ProjectItem>
+	  <ProjectItem>Templates\Text\Repeating.cs.t4</ProjectItem>
+	  <ProjectItem>Templates\Text\Program.cs.t4</ProjectItem>
 			<!--The Intro.htm should be opened at the end of the unfolding in order to see it on top of the windows-->
-			<ProjectItem OpenInWebBrowser="true">Intro.htm</ProjectItem>
+		<ProjectItem>optional-EULA.txt</ProjectItem>
+		<ProjectItem OpenInWebBrowser="true">Intro.htm</ProjectItem>
       <Folder Name="img" TargetFolderName="img">
         <ProjectItem ReplaceParameters="false">logo.gif</ProjectItem>
         <ProjectItem ReplaceParameters="false">header.gif</ProjectItem>
@@ -91,15 +93,14 @@
     </Project>
 	</TemplateContent>
 	<WizardExtension>
-		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</Assembly>
+		<Assembly>Microsoft.Practices.RecipeFramework.VisualStudio, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0</Assembly>
 		<FullClassName>Microsoft.Practices.RecipeFramework.VisualStudio.Templates.UnfoldTemplate</FullClassName>
 	</WizardExtension>
 	<WizardData>
 		<Template xmlns="http://schemas.microsoft.com/pag/gax-template"
               SchemaVersion="1.0">
 			<References>
-				<RecipeReference Name="AddActionParameter" Target="/Actions/HelloWorldAction.cs"/>
-				
+				<RecipeReference Name="AddActionParameter" Target="/Actions/HelloWorldAction.cs"/>				
 				<TemplateReference Name="\Items\Action\Action.vstemplate" Target="\Actions"/>
 			</References>
 		</Template>

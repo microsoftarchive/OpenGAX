@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <Import Project="..\..\..\packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.props" Condition="'$(VisualStudioVersion)' != '14.0' and Exists('..\..\..\packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.props')" />
+  <Import Project="..\..\..\packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.props" Condition="'$(VisualStudioVersion)' == '14.0' and Exists('..\..\..\packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20820</ProductVersion>
@@ -9,6 +14,7 @@
     <ProjectGuid>{052BF302-4304-4453-B05A-568258F37645}</ProjectGuid>
     <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
+    <VsixType>v3</VsixType>
     <RootNamespace>Microsoft.Practices.RecipeFramework.VisualStudio</RootNamespace>
     <AssemblyName>Microsoft.Practices.RecipeFramework.VisualStudio</AssemblyName>
     <WarningLevel>4</WarningLevel>
@@ -20,12 +26,8 @@
     <AssemblyOriginatorKeyFile>..\..\..\..\Shared\Microsoft.Practices.RecipeFramework.snk</AssemblyOriginatorKeyFile>
     <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
     <DelaySign>false</DelaySign>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>4.0</OldToolsVersion>
+    <OldToolsVersion>12.0</OldToolsVersion>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
@@ -123,10 +125,12 @@
     <FxCopProjectFile>
     </FxCopProjectFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DeployExtension>False</DeployExtension>
+    <DeployExtension>True</DeployExtension>
     <TargetVsixContainerName>GAX.vsix</TargetVsixContainerName>
     <CopyVsixExtensionFiles>False</CopyVsixExtensionFiles>
     <Prefer32Bit>false</Prefer32Bit>
+    <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -262,7 +266,6 @@
     <Compile Include="RecipeMenuCommand.cs" />
     <Compile Include="SolutionPackagesContainer.cs" />
     <Compile Include="SolutionReference.cs" />
-    <Compile Include="OutputWindowTraceListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -271,8 +274,6 @@
     </EmbeddedResource>
     <Compile Include="TaskList\RecipeTaskProvider.cs" />
     <Compile Include="Services\DictionarySerializer.cs" />
-    <Compile Include="Services\OutputWindowService.cs">
-    </Compile>
     <Compile Include="TaskList\RecipeTaskEnumerator.cs" />
     <Compile Include="TaskList\RecipeTaskItem.cs" />
     <Compile Include="Templates\UnfoldTemplate.cs">
@@ -291,7 +292,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Library\Library.csproj">
       <Project>{A0862851-0BC1-4A63-B06B-154DCB09602D}</Project>
-      <Name>Library %28Library\Library%29</Name>
+      <Name>Library</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
     </ProjectReference>
     <ProjectReference Include="..\..\Practices\ComponentModel\ComponentModel.csproj">
       <Project>{24A14750-5BE7-4872-9899-A0EEF545D1FD}</Project>
@@ -302,18 +304,18 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Practices\Common\Common.csproj">
       <Project>{CD1A28C5-0278-4DA6-81C4-A3FF95FF1270}</Project>
-      <Name>Common (Practices\Common)</Name>
+      <Name>Common</Name>
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
     </ProjectReference>
-    <ProjectReference Include="..\..\RecipeFramework\Common\Common.csproj">
+    <ProjectReference Include="..\..\RecipeFramework\Common\RecipeFramework.Common.csproj">
       <Project>{CACBA86E-8E15-4318-822F-E4D74F3107A1}</Project>
-      <Name>Common (RecipeFramework\Common)</Name>
+      <Name>RecipeFramework.Common</Name>
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
     </ProjectReference>
     <ProjectReference Include="..\..\RecipeFramework\Framework\RecipeFramework.csproj">
       <Project>{F0F73757-C737-49CC-B88B-32C5817CA9C4}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-      <Name>RecipeFramework (RecipeFramework\RecipeFramework)</Name>
+      <Name>RecipeFramework</Name>
       <Private>True</Private>
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
     </ProjectReference>
@@ -325,16 +327,16 @@
     <ProjectReference Include="..\..\WizardFramework\Framework\WizardFramework.csproj">
       <Project>{08901aa0-a0cf-458c-910a-a8c0981675ac}</Project>
       <Name>WizardFramework</Name>
-      <IncludeOutputGroupsInVSIX> BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{C3B9B008-DF10-4288-8414-00C3F3AA582E}</Project>
-      <Name>Common (VisualStudio\Common)</Name>
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
     </ProjectReference>
-    <ProjectReference Include="..\Library\Library.csproj">
+    <ProjectReference Include="..\Common\VisualStudio.Common.csproj">
+      <Project>{C3B9B008-DF10-4288-8414-00C3F3AA582E}</Project>
+      <Name>VisualStudio.Common</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\Library\VisualStudio.Library.csproj">
       <Project>{E754B7DA-2C3C-408B-A7B5-AC94D37C5B1A}</Project>
-      <Name>Library %28VisualStudio\Library%29</Name>
+      <Name>VisualStudio.Library</Name>
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
     </ProjectReference>
   </ItemGroup>
@@ -365,6 +367,7 @@
       <DependentUpon>WizardFrameworkConfig.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="app.config" />
     <None Include="Build\GuidancePackageRegistryTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>GuidancePackageRegistryTemplate.cs</LastGenOutput>
@@ -384,7 +387,10 @@
       <IncludeInVSIX>true</IncludeInVSIX>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="source.extension.vsixmanifest" />
+    <None Include="packages.config" />
+    <None Include="source.extension.vsixmanifest">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="1033\Microsoft.Practices.RecipeFramework.VisualStudioUI.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -429,13 +435,12 @@
     <RegisterWithCodebase>true</RegisterWithCodebase>
   </PropertyGroup>
   <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup>
-    <StartProgram>$(ProgramFiles)\Microsoft Visual Studio 14.0\Common7\IDE\\devenv.exe</StartProgram>
+    <StartPrograms>$(DevEnvDir)devenv.exe</StartPrograms>
     <StartAction>Program</StartAction>
     <StartArguments>/rootsuffix Exp</StartArguments>
   </PropertyGroup>
@@ -447,4 +452,15 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="'$(VisualStudioVersion)' != '14.0' And !Exists('..\..\..\packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.props'))" />
+    <Error Condition="'$(VisualStudioVersion)' != '14.0' And !Exists('..\..\..\packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.targets'))" />
+    <Error Condition="'$(VisualStudioVersion)' == '14.0' And !Exists('..\..\..\packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.props'))" />
+    <Error Condition="'$(VisualStudioVersion)' == '14.0' And !Exists('..\..\..\packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.targets'))" />
+  </Target>
+  <Import Project="..\..\..\packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.targets" Condition="'$(VisualStudioVersion)' == '14.0' And Exists('..\..\..\packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.targets')" />
+  <Import Project="..\..\..\packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.targets" Condition="'$(VisualStudioVersion)' != '14.0' And Exists('..\..\..\packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.targets')" />
 </Project>

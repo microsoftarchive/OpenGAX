@@ -313,13 +313,13 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
                                     }
                                     catch
                                     {
-                                        Trace.TraceWarning(Properties.Resources.Templates_InvalidRegistry, projectKeyName);
+                                        this.TraceWarning(Properties.Resources.Templates_InvalidRegistry, projectKeyName);
                                     }
                                     if (projectGuid != Guid.Empty)
                                     {
                                         if (projectFactories.ContainsKey(lang))
                                         {
-                                            Trace.TraceWarning(Properties.Resources.Templates_CorruptMultipleFactories, lang);
+                                            this.TraceWarning(Properties.Resources.Templates_CorruptMultipleFactories, lang);
                                         }
                                         else
                                         {

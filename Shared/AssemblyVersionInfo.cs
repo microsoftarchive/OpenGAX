@@ -11,5 +11,7 @@
 // License: MS-LPL
 //===================================================================================
 
-[assembly: System.Reflection.AssemblyVersion("2.0.0.0")]
-[assembly: System.Reflection.AssemblyFileVersion("2.0.0.0")]
+// note version change need to be propagated to gat
+
+[assembly: System.Reflection.AssemblyVersion("3.0.0.0")]
+[assembly: System.Reflection.AssemblyFileVersion("3.0.0.0")]

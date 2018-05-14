@@ -640,8 +640,8 @@ namespace Microsoft.Xml.Serialization.GeneratedAssembly {
             WriteStartElement(n, ns, o, false, null);
             if (needType) WriteXsiType(null, @"http://schemas.microsoft.com/pag/gax-manifest");
             WriteAttribute(@"SchemaVersion", @"", ((global::System.String)o.@SchemaVersion));
-            if (((global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel)o.@TraceLevel) != global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Error) {
-                WriteAttribute(@"TraceLevel", @"", Write4_TraceLevel(((global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel)o.@TraceLevel)));
+            if (((global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels)o.@SourceLevels) != global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Error) {
+                WriteAttribute(@"SourceLevels", @"", Write4_SourceLevels(((global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels)o.@SourceLevels)));
             }
             {
                 global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.Host[] a = (global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.Host[])((global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.Host[])o.@Hosts);
@@ -714,15 +714,16 @@ namespace Microsoft.Xml.Serialization.GeneratedAssembly {
             WriteEndElement(o);
         }
 
-        string Write4_TraceLevel(global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel v) {
+        string Write4_SourceLevels(global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels v) {
             string s = null;
             switch (v) {
-                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Error: s = @"Error"; break;
-                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Info: s = @"Info"; break;
-                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Off: s = @"Off"; break;
-                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Warning: s = @"Warning"; break;
-                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Verbose: s = @"Verbose"; break;
-                default: throw CreateInvalidEnumValueException(((System.Int64)v).ToString(System.Globalization.CultureInfo.InvariantCulture), @"Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel");
+                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Error: s = @"Error"; break;
+                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Information: s = @"Information"; break;
+                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Off: s = @"Off"; break;
+                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Critical: s = @"Critical"; break;
+                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Warning: s = @"Warning"; break;
+                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Verbose: s = @"Verbose"; break;
+                default: throw CreateInvalidEnumValueException(((System.Int64)v).ToString(System.Globalization.CultureInfo.InvariantCulture), @"Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels");
             }
             return s;
         }
@@ -773,12 +774,12 @@ namespace Microsoft.Xml.Serialization.GeneratedAssembly {
                     o.@SchemaVersion = Reader.Value;
                     paramsRead[2] = true;
                 }
-                else if (!paramsRead[3] && ((object) Reader.LocalName == (object)id5_TraceLevel && (object) Reader.NamespaceURI == (object)id3_Item)) {
-                    o.@TraceLevel = Read4_TraceLevel(Reader.Value);
+                else if (!paramsRead[3] && ((object) Reader.LocalName == (object)id5_SourceLevels && (object) Reader.NamespaceURI == (object)id3_Item)) {
+                    o.@SourceLevels = Read4_SourceLevels(Reader.Value);
                     paramsRead[3] = true;
                 }
                 else if (!IsXmlnsAttribute(Reader.Name)) {
-                    UnknownNode((object)o, @":SchemaVersion, :TraceLevel");
+                    UnknownNode((object)o, @":SchemaVersion, :SourceLevels");
                 }
             }
             Reader.MoveToElement();
@@ -994,14 +995,15 @@ namespace Microsoft.Xml.Serialization.GeneratedAssembly {
             return o;
         }
 
-        global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel Read4_TraceLevel(string s) {
+        global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels Read4_SourceLevels(string s) {
             switch (s) {
-                case @"Error": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Error;
-                case @"Info": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Info;
-                case @"Off": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Off;
-                case @"Warning": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Warning;
-                case @"Verbose": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Verbose;
-                default: throw CreateUnknownConstantException(s, typeof(global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel));
+                case @"Error": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Error;
+                case @"Information": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Information;
+                case @"Off": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Off;
+                case @"Critical": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Critical;
+                case @"Warning": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Warning;
+                case @"Verbose": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Verbose;
+                default: throw CreateUnknownConstantException(s, typeof(global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels));
             }
         }
 
@@ -1010,7 +1012,7 @@ namespace Microsoft.Xml.Serialization.GeneratedAssembly {
 
         string id10_Name;
         string id13_Version;
-        string id5_TraceLevel;
+        string id5_SourceLevels;
         string id15_ConfigurationFile;
         string id1_RecipeFramework;
         string id16_Timestamp;
@@ -1029,7 +1031,7 @@ namespace Microsoft.Xml.Serialization.GeneratedAssembly {
         protected override void InitIDs() {
             id10_Name = Reader.NameTable.Add(@"Name");
             id13_Version = Reader.NameTable.Add(@"Version");
-            id5_TraceLevel = Reader.NameTable.Add(@"TraceLevel");
+            id5_SourceLevels = Reader.NameTable.Add(@"SourceLevels");
             id15_ConfigurationFile = Reader.NameTable.Add(@"ConfigurationFile");
             id1_RecipeFramework = Reader.NameTable.Add(@"RecipeFramework");
             id16_Timestamp = Reader.NameTable.Add(@"Timestamp");
@@ -1177,10 +1179,10 @@ namespace Microsoft.Practices.RecipeFramework.Configuration.Manifest
 		}
 
 		/// <remarks/>
-		protected override global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel Read4_TraceLevel(string s)
+		protected override global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels Read4_SourceLevels(string s)
 		{
-			global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel obj = base.Read4_TraceLevel(s);
-			TraceLevelDeserializedHandler handler = TraceLevelDeserialized;
+			global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels obj = base.Read4_SourceLevels(s);
+			SourceLevelsDeserializedHandler handler = SourceLevelsDeserialized;
 			if (handler != null)
 				handler(obj);
 
@@ -1203,7 +1205,7 @@ namespace Microsoft.Practices.RecipeFramework.Configuration.Manifest
         public event HostDeserializedHandler HostDeserialized;
         
         /// /// <remarks/>
-        public event TraceLevelDeserializedHandler TraceLevelDeserialized;
+        public event SourceLevelsDeserializedHandler SourceLevelsDeserialized;
     }
     
     /// /// <remarks/>
@@ -1213,7 +1215,7 @@ namespace Microsoft.Practices.RecipeFramework.Configuration.Manifest
     public delegate void HostDeserializedHandler(global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.Host host);
     
     /// /// <remarks/>
-    public delegate void TraceLevelDeserializedHandler(global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel traceLevel);
+    public delegate void SourceLevelsDeserializedHandler(global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels sourceLevels);
     
     /// /// <summary>Custom writer for RecipeFramework instances.</summary>
     internal class RecipeFrameworkWriter : RecipeFrameworkSerializer.BaseWriter
@@ -1263,8 +1265,8 @@ namespace Microsoft.Practices.RecipeFramework.Configuration.Manifest {
             WriteStartElement(n, ns, o, false, null);
             if (needType) WriteXsiType(null, @"http://schemas.microsoft.com/pag/gax-manifest");
             WriteAttribute(@"SchemaVersion", @"", ((global::System.String)o.@SchemaVersion));
-            if (((global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel)o.@TraceLevel) != global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Error) {
-                WriteAttribute(@"TraceLevel", @"", Write4_TraceLevel(((global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel)o.@TraceLevel)));
+            if (((global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels)o.@SourceLevels) != global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Error) {
+                WriteAttribute(@"SourceLevels", @"", Write4_SourceLevels(((global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels)o.@SourceLevels)));
             }
             {
                 global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.Host[] a = (global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.Host[])((global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.Host[])o.@Hosts);
@@ -1337,15 +1339,16 @@ namespace Microsoft.Practices.RecipeFramework.Configuration.Manifest {
             WriteEndElement(o);
         }
 
-        string Write4_TraceLevel(global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel v) {
+        string Write4_SourceLevels(global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels v) {
             string s = null;
             switch (v) {
-                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Error: s = @"Error"; break;
-                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Info: s = @"Info"; break;
-                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Off: s = @"Off"; break;
-                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Warning: s = @"Warning"; break;
-                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Verbose: s = @"Verbose"; break;
-                default: throw CreateInvalidEnumValueException(((System.Int64)v).ToString(System.Globalization.CultureInfo.InvariantCulture), @"Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel");
+                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Error: s = @"Error"; break;
+                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Information: s = @"Information"; break;
+                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Off: s = @"Off"; break;
+				case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Critical: s = @"Critical"; break;
+				case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Warning: s = @"Warning"; break;
+                case global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Verbose: s = @"Verbose"; break;
+                default: throw CreateInvalidEnumValueException(((System.Int64)v).ToString(System.Globalization.CultureInfo.InvariantCulture), @"Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels");
             }
             return s;
         }
@@ -1399,12 +1402,12 @@ namespace Microsoft.Practices.RecipeFramework.Configuration.Manifest {
                     o.@SchemaVersion = Reader.Value;
                     paramsRead[2] = true;
                 }
-                else if (!paramsRead[3] && ((object) Reader.LocalName == (object)id5_TraceLevel && (object) Reader.NamespaceURI == (object)id3_Item)) {
-                    o.@TraceLevel = Read4_TraceLevel(Reader.Value);
+                else if (!paramsRead[3] && ((object) Reader.LocalName == (object)id5_SourceLevels && (object) Reader.NamespaceURI == (object)id3_Item)) {
+                    o.@SourceLevels = Read4_SourceLevels(Reader.Value);
                     paramsRead[3] = true;
                 }
                 else if (!IsXmlnsAttribute(Reader.Name)) {
-                    UnknownNode((object)o, @":SchemaVersion, :TraceLevel");
+                    UnknownNode((object)o, @":SchemaVersion, :SourceLevels");
                 }
             }
             Reader.MoveToElement();
@@ -1623,14 +1626,15 @@ namespace Microsoft.Practices.RecipeFramework.Configuration.Manifest {
         }
 
         /// <remarks/>
-        protected virtual global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel Read4_TraceLevel(string s) {
+        protected virtual global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels Read4_SourceLevels(string s) {
             switch (s) {
-                case @"Error": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Error;
-                case @"Info": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Info;
-                case @"Off": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Off;
-                case @"Warning": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Warning;
-                case @"Verbose": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel.@Verbose;
-                default: throw CreateUnknownConstantException(s, typeof(global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.TraceLevel));
+                case @"Error": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Error;
+                case @"Information": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Information;
+                case @"Off": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Off;
+				case @"Critical": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Critical;
+				case @"Warning": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Warning;
+                case @"Verbose": return global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels.@Verbose;
+                default: throw CreateUnknownConstantException(s, typeof(global::Microsoft.Practices.RecipeFramework.Configuration.Manifest.SourceLevels));
             }
         }
 
@@ -1639,7 +1643,7 @@ namespace Microsoft.Practices.RecipeFramework.Configuration.Manifest {
 
         string id10_Name;
         string id13_Version;
-        string id5_TraceLevel;
+        string id5_SourceLevels;
         string id15_ConfigurationFile;
         string id1_RecipeFramework;
         string id16_Timestamp;
@@ -1658,7 +1662,7 @@ namespace Microsoft.Practices.RecipeFramework.Configuration.Manifest {
         protected override void InitIDs() {
             id10_Name = Reader.NameTable.Add(@"Name");
             id13_Version = Reader.NameTable.Add(@"Version");
-            id5_TraceLevel = Reader.NameTable.Add(@"TraceLevel");
+            id5_SourceLevels = Reader.NameTable.Add(@"SourceLevels");
             id15_ConfigurationFile = Reader.NameTable.Add(@"ConfigurationFile");
             id1_RecipeFramework = Reader.NameTable.Add(@"RecipeFramework");
             id16_Timestamp = Reader.NameTable.Add(@"Timestamp");

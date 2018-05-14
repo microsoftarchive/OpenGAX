@@ -1,28 +1,22 @@
 #region Using
 
 using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
-
-using EnvDTE80;
 using EnvDTE;
-using Microsoft.Practices.Common;
 using System.Collections;
 using System.IO;
 using VSLangProj;
 using System.Windows.Forms.Design;
+using Microsoft.Practices.ComponentModel;
 
 #endregion Using
 
 namespace Microsoft.Practices.RecipeFramework.Library.Editors
 {
-    /// <summary>
-    /// User control that allows selection of a valid target given a <see cref="IUnboundAssetReference"/> or 
-    /// <see cref="Type"/> of the target.
-    /// </summary>
+	/// <summary>
+	/// User control that allows selection of a valid target given a <see cref="IUnboundAssetReference"/> or 
+	/// <see cref="Type"/> of the target.
+	/// </summary>
 	public class SolutionPickerControl : UserControl
 	{
         #region Designer Stuff
@@ -433,7 +427,7 @@ namespace Microsoft.Practices.RecipeFramework.Library.Editors
             }
             catch (Exception ex)
             {
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
             }
         }
 
@@ -584,7 +578,7 @@ namespace Microsoft.Practices.RecipeFramework.Library.Editors
 			catch (Exception ex)
 			{
 				this.validSelection = false;
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 			finally
 			{
@@ -601,7 +595,7 @@ namespace Microsoft.Practices.RecipeFramework.Library.Editors
 				}
 				catch (Exception ex)
 				{
-					ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+					ErrorHelper.Show(this.Site, ex);
 				}
 			}
         }

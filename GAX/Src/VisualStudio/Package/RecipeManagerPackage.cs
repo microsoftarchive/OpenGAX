@@ -69,11 +69,11 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
     [PackageRegistration(UseManagedResourcesOnly = false, SatellitePath = "$PackageFolder$")]
     [RegisterAutoLoad(UIContextGuids.NoSolution)]
 #if DEBUG
-    [ProvidePackageSetting("TraceLevel", "Verbose")]
+    [ProvidePackageSetting("SourceLevels", "Verbose")]
 #else
-    [ProvidePackageSetting("TraceLevel", "Verbose")]
+    [ProvidePackageSetting("SourceLevels", "Verbose")]
 #endif
-    [ProvidePackageSetting("AutoShowGuidanceNavigator", 1)]
+	[ProvidePackageSetting("AutoShowGuidanceNavigator", 1)]
     internal sealed class RecipeManagerPackage : Package, IVsSolutionEvents, IVsSolutionEvents4, IVsTrackProjectDocumentsEvents2, IVsSolutionLoadEvents
     {
         #region Fields
@@ -111,7 +111,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+                ErrorHelper.Show(this, e);
             }
         }
 
@@ -125,7 +125,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             try
             {
                 Environment.SetEnvironmentVariable("RecipeFrameworkPath", Path.GetDirectoryName(this.GetType().Assembly.Location));
-                LoadTraceLevelSetting();
+				LoadSourceLevelsSetting();
 
                 AdviseSolutionEvents();
                 AdviseTrackProjectDocumentsEvents();
@@ -149,7 +149,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+                ErrorHelper.Show(this, e);
                 throw;
             }
         }
@@ -266,7 +266,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+                ErrorHelper.Show(this, e);
             }
         }
 
@@ -281,7 +281,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+                ErrorHelper.Show(this, e);
             }
         }
 
@@ -531,11 +531,10 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
         {
             if (recipeFrameworkOutputWindow == null)
             {
-                recipeFrameworkOutputWindow = new OutputWindowService();
+                recipeFrameworkOutputWindow = TraceUtil.GaxOutputWindowService;
                 recipeFrameworkOutputWindow.Site = new Site((IServiceContainer)this, recipeFrameworkOutputWindow, recipeFrameworkOutputWindow.WindowName);
                 ((IServiceContainer)this).AddService(typeof(IOutputWindowService), recipeFrameworkOutputWindow);
-            }
-
+			}	
 
             // if a new solution is being created this means packages are enabled for the first time
             // so gNav should show by default
@@ -717,14 +716,17 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             return VSConstants.S_OK;
         }
 
-        #endregion
+		#endregion
 
-        private static void LoadTraceLevelSetting()
+		static bool sourceSwitchLoaded = false;
+
+		private static void LoadSourceLevelsSetting()
         {
-            var traceSwitch = new TraceSwitch(ThisAssembly.Title, ThisAssembly.Description);
-
-            // Set the default
-            traceSwitch.Level = TraceLevel.Error;
+			if (sourceSwitchLoaded)
+				return;
+			sourceSwitchLoaded = true;
+			// Set the default
+			SourceLevels level = SourceLevels.Error;
             try
             {
                 using (var vsRegistryKey = RegistryHelper.GetCurrentVsRegistryKey(false))
@@ -733,25 +735,24 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
                     {
                         if (settingsKey != null)
                         {
-                            var traceLevelValue = settingsKey.GetValue("TraceLevel", "Error") as string;
+                            var sourceLevelsValue = settingsKey.GetValue("SourceLevels", "Error") as string;
 
-                            TraceLevel result;
-                            if (Enum.TryParse<TraceLevel>(traceLevelValue, out result))
+							SourceLevels result;
+                            if (Enum.TryParse<SourceLevels>(sourceLevelsValue, out result))
                             {
-                                traceSwitch.Level = result;
+								level = result;
                             }
                         }
-
                     }
                 }
             }
             catch
             {
                 // Set the default
-                traceSwitch.Level = TraceLevel.Error;
+                level = SourceLevels.Error;
             }
 
-            RecipeManager.TraceSwitch = traceSwitch;
+            TraceUtil.GaxSourceSwitch.Level = level;
         }
 
         #region IVsSolutionLoadEvents Members

@@ -1,26 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
-  <Identifier Id="OpenGAX-VS2015">
-    <Name>GAX 2010 For Visual Studio 2015</Name>
-    <Author>Microsoft patterns and practices</Author>
-    <Version>1.0.0.12</Version>
-    <Description xml:space="preserve">The Guidance Automation Extensions (GAX) enables Visual Studio to run guidance packages, such as those included in Software Factories, which empower software teams to automate key development tasks inside Visual Studio.</Description>
-    <Locale>1033</Locale>
-    <License>EULA.txt</License>
-    <Icon>gax.ico</Icon>
-    <PreviewImage>gax preview.png</PreviewImage>
-    <InstalledByMsi>false</InstalledByMsi>
-    <SupportedProducts>
-      <VisualStudio Version="14.0">
-        <Edition>Enterprise</Edition>
-        <Edition>Pro</Edition>
-      </VisualStudio>
-    </SupportedProducts>
-    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.6.1" />
-    <AllUsers>true</AllUsers>
-  </Identifier>
-  <References />
-  <Content>
-    <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>
-  </Content>
-</Vsix>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011"
+	xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+	<Metadata>
+		<Identity Id="OpenGAX-VS2015" Version="2.0.0.0" Language="en-US" Publisher="Microsoft patterns and practices" />
+		<DisplayName>GAX 2010 For Visual Studio 2015</DisplayName>
+		<Description xml:space="preserve">The Guidance Automation Extensions (GAX) enables Visual Studio to run guidance packages, such as those included in Software Factories, which empower software teams to automate key development tasks inside Visual Studio.</Description>
+		<License>EULA.txt</License>
+		<Icon>gax.ico</Icon>
+		<PreviewImage>gax preview.png</PreviewImage>
+	</Metadata>
+	<Installation InstalledByMsi="false" AllUsers="true" SystemComponent="false" Scope="ProductExtension">
+		<InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[14.0, 16.0)" />
+		<InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[14.0, 16.0)" />
+	</Installation>
+	<Prerequisites>
+		<Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,16.0)" DisplayName="Visual Studio core editor" />
+	</Prerequisites>
+	<Dependencies>
+		<Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework"
+					d:Source="Manual" Version="[4.5, 4.8)" />
+		<Dependency Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0"
+					d:Source="Installed" Version="[14.0, 15.0)" />
+	</Dependencies>
+	<Assets>
+		<Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project"
+			d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+	</Assets>
+</PackageManifest>

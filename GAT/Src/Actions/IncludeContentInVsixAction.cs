@@ -12,11 +12,8 @@
 //===================================================================================
 
 using System;
-using System.Linq;
-using System.Collections.Generic;
 using Microsoft.Practices.ComponentModel;
 using EnvDTE;
-using System.Diagnostics;
 
 namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 {
@@ -45,7 +42,7 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 		/// </summary>
 		public override void Execute()
 		{
-			Trace.TraceInformation("Incluiding content in vsix...");
+			TraceUtil.TraceInformation(this, "Incluiding content in vsix...");
 
 			foreach (ProjectItem item in Utils.FindProjectItems(this.Project.ProjectItems,ContentItemsFilter))				
 			{
@@ -73,7 +70,7 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 						}
 						catch (Exception ex)
 						{
-							Trace.TraceWarning(ex.Message);
+							TraceUtil.TraceWarning(this, ex.Message);
 						}
 
 						return false;

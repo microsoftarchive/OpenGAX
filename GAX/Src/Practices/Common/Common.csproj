@@ -65,9 +65,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -77,25 +74,13 @@
     <Compile Include="..\..\..\..\Shared\GlobalAssemblyInfo.cs">
       <Link>GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ErrorForm.Designer.cs">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="CompatibleUri.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="TypeResolutionResolver.cs" />
-    <Compile Include="ErrorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ErrorHelper.cs" />
     <Compile Include="ExecutionResult.cs" />
     <Compile Include="IAttributesConfigurable.cs" />
-    <Compile Include="IErrorInfo.cs" />
     <Compile Include="ImmutableKeyStringDictionary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ErrorForm.resx">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -113,18 +98,6 @@
     <Compile Include="Services\TypeResolutionService.cs" />
     <Compile Include="Services\ValueInfo.cs" />
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Icon1.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Icon2.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Icon3.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Icon4.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />

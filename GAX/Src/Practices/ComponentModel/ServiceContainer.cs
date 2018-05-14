@@ -118,7 +118,7 @@ namespace Microsoft.Practices.ComponentModel
 					}
 					catch (Exception ex)
 					{
-						Trace.TraceWarning("Some objects does not support Displose: " + ex.GetType().ToString());
+						this.TraceWarning("Some objects does not support Displose: " + ex.GetType().ToString());
 					}
 				}
 			}
@@ -324,6 +324,17 @@ namespace Microsoft.Practices.ComponentModel
 		}
 
 		#endregion GetService
+
+		/// <summary>
+		/// return the TraceSource specific to the current gax package.
+		/// </summary>
+		public TraceSource SiteTraceSource
+		{
+			get
+			{
+				return ((IOutputWindowService)GetService(typeof(IOutputWindowService))).TraceSource;
+			}
+		}
 
 		#region RemoveService Overloads
 

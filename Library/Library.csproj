@@ -269,35 +269,35 @@
   <ItemGroup>
     <ProjectReference Include="..\GAX\Src\Practices\Common\Common.csproj">
       <Project>{CD1A28C5-0278-4DA6-81C4-A3FF95FF1270}</Project>
-      <Name>Common %28Practices\Common%29</Name>
+      <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\GAX\Src\Practices\ComponentModel\ComponentModel.csproj">
       <Project>{24A14750-5BE7-4872-9899-A0EEF545D1FD}</Project>
       <Name>ComponentModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GAX\Src\RecipeFramework\Common\Common.csproj">
+    <ProjectReference Include="..\GAX\Src\RecipeFramework\Common\RecipeFramework.Common.csproj">
       <Project>{CACBA86E-8E15-4318-822F-E4D74F3107A1}</Project>
-      <Name>Common %28RecipeFramework\Common%29</Name>
+      <Name>RecipeFramework.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\GAX\Src\RecipeFramework\Framework\RecipeFramework.csproj">
       <Project>{F0F73757-C737-49CC-B88B-32C5817CA9C4}</Project>
-      <Name>RecipeFramework %28RecipeFramework\RecipeFramework%29</Name>
+      <Name>RecipeFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\GAX\Src\RecipeFramework\PackageManagement\PackageManagement.csproj">
       <Project>{2909B932-8572-48E3-962E-F2BF3640D5C3}</Project>
       <Name>PackageManagement</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GAX\Src\VisualStudio\Common\Common.csproj">
+    <ProjectReference Include="..\GAX\Src\VisualStudio\Common\VisualStudio.Common.csproj">
       <Project>{C3B9B008-DF10-4288-8414-00C3F3AA582E}</Project>
-      <Name>Common %28VisualStudio\Common%29</Name>
+      <Name>VisualStudio.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GAX\Src\VisualStudio\Library\Library.csproj">
+    <ProjectReference Include="..\GAX\Src\VisualStudio\Library\VisualStudio.Library.csproj">
       <Project>{E754B7DA-2C3C-408B-A7B5-AC94D37C5B1A}</Project>
-      <Name>Library %28VisualStudio\Library%29</Name>
+      <Name>VisualStudio.Library</Name>
     </ProjectReference>
     <ProjectReference Include="..\GAX\Src\WizardFramework\Framework\WizardFramework.csproj">
       <Project>{08901AA0-A0CF-458C-910A-A8C0981675AC}</Project>
-      <Name>WizardFramework %28WizardFramework\WizardFramework%29</Name>
+      <Name>WizardFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />

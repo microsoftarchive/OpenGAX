@@ -140,34 +140,34 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\Practices\Common\Common.csproj">
       <Project>{CD1A28C5-0278-4DA6-81C4-A3FF95FF1270}</Project>
-      <Name>Common %28Practices\Common%29</Name>
+      <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\RecipeFramework\PackageManagement\PackageManagement.csproj">
       <Project>{2909B932-8572-48E3-962E-F2BF3640D5C3}</Project>
       <Name>PackageManagement</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\RecipeFramework\Common\Common.csproj">
+    <ProjectReference Include="..\..\..\RecipeFramework\Common\RecipeFramework.Common.csproj">
       <Project>{CACBA86E-8E15-4318-822F-E4D74F3107A1}</Project>
-      <Name>Common %28RecipeFramework\Common%29</Name>
+      <Name>RecipeFramework.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\VisualStudio\Library\Library.csproj">
+    <ProjectReference Include="..\..\..\VisualStudio\Library\VisualStudio.Library.csproj">
       <Project>{E754B7DA-2C3C-408B-A7B5-AC94D37C5B1A}</Project>
-      <Name>Library %28VisualStudio\Library%29</Name>
+      <Name>VisualStudio.Library</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\RecipeFramework\Framework\RecipeFramework.csproj">
       <Project>{F0F73757-C737-49CC-B88B-32C5817CA9C4}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-      <Name>RecipeFramework %28RecipeFramework\RecipeFramework%29</Name>
+      <Name>RecipeFramework</Name>
       <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\VisualStudio\Package\VisualStudio.csproj">
       <Project>{052BF302-4304-4453-B05A-568258F37645}</Project>
-      <Name>VisualStudio %28VisualStudio\VisualStudio%29</Name>
+      <Name>VisualStudio</Name>
       <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\WizardFramework\Framework\WizardFramework.csproj">
       <Project>{08901AA0-A0CF-458C-910A-A8C0981675AC}</Project>
-      <Name>WizardFramework %28WizardFramework\WizardFramework%29</Name>
+      <Name>WizardFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +243,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
 </Project>

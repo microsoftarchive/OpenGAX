@@ -359,24 +359,6 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Output window created..
-        /// </summary>
-        internal static string OutputWindowService_InitializedMsg {
-            get {
-                return ResourceManager.GetString("OutputWindowService_InitializedMsg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Microsoft Recipe Framework.
-        /// </summary>
-        internal static string OutputWindowService_WindowName {
-            get {
-                return ResourceManager.GetString("OutputWindowService_WindowName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Couldn&apos;t retrieve the recipe manager service..
         /// </summary>
         internal static string Package_CantGetManagerService {

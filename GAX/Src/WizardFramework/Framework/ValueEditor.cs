@@ -465,7 +465,7 @@ namespace Microsoft.Practices.WizardFramework
                         catch (Exception ex)
                         {
                             this.value = oldValue;
-                            Trace.WriteLine(ex);
+                            this.TraceError(ex.ToString());
                             RaiseInvalidValue(value);
                         }
                     }
@@ -601,7 +601,7 @@ namespace Microsoft.Practices.WizardFramework
 			}
 			catch (Exception ex)
 			{
-				Trace.WriteLine(ex);
+				this.TraceError(ex.ToString());
 				RaiseInvalidValue(value);
 			}
 		}
@@ -1818,7 +1818,8 @@ namespace Microsoft.Practices.WizardFramework
 					new HandleRef(valueEditor.Holder, valueEditor.Holder.Handle), 
 					NativeMethods.SW_SHOWNA);
 				valueEditor.Holder.Visible = true;
-                Trace.WriteLineIf(!valueEditor.Holder.CanFocus, "Warning: Holder cannot gain focus");
+                if(!valueEditor.Holder.CanFocus)
+					this.valueEditor.TraceInformation("Warning: Holder cannot gain focus");
                 valueEditor.Focus();
 				valueEditor.Holder.FocusComponent();
                 valueEditor.Holder.DoModalLoop();

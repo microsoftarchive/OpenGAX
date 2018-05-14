@@ -230,7 +230,7 @@ namespace Microsoft.Practices.WizardFramework
 			}
 			catch (Exception e)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+				ErrorHelper.Show(this.Site, e);
 				return null;
 			}
 		}
@@ -277,7 +277,7 @@ namespace Microsoft.Practices.WizardFramework
 			{
                 this.toolTip.SetToolTip(this.invalidValuePictureBox, e.Message );
                 this.invalidValuePictureBox.Visible = true;
-				Trace.TraceError(e.ToString());
+				this.TraceError(e.ToString());
 			}
 			finally
 			{

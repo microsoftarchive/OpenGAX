@@ -713,13 +713,7 @@ namespace Microsoft.Practices.RecipeFramework
                 return regRoot.Split('\\')[0];
             }
 
-            return "14.0_Config";
+            return "14.0_Config"; // todo: what if 2017?
         }
-
-        /// <summary>
-        /// Gets the switch for the Recipe Manager, set to the 
-        /// level specified in the manifest file.
-        /// </summary>
-        public static TraceSwitch TraceSwitch { get; set; }
     }
 }

@@ -309,7 +309,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 		}
 
@@ -325,7 +325,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 		}
 
@@ -368,7 +368,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 			finally
 			{
@@ -392,7 +392,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
         }
 
@@ -547,7 +547,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 					items.Add(item);
 					if (ex != null)
 					{
-						ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), new RecipeExecutionException(reference.AssetName, 
+						ErrorHelper.Show(this.Site, new RecipeExecutionException(reference.AssetName, 
 							string.Format(CultureInfo.CurrentCulture,
 							Configuration.Resources.Reference_InvalidAttributes,
 							errors), ex));
@@ -641,7 +641,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 				}
 				catch (Exception ex)
 				{
-					ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+					ErrorHelper.Show(this.Site, ex);
 				}
 			}
 		}
@@ -676,7 +676,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 				}
 				catch (Exception ex)
 				{
-					ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+					ErrorHelper.Show(this.Site, ex);
 				}
 			}
 		}

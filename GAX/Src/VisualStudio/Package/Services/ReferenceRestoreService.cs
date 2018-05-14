@@ -72,7 +72,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Services
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show(ex, Properties.Resources.ReferenceRestoreService_Error);
+				ErrorHelper.Show(this.Site, ex, Properties.Resources.ReferenceRestoreService_Error);
 			}
 		}
 
@@ -264,7 +264,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Services
 				}
 				catch (Exception ex)
 				{
-					ErrorHelper.Show(ex);
+					ErrorHelper.Show(this.Site, ex);
 				}
 			}
 		}
@@ -284,7 +284,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Services
 		{
 			Config.GuidancePackage package = new Config.GuidancePackage();
 			package.SchemaVersion = "1.0";
-			package.TraceLevel = Config.TraceLevel.Off;
+			package.SourceLevels = Config.SourceLevels.Off;
 			package.Host = "VisualStudio";
 			package.Name = "DynamicPackage";
 			package.Caption = "DynamicPackage";
@@ -634,7 +634,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Services
 					{
 						referenceService.Remove(OldReference);
 					}
-					ErrorHelper.Show((IUIService)GetService(typeof(IUIService)),ex);
+					ErrorHelper.Show(this.Site, ex);
 				}
             }
 
