@@ -4,7 +4,6 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.IO;
 using System.Xml;
 
 using Microsoft.Practices.RecipeFramework.Services;
@@ -16,10 +15,10 @@ using Microsoft.VisualStudio.ExtensionManager;
 
 namespace Microsoft.Practices.RecipeFramework
 {
-	/// <summary>
-	/// By convention, the actions add themselves to the tracker with their type as the key.
-	/// </summary>
-	[TestClass]
+    /// <summary>
+    /// By convention, the actions add themselves to the tracker with their type as the key.
+    /// </summary>
+    [TestClass]
 	[DeploymentItem("Action-DuplicateParam.xml")]
 	[DeploymentItem("ActionExecutionTests.xml")]
 	public class ActionExecutionTests

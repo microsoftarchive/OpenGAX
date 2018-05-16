@@ -11,24 +11,18 @@
 // License: MS-LPL
 //===================================================================================
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Build.Utilities;
 using Microsoft.Build.Framework;
 using System.Xml;
-using Microsoft.Practices.RecipeFramework.Configuration;
 using System.IO;
-using System.Xml.XPath;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Properties;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 {
-	/// <summary>
-	/// Find the Guidance Package configuration file by reading the vsix manifest and searching for the Guidance Package custom extension
-	/// </summary>
-	public class FindGuidancePackageConfiguration : Task
+    /// <summary>
+    /// Find the Guidance Package configuration file by reading the vsix manifest and searching for the Guidance Package custom extension
+    /// </summary>
+    public class FindGuidancePackageConfiguration : Task
 	{
 		/// <summary>
 		/// Gets or sets the vsix manifest

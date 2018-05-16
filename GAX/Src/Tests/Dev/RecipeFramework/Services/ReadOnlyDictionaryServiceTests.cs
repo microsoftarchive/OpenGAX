@@ -1,10 +1,8 @@
 ﻿#region Using directives
 
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.IO;
 using System.Xml;
 
 using Microsoft.Practices.RecipeFramework.Services;
@@ -17,7 +15,7 @@ using Microsoft.VisualStudio.ExtensionManager;
 
 namespace Microsoft.Practices.RecipeFramework
 {
-	[TestClass]
+    [TestClass]
 	[DeploymentItem(@"Services\", @"Services\")]
 	public class ReadOnlyDictionaryServiceTests
 	{

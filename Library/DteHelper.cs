@@ -12,16 +12,8 @@
 //===================================================================================
 
 using System;
-using System.IO;
 using EnvDTE;
-using VSLangProj;
-using System.Collections;
 using Microsoft.VisualStudio.Shell.Interop;
-using System.Runtime.InteropServices;
-using System.Diagnostics;
-using Microsoft.VisualStudio.OLE.Interop;
-using System.ComponentModel.Design;
-using EnvDTE80;
 using System.Collections.Generic;
 using Microsoft.Build.Evaluation;
 using Project = EnvDTE.Project;
@@ -30,10 +22,10 @@ using BProject = Microsoft.Build.Evaluation.Project;
 
 namespace Microsoft.Practices.RecipeFramework.Library
 {
-	/// <summary>
-	/// Provides utility methods for working with the DTE.
-	/// </summary>
-	public sealed class DteHelper: Microsoft.Practices.RecipeFramework.VisualStudio.Library.DteHelper
+    /// <summary>
+    /// Provides utility methods for working with the DTE.
+    /// </summary>
+    public sealed class DteHelper: Microsoft.Practices.RecipeFramework.VisualStudio.Library.DteHelper
 	{
 		private DteHelper() { }
 

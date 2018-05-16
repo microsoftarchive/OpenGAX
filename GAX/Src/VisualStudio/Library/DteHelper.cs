@@ -15,7 +15,6 @@ using System;
 using System.IO;
 using EnvDTE;
 using VSLangProj;
-using System.Collections;
 using Microsoft.VisualStudio.Shell.Interop;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
@@ -26,10 +25,10 @@ using System.Collections.Generic;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library
 {
-	/// <summary>
-	/// Provides utility methods for working with the DTE.
-	/// </summary>
-	public class DteHelper
+    /// <summary>
+    /// Provides utility methods for working with the DTE.
+    /// </summary>
+    public class DteHelper
 	{
 		protected DteHelper() { }
 

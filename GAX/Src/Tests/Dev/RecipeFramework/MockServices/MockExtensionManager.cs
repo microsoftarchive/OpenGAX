@@ -2,7 +2,6 @@
 
 using System;
 using System.Linq;
-using System.Collections;
 using Microsoft.VisualStudio.ExtensionManager;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +10,7 @@ using System.IO;
 
 namespace Microsoft.Practices.RecipeFramework.MockServices
 {
-	public class MockExtensionManager : IVsExtensionManager, SVsExtensionManager
+    public class MockExtensionManager : IVsExtensionManager, SVsExtensionManager
 	{
 		private List<string> guidancePackages = new List<string>();
 

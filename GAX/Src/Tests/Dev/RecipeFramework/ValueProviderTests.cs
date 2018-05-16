@@ -2,10 +2,7 @@
 
 using System;
 using System.Collections;
-using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.IO;
-using System.Xml;
 
 using Microsoft.Practices.RecipeFramework.Services;
 using Microsoft.Practices.RecipeFramework.MockServices;
@@ -18,7 +15,7 @@ using Microsoft.VisualStudio.ExtensionManager;
 
 namespace Microsoft.Practices.RecipeFramework
 {
-	[TestClass]
+    [TestClass]
 	[DeploymentItem("ValueProviderTests.xml")]
 	[DeploymentItem("ValueProviderTests-Circular.xml")]
 	public class ValueProviderTests

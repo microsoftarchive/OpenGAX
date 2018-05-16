@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -20,7 +20,7 @@
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <UpgradeBackupLocation />
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
@@ -180,7 +180,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RecipeFramework___Common___Configuration___ManifestConfig__xsd___ManifestConfig__cs="Microsoft.Practices.RecipeFramework.Configuration.Manifest.GuidancePackage;Microsoft.Practices.RecipeFramework.Configuration.Manifest|Microsoft.Practices.RecipeFramework.Configuration.Manifest.RecipeFramework;Microsoft.Practices.RecipeFramework.Configuration.Manifest" RecipeFramework___Common___Configuration___GuidancePackageConfig__xsd___GuidancePackageConfig__cs="Microsoft.Practices.RecipeFramework.Configuration.GuidancePackage;Microsoft.Practices.RecipeFramework.Configuration.Serialization" />
+      <UserProperties RecipeFramework___Common___Configuration___GuidancePackageConfig__xsd___GuidancePackageConfig__cs="Microsoft.Practices.RecipeFramework.Configuration.GuidancePackage;Microsoft.Practices.RecipeFramework.Configuration.Serialization" RecipeFramework___Common___Configuration___ManifestConfig__xsd___ManifestConfig__cs="Microsoft.Practices.RecipeFramework.Configuration.Manifest.GuidancePackage;Microsoft.Practices.RecipeFramework.Configuration.Manifest|Microsoft.Practices.RecipeFramework.Configuration.Manifest.RecipeFramework;Microsoft.Practices.RecipeFramework.Configuration.Manifest" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>

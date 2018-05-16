@@ -17,7 +17,6 @@ using System;
 using System.Runtime.InteropServices;
 using ComTypes = System.Runtime.InteropServices.ComTypes;
 using Microsoft.VisualStudio;
-using System.Reflection;
 using System.Globalization;
 
 #endregion

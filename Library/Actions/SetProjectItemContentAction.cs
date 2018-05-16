@@ -15,20 +15,12 @@
 
 using EnvDTE;
 using System;
-using System.IO;
-using System.Text;
-using System.Collections;
-using System.Diagnostics;
-using System.Globalization;
-using System.ComponentModel;
-using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.TextManager.Interop;
 using Microsoft.VisualStudio.Shell.Design.Serialization;
 using Microsoft.Practices.ComponentModel;
-using Microsoft.Practices.RecipeFramework;
 
 #endregion
 
