@@ -1,3 +1,9 @@
+# Upgrading to VS2017
+It was hoped that by applying the steps in [Make Extensions Compatible with Visual Studio 2017 and Visual Studio 2015](https://docs.microsoft.com/en-us/visualstudio/extensibility/how-to-roundtrip-vsixs), 
+I can make a binary that works across both vs-2015 and vs-2017. However, it is found there are breaking changes in vs-2017, so branch VS2017 is created, the final result is each branch only works with respect to its coressponding vs version.
+T
+he assembly version is bumped to 3.0, and the vsix product version is bumped to 2.0.
+
 # Introduction
 
 The Guidance Automation Extensions (GAX) expands the capabilities of Visual Studio by running guidance packages, which automate key development tasks from within the Visual Studio environment. The Guidance Automation Toolkit (GAT) allows authoring of guidance packages. Please refer to the [original reference documentation on MSDN](https://msdn.microsoft.com/en-us/library/ff709808.aspx) for more information.
