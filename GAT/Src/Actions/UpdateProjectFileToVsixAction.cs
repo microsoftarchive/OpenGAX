@@ -13,20 +13,17 @@
 
 using System;
 using System.Linq;
-using System.Collections.Generic;
 using Microsoft.Practices.ComponentModel;
 using EnvDTE;
-using System.Diagnostics;
 using System.IO;
-using System.Xml;
 
 namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 {
-	/// <summary>
-	/// Converts a non-vsix guidance package project file into vsix by adding
-	/// some properties and imports.
-	/// </summary>
-	[ServiceDependency(typeof(DTE))]
+    /// <summary>
+    /// Converts a non-vsix guidance package project file into vsix by adding
+    /// some properties and imports.
+    /// </summary>
+    [ServiceDependency(typeof(DTE))]
 	public class UpdateProjectFileToVsixAction : Action
 	{
 		/// <summary>

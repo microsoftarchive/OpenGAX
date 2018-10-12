@@ -112,73 +112,80 @@ foreach(var projectFactory in this.AddItemsProjectFactories)
             
             #line default
             #line hidden
-            this.Write("}]\r\n[$RootKey$\\Packages");
+            this.Write("}]\r\n[$RootKey$\\AutoLoadPackages\\{f1536ef8-92ec-443c-9ed7-fdadf150da82}\\Packages]\r" +
+                    "\n[$RootKey$\\AutoLoadPackages\\{f1536ef8-92ec-443c-9ed7-fdadf150da82}\\Packages");
             
-            #line 32 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            #line 33 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture("\\{" + this.GuidancePackage.Guid));
             
             #line default
             #line hidden
-            this.Write("}]\r\n@=\"");
-            
-            #line 33 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GuidancePackage.Name));
-            
-            #line default
-            #line hidden
-            this.Write("\"\r\n[$RootKey$\\AutoLoadPackages\\{f1536ef8-92ec-443c-9ed7-fdadf150da82}\\Packages]\r\n" +
-                    "[$RootKey$\\AutoLoadPackages\\{f1536ef8-92ec-443c-9ed7-fdadf150da82}\\Packages");
+            this.Write("}]\r\n\r\n[$RootKey$\\Packages");
             
             #line 35 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture("\\{" + this.GuidancePackage.Guid));
             
             #line default
             #line hidden
-            this.Write("}]\r\n[$RootKey$\\Languages\\CodeExpansions\\Basic\\Paths]\r\n");
+            this.Write("}]\r\n@=\"");
+            
+            #line 36 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GuidancePackage.Name));
+            
+            #line default
+            #line hidden
+            this.Write("\"\r\n[$RootKey$\\Packages");
             
             #line 37 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture("\\{" + this.GuidancePackage.Guid));
+            
+            #line default
+            #line hidden
+            this.Write("}\\SatelliteDll]\r\n\"Path\"=\"$PackageFolder$\"\r\n\"DllName\"=\"");
+            
+            #line 39 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.SatelliteDllFile));
+            
+            #line default
+            #line hidden
+            this.Write("\"\r\n[$RootKey$\\Menus]\r\n\"{");
+            
+            #line 41 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GuidancePackage.Guid));
+            
+            #line default
+            #line hidden
+            this.Write("}\"=\", 1000, 1\"\r\n[$RootKey$\\Languages\\CodeExpansions\\Basic\\Paths]\r\n");
+            
+            #line 43 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
  this.GenerateCodeExpansion("Basic"); 
             
             #line default
             #line hidden
             this.Write("[$RootKey$\\Languages\\CodeExpansions\\CSharp\\Paths]\r\n");
             
-            #line 39 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            #line 45 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
  this.GenerateCodeExpansion("CSharp"); 
             
             #line default
             #line hidden
             this.Write("[$RootKey$\\Languages\\CodeExpansions\\XML\\Paths]\r\n");
             
-            #line 41 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            #line 47 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
  this.GenerateCodeExpansion("XML"); 
             
             #line default
             #line hidden
-            this.Write("[$RootKey$\\Menus]\r\n\"");
+            this.Write("[$RootKey$\\Packages\\{77d93a80-73fc-40f8-87db-acd3482964b2}\\Templates");
             
-            #line 43 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(this.GuidancePackage.Name));
-            
-            #line default
-            #line hidden
-            this.Write("\"=\"$PackageFolder$");
-            
-            #line 43 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture("\\" + this.SatelliteDllFile));
-            
-            #line default
-            #line hidden
-            this.Write(",1000,1\"\r\n[$RootKey$\\Packages\\{77d93a80-73fc-40f8-87db-acd3482964b2}\\Templates");
-            
-            #line 44 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            #line 48 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture("\\{" + this.GuidancePackage.Guid));
             
             #line default
             #line hidden
             this.Write("}]\r\n");
             
-            #line 45 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            #line 49 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
  
 int index = 0;
 foreach(var vsTemplate in this.VsTemplates) 
@@ -189,21 +196,21 @@ foreach(var vsTemplate in this.VsTemplates)
             #line hidden
             this.Write("\"");
             
-            #line 50 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            #line 54 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture((++index).ToString()));
             
             #line default
             #line hidden
             this.Write("\"=\"$PackageFolder$");
             
-            #line 50 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            #line 54 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture("\\" + vsTemplate.ItemSpec));
             
             #line default
             #line hidden
             this.Write("\"\r\n");
             
-            #line 51 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            #line 55 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
 
 }
 
@@ -212,14 +219,14 @@ foreach(var vsTemplate in this.VsTemplates)
             #line hidden
             this.Write("\"LastTemplate\"=dword:");
             
-            #line 54 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            #line 58 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(index.ToString("D8")));
             
             #line default
             #line hidden
             this.Write("\r\n\"PackageName\"=\"");
             
-            #line 55 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+            #line 59 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GuidancePackage.Name));
             
             #line default
@@ -228,13 +235,13 @@ foreach(var vsTemplate in this.VsTemplates)
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 57 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+        #line 61 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
 
 	internal Microsoft.Practices.RecipeFramework.Configuration.GuidancePackage GuidancePackage { get; set; }
 	internal string SatelliteDllFile { get; set; }
 	internal IEnumerable<ITaskItem> VsTemplates { get; set; }
 	internal IEnumerable<Guid> AddItemsProjectFactories { get; set; }
-
+	internal string RootNamespace { get; set; }
 	internal string OutputPath { get; set; }
  
 	private void GenerateCodeExpansion(string language)
@@ -247,42 +254,42 @@ foreach(var vsTemplate in this.VsTemplates)
         #line default
         #line hidden
         
-        #line 70 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+        #line 74 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
 this.Write("\"");
 
         
         #line default
         #line hidden
         
-        #line 71 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+        #line 75 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(this.GuidancePackage.Caption));
 
         
         #line default
         #line hidden
         
-        #line 71 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+        #line 75 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
 this.Write("\"=\"$PackageFolder$");
 
         
         #line default
         #line hidden
         
-        #line 71 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+        #line 75 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture("\\" + path));
 
         
         #line default
         #line hidden
         
-        #line 71 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+        #line 75 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
 this.Write("\"\r\n");
 
         
         #line default
         #line hidden
         
-        #line 72 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
+        #line 76 "D:\GaxGat-VS2015\OpenGax\GAX\Src\VisualStudio\Package\Build\GuidancePackageRegistryTemplate.tt"
 
 		}
 	}

@@ -1,18 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using EnvDTE;
-using System.Xml;
-using Microsoft.Practices.RecipeFramework.Configuration;
 using System.Runtime.Serialization;
 using Microsoft.VisualStudio.Shell.Interop;
 
 namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.References
 {
-	/// <summary>
-	/// Reference that only applies to non-VSIX guidance package projects
-	/// </summary>
-	[Serializable]
+    /// <summary>
+    /// Reference that only applies to non-VSIX guidance package projects
+    /// </summary>
+    [Serializable]
 	public class UnboundNonVsixPackageReference : UnboundPackageReference
 	{
 		const string ExtensibilityProjectTypeGuid = "82b43b9b-a64c-4715-b499-d71e9ca2bd60";

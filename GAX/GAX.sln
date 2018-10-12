@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RecipeFramework", "RecipeFramework", "{79C5701A-D421-4BB9-B200-0B21E5F331BF}"
 	ProjectSection(FolderStartupServices) = postProject
@@ -239,6 +239,9 @@ Global
 		{18255D58-1FD6-457C-9EF5-0705CB24619E} = {13C05A3E-5A1E-4E02-BD55-DA55D232FE8C}
 		{97BFC1D8-952F-431C-A9A2-8F771BF474F4} = {13C05A3E-5A1E-4E02-BD55-DA55D232FE8C}
 		{A0862851-0BC1-4A63-B06B-154DCB09602D} = {7154EAAC-F895-4D81-8FBD-6516572B0074}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4FC8BDC-43C7-4239-8397-E084E7DCB9A1}
 	EndGlobalSection
 	GlobalSection(TextTemplating) = postSolution
 		TextTemplating = 1

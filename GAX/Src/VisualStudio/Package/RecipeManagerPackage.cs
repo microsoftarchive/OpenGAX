@@ -19,27 +19,15 @@ using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Diagnostics;
-using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Windows.Forms.Design;
-using System.Xml;
-
-using Microsoft.Win32;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
-using Microsoft.VisualStudio.OLE;
-using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.Practices.RecipeFramework.Services;
 using Microsoft.Practices.ComponentModel;
-using Microsoft.Practices.RecipeFramework.VisualStudio.Services;
-using Microsoft.Practices.Common;
-using Microsoft.Practices.Common.Services;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Templates;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Common;
-using Microsoft.Practices.RecipeFramework.VisualStudio.Library;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Properties;
 using Microsoft.Practices.RecipeFramework.VisualStudio.ToolWindow;
 using EnvDTE;
@@ -67,7 +55,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
     [ServiceDependency(typeof(SVsRegisterNewDialogFilters))]
     [ProvideToolWindow(typeof(GuidanceNavigatorWindow))]
     [PackageRegistration(UseManagedResourcesOnly = false, SatellitePath = "$PackageFolder$")]
-    [RegisterAutoLoad(UIContextGuids.NoSolution)]
+    [ProvideAutoLoad(UIContextGuids.NoSolution)]
 #if DEBUG
     [ProvidePackageSetting("SourceLevels", "Verbose")]
 #else

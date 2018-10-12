@@ -1,6 +1,6 @@
 ﻿<#@ template language="C#" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#@ output extension=".regpkg" #>
+<#@ output extension=".vsixmanifest" #>
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011"
 	xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
@@ -11,8 +11,8 @@
 		<License>Optional-EULA.txt</License>
 	</Metadata>
 	<Installation InstalledByMsi="false" AllUsers="true" SystemComponent="false" Scope="ProductExtension">
-		<InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[14.0, 16.0)" />
-		<InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[14.0, 16.0)" />
+		<InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[15.0, 16.0)" />
+		<InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[15.0, 16.0)" />
 	</Installation>
 	<Prerequisites>
 		<Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,16.0)" DisplayName="Visual Studio core editor" />
@@ -20,13 +20,13 @@
 	<Dependencies>
 		<Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework"
 					d:Source="Manual" Version="[4.5, 4,8)" />
-		<Dependency Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0"
-					d:Source="Installed" Version="[14.0, 15.0)" />
-		<Dependency Id="OpenGAX-VS2015" DisplayName="Guidance Automation Extensions" d:Source="Installed" Version="[1.0, 2.0)" />
+		<Dependency Id="Microsoft.VisualStudio.MPF.15.0" DisplayName="Visual Studio MPF 15.0"
+          d:Source="Installed" Version="[15.0,16.0)" />
+		<Dependency Id="OpenGAX-VS2015" DisplayName="Guidance Automation Extensions" d:Source="Installed" Version="[2.0, 3.0)" />
 	</Dependencies>
 	<Assets>
-		<Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project"
-			d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+		<Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File"
+			Path="<#= this.GuidancePackage.Name #>.pkgdef" />
 		<Asset Type="GuidancePackage" d:Source="File" Path="<#= this.ConfigurationFile #>" />
 	</Assets>
 </PackageManifest>

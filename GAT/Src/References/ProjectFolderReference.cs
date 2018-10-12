@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 using EnvDTE;
 using Microsoft.Practices.Common;
 

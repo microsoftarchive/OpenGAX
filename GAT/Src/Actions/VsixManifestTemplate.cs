@@ -54,8 +54,8 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 		<License>Optional-EULA.txt</License>
 	</Metadata>
 	<Installation InstalledByMsi=""false"" AllUsers=""true"" SystemComponent=""false"" Scope=""ProductExtension"">
-		<InstallationTarget Id=""Microsoft.VisualStudio.Pro"" Version=""[14.0, 16.0)"" />
-		<InstallationTarget Id=""Microsoft.VisualStudio.Enterprise"" Version=""[14.0, 16.0)"" />
+		<InstallationTarget Id=""Microsoft.VisualStudio.Pro"" Version=""[15.0, 16.0)"" />
+		<InstallationTarget Id=""Microsoft.VisualStudio.Enterprise"" Version=""[15.0, 16.0)"" />
 	</Installation>
 	<Prerequisites>
 		<Prerequisite Id=""Microsoft.VisualStudio.Component.CoreEditor"" Version=""[15.0,16.0)"" DisplayName=""Visual Studio core editor"" />
@@ -63,14 +63,20 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 	<Dependencies>
 		<Dependency Id=""Microsoft.Framework.NDP"" DisplayName=""Microsoft .NET Framework""
 					d:Source=""Manual"" Version=""[4.5, 4,8)"" />
-		<Dependency Id=""Microsoft.VisualStudio.MPF.14.0"" DisplayName=""Visual Studio MPF 14.0""
-					d:Source=""Installed"" Version=""[14.0, 15.0)"" />
-		<Dependency Id=""OpenGAX-VS2015"" DisplayName=""Guidance Automation Extensions"" d:Source=""Installed"" Version=""[1.0, 2.0)"" />
+		<Dependency Id=""Microsoft.VisualStudio.MPF.15.0"" DisplayName=""Visual Studio MPF 15.0""
+          d:Source=""Installed"" Version=""[15.0,16.0)"" />
+		<Dependency Id=""OpenGAX-VS2015"" DisplayName=""Guidance Automation Extensions"" d:Source=""Installed"" Version=""[2.0, 3.0)"" />
 	</Dependencies>
 	<Assets>
-		<Asset Type=""Microsoft.VisualStudio.VsPackage"" d:Source=""Project""
-			d:ProjectName=""%CurrentProject%"" Path=""|%CurrentProject%;PkgdefProjectOutputGroup|"" />
-		<Asset Type=""GuidancePackage"" d:Source=""File"" Path=""");
+		<Asset Type=""Microsoft.VisualStudio.VsPackage"" d:Source=""File""
+			d:ProjectName=""%CurrentProject%"" Path=""");
+            
+            #line 29 "D:\GaxGat-VS2015\OpenGax\GAT\Src\Actions\VsixManifestTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GuidancePackage.Name));
+            
+            #line default
+            #line hidden
+            this.Write(".pkgdef\" />\r\n\t\t<Asset Type=\"GuidancePackage\" d:Source=\"File\" Path=\"");
             
             #line 30 "D:\GaxGat-VS2015\OpenGax\GAT\Src\Actions\VsixManifestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.ConfigurationFile));

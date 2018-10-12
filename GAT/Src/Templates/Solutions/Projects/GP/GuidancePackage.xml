@@ -7,6 +7,32 @@
     Guid="$guid1$"
     SourceLevels="Information"
     SchemaVersion="1.0">
+  <HostData>
+    <Menu Name="Solution" Text="$PackageName$ - GAX" Priority="1">
+      <CommandBar Name="Solution"/>
+    </Menu>
+    <Menu Name="Project" Text="$PackageName$ - GAX" Priority="1">
+      <CommandBar Name="Project"/>
+    </Menu>
+    <Menu Name="ProjectItem" Text="$PackageName$ - GAX" Priority="1">
+      <CommandBar Name="Item"/>
+    </Menu>
+    <Menu Name="SolFolder" Text="$PackageName$ - GAX" Priority="1">
+      <CommandBar Name="Solution Folder"/>
+    </Menu>
+    <Menu Name="Folder" Text="$PackageName$ - GAX" Priority="1">
+      <CommandBar Name="Folder"/>
+    </Menu>
+    <Menu Name="WebProject" Text="$PackageName$ - GAX" Priority="1">
+      <CommandBar Name="Web Project"/>
+    </Menu>
+    <Menu Name="WebItem" Text="$PackageName$ - GAX" Priority="1">
+      <CommandBar Name="Web Item"/>
+    </Menu>
+    <Menu Name="WebFolder" Text="$PackageName$ - GAX" Priority="1">
+      <CommandBar Name="Web Folder"/>
+    </Menu>
+  </HostData>
 	<Recipes>
 		<Recipe Name="BindingRecipe">
 			<Types>
@@ -57,7 +83,7 @@
 			<Caption>Add class with T4 generated content</Caption>
 			<HostData>
 				<Icon ID="689" />
-				<CommandBar Name="Project" />
+				<CommandBar Menu="Project" />
 			</HostData>
 			<Arguments>
 				<Argument Name="CurrentProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -124,7 +150,7 @@
 			</Description>
 			<HostData>
 				<Icon ID="1429"/>
-				<CommandBar Name="Project" />
+				<CommandBar Menu="Project" />
 			</HostData>
 			<Arguments>
 				<Argument Name="Developer" />
@@ -191,11 +217,11 @@
 			<Description>Accepts a message as input and shows a message box with it.</Description>
 			<HostData>
 				<Icon ID="1046"/>
-				<CommandBar Name="Solution Folder"/>
-				<CommandBar Name="Project"/>
-				<CommandBar Name="Web Project"/>
-				<CommandBar Name="Web Item"/>
-				<CommandBar Name="Web Folder"/>
+				<CommandBar Menu="SolFolder"/>
+				<CommandBar Menu="Project"/>
+				<CommandBar Menu="WebProject"/>
+				<CommandBar Menu="WebItem"/>
+				<CommandBar Menu="WebFolder"/>
 			</HostData>
 			<Arguments>
 				<Argument Name="Message" />
@@ -227,7 +253,7 @@
 			<Description>This recurrent recipe demonstrates use of custom wizard pages</Description>
 			<HostData>
 				<Icon ID="1047"/>
-				<CommandBar Name="Solution Folder"/>
+				<CommandBar Menu="SolFolder"/>
 			</HostData>
 			<Arguments>
 				<Argument Name="Argument1" Type="System.String" />
@@ -255,7 +281,7 @@
 			<Caption>Add an item template reference to a Project</Caption>
 			<HostData>
 				<Icon ID="525" />
-				<CommandBar Name="Project" />
+				<CommandBar Menu="Project" />
 			</HostData>
 			<Arguments>
 				<Argument Name="TemplateFilename" Type="System.String"/>
@@ -285,8 +311,8 @@
 			<Caption>Add a project template reference to a Solution Folder or Solution</Caption>
 			<HostData>
 				<Icon ID="680" />
-				<CommandBar Name="Solution Folder" />
-				<CommandBar Name="Solution" />
+				<CommandBar Menu="SolFolder" />
+				<CommandBar Menu="Solution" />
 			</HostData>
 			<Arguments>
 				<Argument Name="TemplateFilename" Type="System.String"/>
@@ -383,14 +409,14 @@
 			<Caption>Add a recipe reference to a solution element</Caption>
 			<HostData>
 				<Icon ID="525" />
-				<CommandBar Name="Solution" />
-				<CommandBar Name="Solution Folder" />
-				<CommandBar Name="Project" />
-				<CommandBar Name="Folder" />
-				<CommandBar Name="Item" />
-				<CommandBar Name="Web Project" />
-				<CommandBar Name="Web Folder" />
-				<CommandBar Name="Web Item" />
+				<CommandBar Menu="Solution" />
+				<CommandBar Menu="SolFolder" />
+				<CommandBar Menu="Project" />
+				<CommandBar Menu="Folder" />
+				<CommandBar Menu="Item" />
+				<CommandBar Menu="WebProject" />
+				<CommandBar Menu="WebFolder" />
+				<CommandBar Menu="WebItem" />
 			</HostData>
 			<Arguments>
 				<Argument Name="RecipeName" Type="System.String">
@@ -420,14 +446,14 @@
 			<Caption>Show current selection</Caption>
 			<HostData>
 				<Icon ID="172" />
-				<CommandBar Name="Solution" />
-				<CommandBar Name="Solution Folder" />
-				<CommandBar Name="Project" />
-				<CommandBar Name="Folder" />
-				<CommandBar Name="Item" />
-				<CommandBar Name="Web Project" />
-				<CommandBar Name="Web Folder" />
-				<CommandBar Name="Web Item" />
+				<CommandBar Menu="Solution" />
+				<CommandBar Menu="SolFolder" />
+				<CommandBar Menu="Project" />
+				<CommandBar Menu="Folder" />
+				<CommandBar Menu="Item" />
+				<CommandBar Menu="WebProject" />
+				<CommandBar Menu="WebFolder" />
+				<CommandBar Menu="WebItem" />
 			</HostData>
 			<Actions>
 				<Action Name="ShowCurrent" Type="$PackageNamespace$.Actions.ShowCurrentSelection, $PackageName$" />
@@ -440,7 +466,7 @@
 			<Caption>Add class with Main method</Caption>
 			<HostData>
 				<Icon ID="630" />
-				<CommandBar Name="Project" />
+				<CommandBar Menu="Project" />
 			</HostData>
 			<Arguments>
 				<Argument Name="CurrentProject" Type="EnvDTE.Project, EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

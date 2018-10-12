@@ -19,19 +19,10 @@ using System.Drawing;
 using System.Reflection;
 using System.Diagnostics;
 using System.Globalization;
-using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using Microsoft.Win32;
-using Microsoft.VisualStudio.Shell;
 using Microsoft.Practices.Common;
-using Microsoft.Practices.RecipeFramework.Services;
-using Microsoft.VisualStudio.Shell.Interop;
-using Microsoft.VisualStudio;
 using Microsoft.Build.Framework;
-using System.Xml;
-using Configuration = Microsoft.Practices.RecipeFramework.Configuration;
-using Microsoft.Build.Utilities;
 using Microsoft.Practices.RecipeFramework.VisualStudio.CTC;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Templates;
 using System.ComponentModel.Design;
@@ -40,10 +31,10 @@ using System.Collections.Generic;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 {
-	/// <summary>
-	/// Generates a dll with the VS commands
-	/// </summary>
-	public class GenerateMenuResource : Microsoft.Build.Utilities.Task
+    /// <summary>
+    /// Generates a dll with the VS commands
+    /// </summary>
+    public class GenerateMenuResource : Microsoft.Build.Utilities.Task
 	{
 		short resourceId = 1000;
 
@@ -87,7 +78,11 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 		{
 			get
 			{
-				return Path.GetDirectoryName(this.OutputFile);
+				string s= Path.GetDirectoryName(this.OutputFile);
+                if (s.EndsWith(@"\1033"))
+                    return s.Substring(0, s.Length - 5);
+                else
+                    return s;
 			}
 		}
 
@@ -156,12 +151,13 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 			try
 			{
 				var templates = new List<IVsTemplate>();
+                var templatelist = this.Templates.ToList();     
 
-				foreach (var vsTemplate in this.Templates)
+                foreach (var vsTemplate in this.Templates)
 				{
 					var templateMetadata = new TemplateMetaData(
 						Path.Combine(this.OutputPath, vsTemplate.ItemSpec),
-						new CommandID(new Guid(this.Configuration.Guid), this.Templates.ToList().IndexOf(vsTemplate) + 1),
+						new CommandID(new Guid(this.Configuration.Guid), templatelist.IndexOf(vsTemplate) + 1),
 						this.Configuration.Name,
 						RegistryHelper.GetCurrentVsRegistryKey(false));
 

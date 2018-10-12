@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011"
 	xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-	<Metadata>
-		<Identity Id="OpenGAT-VS2015" Version="2.0.0.0" Language="en-US" Publisher="Microsoft patterns and practices" />
-		<DisplayName>GAT 2010 for Visual Studio 2015</DisplayName>
-		<Description xml:space="preserve">The Guidance Automation Toolkit (GAT) is a Visual Studio extension that helps build guidance packages, which empower software teams to automate key development tasks (like custom templates, wizards, and code generation) inside Visual Studio.</Description>
-		<License>EULA.txt</License>
-		<Icon>gat.ico</Icon>
-		<PreviewImage>gat preview.png</PreviewImage>
-	</Metadata>
-	<Installation InstalledByMsi="false" AllUsers="true" SystemComponent="false" Scope="ProductExtension">
-		<InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[14.0, 16.0)" />
-		<InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[14.0, 16.0)" />
-	</Installation>
-	<Prerequisites>
-		<Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0, 16.0)" DisplayName="Visual Studio core editor" />
-	</Prerequisites>
-	<Dependencies>
-		<Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework"
+    <Metadata>
+        <Identity Id="OpenGAT-VS2015" Version="2.0.0.1" Language="en-US" Publisher="Microsoft patterns and practices" />
+        <DisplayName>GAT 2010 for Visual Studio 2015</DisplayName>
+        <Description xml:space="preserve">The Guidance Automation Toolkit (GAT) is a Visual Studio extension that helps build guidance packages, which empower software teams to automate key development tasks (like custom templates, wizards, and code generation) inside Visual Studio.</Description>
+        <License>EULA.txt</License>
+        <Icon>gat.ico</Icon>
+        <PreviewImage>gat preview.png</PreviewImage>
+    </Metadata>
+    <Installation InstalledByMsi="false" AllUsers="true" SystemComponent="false" Scope="ProductExtension">
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[14.0, 16.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[14.0, 16.0)" />
+    </Installation>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0, 16.0)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework"
 					d:Source="Manual" Version="[4.5, 4.8)" />
-		<Dependency Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0" d:Source="Installed" Version="[14.0,15.0)" />
-		<Dependency Id="OpenGAX-VS2015" DisplayName="GAX 2010 For Visual Studio 2015" d:Source="Installed" Version="[2.0,3.0)" />
-	</Dependencies>
-	<Assets>
-		<Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project"
-			d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-		<Asset Type="GuidancePackage" d:Source="File" Path="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.xml" />
-	</Assets>
+        <Dependency Id="Microsoft.VisualStudio.MPF.15.0" DisplayName="Visual Studio MPF 15.0" d:Source="Installed" Version="[15.0,16.0)" />
+        <Dependency Id="OpenGAX-VS2015" DisplayName="GAX For Visual Studio 2017" d:Source="Installed" Version="[2.0,3.0)" />
+    </Dependencies>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File"
+			    Path="MetaGuidancePackage.pkgdef" />
+        <Asset Type="GuidancePackage" d:Source="File" Path="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.xml" />
+    </Assets>
 </PackageManifest>

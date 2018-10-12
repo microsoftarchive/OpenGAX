@@ -29,18 +29,22 @@ foreach(var projectFactory in this.AddItemsProjectFactories)
 #>
 [$RootKey$\AutoLoadPackages\{adfc4e64-0397-11d1-9f4e-00a0c911004f}\Packages]
 [$RootKey$\AutoLoadPackages\{adfc4e64-0397-11d1-9f4e-00a0c911004f}\Packages<#= "\\{" + this.GuidancePackage.Guid #>}]
-[$RootKey$\Packages<#= "\\{" + this.GuidancePackage.Guid #>}]
-@="<#= this.GuidancePackage.Name #>"
 [$RootKey$\AutoLoadPackages\{f1536ef8-92ec-443c-9ed7-fdadf150da82}\Packages]
 [$RootKey$\AutoLoadPackages\{f1536ef8-92ec-443c-9ed7-fdadf150da82}\Packages<#= "\\{" + this.GuidancePackage.Guid #>}]
+
+[$RootKey$\Packages<#= "\\{" + this.GuidancePackage.Guid #>}]
+@="<#= this.GuidancePackage.Name #>"
+[$RootKey$\Packages<#= "\\{" + this.GuidancePackage.Guid #>}\SatelliteDll]
+"Path"="$PackageFolder$"
+"DllName"="<#= this.SatelliteDllFile #>"
+[$RootKey$\Menus]
+"{<#= this.GuidancePackage.Guid #>}"=", 1000, 1"
 [$RootKey$\Languages\CodeExpansions\Basic\Paths]
 <# this.GenerateCodeExpansion("Basic"); #>
 [$RootKey$\Languages\CodeExpansions\CSharp\Paths]
 <# this.GenerateCodeExpansion("CSharp"); #>
 [$RootKey$\Languages\CodeExpansions\XML\Paths]
 <# this.GenerateCodeExpansion("XML"); #>
-[$RootKey$\Menus]
-"<#= this.GuidancePackage.Name #>"="$PackageFolder$<#= "\\" + this.SatelliteDllFile #>,1000,1"
 [$RootKey$\Packages\{77d93a80-73fc-40f8-87db-acd3482964b2}\Templates<#= "\\{" + this.GuidancePackage.Guid #>}]
 <# 
 int index = 0;
@@ -59,7 +63,7 @@ foreach(var vsTemplate in this.VsTemplates)
 	internal string SatelliteDllFile { get; set; }
 	internal IEnumerable<ITaskItem> VsTemplates { get; set; }
 	internal IEnumerable<Guid> AddItemsProjectFactories { get; set; }
-
+	internal string RootNamespace { get; set; }
 	internal string OutputPath { get; set; }
  
 	private void GenerateCodeExpansion(string language)

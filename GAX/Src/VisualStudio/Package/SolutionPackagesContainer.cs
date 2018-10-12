@@ -149,7 +149,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
                     guidanceNavigatorMenuCmd.Visible = true;
                     guidanceNavigatorMenuCmd.Enabled = true;
                     guidanceNavigatorMenuCmd.BeforeQueryStatus += new EventHandler(OnGuidanceNavigatorQueryStatus);
-                    mcs.AddCommand(guidanceNavigatorMenuCmd);
+                    mcs.AddCommand(guidanceNavigatorMenuCmd);                  
                 }
 
                 //Setup recipe manager events
@@ -207,7 +207,8 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
         void OnGuidanceNavigatorQueryStatus(object sender, EventArgs e)
         {
             DTE dte = GetService<DTE>(true);
-            guidanceNavigatorMenuCmd.Visible = dte.Solution.IsOpen;
+            OleMenuCommand cmd = (OleMenuCommand)sender;
+            cmd.Visible = dte.Solution.IsOpen;
         }
 
         void OnRecipeManagerQueryStatus(object sender, EventArgs e)

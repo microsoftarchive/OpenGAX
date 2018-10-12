@@ -12,20 +12,19 @@
 //===================================================================================
 
 using System;
-using System.IO;
 using System.Collections;
-using System.ComponentModel;
 using System.ComponentModel.Design;
 using Microsoft.VisualStudio.Shell.Interop;
+using Microsoft.VisualStudio;
+
 using Microsoft.Practices.ComponentModel;
 using Microsoft.Practices.RecipeFramework.Services;
 using Microsoft.Practices.RecipeFramework.VisualStudio.TaskList;
-using Microsoft.Practices.RecipeFramework.VisualStudio.Services;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Common;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio
 {
-	[ServiceDependency(typeof(IMenuCommandService))]
+    [ServiceDependency(typeof(IMenuCommandService))]
 	[ServiceDependency(typeof(IAssetReferenceService))]
 	internal sealed class VsGuidancePackage : Microsoft.Practices.ComponentModel.ServiceContainer
 	{
@@ -115,7 +114,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
                     commands.Add(menuCmd);
                 }
             }
-		}
+        }
 
 		private void InitializeRecipeCommands()
 		{
@@ -148,8 +147,8 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
 			{
 				commands = new ArrayList();
 			}
-			InitializeRecipeCommands();
-			InitializeTemplateCommands();
+            InitializeRecipeCommands();
+		    InitializeTemplateCommands();
 		}
 
 		private void DeinitializeCommands()

@@ -8,7 +8,7 @@
 								 SortPriority="200"
 								 BindingRecipe="BindRegistrationRecipes"
 								 SchemaVersion="1.0">
-	<Overview Url="Templates\Overview\intro.htm"/>
+	<Overview Url="Templates\Overview\intro.htm"/>        
 	<Recipes>
 		<Recipe Name="BindRegistrationRecipes">
 			<Caption>Package binding recipe.</Caption>

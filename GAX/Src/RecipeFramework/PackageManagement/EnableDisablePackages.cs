@@ -24,8 +24,6 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 	[System.ComponentModel.DesignerCategory("Form")]
 	internal class EnableDisablePackages : ManagerForm
 	{
-		const string GaxPackageGuid = "{77D93A80-73FC-40f8-87DB-ACD3482964B2}";
-
 		#region Designer stuff
 		private System.Windows.Forms.ImageList imageList1;
 		private System.Windows.Forms.ImageList imageList2;
