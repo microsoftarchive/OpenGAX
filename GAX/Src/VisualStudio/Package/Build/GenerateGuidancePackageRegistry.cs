@@ -56,13 +56,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 		/// Gets or sets the output file for the guidance package registry entries
 		/// </summary>
 		[Required]
-		public string OutputFile { get; set; }
-
-        /// <summary>
-		/// Gets or sets the default root namespace for the package project.
-		/// </summary>
-		[Required]
-        public string RootNamespace { get; set; }      
+		public string OutputFile { get; set; }      
 
         /// <summary>
         /// Gets or sets the output template cache files
@@ -104,7 +98,6 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 			registryTemplate.VsTemplates = this.Templates;
 			registryTemplate.AddItemsProjectFactories = addItemsProjectFactories;
 			registryTemplate.OutputPath = Path.GetFullPath(this.OutputPath);
-            registryTemplate.RootNamespace = this.RootNamespace;
             
 			var content = registryTemplate.TransformText();
 

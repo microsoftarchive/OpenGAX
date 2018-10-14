@@ -63,7 +63,6 @@ foreach(var vsTemplate in this.VsTemplates)
 	internal string SatelliteDllFile { get; set; }
 	internal IEnumerable<ITaskItem> VsTemplates { get; set; }
 	internal IEnumerable<Guid> AddItemsProjectFactories { get; set; }
-	internal string RootNamespace { get; set; }
 	internal string OutputPath { get; set; }
  
 	private void GenerateCodeExpansion(string language)
