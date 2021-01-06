@@ -1,4 +1,4 @@
-//===================================================================================
+﻿//===================================================================================
 // Microsoft patterns & practices
 // Guidance Automation Extensions
 //===================================================================================
@@ -15,14 +15,14 @@ using System;
 
 namespace Microsoft.Practices.WizardFramework.Configuration
 {
-	/// <summary>
-	/// Root of the configuration hierarchy for wizards.
-	/// </summary>
-	public partial class Wizard
-	{
-		/// <summary>
-		/// Name of the embedded resource that contains the schema for configuration validation.
-		/// </summary>
-		public const string SchemaResourceName = "Microsoft.Practices.WizardFramework.Configuration.WizardFrameworkConfig.xsd";
-	}
+    /// <summary>
+    /// Root of the configuration hierarchy for wizards.
+    /// </summary>
+    public partial class Wizard
+    {
+        /// <summary>
+        /// Name of the embedded resource that contains the schema for configuration validation.
+        /// </summary>
+        public const string SchemaResourceName = "Microsoft.Practices.WizardFramework.Configuration.WizardFrameworkConfig.xsd";
+    }
 }

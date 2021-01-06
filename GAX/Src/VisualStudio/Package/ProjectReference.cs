@@ -272,7 +272,8 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
                     webSite.DTE.Solution.FileName.Length > 0 &&
                     !webSite.UniqueName.StartsWith(Path.GetDirectoryName(webSite.DTE.Solution.FileName)))
                 {
-                    Trace.TraceWarning(Properties.Resources.WebProjectReference_FileSystemWebNotUnderSolution,
+                     TraceUtil.TraceWarning(TraceUtil.GaxTraceSourceName, 
+						 Properties.Resources.WebProjectReference_FileSystemWebNotUnderSolution,
                         webSite.UniqueName);
                 }
             }

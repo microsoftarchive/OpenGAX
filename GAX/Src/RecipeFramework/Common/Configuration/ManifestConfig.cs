@@ -30,12 +30,12 @@ namespace Microsoft.Practices.RecipeFramework.Configuration.Manifest
         
         private string schemaVersionField;
         
-        private TraceLevel traceLevelField;
+        private SourceLevels sourceLevelsField;
         
         public RecipeFramework()
         {
             this.schemaVersionField = "1.0";
-            this.traceLevelField = TraceLevel.Error;
+            this.sourceLevelsField = SourceLevels.Error;
         }
         
         /// <remarks/>
@@ -82,16 +82,16 @@ namespace Microsoft.Practices.RecipeFramework.Configuration.Manifest
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        [System.ComponentModel.DefaultValueAttribute(TraceLevel.Error)]
-        public TraceLevel TraceLevel
-        {
+        [System.ComponentModel.DefaultValueAttribute(SourceLevels.Error)]
+        public SourceLevels SourceLevels
+		{
             get
             {
-                return this.traceLevelField;
+                return this.sourceLevelsField;
             }
             set
             {
-                this.traceLevelField = value;
+                this.sourceLevelsField = value;
             }
         }
     }
@@ -288,24 +288,27 @@ namespace Microsoft.Practices.RecipeFramework.Configuration.Manifest
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.42")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/pag/gax-manifest")]
-    public enum TraceLevel
+    public enum SourceLevels
     {
-        
-        /// <remarks/>
-        Error,
-        
-        /// <remarks/>
-        Info,
-        
-        /// <remarks/>
-        Off,
-        
-        /// <remarks/>
-        Warning,
-        
-        /// <remarks/>
-        Verbose,
-    }
+
+		/// <remarks/>
+		Off,
+
+		/// <remarks/>
+		Critical,
+
+		/// <remarks/>
+		Error,
+
+		/// <remarks/>
+		Warning,
+
+		/// <remarks/>
+		Information,
+
+		/// <remarks/>
+		Verbose,
+	}
 }
 
 #pragma warning restore 1591

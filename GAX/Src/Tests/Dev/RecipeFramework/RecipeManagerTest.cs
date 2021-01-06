@@ -1,14 +1,8 @@
 ﻿#region Using directives
 
 using System;
-using System.Collections;
-using System.ComponentModel.Design;
-using System.Drawing;
 using System.IO;
 using System.Xml;
-using System.Xml.XPath;
-
-using Microsoft.Practices.Common;
 using Microsoft.Practices.RecipeFramework.Services;
 using Microsoft.Practices.RecipeFramework.MockServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,8 +13,7 @@ using System.Windows.Forms;
 
 namespace Microsoft.Practices.RecipeFramework
 {
-	[TestClass]
-	[Ignore]
+    [TestClass]
 	public class RecipeManagerTest
 	{
 		RecipeManager Manager;
@@ -125,6 +118,7 @@ namespace Microsoft.Practices.RecipeFramework
 		}
 
 		[TestMethod]
+		[Ignore]
 		public void ExecuteHost()
 		{
 			// Load the package from the config.
@@ -140,6 +134,7 @@ namespace Microsoft.Practices.RecipeFramework
 		}
 
 		[TestMethod]
+		[Ignore]
 		public void EnableCancel()
 		{
 			// Load the package from the config.
@@ -154,6 +149,7 @@ namespace Microsoft.Practices.RecipeFramework
 		}
 
 		[TestMethod]
+		[Ignore]
 		public void DisableCancel()
 		{
 			// Load the package from the config.

@@ -1,11 +1,8 @@
 ﻿#region Using directives
 
 using System;
-using System.Collections;
 using System.ComponentModel.Design;
-using System.Drawing;
 using System.IO;
-using System.Xml;
 
 using Microsoft.Practices.RecipeFramework.Services;
 using Microsoft.Practices.RecipeFramework.MockServices;
@@ -15,14 +12,13 @@ using Microsoft.Practices.Common.Services;
 using Microsoft.Practices.Common;
 using Microsoft.Practices.ComponentModel;
 using System.Collections.Generic;
-using System.ComponentModel;
 using Microsoft.VisualStudio.ExtensionManager;
 
 #endregion
 
 namespace Microsoft.Practices.RecipeFramework
 {
-	[TestClass]
+    [TestClass]
 	[DeploymentItem("RecipeTest.xml")]
 	[DeploymentItem("RecipeTest-Binding.xml")]
 	[DeploymentItem("RecipeTest-BindingInvalid.xml")]	
@@ -52,14 +48,6 @@ namespace Microsoft.Practices.RecipeFramework
 		}
 
 		#endregion SetUp
-
-        [TestMethod]
-        [Ignore]
-        public void MiscTests()
-        {
-            string path = Path.GetDirectoryName("http://www.com/file.csproj");
-            Assert.AreEqual("", path);
-        }
 
         [TestMethod]
         public void EmbeddedResourceTest()

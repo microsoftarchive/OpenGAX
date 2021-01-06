@@ -140,7 +140,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
 			}
 			catch (Exception e)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e, Properties.Resources.Templates_CannotLoadRecipeManager);
+				ErrorHelper.Show(this.Site, e, Properties.Resources.Templates_CannotLoadRecipeManager);
 				throw new WizardCancelledException();
 			}
 		}
@@ -157,7 +157,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
 			}
 			catch (Exception e)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e, Properties.Resources.Templates_InvalidWizardData);
+				ErrorHelper.Show(this.Site, e, Properties.Resources.Templates_InvalidWizardData);
 				throw new WizardCancelledException();
 			}
 		}
@@ -250,11 +250,11 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
 										}
 										catch (Exception e)
 										{
-											Trace.TraceWarning(e.Message);
+											this.TraceWarning(e.Message);
 											appliesTo = Properties.Resources.Reference_AppliesToThrew;
 										}
 										// Invalid initial state should just be ignored.
-										Trace.TraceWarning(Properties.Resources.Template_IgnoreKeyInitialState, keyValuePair.Key, templateAsset.AppliesTo);
+										this.TraceWarning(Properties.Resources.Template_IgnoreKeyInitialState, keyValuePair.Key, templateAsset.AppliesTo);
 										toremove.Add(keyValuePair.Key);
 									}
 								}
@@ -384,7 +384,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
 				catch (Exception ex)
 				{
 					// We will swallow the exception, the erroneous references did not get added
-					ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+					ErrorHelper.Show(this.Site, ex);
 				}
 				finally
 				{
@@ -501,14 +501,14 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
 				}
 				else
 				{
-					ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+					ErrorHelper.Show(this.Site, e);
 					Interop.ThrowAbort();
 				}
 			}
 			catch (Exception e)
 			{
 				RestoreTemplateState();
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+				ErrorHelper.Show(this.Site, e);
 				Interop.ThrowAbort();
 			}
 			finally
@@ -558,14 +558,14 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
 				}
 				else
 				{
-					ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+					ErrorHelper.Show(this.Site, e);
 					Interop.ThrowAbort();
 				}
 			}
 			catch (Exception e)
 			{
 				RestoreTemplateState();
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+				ErrorHelper.Show(this.Site, e);
 				Interop.ThrowAbort();
 			}
 			finally
@@ -581,7 +581,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
 			}
 			catch (Exception e)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+				ErrorHelper.Show(this.Site, e);
 				Interop.ThrowAbort();
 			}
 		}

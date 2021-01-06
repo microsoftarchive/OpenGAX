@@ -1,321 +1,352 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
-	<PropertyGroup>
-		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-		<ProductVersion>8.0.30703</ProductVersion>
-		<SchemaVersion>2.0</SchemaVersion>
-		<ProjectGuid>$guid1$</ProjectGuid>
-		<ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-		<OutputType>Library</OutputType>
-		<RootNamespace>$PackageNamespace$</RootNamespace>
-		<AssemblyName>$PackageName$</AssemblyName>
-		<WarningLevel>4</WarningLevel>
-		<TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-		<GeneratePkgDefFile>false</GeneratePkgDefFile>
-		<IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
-		<IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
-		<IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
-		<CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
-		<CopyOutputSymbolsToOutputDirectory>true</CopyOutputSymbolsToOutputDirectory>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>full</DebugType>
-		<Optimize>false</Optimize>
-		<OutputPath>.\bin\Debug\</OutputPath>
-		<DefineConstants>DEBUG;TRACE</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-		<NoWarn>1668</NoWarn>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-		<DebugType>pdbonly</DebugType>
-		<Optimize>true</Optimize>
-		<OutputPath>.\bin\Release\</OutputPath>
-		<DefineConstants>TRACE</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-		<NoWarn>1668</NoWarn>
-	</PropertyGroup>
-	<ItemGroup>
-		<Reference Include="System" />
-		<Reference Include="System.Data" />
-		<Reference Include="System.Drawing" />
-		<Reference Include="System.Drawing.Design" />
-		<Reference Include="System.Xml" />
-		<Reference Include="System.Windows.Forms" />
-		<Reference Include="Microsoft.WizardFramework, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-			<HintPath>$(DevEnvDir)Microsoft.WizardFramework.dll</HintPath>
-			<SpecificVersion>False</SpecificVersion>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="Microsoft.Practices.WizardFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-			<Private>False</Private>
-			<HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.WizardFramework.dll</HintPath>
-			<SpecificVersion>False</SpecificVersion>
-		</Reference>
-		<Reference Include="Microsoft.Practices.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-			<Private>False</Private>
-			<HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.Common.dll</HintPath>
-			<SpecificVersion>False</SpecificVersion>
-		</Reference>
-		<Reference Include="Microsoft.Practices.ComponentModel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-			<Private>False</Private>
-			<HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.ComponentModel.dll</HintPath>
-			<SpecificVersion>False</SpecificVersion>
-		</Reference>
-		<Reference Include="Microsoft.Practices.RecipeFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-			<Private>False</Private>
-			<HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.dll</HintPath>
-			<SpecificVersion>False</SpecificVersion>
-		</Reference>
-		<Reference Include="Microsoft.Practices.RecipeFramework.VisualStudio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-			<Private>False</Private>
-			<HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.VisualStudio.dll</HintPath>
-			<SpecificVersion>False</SpecificVersion>
-		</Reference>
-		<Reference Include="Microsoft.Practices.RecipeFramework.Library, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-			<Private>False</Private>
-			<HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.Library.dll</HintPath>
-			<SpecificVersion>False</SpecificVersion>
-		</Reference>
-		<Reference Include="Microsoft.Practices.RecipeFramework.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-			<Private>False</Private>
-			<HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.Common.dll</HintPath>
-			<SpecificVersion>False</SpecificVersion>
-		</Reference>
-		<Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-			<Private>False</Private>
-		</Reference>
-	</ItemGroup>
-	<ItemGroup>
-		<Content Include="img\logo.gif" />
-		<Content Include="img\header.gif" />
-		<None Include="Intro.htm" />
-		<Compile Include="Actions\AddTemplateReference.cs" />
-		<Compile Include="Actions\AddRecipeReference.cs" />
-		<Compile Include="Actions\HelloWorldAction.cs" />
-		<Compile Include="Actions\ShowCurrentSelection.cs" />
-		<Compile Include="Converters\HelloWorldConverter.cs" />
-		<Compile Include="Converters\RecipeNameConverter.cs" />
-		<Compile Include="Editors\FileChooser.cs" />
-		<Compile Include="Editors\MessageEditor.cs" />
-		<EmbeddedResource Include="Editors\MessageEditorForm.resx">
-			<SubType>Designer</SubType>
-			<DependentUpon>MessageEditorForm.cs</DependentUpon>
-		</EmbeddedResource>
-		<Compile Include="Editors\MessageEditorForm.cs">
-			<SubType>Form</SubType>
-		</Compile>
-		<Compile Include="Editors\TemplateChooser.cs" />
-		<Compile Include="Properties\AssemblyInfo.cs" />
-		<EmbeddedResource Include="Properties\Resources.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
-			<SubType>Designer</SubType>
-		</EmbeddedResource>
-		<Compile Include="Properties\Resources.Designer.cs">
-			<AutoGen>True</AutoGen>
-			<DependentUpon>Resources.resx</DependentUpon>
-		</Compile>
-		<None Include="Properties\Settings.settings">
-			<Generator>SettingsSingleFileGenerator</Generator>
-			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
-		</None>
-		<None Include="source.extension.vsixmanifest" />
-		<Compile Include="Properties\Settings.Designer.cs">
-			<AutoGen>True</AutoGen>
-			<DependentUpon>Settings.settings</DependentUpon>
-		</Compile>
-		<Compile Include="References\AnyElementReference.cs" />
-		<Compile Include="References\ClassLibraryReference.cs" />
-		<Compile Include="References\SolutionFolderAReference.cs" />
-		<Compile Include="References\SolutionFolderRecipeReference.cs" />
-		<Compile Include="ValueProviders\DateNowValueProvider.cs" />
-		<Content Include="Templates\Items\Class.cs">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Items\Class.vstemplate">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Items\SerializableClass.cs">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Items\SerializableClass.vstemplate">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Items\TextTemplate.t4">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Items\TextTemplate.vstemplate">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Items\CustomSerializableClass.cs">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Items\CustomSerializableClass.vstemplate">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+	<Import Project="$(SolutionDir)packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.props" Condition="'$(VisualStudioVersion)' != '14.0' and Exists('$(SolutionDir)packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.props')" />
+	<Import Project="$(SolutionDir)packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.props" Condition="'$(VisualStudioVersion)' == '14.0' and Exists('$(SolutionDir)packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.props')" />
+	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+	<VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+	<NuGetPackageImportStamp>
+	</NuGetPackageImportStamp>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>$guid1$</ProjectGuid>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+	<VsixType>v3</VsixType>
+	<RootNamespace>$PackageNamespace$</RootNamespace>
+    <AssemblyName>$PackageName$</AssemblyName>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <GeneratePkgDefFile>false</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
+    <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
+    <CopyOutputSymbolsToOutputDirectory>true</CopyOutputSymbolsToOutputDirectory>
+	<TargetVsixContainerName>$PackageName$.vsix</TargetVsixContainerName>
+  </PropertyGroup>  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1668</NoWarn>
+    <DeployExtension>True</DeployExtension>
+	<IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
+	<IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
+  </PropertyGroup>  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1668</NoWarn>
+    <DeployExtension>False</DeployExtension>
+  </PropertyGroup>  
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Microsoft.WizardFramework, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(DevEnvDir)Microsoft.WizardFramework.dll</HintPath>
+	  <SpecificVersion>False</SpecificVersion>	  
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.WizardFramework, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.WizardFramework.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Common, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.Common.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ComponentModel, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.ComponentModel.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Practices.RecipeFramework, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Practices.RecipeFramework.VisualStudio, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.VisualStudio.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Practices.RecipeFramework.Library, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.Library.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Practices.RecipeFramework.VisualStudio.Library, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.VisualStudio.Library.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Practices.RecipeFramework.Common, Version=3.0.0.0, Culture=neutral, PublicKeyToken=023ca9fed18f34f0, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.Common.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>    
+    <Reference Include="EnvDTE" />
+    <Reference Include="EnvDTE80" />
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\logo.gif" />
+    <Content Include="img\header.gif" />
+	<Content Include="optional-EULA.txt">
+		<IncludeInVSIX>true</IncludeInVSIX>
+	</Content>
+	  <None Include="Intro.htm" />
+    <None Include="packages.config" />
+	  <Compile Include="Actions\AddTemplateReference.cs" />
+    <Compile Include="Actions\AddRecipeReference.cs" />
+    <Compile Include="Actions\HelloWorldAction.cs" />
+    <Compile Include="Actions\ShowCurrentSelection.cs" />
+    <Compile Include="Converters\HelloWorldConverter.cs" />
+    <Compile Include="Converters\RecipeNameConverter.cs" />
+    <Compile Include="Editors\FileChooser.cs" />
+    <Compile Include="Editors\MessageEditor.cs" />
+    <EmbeddedResource Include="Editors\MessageEditorForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MessageEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Editors\MessageEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editors\TemplateChooser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="source.extension.vsixmanifest" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="References\AnyElementReference.cs" />
+    <Compile Include="References\ClassLibraryReference.cs" />
+    <Compile Include="References\SolutionFolderAReference.cs" />
+    <Compile Include="References\SolutionFolderRecipeReference.cs" />
+    <Compile Include="ValueProviders\DateNowValueProvider.cs" />
+    <Content Include="Templates\Items\Class.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\Class.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\SerializableClass.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\SerializableClass.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\TextTemplate.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\TextTemplate.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\CustomSerializableClass.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Items\CustomSerializableClass.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Templates\Solutions\Projects\WebSite\Web.config">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Solutions\Projects\WebSite\WebSite.webproj">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Projects\ClientApplication\Properties\Resources.resx">
-			<SubType>Designer</SubType>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\WebSite\WebSite.webproj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\ClientApplication\Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Templates\Projects\ClientApplication\Properties\Settings.settings">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Projects\ClientApplication\ClientApplication.vstemplate">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Projects\ClientApplication\WindowsApplication.csproj">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Projects\ClientApplication\Form1.cs">
-			<SubType>Form</SubType>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Projects\ClientApplication\Form1.designer.cs">
-			<DependentUpon>Form1.cs</DependentUpon>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Projects\ClientApplication\Program.cs">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Projects\ClientApplication\Properties\AssemblyInfo.cs">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Projects\ClientApplication\Properties\Resources.Designer.cs">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Projects\ClientApplication\Properties\Settings.Designer.cs">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Solutions\Projects\ConsoleApplication\Properties\AssemblyInfo.cs">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Solutions\Projects\ConsoleApplication\Program.cs">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Solutions\Projects\ConsoleApplication\ConsoleApplication.vstemplate">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Solutions\Projects\ConsoleApplication\ConsoleApplication.csproj">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Projects\SampleLibrary\Properties\AssemblyInfo.cs">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Projects\SampleLibrary\SampleLibrary.vstemplate">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Projects\SampleLibrary\SampleLibrary.csproj">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Projects\SampleLibrary\SampleClass.cs">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Solutions\Projects\WebSite\WebSite.vstemplate">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Solutions\SampleSolution.vstemplate">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Solutions\SampleSolution.ico">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Text\Repeating.cs.t4">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="Templates\Text\Program.cs.t4">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="$PackageName$.xml">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Content Include="TypeAlias.xml">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<Compile Include="CustomWizardPages\CustomWizPage1.cs">
-			<SubType>UserControl</SubType>
-		</Compile>
-		<Compile Include="CustomWizardPages\CustomWizPage1.Designer.cs">
-			<DependentUpon>CustomWizPage1.cs</DependentUpon>
-		</Compile>
-		<EmbeddedResource Include="CustomWizardPages\CustomWizPage1.resx">
-			<DependentUpon>CustomWizPage1.cs</DependentUpon>
-			<SubType>Designer</SubType>
-		</EmbeddedResource>
-		<Compile Include="CustomWizardPages\CustomWizPage2.cs">
-			<SubType>UserControl</SubType>
-		</Compile>
-		<Compile Include="CustomWizardPages\CustomWizPage2.Designer.cs">
-			<DependentUpon>CustomWizPage2.cs</DependentUpon>
-		</Compile>
-		<Folder Include="Snippets\Basic\$PackageCaption$\" />
-		<Folder Include="Snippets\CSharp\$PackageCaption$\" />
-		<Folder Include="Snippets\XML\$PackageCaption$\" />
-		<Content Include="Snippets\CSharp\$PackageCaption$\sample.snippet">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-			<IncludeInVSIX>true</IncludeInVSIX>
-		</Content>
-		<EmbeddedResource Include="CustomWizardPages\CustomWizPage2.resx">
-			<SubType>Designer</SubType>
-			<DependentUpon>CustomWizPage2.cs</DependentUpon>
-		</EmbeddedResource>
-	</ItemGroup>
-	<Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
-	<Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" />
-	<Import Project="$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.Build.targets"/>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\ClientApplication\ClientApplication.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\ClientApplication\WindowsApplication.csproj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\ClientApplication\Form1.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\ClientApplication\Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\ClientApplication\Program.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\ClientApplication\Properties\AssemblyInfo.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\ClientApplication\Properties\Resources.Designer.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\ClientApplication\Properties\Settings.Designer.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\ConsoleApplication\Properties\AssemblyInfo.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\ConsoleApplication\Program.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\ConsoleApplication\ConsoleApplication.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\ConsoleApplication\ConsoleApplication.csproj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\SampleLibrary\Properties\AssemblyInfo.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\SampleLibrary\SampleLibrary.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\SampleLibrary\SampleLibrary.csproj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Projects\SampleLibrary\SampleClass.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\Projects\WebSite\WebSite.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\SampleSolution.vstemplate">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Solutions\SampleSolution.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Text\Repeating.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Templates\Text\Program.cs.t4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="$PackageName$.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="TypeAlias.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Compile Include="CustomWizardPages\CustomWizPage1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomWizardPages\CustomWizPage1.Designer.cs">
+      <DependentUpon>CustomWizPage1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CustomWizardPages\CustomWizPage1.resx">
+      <DependentUpon>CustomWizPage1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="CustomWizardPages\CustomWizPage2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomWizardPages\CustomWizPage2.Designer.cs">
+      <DependentUpon>CustomWizPage2.cs</DependentUpon>
+    </Compile>
+    <Folder Include="Snippets\Basic\$PackageCaption$\" />
+    <Folder Include="Snippets\CSharp\$PackageCaption$\" />
+    <Folder Include="Snippets\XML\$PackageCaption$\" />
+    <Content Include="Snippets\CSharp\$PackageCaption$\sample.snippet">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <EmbeddedResource Include="CustomWizardPages\CustomWizPage2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CustomWizPage2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+	<VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup> 
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.Build.targets"/>
+  <PropertyGroup>
+    <StartProgram>$(DevEnvDir)\devenv.exe</StartProgram>
+    <StartAction>Program</StartAction>
+    <StartArguments>/rootsuffix Exp</StartArguments>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
 	<PropertyGroup>
-		<StartProgram>$(DevEnvDir)\devenv.exe</StartProgram>
-		<StartAction>Program</StartAction>
-		<StartArguments>/rootsuffix Exp</StartArguments>
+		<ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
 	</PropertyGroup>
+	<Error Condition="'$(VisualStudioVersion)' != '14.0' And !Exists('$(SolutionDir)packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.props')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.props'))" />
+	<Error Condition="'$(VisualStudioVersion)' != '14.0' And !Exists('$(SolutionDir)packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.targets'))" />
+	<Error Condition="'$(VisualStudioVersion)' == '14.0' And !Exists('$(SolutionDir)packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.props')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.props'))" />
+	<Error Condition="'$(VisualStudioVersion)' == '14.0' And !Exists('$(SolutionDir)packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.targets'))" />
+  </Target>
+  <Import Project="$(SolutionDir)packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.targets" Condition="'$(VisualStudioVersion)' == '14.0' And Exists('$(SolutionDir)packages\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.14.5.100\build\Microsoft.VisualStudio.Sdk.BuildTasks.14.0.targets')" />
+  <Import Project="$(SolutionDir)packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.targets" Condition="'$(VisualStudioVersion)' != '14.0' And Exists('$(SolutionDir)packages\Microsoft.VSSDK.BuildTools.15.6.170\build\Microsoft.VSSDK.BuildTools.targets')" />
 </Project>

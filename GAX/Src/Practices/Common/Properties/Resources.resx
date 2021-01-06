@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -71,6 +72,7 @@
               <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -88,6 +90,7 @@
               <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,79 +112,30 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ErrorHelper_Abort">
-    <value xml:space="preserve">&amp;Abort</value>
+  <data name="ReflectionHelper_CantAssignTo" xml:space="preserve">
+    <value>Type {0} is not assignable to type {1}.</value>
   </data>
-  <data name="ErrorHelper_Cancel">
-    <value xml:space="preserve">&amp;Cancel</value>
+  <data name="ReflectionHelper_CantLoadAssembly" xml:space="preserve">
+    <value>Couldn't load assembly {0}. Verify if the type {1} syntax is correct.</value>
   </data>
-  <data name="ErrorHelper_Caption">
-    <value xml:space="preserve">Recipe Framework Error</value>
+  <data name="ReflectionHelper_CantLoadType" xml:space="preserve">
+    <value>Couldn't load type {0}.</value>
   </data>
-  <data name="ErrorHelper_Ignore">
-    <value xml:space="preserve">&amp;Ignore</value>
+  <data name="ReflectionHelper_InvalidAssemblyName" xml:space="preserve">
+    <value>Invalid assembly name {0}.</value>
   </data>
-  <data name="ErrorHelper_No">
-    <value xml:space="preserve">&amp;No</value>
+  <data name="ReflectionHelper_InvalidQName" xml:space="preserve">
+    <value>Invalid qualified type name {0}.</value>
   </data>
-  <data name="ErrorHelper_OK">
-    <value xml:space="preserve">&amp;OK</value>
+  <data name="General_ArgumentEmpty" xml:space="preserve">
+    <value>Argument can not have an empty value.</value>
   </data>
-  <data name="ErrorHelper_Retry">
-    <value xml:space="preserve">&amp;Retry</value>
-  </data>
-  <data name="ErrorHelper_Yes">
-    <value xml:space="preserve">&amp;Yes</value>
-  </data>
-  <data name="ReflectionHelper_CantAssignTo">
-    <value xml:space="preserve">Type {0} is not assignable to type {1}.</value>
-  </data>
-  <data name="ReflectionHelper_CantLoadAssembly">
-    <value xml:space="preserve">Couldn't load assembly {0}. Verify if the type {1} syntax is correct.</value>
-  </data>
-  <data name="ReflectionHelper_CantLoadType">
-    <value xml:space="preserve">Couldn't load type {0}.</value>
-  </data>
-  <data name="ReflectionHelper_InvalidAssemblyName">
-    <value xml:space="preserve">Invalid assembly name {0}.</value>
-  </data>
-  <data name="ReflectionHelper_InvalidQName">
-    <value xml:space="preserve">Invalid qualified type name {0}.</value>
-  </data>
-  <data name="General_ArgumentEmpty">
-    <value xml:space="preserve">Argument can not have an empty value.</value>
-  </data>
-  <data name="TypeResolutionService_AssemblyNotFound">
-    <value xml:space="preserve">Couldn't find assembly {0}.</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Icon1.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Icon2.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Icon3.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Icon4.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ErrorHelper_HideDetails">
-    <value xml:space="preserve">Hide details</value>
-  </data>
-  <data name="ErrorHelper_ShowDetails">
-    <value xml:space="preserve">Show details</value>
-  </data>
-  <data name="ErrorHelper_HideDetailsException">
-    <value xml:space="preserve">Hide details</value>
-  </data>
-	<data name="ErrorHelper_ShowDetailsException">
-    <value xml:space="preserve">Show details</value>
+  <data name="TypeResolutionService_AssemblyNotFound" xml:space="preserve">
+    <value>Couldn't find assembly {0}.</value>
   </data>
 </root>

@@ -63,198 +63,199 @@ namespace Microsoft.Practices.RecipeFramework.Library.CodeModel.Editors
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeModelEditorForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Base Class", 2, 2);
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Interface", 3, 3);
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Base Types", 5, 5, new System.Windows.Forms.TreeNode[] {
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeModelEditorForm));
+			System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Base Class", 2, 2);
+			System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Interface", 3, 3);
+			System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Base Types", 5, 5, new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2});
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Event");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("member");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("param");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Method", new System.Windows.Forms.TreeNode[] {
+			System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Event");
+			System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("member");
+			System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("param");
+			System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Method", new System.Windows.Forms.TreeNode[] {
             treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Property");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Class", 2, 2, new System.Windows.Forms.TreeNode[] {
+			System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Property");
+			System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Class", 2, 2, new System.Windows.Forms.TreeNode[] {
             treeNode3,
             treeNode4,
             treeNode5,
             treeNode7,
             treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Delegate");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Enum", 4, 4);
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Interface", 3, 3);
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Namespace", 1, 1, new System.Windows.Forms.TreeNode[] {
+			System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Delegate");
+			System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Enum", 4, 4);
+			System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Interface", 3, 3);
+			System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Namespace", 1, 1, new System.Windows.Forms.TreeNode[] {
             treeNode9,
             treeNode10,
             treeNode11,
             treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Assembly", 0, 0, new System.Windows.Forms.TreeNode[] {
+			System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Assembly", 0, 0, new System.Windows.Forms.TreeNode[] {
             treeNode13});
-            this.imgIcons = new System.Windows.Forms.ImageList(this.components);
-            this.tvBrowser = new System.Windows.Forms.TreeView();
-            this.pnlButtons = new System.Windows.Forms.Panel();
-            this.flattenNameSpaces = new System.Windows.Forms.CheckBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.dlgOpenAssembly = new System.Windows.Forms.OpenFileDialog();
-            this.tpTooltip = new System.Windows.Forms.ToolTip(this.components);
-            this.pnlButtons.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // imgIcons
-            // 
-            this.imgIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgIcons.ImageStream")));
-            this.imgIcons.Images.SetKeyName(0, "Module");
-            this.imgIcons.Images.SetKeyName(1, "Namespace");
-            this.imgIcons.Images.SetKeyName(2, "Class");
-            this.imgIcons.Images.SetKeyName(3, "Interface");
-            this.imgIcons.Images.SetKeyName(4, "Enum");
-            this.imgIcons.Images.SetKeyName(5, "BaseTypes");
-            this.imgIcons.Images.SetKeyName(6, "Parameter");
-            this.imgIcons.Images.SetKeyName(7, "Member");
-            this.imgIcons.Images.SetKeyName(8, "EnumMember");
-            this.imgIcons.Images.SetKeyName(9, "Method");
-            this.imgIcons.Images.SetKeyName(10, "Delegate");
-            this.imgIcons.Images.SetKeyName(11, "Event");
-            this.imgIcons.Images.SetKeyName(12, "Property");
-            // 
-            // tvBrowser
-            // 
-            this.tvBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvBrowser.ImageIndex = 0;
-            this.tvBrowser.ImageList = this.imgIcons;
-            this.tvBrowser.Location = new System.Drawing.Point(0, 0);
-            this.tvBrowser.Name = "tvBrowser";
-            treeNode1.ImageIndex = 2;
-            treeNode1.Name = "Interface";
-            treeNode1.SelectedImageIndex = 2;
-            treeNode1.Text = "Base Class";
-            treeNode2.ImageIndex = 3;
-            treeNode2.Name = "Node7";
-            treeNode2.SelectedImageIndex = 3;
-            treeNode2.Text = "Interface";
-            treeNode3.ImageIndex = 5;
-            treeNode3.Name = "Base Types";
-            treeNode3.SelectedImageIndex = 5;
-            treeNode3.Text = "Base Types";
-            treeNode4.ImageKey = "Event";
-            treeNode4.Name = "EVent";
-            treeNode4.SelectedImageKey = "Event";
-            treeNode4.Text = "Event";
-            treeNode5.ImageKey = "Member";
-            treeNode5.Name = "Node1";
-            treeNode5.SelectedImageKey = "Member";
-            treeNode5.Text = "member";
-            treeNode6.ImageKey = "Parameter";
-            treeNode6.Name = "Node0";
-            treeNode6.SelectedImageKey = "Parameter";
-            treeNode6.Text = "param";
-            treeNode7.ImageKey = "Method";
-            treeNode7.Name = "Node0";
-            treeNode7.SelectedImageKey = "Method";
-            treeNode7.Text = "Method";
-            treeNode8.ImageKey = "Property";
-            treeNode8.Name = "Node2";
-            treeNode8.SelectedImageKey = "Property";
-            treeNode8.Text = "Property";
-            treeNode9.ImageIndex = 2;
-            treeNode9.Name = "";
-            treeNode9.SelectedImageIndex = 2;
-            treeNode9.Text = "Class";
-            treeNode10.ImageKey = "Delegate";
-            treeNode10.Name = "Delegate";
-            treeNode10.SelectedImageKey = "Delegate";
-            treeNode10.Text = "Delegate";
-            treeNode11.ImageIndex = 4;
-            treeNode11.Name = "Enum";
-            treeNode11.SelectedImageIndex = 4;
-            treeNode11.Text = "Enum";
-            treeNode12.ImageIndex = 3;
-            treeNode12.Name = "Node6";
-            treeNode12.SelectedImageIndex = 3;
-            treeNode12.Text = "Interface";
-            treeNode13.ImageIndex = 1;
-            treeNode13.Name = "";
-            treeNode13.SelectedImageIndex = 1;
-            treeNode13.Text = "Namespace";
-            treeNode14.ImageIndex = 0;
-            treeNode14.Name = "";
-            treeNode14.SelectedImageIndex = 0;
-            treeNode14.Text = "Assembly";
-            this.tvBrowser.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+			this.imgIcons = new System.Windows.Forms.ImageList(this.components);
+			this.tvBrowser = new System.Windows.Forms.TreeView();
+			this.pnlButtons = new System.Windows.Forms.Panel();
+			this.flattenNameSpaces = new System.Windows.Forms.CheckBox();
+			this.btnCancel = new System.Windows.Forms.Button();
+			this.btnOK = new System.Windows.Forms.Button();
+			this.dlgOpenAssembly = new System.Windows.Forms.OpenFileDialog();
+			this.tpTooltip = new System.Windows.Forms.ToolTip(this.components);
+			this.pnlButtons.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// imgIcons
+			// 
+			this.imgIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgIcons.ImageStream")));
+			this.imgIcons.TransparentColor = System.Drawing.Color.Transparent;
+			this.imgIcons.Images.SetKeyName(0, "Module");
+			this.imgIcons.Images.SetKeyName(1, "Namespace");
+			this.imgIcons.Images.SetKeyName(2, "Class");
+			this.imgIcons.Images.SetKeyName(3, "Interface");
+			this.imgIcons.Images.SetKeyName(4, "Enum");
+			this.imgIcons.Images.SetKeyName(5, "BaseTypes");
+			this.imgIcons.Images.SetKeyName(6, "Parameter");
+			this.imgIcons.Images.SetKeyName(7, "Member");
+			this.imgIcons.Images.SetKeyName(8, "EnumMember");
+			this.imgIcons.Images.SetKeyName(9, "Method");
+			this.imgIcons.Images.SetKeyName(10, "Delegate");
+			this.imgIcons.Images.SetKeyName(11, "Event");
+			this.imgIcons.Images.SetKeyName(12, "Property");
+			// 
+			// tvBrowser
+			// 
+			this.tvBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tvBrowser.ImageIndex = 0;
+			this.tvBrowser.ImageList = this.imgIcons;
+			this.tvBrowser.Location = new System.Drawing.Point(0, 0);
+			this.tvBrowser.Name = "tvBrowser";
+			treeNode1.ImageIndex = 2;
+			treeNode1.Name = "Interface";
+			treeNode1.SelectedImageIndex = 2;
+			treeNode1.Text = "Base Class";
+			treeNode2.ImageIndex = 3;
+			treeNode2.Name = "Node7";
+			treeNode2.SelectedImageIndex = 3;
+			treeNode2.Text = "Interface";
+			treeNode3.ImageIndex = 5;
+			treeNode3.Name = "Base Types";
+			treeNode3.SelectedImageIndex = 5;
+			treeNode3.Text = "Base Types";
+			treeNode4.ImageKey = "Event";
+			treeNode4.Name = "EVent";
+			treeNode4.SelectedImageKey = "Event";
+			treeNode4.Text = "Event";
+			treeNode5.ImageKey = "Member";
+			treeNode5.Name = "Node1";
+			treeNode5.SelectedImageKey = "Member";
+			treeNode5.Text = "member";
+			treeNode6.ImageKey = "Parameter";
+			treeNode6.Name = "Node0";
+			treeNode6.SelectedImageKey = "Parameter";
+			treeNode6.Text = "param";
+			treeNode7.ImageKey = "Method";
+			treeNode7.Name = "Node0";
+			treeNode7.SelectedImageKey = "Method";
+			treeNode7.Text = "Method";
+			treeNode8.ImageKey = "Property";
+			treeNode8.Name = "Node2";
+			treeNode8.SelectedImageKey = "Property";
+			treeNode8.Text = "Property";
+			treeNode9.ImageIndex = 2;
+			treeNode9.Name = "";
+			treeNode9.SelectedImageIndex = 2;
+			treeNode9.Text = "Class";
+			treeNode10.ImageKey = "Delegate";
+			treeNode10.Name = "Delegate";
+			treeNode10.SelectedImageKey = "Delegate";
+			treeNode10.Text = "Delegate";
+			treeNode11.ImageIndex = 4;
+			treeNode11.Name = "Enum";
+			treeNode11.SelectedImageIndex = 4;
+			treeNode11.Text = "Enum";
+			treeNode12.ImageIndex = 3;
+			treeNode12.Name = "Node6";
+			treeNode12.SelectedImageIndex = 3;
+			treeNode12.Text = "Interface";
+			treeNode13.ImageIndex = 1;
+			treeNode13.Name = "";
+			treeNode13.SelectedImageIndex = 1;
+			treeNode13.Text = "Namespace";
+			treeNode14.ImageIndex = 0;
+			treeNode14.Name = "";
+			treeNode14.SelectedImageIndex = 0;
+			treeNode14.Text = "Assembly";
+			this.tvBrowser.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode14});
-            this.tvBrowser.SelectedImageIndex = 0;
-            this.tvBrowser.Size = new System.Drawing.Size(440, 462);
-            this.tvBrowser.Sorted = true;
-            this.tvBrowser.TabIndex = 0;
-            this.tvBrowser.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.OnBeforeExpand);
-            this.tvBrowser.DoubleClick += new System.EventHandler(this.tvBrowser_DoubleClick);
-            this.tvBrowser.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.OnAfterSelect);
-            // 
-            // pnlButtons
-            // 
-            this.pnlButtons.Controls.Add(this.flattenNameSpaces);
-            this.pnlButtons.Controls.Add(this.btnCancel);
-            this.pnlButtons.Controls.Add(this.btnOK);
-            this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons.Location = new System.Drawing.Point(0, 462);
-            this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(440, 34);
-            this.pnlButtons.TabIndex = 1;
-            // 
-            // flattenNameSpaces
-            // 
-            this.flattenNameSpaces.AutoSize = true;
-            this.flattenNameSpaces.Location = new System.Drawing.Point(12, 6);
-            this.flattenNameSpaces.Name = "flattenNameSpaces";
-            this.flattenNameSpaces.Size = new System.Drawing.Size(119, 17);
-            this.flattenNameSpaces.TabIndex = 2;
-            this.flattenNameSpaces.Text = "Flatten Namespaces";
-            this.flattenNameSpaces.CheckedChanged += new System.EventHandler(this.flattenNameSpaces_CheckedChanged);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(362, 6);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "&Cancel";
-            // 
-            // btnOK
-            // 
-            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Enabled = false;
-            this.btnOK.Location = new System.Drawing.Point(282, 6);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "&OK";
-            // 
-            // dlgOpenAssembly
-            // 
-            this.dlgOpenAssembly.DefaultExt = "dll";
-            this.dlgOpenAssembly.Filter = "Assemblies|*.dll;*.exe";
-            this.dlgOpenAssembly.Title = "Open assembly";
-            // 
-            // CodeModelEditorForm
-            // 
-            this.AcceptButton = this.btnOK;
-            this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(440, 496);
-            this.Controls.Add(this.tvBrowser);
-            this.Controls.Add(this.pnlButtons);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "CodeModelEditorForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Code Model Editor";
-            this.pnlButtons.ResumeLayout(false);
-            this.pnlButtons.PerformLayout();
-            this.ResumeLayout(false);
+			this.tvBrowser.SelectedImageIndex = 0;
+			this.tvBrowser.Size = new System.Drawing.Size(440, 462);
+			this.tvBrowser.Sorted = true;
+			this.tvBrowser.TabIndex = 0;
+			this.tvBrowser.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.OnBeforeExpand);
+			this.tvBrowser.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.OnAfterSelect);
+			this.tvBrowser.DoubleClick += new System.EventHandler(this.tvBrowser_DoubleClick);
+			// 
+			// pnlButtons
+			// 
+			this.pnlButtons.Controls.Add(this.flattenNameSpaces);
+			this.pnlButtons.Controls.Add(this.btnCancel);
+			this.pnlButtons.Controls.Add(this.btnOK);
+			this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.pnlButtons.Location = new System.Drawing.Point(0, 462);
+			this.pnlButtons.Name = "pnlButtons";
+			this.pnlButtons.Size = new System.Drawing.Size(440, 34);
+			this.pnlButtons.TabIndex = 1;
+			// 
+			// flattenNameSpaces
+			// 
+			this.flattenNameSpaces.AutoSize = true;
+			this.flattenNameSpaces.Location = new System.Drawing.Point(12, 6);
+			this.flattenNameSpaces.Name = "flattenNameSpaces";
+			this.flattenNameSpaces.Size = new System.Drawing.Size(182, 24);
+			this.flattenNameSpaces.TabIndex = 2;
+			this.flattenNameSpaces.Text = "Flatten Namespaces";
+			this.flattenNameSpaces.CheckedChanged += new System.EventHandler(this.flattenNameSpaces_CheckedChanged);
+			// 
+			// btnCancel
+			// 
+			this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btnCancel.Location = new System.Drawing.Point(362, 6);
+			this.btnCancel.Name = "btnCancel";
+			this.btnCancel.Size = new System.Drawing.Size(75, 23);
+			this.btnCancel.TabIndex = 1;
+			this.btnCancel.Text = "&Cancel";
+			// 
+			// btnOK
+			// 
+			this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.btnOK.Enabled = false;
+			this.btnOK.Location = new System.Drawing.Point(282, 6);
+			this.btnOK.Name = "btnOK";
+			this.btnOK.Size = new System.Drawing.Size(75, 23);
+			this.btnOK.TabIndex = 0;
+			this.btnOK.Text = "&OK";
+			// 
+			// dlgOpenAssembly
+			// 
+			this.dlgOpenAssembly.DefaultExt = "dll";
+			this.dlgOpenAssembly.Filter = "Assemblies|*.dll;*.exe";
+			this.dlgOpenAssembly.Title = "Open assembly";
+			// 
+			// CodeModelEditorForm
+			// 
+			this.AcceptButton = this.btnOK;
+			this.CancelButton = this.btnCancel;
+			this.ClientSize = new System.Drawing.Size(440, 496);
+			this.Controls.Add(this.tvBrowser);
+			this.Controls.Add(this.pnlButtons);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Name = "CodeModelEditorForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = "Code Model Editor";
+			this.pnlButtons.ResumeLayout(false);
+			this.pnlButtons.PerformLayout();
+			this.ResumeLayout(false);
 
 		}
 		#endregion

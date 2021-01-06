@@ -24,14 +24,8 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 	[System.ComponentModel.DesignerCategory("Form")]
 	internal class EnableDisablePackages : ManagerForm
 	{
-		const string GaxPackageGuid = "{77D93A80-73FC-40f8-87DB-ACD3482964B2}";
-
 		#region Designer stuff
-		private System.Windows.Forms.ColumnHeader columnHeader3;
-		private System.Windows.Forms.ColumnHeader columnHeader4;
 		private System.Windows.Forms.ImageList imageList1;
-		private System.Windows.Forms.ColumnHeader columnHeader1;
-		private System.Windows.Forms.ColumnHeader columnHeader2;
 		private System.Windows.Forms.ImageList imageList2;
 		private System.Windows.Forms.Button btnExplore;
 		private System.Windows.Forms.Label label1;
@@ -72,47 +66,33 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnableDisablePackages));
-			this.columnHeader3 = new System.Windows.Forms.ColumnHeader("");
-			this.columnHeader4 = new System.Windows.Forms.ColumnHeader("");
+			
+
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-			this.columnHeader1 = new System.Windows.Forms.ColumnHeader("");
-			this.columnHeader2 = new System.Windows.Forms.ColumnHeader("");
+
 			this.imageList2 = new System.Windows.Forms.ImageList(this.components);
 			this.btnExplore = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.lstPackages = new System.Windows.Forms.ListView();
-			this.columnHeader5 = new System.Windows.Forms.ColumnHeader(resources.GetString("lstPackages.Columns"));
-			this.columnHeader6 = new System.Windows.Forms.ColumnHeader(resources.GetString("lstPackages.Columns1"));
-			this.columnHeader7 = new System.Windows.Forms.ColumnHeader(resources.GetString("lstPackages.Columns2"));
+			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.btnOK = new System.Windows.Forms.Button();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.SuspendLayout();
-			// 
-			// columnHeader3
-			// 
-			resources.ApplyResources(this.columnHeader3, "columnHeader3");
-			// 
-			// columnHeader4
-			// 
-			resources.ApplyResources(this.columnHeader4, "columnHeader4");
+			
 			// 
 			// imageList1
 			// 
 			this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+			this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
 			this.imageList1.Images.SetKeyName(0, "");
 			this.imageList1.Images.SetKeyName(1, "");
-			// 
-			// columnHeader1
-			// 
-			resources.ApplyResources(this.columnHeader1, "columnHeader1");
-			// 
-			// columnHeader2
-			// 
-			resources.ApplyResources(this.columnHeader2, "columnHeader2");
 			// 
 			// imageList2
 			// 
 			this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+			this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
 			this.imageList2.Images.SetKeyName(0, "");
 			this.imageList2.Images.SetKeyName(1, "");
 			// 
@@ -125,6 +105,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			// label1
 			// 
 			resources.ApplyResources(this.label1, "label1");
+			this.label1.BackColor = System.Drawing.SystemColors.Control;
 			this.label1.Name = "label1";
 			// 
 			// lstPackages
@@ -139,9 +120,10 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			this.lstPackages.Name = "lstPackages";
 			this.lstPackages.SmallImageList = this.imageList1;
 			this.lstPackages.Sorting = System.Windows.Forms.SortOrder.Ascending;
+			this.lstPackages.UseCompatibleStateImageBehavior = false;
 			this.lstPackages.View = System.Windows.Forms.View.Details;
-			this.lstPackages.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstPackages_MouseDoubleClick);
 			this.lstPackages.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lstPackages_ItemChecked);
+			this.lstPackages.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstPackages_MouseDoubleClick);
 			// 
 			// columnHeader5
 			// 
@@ -296,7 +278,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 		}
 
@@ -384,7 +366,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 		}
 	}

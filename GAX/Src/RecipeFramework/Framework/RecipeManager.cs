@@ -21,10 +21,6 @@ using System.ComponentModel.Design;
 using System.IO;
 using System.Xml;
 using System.Xml.Schema;
-using System.Xml.XPath;
-
-using Microsoft.Practices.ComponentModel;
-using Microsoft.Practices.Common;
 using Microsoft.Practices.RecipeFramework.Services;
 
 using Microsoft.Practices.RecipeFramework.Internal;
@@ -33,26 +29,20 @@ using Microsoft.Practices.Common.Services;
 using System.Diagnostics;
 using System.Security.Policy;
 using System.Security;
-using System.Configuration;
-using System.Globalization;
-using Mvp.Xml.Common;
-using Mvp.Xml.Common.XPath;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio;
-using System.Collections.Generic;
-using Microsoft.Win32;
 using Microsoft.VisualStudio.ExtensionManager;
 
 #endregion Using directives
 
 namespace Microsoft.Practices.RecipeFramework
 {
-    /// <summary>
-    /// Main container that ultimately hosts all framework components and child 
-    /// containers. Provides package management features.
-    /// </summary>
-    public class RecipeManager : ComponentModel.ServiceContainer, IRecipeManagerService
+	/// <summary>
+	/// Main container that ultimately hosts all framework components and child 
+	/// containers. Provides package management features.
+	/// </summary>
+	public class RecipeManager : ComponentModel.ServiceContainer, IRecipeManagerService
     {
         /// <summary>
         /// Embedded resource with empty manifest if no manifest is present.
@@ -723,13 +713,7 @@ namespace Microsoft.Practices.RecipeFramework
                 return regRoot.Split('\\')[0];
             }
 
-            return "14.0_Config";
+            return "14.0_Config"; // todo: what if 2017?
         }
-
-        /// <summary>
-        /// Gets the switch for the Recipe Manager, set to the 
-        /// level specified in the manifest file.
-        /// </summary>
-        public static TraceSwitch TraceSwitch { get; set; }
     }
 }

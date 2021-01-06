@@ -15,18 +15,9 @@
 
 using System;
 using System.IO;
-using System.Text;
-using System.Collections;
-using System.Globalization;
-using System.ComponentModel;
-using System.Collections.Generic;
 using System.ComponentModel.Design;
-using System.Runtime.InteropServices;
-using Microsoft.Practices.RecipeFramework;
 using Microsoft.Practices.ComponentModel;
 using Microsoft.Practices.Common.Services;
-using Microsoft.VisualStudio.Shell.Interop;
-using Microsoft.VisualStudio.Shell.Design.Serialization;
 using EnvDTE;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates;
 
@@ -34,10 +25,10 @@ using Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates;
 
 namespace Microsoft.Practices.RecipeFramework.Library.Templates.Actions
 {
-	/// <summary>
-	/// Unfolds a T4 template and replaces a <see cref="CodeModel"/> element
-	/// </summary>
-	[ServiceDependency(typeof(ITypeResolutionService))]
+    /// <summary>
+    /// Unfolds a T4 template and replaces a <see cref="CodeModel"/> element
+    /// </summary>
+    [ServiceDependency(typeof(ITypeResolutionService))]
 	public class AddCodeFromTemplateAction : T4Action
 	{
 		#region Input Properties

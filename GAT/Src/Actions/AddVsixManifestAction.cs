@@ -12,8 +12,6 @@
 //===================================================================================
 
 using System;
-using System.Linq;
-using System.Collections.Generic;
 using Microsoft.Practices.ComponentModel;
 using EnvDTE;
 using System.Diagnostics;
@@ -48,7 +46,7 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 		/// </summary>
 		public override void Execute()
 		{
-			Trace.TraceInformation("Adding VSIX manifest...");
+			TraceUtil.TraceInformation(this, "Adding VSIX manifest...");
 
 			// Search the guidance package configuration file
 			var configurationFile = GetConfigurationFileName(this.PackageProject);

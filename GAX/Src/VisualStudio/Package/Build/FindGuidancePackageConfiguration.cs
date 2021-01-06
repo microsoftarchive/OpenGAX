@@ -11,24 +11,18 @@
 // License: MS-LPL
 //===================================================================================
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Build.Utilities;
 using Microsoft.Build.Framework;
 using System.Xml;
-using Microsoft.Practices.RecipeFramework.Configuration;
 using System.IO;
-using System.Xml.XPath;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Properties;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 {
-	/// <summary>
-	/// Find the Guidance Package configuration file by reading the vsix manifest and searching for the Guidance Package custom extension
-	/// </summary>
-	public class FindGuidancePackageConfiguration : Task
+    /// <summary>
+    /// Find the Guidance Package configuration file by reading the vsix manifest and searching for the Guidance Package custom extension
+    /// </summary>
+    public class FindGuidancePackageConfiguration : Task
 	{
 		/// <summary>
 		/// Gets or sets the vsix manifest
@@ -65,13 +59,31 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 				var guidancePackageCustomExtensions = 0;
 				var guidancePackageConfigurationFile = string.Empty;
 
-				// Find a single Guidance Package custom extension
-				while (reader.ReadToFollowing("CustomExtension", "http://schemas.microsoft.com/developer/vsx-schema/2010"))
+				if (reader.Name == "Vsix")
 				{
-					if (reader.GetAttribute("Type") == "GuidancePackage")
+					// Find a single Guidance Package custom extension
+					while (reader.ReadToFollowing("CustomExtension", "http://schemas.microsoft.com/developer/vsx-schema/2010"))
 					{
-						guidancePackageCustomExtensions++;
-						guidancePackageConfigurationFile = reader.ReadElementContentAsString();
+						if (reader.GetAttribute("Type") == "GuidancePackage")
+						{
+							guidancePackageCustomExtensions++;
+							guidancePackageConfigurationFile = reader.ReadElementContentAsString();
+						}
+					}
+				}
+				else if (reader.Name == "PackageManifest") // new format, vsx-schema/2011
+				{
+					reader.ReadToDescendant("Assets");
+					bool ok = reader.ReadToDescendant("Asset");
+					while (ok)
+					{
+						if (reader.GetAttribute("Type") == "GuidancePackage")
+						{
+							guidancePackageCustomExtensions++;
+							guidancePackageConfigurationFile = reader.GetAttribute("Path");
+							break;
+						}
+						ok = reader.ReadToNextSibling("Asset");
 					}
 				}
 

@@ -111,11 +111,11 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:attribute>
-			<xs:attribute name="TraceLevel" type="TraceLevel" default="Error">
+			<xs:attribute name="SourceLevels" type="SourceLevels" default="Error">
 				<xs:annotation>
 					<xs:documentation>
-						Allows specification of the trace level to use for the framework and
-						all guidance packages (except when overriden).
+						Allows specification of the trace level to use for the framework or
+						a guidance packages (except when overriden).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:attribute>
@@ -721,20 +721,21 @@
 			<xs:pattern value="[a-zA-Z][a-zA-Z0-9]*.[a-zA-Z][a-zA-Z0-9]*" />
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="TraceLevel">
+	<xs:simpleType name="SourceLevels">
 		<xs:annotation>
 			<xs:documentation>
 				A type definition that only allows values defined by the .NET Framework's
-				System.Diagnostics.TraceLevel enumeration. See the .NET Framework documentation
+				System.Diagnostics.SourceLevels enumeration. See the .NET Framework documentation
 				for more information.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Error" />
-			<xs:enumeration value="Info" />
 			<xs:enumeration value="Off" />
+			<xs:enumeration value="Critical" />
+			<xs:enumeration value="Error" />
 			<xs:enumeration value="Warning" />
-			<xs:enumeration value="Verbose" />
+			<xs:enumeration value="Information" />
+			<xs:enumeration value="Verbose" />			
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="CommandBarName">

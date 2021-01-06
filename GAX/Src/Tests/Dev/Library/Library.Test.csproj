@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -22,7 +22,7 @@
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <UpgradeBackupLocation />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -63,13 +63,13 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.TextTemplating.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.WizardFramework, Version=8.0.1200.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>$(DevEnvDir)\Microsoft.WizardFramework.dll</HintPath>
@@ -83,6 +83,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextTemplate\Mocks\MockAssemblyClass.cs" />
     <Compile Include="TextTemplate\Mocks\MockConfigurationService.cs" />
@@ -156,6 +157,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="TestTemplates\TextTemplate\AddsPropertyForDynamicValues.ipe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -200,27 +204,27 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Practices\Common\Common.csproj">
       <Project>{CD1A28C5-0278-4DA6-81C4-A3FF95FF1270}</Project>
-      <Name>Common %28Practices\Common%29</Name>
+      <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Practices\ComponentModel\ComponentModel.csproj">
       <Project>{24A14750-5BE7-4872-9899-A0EEF545D1FD}</Project>
       <Name>ComponentModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\RecipeFramework\Common\Common.csproj">
+    <ProjectReference Include="..\..\..\RecipeFramework\Common\RecipeFramework.Common.csproj">
       <Project>{CACBA86E-8E15-4318-822F-E4D74F3107A1}</Project>
-      <Name>Common %28RecipeFramework\Common%29</Name>
+      <Name>RecipeFramework.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\RecipeFramework\Framework\RecipeFramework.csproj">
       <Project>{F0F73757-C737-49CC-B88B-32C5817CA9C4}</Project>
-      <Name>RecipeFramework %28RecipeFramework\RecipeFramework%29</Name>
+      <Name>RecipeFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\VisualStudio\Library\Library.csproj">
+    <ProjectReference Include="..\..\..\VisualStudio\Library\VisualStudio.Library.csproj">
       <Project>{E754B7DA-2C3C-408B-A7B5-AC94D37C5B1A}</Project>
-      <Name>Library %28VisualStudio\Library%29</Name>
+      <Name>VisualStudio.Library</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\WizardFramework\Framework\WizardFramework.csproj">
       <Project>{08901AA0-A0CF-458C-910A-A8C0981675AC}</Project>
-      <Name>WizardFramework %28WizardFramework\WizardFramework%29</Name>
+      <Name>WizardFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

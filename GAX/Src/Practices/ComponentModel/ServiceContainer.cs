@@ -18,6 +18,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 #endregion Using directives
 
@@ -109,9 +110,16 @@ namespace Microsoft.Practices.ComponentModel
 			{
 				// Don't dispose ourselves again.
                 IDisposable disposable = svc as IDisposable;
-                if (disposable != null && disposable != this)
+				if (disposable != null && disposable != this)
 				{
-                    disposable.Dispose();
+					try
+					{
+						disposable.Dispose();
+					}
+					catch (Exception ex)
+					{
+						this.TraceWarning("Some objects does not support Displose: " + ex.GetType().ToString());
+					}
 				}
 			}
 
@@ -316,6 +324,17 @@ namespace Microsoft.Practices.ComponentModel
 		}
 
 		#endregion GetService
+
+		/// <summary>
+		/// return the TraceSource specific to the current gax package.
+		/// </summary>
+		public TraceSource SiteTraceSource
+		{
+			get
+			{
+				return ((IOutputWindowService)GetService(typeof(IOutputWindowService))).TraceSource;
+			}
+		}
 
 		#region RemoveService Overloads
 

@@ -15,7 +15,6 @@ using System;
 using System.IO;
 using EnvDTE;
 using VSLangProj;
-using System.Collections;
 using Microsoft.VisualStudio.Shell.Interop;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
@@ -26,12 +25,12 @@ using System.Collections.Generic;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library
 {
-	/// <summary>
-	/// Provides utility methods for working with the DTE.
-	/// </summary>
-	internal sealed class DteHelper
+    /// <summary>
+    /// Provides utility methods for working with the DTE.
+    /// </summary>
+    public class DteHelper
 	{
-		private DteHelper() { }
+		protected DteHelper() { }
 
 		#region BuildPath
 
@@ -839,7 +838,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library
 		/// <remarks>
 		/// If selection fails, returned object will be null too.
 		/// </remarks>
-		public static UIHierarchyItem SelectItem(_DTE vs, object target)
+		internal static UIHierarchyItem SelectItem(_DTE vs, object target)
 		{
 			Guard.ArgumentNotNull(vs, "vs");
 			Guard.ArgumentNotNull(target, "target");

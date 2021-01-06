@@ -27,85 +27,91 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.pnlContainer = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.acceptButton = new System.Windows.Forms.Button();
-            this.messageText = new System.Windows.Forms.TextBox();
-            this.panel2.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // pnlContainer
-            // 
-            this.pnlContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlContainer.Location = new System.Drawing.Point(4, 42);
-            this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(347, 304);
-            this.pnlContainer.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.cancelButton);
-            this.panel2.Controls.Add(this.acceptButton);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(4, 345);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(347, 36);
-            this.panel2.TabIndex = 2;
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(267, 7);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 1;
-            this.cancelButton.Text = "&Cancel";
-            // 
-            // acceptButton
-            // 
-            this.acceptButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.acceptButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.acceptButton.Location = new System.Drawing.Point(185, 7);
-            this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(75, 23);
-            this.acceptButton.TabIndex = 0;
-            this.acceptButton.Text = "&Accept";
-            // 
-            // messageText
-            // 
-            this.messageText.BackColor = System.Drawing.SystemColors.Control;
-            this.messageText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.messageText.Dock = System.Windows.Forms.DockStyle.Top;
-            this.messageText.Location = new System.Drawing.Point(4, 4);
-            this.messageText.Multiline = true;
-            this.messageText.Name = "messageText";
-            this.messageText.Size = new System.Drawing.Size(347, 32);
-            this.messageText.TabIndex = 3;
-            this.messageText.Text = "Select the element to use as the target for the execution for reference that appl" +
-                "ies to {0}.";
-            // 
-            // SolutionPickerForm
-            // 
-            this.AcceptButton = this.acceptButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(355, 385);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.pnlContainer);
-            this.Controls.Add(this.messageText);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "SolutionPickerForm";
-            this.Padding = new System.Windows.Forms.Padding(4);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = " Target Element Selection";
-            this.panel2.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.pnlContainer = new System.Windows.Forms.Panel();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.cancelButton = new System.Windows.Forms.Button();
+			this.acceptButton = new System.Windows.Forms.Button();
+			this.messageText = new System.Windows.Forms.TextBox();
+			this.panel2.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// pnlContainer
+			// 
+			this.pnlContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.pnlContainer.Location = new System.Drawing.Point(6, 65);
+			this.pnlContainer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.pnlContainer.Name = "pnlContainer";
+			this.pnlContainer.Size = new System.Drawing.Size(510, 468);
+			this.pnlContainer.TabIndex = 1;
+			// 
+			// panel2
+			// 
+			this.panel2.Controls.Add(this.cancelButton);
+			this.panel2.Controls.Add(this.acceptButton);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel2.Location = new System.Drawing.Point(6, 531);
+			this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(510, 55);
+			this.panel2.TabIndex = 2;
+			// 
+			// cancelButton
+			// 
+			this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.cancelButton.Location = new System.Drawing.Point(390, 11);
+			this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.cancelButton.Name = "cancelButton";
+			this.cancelButton.Size = new System.Drawing.Size(112, 35);
+			this.cancelButton.TabIndex = 1;
+			this.cancelButton.Text = "&Cancel";
+			// 
+			// acceptButton
+			// 
+			this.acceptButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.acceptButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.acceptButton.Location = new System.Drawing.Point(268, 11);
+			this.acceptButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.acceptButton.Name = "acceptButton";
+			this.acceptButton.Size = new System.Drawing.Size(112, 35);
+			this.acceptButton.TabIndex = 0;
+			this.acceptButton.Text = "&Accept";
+			// 
+			// messageText
+			// 
+			this.messageText.BackColor = System.Drawing.SystemColors.Control;
+			this.messageText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.messageText.Dock = System.Windows.Forms.DockStyle.Top;
+			this.messageText.Location = new System.Drawing.Point(6, 6);
+			this.messageText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.messageText.Multiline = true;
+			this.messageText.Name = "messageText";
+			this.messageText.Size = new System.Drawing.Size(510, 49);
+			this.messageText.TabIndex = 3;
+			this.messageText.Text = "Select the element to use as the target for the execution for reference that appl" +
+    "ies to {0}.";
+			// 
+			// SolutionPickerForm
+			// 
+			this.AcceptButton = this.acceptButton;
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.cancelButton;
+			this.ClientSize = new System.Drawing.Size(522, 592);
+			this.Controls.Add(this.panel2);
+			this.Controls.Add(this.pnlContainer);
+			this.Controls.Add(this.messageText);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.Name = "SolutionPickerForm";
+			this.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = " Target Element Selection";
+			this.panel2.ResumeLayout(false);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 

@@ -23,10 +23,11 @@
 		</FindGuidancePackageConfiguration>
 		
 		<PropertyGroup>
-			<SatelliteDllFile>$(OutputPath)@(GuidancePackageConfiguration->'%(Name)')UI.dll</SatelliteDllFile>
-      <RegistryFragmentFile>$(OutputPath)@(GuidancePackageConfiguration->'%(Name)')Registration.pkgdef</RegistryFragmentFile>
-    </PropertyGroup>
-		
+			<SatelliteDllFile>$(OutputPath)1033\@(GuidancePackageConfiguration->'%(Name)')UI.dll</SatelliteDllFile>
+			<RegistryFragmentFile>$(OutputPath)@(GuidancePackageConfiguration->'%(Name)').pkgdef</RegistryFragmentFile>
+		</PropertyGroup>
+
+		<MakeDir Directories="$(OutputPath)1033"/>    
 		<GenerateMenuResource
 			ConfigurationFile="@(GuidancePackageConfiguration)"
 			Templates="@(GuidancePackageTemplates)"
@@ -43,8 +44,11 @@
 			<Output TaskParameter="CacheFiles" ItemName="GuidancePackageTemplateCacheFiles" />
 		</GenerateGuidancePackageRegistry>
 
-		<ItemGroup>			
-			<VSIXSourceItem Include="$(SatelliteDllFile);$(RegistryFragmentFile);@(GuidancePackageTemplateCacheFiles)" />	
+		<ItemGroup>
+			<VSIXSourceItem Include="$(SatelliteDllFile)">
+				<VSIXSubPath>1033\</VSIXSubPath>
+			</VSIXSourceItem>
+			<VSIXSourceItem Include="$(RegistryFragmentFile);@(GuidancePackageTemplateCacheFiles)" />	
 		</ItemGroup>		
 	</Target>
 </Project>

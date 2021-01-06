@@ -11,19 +11,16 @@
 // License: MS-LPL
 //===================================================================================
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Configuration.Install;
 using Microsoft.Win32;
-using System.Diagnostics;
+using Microsoft.Practices.ComponentModel;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.Common
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    [System.ComponentModel.DesignerCategory("Code")]
+	/// <summary>
+	/// 
+	/// </summary>
+	[System.ComponentModel.DesignerCategory("Code")]
     [System.ComponentModel.RunInstaller(true)]
     public class UpgradeInstaller : Installer
     {
@@ -34,17 +31,17 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Common
         public override void Install(System.Collections.IDictionary stateSaver)
         {
             base.Install(stateSaver);
-            
-            Trace.TraceInformation("Starting set up upgrade setup...");
+
+			TraceUtil.GaxTraceSource.TraceInformation("Starting set up upgrade setup...");
             using (RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{EDB3B1C1-ADC6-4263-AE1D-8D8401C88236}", true))
             {
                 if (registryKey != null)
                 {
-                    Trace.TraceInformation("Removing NoModify value.");
+					TraceUtil.GaxTraceSource.TraceInformation("Removing NoModify value.");
                     registryKey.DeleteValue("NoModify", false);
                 }
             }
-            Trace.TraceInformation("Ending set up upgrade setup...");
+			TraceUtil.GaxTraceSource.TraceInformation("Ending set up upgrade setup...");
         }
 
         /// <summary>

@@ -1,33 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
-  <Identifier Id="OpenGAT-VS2015">
-    <Name>GAT 2010 for Visual Studio 2015</Name>
-    <Author>Microsoft patterns and practices</Author>
-    <Version>1.0.0.0</Version>
-    <Description xml:space="preserve">The Guidance Automation Toolkit (GAT) is a Visual Studio extension that helps build guidance packages, which empower software teams to automate key development tasks (like custom templates, wizards, and code generation) inside Visual Studio.</Description>
-    <Locale>1033</Locale>
-    <License>EULA.txt</License>
-    <Icon>gat.ico</Icon>
-    <PreviewImage>gat preview.png</PreviewImage>
-    <InstalledByMsi>false</InstalledByMsi>
-    <SupportedProducts>
-      <VisualStudio Version="14.0">
-        <Edition>Pro</Edition>
-      </VisualStudio>
-    </SupportedProducts>
-    <SupportedFrameworkRuntimeEdition MinVersion="1.0" MaxVersion="9.0" />
-    <AllUsers>true</AllUsers>
-  </Identifier>
-  <References>
-    <Reference Id="Microsoft.VisualStudio.SDK" MinVersion="14.0">
-      <Name>Microsoft Visual Studio SDK</Name>
-    </Reference>
-    <Reference Id="OpenGAX-VS2015" MinVersion="1.0">
-      <Name>Guidance Automation Extensions</Name>
-    </Reference>
-  </References>
-  <Content>
-    <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>
-    <CustomExtension Type="GuidancePackage">Microsoft.Practices.RecipeFramework.MetaGuidancePackage.xml</CustomExtension>
-  </Content>
-</Vsix>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011"
+	xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="OpenGAT-VS2015" Version="2.0.0.1" Language="en-US" Publisher="Microsoft patterns and practices" />
+        <DisplayName>GAT 2010 for Visual Studio 2015</DisplayName>
+        <Description xml:space="preserve">The Guidance Automation Toolkit (GAT) is a Visual Studio extension that helps build guidance packages, which empower software teams to automate key development tasks (like custom templates, wizards, and code generation) inside Visual Studio.</Description>
+        <License>EULA.txt</License>
+        <Icon>gat.ico</Icon>
+        <PreviewImage>gat preview.png</PreviewImage>
+    </Metadata>
+    <Installation InstalledByMsi="false" AllUsers="true" SystemComponent="false" Scope="ProductExtension">
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[14.0, 16.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[14.0, 16.0)" />
+    </Installation>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0, 16.0)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework"
+					d:Source="Manual" Version="[4.5, 4.8)" />
+        <Dependency Id="Microsoft.VisualStudio.MPF.15.0" DisplayName="Visual Studio MPF 15.0" d:Source="Installed" Version="[15.0,16.0)" />
+        <Dependency Id="OpenGAX-VS2015" DisplayName="GAX For Visual Studio 2017" d:Source="Installed" Version="[2.0,3.0)" />
+    </Dependencies>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File"
+			    Path="MetaGuidancePackage.pkgdef" />
+        <Asset Type="GuidancePackage" d:Source="File" Path="Microsoft.Practices.RecipeFramework.MetaGuidancePackage.xml" />
+    </Assets>
+</PackageManifest>

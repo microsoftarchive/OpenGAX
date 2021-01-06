@@ -14,8 +14,6 @@
 #region Using directives
 
 using System;
-using System.Collections;
-using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing;
 using System.Globalization;
@@ -26,7 +24,6 @@ using Microsoft.Practices.Common.Services;
 using System.Drawing.Design;
 using Microsoft.Practices.Common;
 using System.Xml;
-using System.Threading;
 using System.Windows.Forms.Design;
 //using Services = Microsoft.Practices.RecipeFramework.Services;
 //using Configuration = Microsoft.Practices.RecipeFramework.Configuration;
@@ -35,7 +32,7 @@ using System.Windows.Forms.Design;
 
 namespace Microsoft.Practices.WizardFramework
 {
-    [ServiceDependency(typeof(IValueInfoService))]
+	[ServiceDependency(typeof(IValueInfoService))]
 	[ServiceDependency(typeof(ITypeResolutionService))]
 	[ServiceDependency(typeof(IServiceProvider))]
 	internal class WizardPageFromConfig : WizardPage
@@ -66,13 +63,22 @@ namespace Microsoft.Practices.WizardFramework
         /// </summary>
         private void InitializeComponent()
         {
-            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
-            // 
-            // WizardPageFromConfig
-            // 
-            this.Name = "WizardPageFromConfig";
-            this.Size = new System.Drawing.Size(700, 469);
-            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// infoPanel
+			// 
+			this.infoPanel.Location = new System.Drawing.Point(0, 10);
+			this.infoPanel.Size = new System.Drawing.Size(627, 459);
+			// 
+			// WizardPageFromConfig
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.Name = "WizardPageFromConfig";
+			this.Size = new System.Drawing.Size(627, 469);
+			((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
@@ -100,11 +106,11 @@ namespace Microsoft.Practices.WizardFramework
 			InitializeComponent();
 		}
 
-		#endregion
+        #endregion
 
-		#region UI Building
+        #region UI Building
 
-		private ArgumentPanel CreateEditingPanel(Configuration.Field field)
+        private ArgumentPanel CreateEditingPanel(Configuration.Field field)
 		{
             IValueInfoService metaDataService =
                 (IValueInfoService)GetService(typeof(IValueInfoService));
@@ -288,7 +294,7 @@ namespace Microsoft.Practices.WizardFramework
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 		}
 

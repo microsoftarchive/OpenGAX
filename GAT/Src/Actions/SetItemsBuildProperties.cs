@@ -54,12 +54,12 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 			}
 			if (applied)
 			{
-				Trace.TraceInformation(Properties.Resources.Actions_ItemsBuildProps_Success);
+				TraceUtil.TraceInformation(this, Properties.Resources.Actions_ItemsBuildProps_Success);
 				vs.StatusBar.Text = Properties.Resources.Actions_ItemsBuildProps_Success;
 			}
 			else
 			{
-				Trace.TraceInformation(Properties.Resources.Actions_ItemsBuildProps_Fail);
+				TraceUtil.TraceInformation(this, Properties.Resources.Actions_ItemsBuildProps_Fail);
 				vs.StatusBar.Text = Properties.Resources.Actions_ItemsBuildProps_Fail;
 			}
 			vs.StatusBar.Highlight(false);
@@ -71,7 +71,7 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 			{
 				if (item.Kind == EnvDTE.Constants.vsProjectItemKindPhysicalFolder)
 				{
-					Trace.TraceInformation(string.Format(CultureInfo.CurrentCulture,
+					TraceUtil.TraceInformation(this, string.Format(CultureInfo.CurrentCulture,
 						Properties.Resources.Actions_ItemsBuildProps_Progress, item.Name));
 					SetPropertiesOfFolder(item);
 				}

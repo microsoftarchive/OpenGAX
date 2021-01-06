@@ -1,11 +1,8 @@
 ﻿#region Using directives
 
 using System;
-using System.Collections;
 using System.ComponentModel.Design;
 using System.Drawing;
-using System.IO;
-using System.Threading;
 using System.Xml;
 
 using Microsoft.Practices.RecipeFramework.MockServices;
@@ -18,7 +15,7 @@ using Microsoft.VisualStudio.ExtensionManager;
 
 namespace Microsoft.Practices.RecipeFramework.Services
 {
-	[TestClass]
+    [TestClass]
 	[DeploymentItem(@"Services\", @"Services\")]
 	public class DictionaryServiceTests
 	{

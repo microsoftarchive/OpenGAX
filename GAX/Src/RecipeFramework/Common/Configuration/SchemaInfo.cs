@@ -91,7 +91,7 @@ namespace Microsoft.Practices.RecipeFramework.Configuration
         /// <summary>
 		/// Level of information tracing for a package or the framework.
 		/// </summary>
-		public const string TraceLevel = "TraceLevel";
+		public const string SourceLevels = "SourceLevels";
         /// <summary>
         /// Optional unique identifier for a package on a host.
         /// </summary>

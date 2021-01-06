@@ -1,18 +1,15 @@
 ﻿#region Using directives
 
 using System;
-using System.Collections;
-using System.IO;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.Practices.RecipeFramework;
 using Microsoft.VisualStudio.ExtensionManager;
 
 #endregion
 
 namespace Microsoft.Practices.RecipeFramework.Services
 {
-	[TestClass]
+    [TestClass]
 	[DeploymentItem(@"Services\", @"Services\")]
 	public class AssetReferenceServiceTests
 	{

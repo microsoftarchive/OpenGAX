@@ -224,14 +224,8 @@ or try to resolve the references by reattaching them?</value>
   <data name="Templates_TemplateNotEnabled" xml:space="preserve">
     <value>Template can't be executed given the current selection.</value>
   </data>
-  <data name="OutputWindowService_WindowName" xml:space="preserve">
-    <value>Microsoft Recipe Framework</value>
-  </data>
   <data name="ReferenceRestoreService_FieldInvalid" xml:space="preserve">
     <value>Selected target must be of kind {0}.</value>
-  </data>
-  <data name="OutputWindowService_InitializedMsg" xml:space="preserve">
-    <value>Output window created.</value>
   </data>
   <data name="Reference_AppliesToThrew" xml:space="preserve">
     <value>AppliesTo method threw an exception</value>
@@ -449,7 +443,7 @@ and its expected type is {1}.</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="301" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gax.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\gax.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Navigator_UnfoldThisTemplate" xml:space="preserve">
     <value>Unfold this template</value>

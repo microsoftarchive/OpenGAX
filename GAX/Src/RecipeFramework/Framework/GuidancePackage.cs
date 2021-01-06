@@ -19,11 +19,8 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
-using System.Text;
 using System.Xml;
 using System.Xml.Schema;
-using System.Windows.Forms.Design;
 
 using Microsoft.Practices.ComponentModel;
 using Microsoft.Practices.Common;
@@ -186,22 +183,22 @@ namespace Microsoft.Practices.RecipeFramework
 
         #region Properties
 
-        TraceSwitch tracing;
+        SourceSwitch tracing;
 
 		/// <summary>
-		/// TraceSwitch for this Guidance Package
+		/// SourceSwitch for this Guidance Package
 		/// </summary>
-		public TraceSwitch TraceSwitch
+		public SourceSwitch SourceSwitch
 		{
 			get { return tracing; }
 		}
 
-		TraceLevel tracingLevel = TraceLevel.Off;
+		SourceLevels tracingLevel = SourceLevels.Off;
 
 		/// <summary>
 		/// Current level of tracing for this GuidancePackage
 		/// </summary>
-		private TraceLevel TraceLevel
+		private SourceLevels SourceLevels
 		{
 			get { return tracingLevel; }
 			set { tracingLevel = value; }
@@ -269,9 +266,9 @@ namespace Microsoft.Practices.RecipeFramework
 			}
 
 			this.config = ReadConfiguration(configuration);
-			tracing = new TraceSwitch(Configuration.Caption, Configuration.Description);
-			tracing.Level = TraceLevel.Off;
-			tracingLevel = (TraceLevel)Enum.Parse(typeof(TraceLevel), Configuration.TraceLevel.ToString());
+			tracing = new SourceSwitch(Configuration.Caption);
+			tracing.Level = SourceLevels.Off;
+			tracingLevel = (SourceLevels)Enum.Parse(typeof(SourceLevels), Configuration.SourceLevels.ToString());
 			this.sortPriority = Configuration.SortPriority;
 		}
 
@@ -310,7 +307,7 @@ namespace Microsoft.Practices.RecipeFramework
 			try
 			{
 				string appliesTo = GetReferenceAppliesToOrErrorMessage(reference);
-				Trace.TraceInformation(Properties.Resources.Recipe_StartingExecution, recipe,
+				this.TraceInformation(Properties.Resources.Recipe_StartingExecution, recipe,
 					reference != null ? String.Format(Properties.Resources.Recipe_ReferenceApplied, appliesTo) : "");
 
 				// This "parent" loader service is the one we created in OnSited that 
@@ -362,7 +359,7 @@ namespace Microsoft.Practices.RecipeFramework
 					(arguments != null);
 				EnsureInitializeMetadataForCurrentRecipe();
 				ExecutionResult result = currentRecipe.Execute(allowsuspend);
-				Trace.TraceInformation(Properties.Resources.Recipe_ExecutionResult, result);
+				this.TraceInformation(Properties.Resources.Recipe_ExecutionResult, result);
 
 				if (result == ExecutionResult.Finish)
 				{
@@ -408,11 +405,11 @@ namespace Microsoft.Practices.RecipeFramework
 
 				#endregion Cleanup
 				// Write a separator on the trace.
-				Trace.TraceInformation(new string('-', 150));
+				this.TraceInformation(new string('-', 150));
 			}
 		}
 
-		private static bool InitializeDictionaryService(IDictionary arguments, DictionaryService dictionarysvc)
+		private bool InitializeDictionaryService(IDictionary arguments, DictionaryService dictionarysvc)
 		{
 			// Build the new dictionary by trying to set each value in the initial state.
 			// Must copy keys because we'll be modifying the dictionary (can't iterate with foreach).
@@ -435,13 +432,13 @@ namespace Microsoft.Practices.RecipeFramework
 				}
 				catch (ArgumentNullException)
 				{
-					Trace.TraceWarning(Properties.Resources.GuidancePackage_InvalidStateKey);
+					this.TraceWarning(Properties.Resources.GuidancePackage_InvalidStateKey);
 					arguments.Remove(key);
 					updatestate = true;
 				}
 				catch (ArgumentException)
 				{
-					Trace.TraceWarning(String.Format(
+					this.TraceWarning(String.Format(
 						CultureInfo.CurrentCulture,
 						Properties.Resources.GuidancePackage_InvalidStateValue,
 						key));
@@ -458,7 +455,7 @@ namespace Microsoft.Practices.RecipeFramework
 			persistenceService = GetService<IPersistenceService>();
 			if (persistenceService == null)
 			{
-				Trace.TraceWarning(Properties.Resources.Recipe_NoPersistence);
+				this.TraceWarning(Properties.Resources.Recipe_NoPersistence);
 			}
 			// Only retrieve the persisted values if there's a persistence service, 
 			// an asset reference and we have not received a dictionary that overrides it.
@@ -468,12 +465,12 @@ namespace Microsoft.Practices.RecipeFramework
 				arguments = persistenceService.LoadState(Configuration.Name, reference);
 				if (arguments == null)
 				{
-					Trace.TraceInformation(Properties.Resources.Recipe_NoSavedState);
+					this.TraceInformation(Properties.Resources.Recipe_NoSavedState);
 				}
 				else
 				{
 					isPersisted = true;
-					Trace.TraceInformation(Properties.Resources.Recipe_ArgumentsSaved, arguments.Count);
+					this.TraceInformation(Properties.Resources.Recipe_ArgumentsSaved, arguments.Count);
 				}
 			}
 			return arguments;
@@ -491,7 +488,7 @@ namespace Microsoft.Practices.RecipeFramework
 			}
 			catch (Exception e)
 			{
-				Trace.TraceInformation(e.Message);
+				TraceUtil.GaxTraceSource.TraceInformation(e.Message);
 				appliesTo = Properties.Resources.Reference_AppliesToThrew;
 			}
 			return appliesTo;
@@ -526,7 +523,7 @@ namespace Microsoft.Practices.RecipeFramework
 		/// </summary>
 		public void TurnOnOutput()
 		{
-			TraceSwitch.Level = this.TraceLevel;
+			SourceSwitch.Level = this.SourceLevels;
 		}
 
 		/// <summary>
@@ -534,7 +531,7 @@ namespace Microsoft.Practices.RecipeFramework
 		/// </summary>
 		public void TurnOffOutput()
 		{
-			TraceSwitch.Level = TraceLevel.Off;
+			SourceSwitch.Level = SourceLevels.Off;
 		}
 
 		/// <summary>
@@ -894,7 +891,7 @@ namespace Microsoft.Practices.RecipeFramework
 
 		#endregion Miscelaneous Members
 
-		private static string GetBasePath(XmlReader reader)
+		private string GetBasePath(XmlReader reader)
 		{
 			string baseuri;
 
@@ -902,7 +899,7 @@ namespace Microsoft.Practices.RecipeFramework
 			// location, after a warning.
 			if (reader.BaseURI.Length == 0)
 			{
-				Trace.TraceWarning(Properties.Resources.GuidancePackage_NoBaseURI);
+				this.TraceWarning(Properties.Resources.GuidancePackage_NoBaseURI);
 				// UNDONE: change when we add GAC support.
 				baseuri = typeof(RecipeManager).Assembly.CodeBase;
 			}

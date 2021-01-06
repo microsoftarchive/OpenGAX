@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Text;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -9,18 +8,20 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Practices.Common.Services;
 using CM = Microsoft.Practices.ComponentModel;
 using Microsoft.Practices.RecipeFramework.Library.TextTemplate.Tests.Mocks;
-using Microsoft.Practices.RecipeFramework.Library.TextTemplate;
 using System.Globalization;
-using Microsoft.Practices.RecipeFramework.Library;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates;
 using Microsoft.Practices.RecipeFramework.Services;
+using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.TextTemplating.VSHost;
+using Microsoft.VisualStudio.TextTemplating;
+
 
 namespace Microsoft.Practices.RecipeFramework.Library.TextTemplate.Tests
 {
-    /// <summary>
-    /// Test Microsoft.Practices.RecipeFramework.Library.TextTemplate class.
-    /// </summary>
-    [TestClass]
+	/// <summary>
+	/// Test Microsoft.Practices.RecipeFramework.Library.TextTemplate class.
+	/// </summary>
+	[TestClass]
 	[DeploymentItem(@"TextTemplate\", @"TextTemplate\")]
 	[DeploymentItem(@"TestTemplates\", @"Templates\")]
 	public class TextTemplateActionFixture 
@@ -32,11 +33,16 @@ namespace Microsoft.Practices.RecipeFramework.Library.TextTemplate.Tests
 		{
 			sc = new CM.ServiceContainer();
 
+			EnvDTE.DTE dte = (EnvDTE.DTE) System.Runtime.InteropServices.Marshal.GetActiveObject("VisualStudio.DTE.14.0");
+			ITextTemplatingEngineHost syshost;
+			syshost =  new ServiceProvider(dte as Microsoft.VisualStudio.OLE.Interop.IServiceProvider).GetService(typeof(STextTemplating)) as ITextTemplatingEngineHost;
+
 			// Add TypeResolutionService
 			TypeResolutionService typeResolutionService = new TypeResolutionService(
 				AppDomain.CurrentDomain.BaseDirectory);
 			sc.AddService(typeof(ITypeResolutionService), typeResolutionService);
 			sc.AddService(typeof(IConfigurationService), new MockConfigurationService(AppDomain.CurrentDomain.BaseDirectory));
+			sc.AddService(typeof(STextTemplating), syshost);
 
 			// Add ValueInfoService
 			IValueInfoService valueInfoService = new MockValueInfoService();

@@ -37,6 +37,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library
 			// treeIcons
 			// 
 			this.treeIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("treeIcons.ImageStream")));
+			this.treeIcons.TransparentColor = System.Drawing.Color.Transparent;
 			this.treeIcons.Images.SetKeyName(0, "solution.gif");
 			this.treeIcons.Images.SetKeyName(1, "SolutionFolderClose.gif");
 			this.treeIcons.Images.SetKeyName(2, "SolutionFolderOpen.gif");

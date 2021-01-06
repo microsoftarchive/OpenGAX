@@ -57,7 +57,7 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 		public override void Execute()
 		{
 			// TODO: Move to resources
-			Trace.TraceInformation(string.Format("Replacing '{0}' by '{1}' on path '{2}'",
+			TraceUtil.TraceInformation(this, string.Format("Replacing '{0}' by '{1}' on path '{2}'",
 				this.OldText,
 				this.NewText,
 				string.IsNullOrEmpty(this.Path) ? string.Empty : this.Path));
@@ -87,7 +87,7 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 					bool checkout = vs.SourceControl.CheckOutItem(filePath);
 					if (!checkout)
 					{
-						Trace.TraceWarning(string.Format("Cannot check out {0} file.", filePath));
+						TraceUtil.TraceWarning(this, string.Format("Cannot check out {0} file.", filePath));
 
 						return false;
 					}

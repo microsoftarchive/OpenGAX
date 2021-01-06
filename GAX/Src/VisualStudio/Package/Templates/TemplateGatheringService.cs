@@ -159,7 +159,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
 			catch (Exception ex)
 			{
 				// We will swallow the exception, the erroneous references did not get added
-				ErrorHelper.Show(GetService<IUIService>(), ex);
+				ErrorHelper.Show(this, ex);
 			}
 			finally
 			{

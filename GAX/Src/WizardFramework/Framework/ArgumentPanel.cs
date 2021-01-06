@@ -1,9 +1,6 @@
 #region Using directives
 
 using System;
-using System.Drawing;
-using System.Collections;
-using System.Globalization;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.ComponentModel.Design;
@@ -17,10 +14,10 @@ using System.Windows.Forms.Design;
 
 namespace Microsoft.Practices.WizardFramework
 {
-	/// <summary>
-	/// An ArgumentPanel is a UI artifact that collects the value of a RecipeArgument.
-	/// </summary>
-	[ServiceDependency(typeof(IServiceProvider))]
+    /// <summary>
+    /// An ArgumentPanel is a UI artifact that collects the value of a RecipeArgument.
+    /// </summary>
+    [ServiceDependency(typeof(IServiceProvider))]
 	[ServiceDependency(typeof(IDictionaryService))]
 	[ServiceDependency(typeof(ITypeResolutionService))]
     [ServiceDependency(typeof(IValueInfoService))]
@@ -51,34 +48,34 @@ namespace Microsoft.Practices.WizardFramework
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArgumentPanel));
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.invalidValuePictureBox = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.invalidValuePictureBox)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // invalidValuePictureBox
-            // 
-            this.invalidValuePictureBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.invalidValuePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("invalidValuePictureBox.Image")));
-            this.invalidValuePictureBox.Location = new System.Drawing.Point(202, 19);
-            this.invalidValuePictureBox.Margin = new System.Windows.Forms.Padding(0);
-            this.invalidValuePictureBox.MaximumSize = new System.Drawing.Size(16, 16);
-            this.invalidValuePictureBox.MinimumSize = new System.Drawing.Size(16, 16);
-            this.invalidValuePictureBox.Name = "invalidValuePictureBox";
-            this.invalidValuePictureBox.Size = new System.Drawing.Size(16, 16);
-            this.invalidValuePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.invalidValuePictureBox.TabIndex = 0;
-            this.invalidValuePictureBox.TabStop = false;
-            this.invalidValuePictureBox.Visible = false;
-            // 
-            // ArgumentPanel
-            // 
-            this.Controls.Add(this.invalidValuePictureBox);
-            this.Dock = System.Windows.Forms.DockStyle.Top;
-            ((System.ComponentModel.ISupportInitialize)(this.invalidValuePictureBox)).EndInit();
-            this.ResumeLayout(false);
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArgumentPanel));
+			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.invalidValuePictureBox = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.invalidValuePictureBox)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// invalidValuePictureBox
+			// 
+			this.invalidValuePictureBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+			this.invalidValuePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("invalidValuePictureBox.Image")));
+			this.invalidValuePictureBox.Location = new System.Drawing.Point(202, 19);
+			this.invalidValuePictureBox.Margin = new System.Windows.Forms.Padding(0);
+			this.invalidValuePictureBox.MaximumSize = new System.Drawing.Size(16, 16);
+			this.invalidValuePictureBox.MinimumSize = new System.Drawing.Size(16, 16);
+			this.invalidValuePictureBox.Name = "invalidValuePictureBox";
+			this.invalidValuePictureBox.Size = new System.Drawing.Size(16, 16);
+			this.invalidValuePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.invalidValuePictureBox.TabIndex = 0;
+			this.invalidValuePictureBox.TabStop = false;
+			this.invalidValuePictureBox.Visible = false;
+			// 
+			// ArgumentPanel
+			// 
+			this.Controls.Add(this.invalidValuePictureBox);
+			this.Dock = System.Windows.Forms.DockStyle.Top;
+			((System.ComponentModel.ISupportInitialize)(this.invalidValuePictureBox)).EndInit();
+			this.ResumeLayout(false);
 
         }
         #endregion
@@ -233,7 +230,7 @@ namespace Microsoft.Practices.WizardFramework
 			}
 			catch (Exception e)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+				ErrorHelper.Show(this.Site, e);
 				return null;
 			}
 		}
@@ -280,7 +277,7 @@ namespace Microsoft.Practices.WizardFramework
 			{
                 this.toolTip.SetToolTip(this.invalidValuePictureBox, e.Message );
                 this.invalidValuePictureBox.Visible = true;
-				Trace.TraceError(e.ToString());
+				this.TraceError(e.ToString());
 			}
 			finally
 			{

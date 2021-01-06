@@ -3,7 +3,6 @@
 using System;
 using System.Collections;
 using System.Xml;
-using System.Xml.Serialization;
 using System.ComponentModel;
 using Microsoft.Practices.Common.Services;
 using Microsoft.Practices.ComponentModel;

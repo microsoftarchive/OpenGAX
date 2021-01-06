@@ -56,12 +56,12 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 		/// Gets or sets the output file for the guidance package registry entries
 		/// </summary>
 		[Required]
-		public string OutputFile { get; set; }
+		public string OutputFile { get; set; }      
 
-		/// <summary>
-		/// Gets or sets the output template cache files
-		/// </summary>
-		[Microsoft.Build.Framework.Output]
+        /// <summary>
+        /// Gets or sets the output template cache files
+        /// </summary>
+        [Microsoft.Build.Framework.Output]
 		public ITaskItem[] CacheFiles { get; set; }
 
 		/// <summary>
@@ -74,11 +74,13 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 			
 			var cacheFiles = new List<string>();
 			var addItemsProjectFactories = new List<Guid>();
-			foreach (var vsTemplate in this.Templates)
+            List<ITaskItem> templateList = this.Templates.ToList();
+
+            foreach (var vsTemplate in this.Templates)
 			{
 				var templateMetadata = new TemplateMetaData(
 					Path.Combine(this.OutputPath, vsTemplate.ItemSpec),
-					new CommandID(new Guid(configuration.Guid), this.Templates.ToList().IndexOf(vsTemplate) + 1),
+					new CommandID(new Guid(configuration.Guid), templateList.IndexOf(vsTemplate) + 1),
 					configuration.Name,
 					RegistryHelper.GetCurrentVsRegistryKey(false));
 
@@ -96,7 +98,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Build
 			registryTemplate.VsTemplates = this.Templates;
 			registryTemplate.AddItemsProjectFactories = addItemsProjectFactories;
 			registryTemplate.OutputPath = Path.GetFullPath(this.OutputPath);
-
+            
 			var content = registryTemplate.TransformText();
 
 			this.CacheFiles = cacheFiles.Distinct().Select(file =>

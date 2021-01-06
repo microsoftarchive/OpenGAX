@@ -16,16 +16,23 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.VisualStudio.TextTemplating;
-using System.Runtime.Remoting;
-using System.Security.Policy;
-using System.Security;
-using Microsoft.Win32;
 using System.Globalization;
-using System.ComponentModel.Design;
-using System.Runtime.Versioning;
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 {
+	/* 
+	 simple assembly reference in t4 not working.
+	 work around: 1. delegate to a host by MS.
+	 2. use type.Assembly.Location
+	 3. use full path or full name when authoring t4.
+
+	assembly Microsoft.VisualStudio.TextTemplating.VSHost.14.0
+	namespace: Microsoft.VisualStudio.TextTemplating.VSHost
+	internal sealed class TextTemplatingService : MarshalByRefObject, STextTemplating, 
+	IDebugTextTemplating, ITextTemplating, ITextTemplatingComponents, ITextTemplatingSessionHost, 
+	ITextTemplatingEngineHost, ITextTemplatingOrchestrator, IServiceProvider, IServiceProvider, IDisposable
+	*/
+
 	/// <summary>
 	/// Provides Arguments-PropertyData pairs for the <see cref="PropertiesDirectiveProcessor"/>. 
 	/// Resolves the physical path for a logical filename passed in as argument. 
@@ -93,6 +100,8 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 			get { return this.errors; }
 		}
 
+		public ITextTemplatingEngineHost SysHost { get; set; }
+
 		#endregion
 
 		#region ITextTemplatingEngineHost Members
@@ -153,19 +162,11 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 				}
 			}
 
-            // Search for reference assemblies of the currently targeted .NET Framework verion.
-            // These are stored in "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v<version>".
-            var targetFramework = new FrameworkName(AppDomain.CurrentDomain.SetupInformation.TargetFrameworkName);
-            var referenceAssembliesBasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), @"Reference Assemblies\Microsoft\Framework\.NETFramework");
-            var referenceAssembliesPath = Path.Combine(referenceAssembliesBasePath, "v" + targetFramework.Version.ToString());
-            var referenceAssemblyPath = Path.Combine(referenceAssembliesPath, assemblyReference);
-            if (File.Exists(referenceAssemblyPath))
-            {
-                return referenceAssemblyPath;
-            }
+			if (SysHost != null)			
+				return SysHost.ResolveAssemblyReference(assemblyReference);
 
-            // Will fail at template compilation time.
-            return assemblyReference;
+			// Will fail at template compilation time.
+			return assemblyReference;
 		}
 
 		/// <summary>
@@ -173,7 +174,9 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 		/// </summary>
 		public IList<string> StandardAssemblyReferences
 		{
-			get { return null; }
+			get { return new string[] {
+				typeof(System.Uri).Assembly.Location
+			}; }
 		}
 
 		/// <summary>
@@ -181,7 +184,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 		/// </summary>
 		public IList<string> StandardImports
 		{
-			get { return null; }
+			get { return new string[] { "System" }; }
 		}
 
         private string templateFileName;
@@ -242,6 +245,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
 		/// </summary>
 		public AppDomain ProvideTemplatingAppDomain(string content)
 		{
+			// currently using AppDomain.CreateDomain("Generator AppDomain") produces some errors.
 			return AppDomain.CurrentDomain;
 		}
 
@@ -292,12 +296,22 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Library.Templates
         }
 
         /// <summary>
-        /// Not used by this host.
+        /// see msdn for more info.
         /// </summary>
         public object GetHostOption(string optionName)
         {
-            return null;
-        }
+			object returnObject;
+			switch (optionName)
+			{
+				case "CacheAssemblies":
+					returnObject = true;
+					break;
+				default:
+					returnObject = null;
+					break;
+			}
+			return returnObject;
+		}
 
         /// <summary>
         /// Not used by this host.

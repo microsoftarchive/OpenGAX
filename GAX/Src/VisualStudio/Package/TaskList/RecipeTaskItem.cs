@@ -131,7 +131,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.TaskList
 			}
 			catch (Exception e)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+				ErrorHelper.Show(this.Site, e);
 			}
 			finally
 			{

@@ -231,7 +231,7 @@ namespace Microsoft.Practices.RecipeFramework.Library.TextTemplate.Tests
             // Create the Host
 			ITextTemplatingEngineHost host = new TemplateHost(path,new Dictionary<string, PropertyData>());
 
-            Assert.IsNull(host.StandardAssemblyReferences);
+            Assert.IsTrue(host.StandardAssemblyReferences.Count == 1);
         }
 
         [TestMethod]
@@ -243,7 +243,7 @@ namespace Microsoft.Practices.RecipeFramework.Library.TextTemplate.Tests
             // Create the Host
 			ITextTemplatingEngineHost host = new TemplateHost(path, new Dictionary<string, PropertyData>());
 
-            Assert.IsNull(host.StandardImports);
+            Assert.IsTrue(host.StandardImports.Count == 1);
         }
 
         [TestMethod]

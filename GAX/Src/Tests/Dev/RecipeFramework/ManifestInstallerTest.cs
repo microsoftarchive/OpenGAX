@@ -6,9 +6,8 @@
 //using System.IO;
 //using System.Xml;
 //using System.Xml.XPath;
-
 //using Microsoft.Practices.RecipeFramework.Internal;
-//using NUnit.Framework;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 //using Microsoft.Practices.Common;
 //using Mvp.Xml.Common.XPath;
 
@@ -16,12 +15,12 @@
 
 //namespace Microsoft.Practices.RecipeFramework
 //{
-//    [TestFixture]
+//    [TestClass]
 //    public class ManifestInstallerTest
 //    {
 //        static readonly string InstallUtil = Path.Combine(Utils.GetClrInstallationDirectory(), "InstallUtil.exe");
 
-//        [Test]
+//        [TestMethod]
 //        public void TestBadInstaller()
 //        {
 //            //UninstallHost("TestingHost");
@@ -52,7 +51,7 @@
 //            Assert.IsFalse(it.MoveNext());
 //        }
 
-//        [Test]
+//        [TestMethod]
 //        public void TestGoodInstaller()
 //        {
 //            try
@@ -195,7 +194,7 @@
 //            return output;
 //        }
 
-//        [Test]
+//        [TestMethod]
 //        public void InstallPackageTest()
 //        {
 //            Configuration.GuidancePackage package = GuidancePackage.ReadConfiguration(Utils.MakeTestRelativePath("RecipeTest.xml"));
@@ -233,7 +232,7 @@
 //            }
 //        }
 
-//        [Test]
+//        [TestMethod]
 //        public void UninstallHostAndPackages()
 //        {
 //            Configuration.GuidancePackage package = GuidancePackage.ReadConfiguration(
@@ -274,7 +273,7 @@
 //            }
 //        }
 
-//        [Test]
+//        [TestMethod]
 //        public void UninstallPackageTest()
 //        {
 //            Configuration.GuidancePackage package = GuidancePackage.ReadConfiguration(Utils.MakeTestRelativePath("RecipeTest.xml"));

@@ -15,15 +15,10 @@
 
 using System;
 using System.Collections;
-using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Drawing;
 using System.Globalization;
-using System.Windows.Forms;
 
 using Microsoft.Practices.ComponentModel;
-//using Services = Microsoft.Practices.RecipeFramework.Services;
-//using Configuration = Microsoft.Practices.RecipeFramework.Configuration;
 using Microsoft.Practices.Common.Services;
 using System.Reflection;
 using Microsoft.Practices.Common;
@@ -72,7 +67,7 @@ namespace Microsoft.Practices.WizardFramework
     /// <seealso cref="IDictionaryService"/>
     /// <seealso cref="CustomWizardPage.RecipeArgumentAttribute"/>
 
-	[ServiceDependency(typeof(IValueInfoService))]
+    [ServiceDependency(typeof(IValueInfoService))]
 	[ServiceDependency(typeof(ITypeResolutionService))]
 	[ServiceDependency(typeof(IServiceProvider))]
 	public class CustomWizardPage : WizardPage
@@ -103,13 +98,22 @@ namespace Microsoft.Practices.WizardFramework
         /// </summary>
         private void InitializeComponent()
         {
-            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
-            // 
-            // WizardPageFromConfig
-            // 
-            this.Name = "WizardPageFromConfig";
-            this.Size = new System.Drawing.Size(700, 469);
-            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// infoPanel
+			// 
+			this.infoPanel.Location = new System.Drawing.Point(0, 10);
+			this.infoPanel.Size = new System.Drawing.Size(620, 459);
+			// 
+			// CustomWizardPage
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.Name = "CustomWizardPage";
+			this.Size = new System.Drawing.Size(620, 469);
+			((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
         #endregion
@@ -266,7 +270,7 @@ namespace Microsoft.Practices.WizardFramework
             }
             catch (Exception e)
             {
-                ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+                ErrorHelper.Show(this.Site, e);
             }
         }
 

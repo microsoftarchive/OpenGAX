@@ -13,20 +13,17 @@
 
 using System;
 using System.Linq;
-using System.Collections.Generic;
 using Microsoft.Practices.ComponentModel;
 using EnvDTE;
-using System.Diagnostics;
 using System.IO;
-using System.Xml;
 
 namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 {
-	/// <summary>
-	/// Converts a non-vsix guidance package project file into vsix by adding
-	/// some properties and imports.
-	/// </summary>
-	[ServiceDependency(typeof(DTE))]
+    /// <summary>
+    /// Converts a non-vsix guidance package project file into vsix by adding
+    /// some properties and imports.
+    /// </summary>
+    [ServiceDependency(typeof(DTE))]
 	public class UpdateProjectFileToVsixAction : Action
 	{
 		/// <summary>
@@ -49,7 +46,7 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 		/// </summary>
 		public override void Execute()
 		{
-			Trace.TraceInformation("Updating guidance package project file to VSIX...");
+			TraceUtil.TraceInformation(this, "Updating guidance package project file to VSIX...");
 
 			this.PackageProject.Save();
 
@@ -58,7 +55,7 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 
 			var project = new Build.Evaluation.Project(tempPath);
 
-			Trace.TraceInformation("\tSetting VSIX properties...");
+			TraceUtil.TraceInformation(this, "\tSetting VSIX properties...");
 			// Add properties
 			AddProperty(project, "GeneratePkgDefFile", "false");
 			AddProperty(project, "IncludeAssemblyInVSIXContainer", "true");
@@ -67,12 +64,12 @@ namespace Microsoft.Practices.RecipeFramework.MetaGuidancePackage.Actions
 			AddProperty(project, "CopyBuildOutputToOutputDirectory", "true");
 			AddProperty(project, "CopyOutputSymbolsToOutputDirectory", "true");
 			AddProperty(project, "ProjectTypeGuids", "{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}");
-			AddProperty(project, "TargetFrameworkVersion", "v4.0");		
+			AddProperty(project, "TargetFrameworkVersion", "v4.0");
 
 			// Add imports
-			Trace.TraceInformation("\tAdding VS SDK targets...");
-			AddImport(project, @"$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets");
-			Trace.TraceInformation("\tAdding GAX targets...");
+			TraceUtil.TraceInformation(this, "\tAdding VS SDK targets...");
+			AddImport(project, @"$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\VSSDK\Microsoft.VsSDK.targets");
+			TraceUtil.TraceInformation(this, "\tAdding GAX targets...");
 			AddImport(project, @"$(RecipeFrameworkPath)\Microsoft.Practices.RecipeFramework.Build.targets");
 			
 			project.Save();

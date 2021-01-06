@@ -154,7 +154,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
                 retval = wizardResult.wizardResultCancel;
 				if (!(ex is COMException) || ((COMException)ex).ErrorCode != VSConstants.E_ABORT)
                 {
-					ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+					ErrorHelper.Show(this.Site, ex);
 				}
             }
             finally

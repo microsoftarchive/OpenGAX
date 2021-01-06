@@ -274,7 +274,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.ToolWindow
             }
             catch (Exception ex)
             {
-                ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+                ErrorHelper.Show(this.Site, ex);
             }
             finally
             {

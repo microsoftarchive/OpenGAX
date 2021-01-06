@@ -131,7 +131,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
 
             if (IsVbTemplate(templateFile) && !IsVsIsInstalled()) 
             {
-                Trace.TraceInformation("The VS template '{0}' uses VB and VB isn't installed, skipping it...", templateFile);
+				this.TraceInformation("The VS template '{0}' uses VB and VB isn't installed, skipping it...", templateFile);
                 return;
             }
 

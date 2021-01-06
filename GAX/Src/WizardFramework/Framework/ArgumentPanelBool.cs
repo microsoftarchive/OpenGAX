@@ -39,30 +39,35 @@ namespace Microsoft.Practices.WizardFramework
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkBox = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // checkBox
-            // 
-            this.checkBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox.Location = new System.Drawing.Point(0, 0);
-            this.checkBox.Name = "checkBox";
-            this.checkBox.Size = new System.Drawing.Size(200, 18);
-            this.checkBox.TabIndex = 0;
-            this.checkBox.Text = "checkBox1";
-            this.checkBox.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-            //
-            // invalidValuePictureBox
-            //
-            this.invalidValuePictureBox.Location = new System.Drawing.Point(202, 1);
-            // 
-            // ArgumentPanelBool
-            // 
-            this.Controls.Add(this.checkBox);
-            this.Size = new System.Drawing.Size(218, 22);
-            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
-            this.ResumeLayout(false);
+			this.checkBox = new System.Windows.Forms.CheckBox();
+			((System.ComponentModel.ISupportInitialize)(this.invalidValuePictureBox)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// invalidValuePictureBox
+			// 
+			this.invalidValuePictureBox.Location = new System.Drawing.Point(202, 1);
+			// 
+			// checkBox
+			// 
+			this.checkBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.checkBox.Location = new System.Drawing.Point(0, 0);
+			this.checkBox.Name = "checkBox";
+			this.checkBox.Size = new System.Drawing.Size(200, 18);
+			this.checkBox.TabIndex = 0;
+			this.checkBox.Text = "checkBox1";
+			this.checkBox.CheckedChanged += new System.EventHandler(this.CheckedChanged);
+			// 
+			// ArgumentPanelBool
+			// 
+			this.Controls.Add(this.checkBox);
+			this.InvalidValueMessage = "Invalid Value";
+			this.Size = new System.Drawing.Size(218, 22);
+			this.Controls.SetChildIndex(this.checkBox, 0);
+			this.Controls.SetChildIndex(this.invalidValuePictureBox, 0);
+			((System.ComponentModel.ISupportInitialize)(this.invalidValuePictureBox)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+			this.ResumeLayout(false);
 
         }
         #endregion

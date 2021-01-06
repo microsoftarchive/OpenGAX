@@ -19,7 +19,6 @@ using System.Diagnostics;
 using System.Xml;
 using System.Xml.Schema;
 using System.Globalization;
-using System.ComponentModel;
 using System.ComponentModel.Design;
 using Microsoft.Practices.Common;
 using Microsoft.Practices.ComponentModel;
@@ -27,26 +26,23 @@ using Microsoft.Practices.RecipeFramework.Services;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell.Interop;
 using System.Text;
-using System.Reflection;
 using Microsoft.Win32;
 using System.Collections;
 using System.Runtime.InteropServices;
-using System.Windows.Forms.Design;
 using Microsoft.VisualStudio.TemplateWizard;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Common;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Library;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Properties;
-using Microsoft.VisualStudio.Shell;
 
 #endregion
 
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
 {
-    //We don't need these dependecies, we need to run without at installation time
-    //[ServiceDependency(typeof(DTE))]
-    //[ServiceDependency(typeof(IVsResourceManager))]
-    //[ServiceDependency(typeof(IAssetReferenceService))]
-    internal sealed class TemplateMetaData : SitedComponent, IVsTemplate, IAssetDescription
+	//We don't need these dependecies, we need to run without at installation time
+	//[ServiceDependency(typeof(DTE))]
+	//[ServiceDependency(typeof(IVsResourceManager))]
+	//[ServiceDependency(typeof(IAssetReferenceService))]
+	internal sealed class TemplateMetaData : SitedComponent, IVsTemplate, IAssetDescription
     {
         private RegistryKey regRoot;
 
@@ -317,13 +313,13 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.Templates
                                     }
                                     catch
                                     {
-                                        Trace.TraceWarning(Properties.Resources.Templates_InvalidRegistry, projectKeyName);
+                                        this.TraceWarning(Properties.Resources.Templates_InvalidRegistry, projectKeyName);
                                     }
                                     if (projectGuid != Guid.Empty)
                                     {
                                         if (projectFactories.ContainsKey(lang))
                                         {
-                                            Trace.TraceWarning(Properties.Resources.Templates_CorruptMultipleFactories, lang);
+                                            this.TraceWarning(Properties.Resources.Templates_CorruptMultipleFactories, lang);
                                         }
                                         else
                                         {

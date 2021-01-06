@@ -13,26 +13,19 @@
 
 #region Using directives
 
-using System;	
-using System.Collections;
-using System.Diagnostics;
-using System.IO;
+using System;
 using System.Reflection;
-using System.Security.Permissions;
-using System.Threading;
 using System.Text.RegularExpressions;
-using System.Web;
-using System.Globalization;
 using System.Runtime.InteropServices;
 
 #endregion Using directives
 
 namespace Microsoft.Practices.Common
 {
-	/// <summary>
-	/// Provides utility methods for reflection-related operations.
-	/// </summary>
-	public sealed class ReflectionHelper
+    /// <summary>
+    /// Provides utility methods for reflection-related operations.
+    /// </summary>
+    public sealed class ReflectionHelper
 	{
 		static readonly Regex AssemblyNameRegEx = new Regex(@"^(?<assembly>[\w\. ]+)(,\s?Version=(?<version>\d+\.\d+\.\d+\.\d+))?(,\s?Culture=(?<culture>\w+))?(,\s?PublicKeyToken=(?<token>\w+))?$", RegexOptions.Compiled);
 

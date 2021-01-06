@@ -146,7 +146,7 @@ namespace Microsoft.Practices.RecipeFramework.Services
                 }
                 catch (Exception e)
                 {
-                    Trace.TraceInformation(e.Message);
+                    this.TraceInformation(e.Message);
                     appliesTo = Properties.Resources.Reference_AppliesToThrew;
                 }
                 throw new ArgumentException(String.Format(
@@ -256,7 +256,7 @@ namespace Microsoft.Practices.RecipeFramework.Services
                         }
                         catch (Exception e)
                         {
-                            Trace.TraceInformation(e.Message);
+							this.TraceInformation(e.Message);
                             appliesTo = Properties.Resources.Reference_AppliesToThrew;
                         }
                         throw new ArgumentException(String.Format(

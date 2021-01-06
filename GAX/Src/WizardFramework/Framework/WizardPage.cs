@@ -26,14 +26,18 @@ using System.ComponentModel.Design;
 
 namespace Microsoft.Practices.WizardFramework
 {
-	/// <summary>
-	/// A WizardPage defined a step inside a WizardForm
-	/// </summary>
-	[ServiceDependency(typeof(IServiceProvider))]
+    /// <summary>
+    /// A WizardPage defined a step inside a WizardForm
+    /// </summary>
+    [ServiceDependency(typeof(IServiceProvider))]
 	[ServiceDependency(typeof(IValueInfoService))]
-	public abstract class WizardPage : Microsoft.WizardFramework.WizardPage, ISupportInitialize
+#if DEBUG
+    public class WizardPage : Microsoft.WizardFramework.WizardPage, ISupportInitialize
+#else
+    public abstract class WizardPage : Microsoft.WizardFramework.WizardPage, ISupportInitialize
+#endif
     {
-        #region Designer Stuff
+#region Designer Stuff
 
         private System.ComponentModel.IContainer components = null;
         /// <summary>
@@ -50,7 +54,7 @@ namespace Microsoft.Practices.WizardFramework
             }
             base.Dispose(disposing);
         }
-        #region Designer generated code
+#region Designer generated code
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -59,24 +63,51 @@ namespace Microsoft.Practices.WizardFramework
         {
 			this.SuspendLayout();
 			// 
+			// infoPanel
+			// 
+			this.infoPanel.Size = new System.Drawing.Size(505, 459);
+			// 
 			// WizardPage
 			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.InfoRTBoxSize = new System.Drawing.Size(496, 60);			
 			this.Name = "WizardPage";
-			this.Size = new System.Drawing.Size(505, 304);
-			this.InfoRTBoxSize = new System.Drawing.Size(496, 60);
+			this.Size = new System.Drawing.Size(505, 459);
 			this.Skippable = true;
+			this.SizeChanged += new System.EventHandler(this.WizardPage_SizeChanged);
+
+			Control _infoRTBox = null;
+			foreach (Control c in this.infoPanel.Controls)
+			{
+				if (c.Name == "_infoRTBox")
+					_infoRTBox = c;
+			}
+			_infoRTBox.BackColor = Color.FromArgb( _infoRTBox.ForeColor.ToArgb() + 0x181818) ;  //CalcContrastColor(_infoRTBox.ForeColor);
+
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
-		}
-        #endregion
+        }
 
-        #endregion Designer Stuff
+		#endregion
 
-        #region Constructor
+		#endregion Designer Stuff
 
-        /// <summary>
-		/// Creates a WizardPage inside the Windows Form Designer
-		/// </summary>
+		//static Color CalcContrastColor(Color color)
+		//{
+		//	if (Math.Abs(color.R - 0x80) <= 0x20 &&
+		//		Math.Abs(color.G - 0x80) <= 0x20 &&
+		//		Math.Abs(color.B - 0x80) <= 0x20)
+		//		return Color.FromArgb((0x7F7F7F + color.ToArgb()) & 0xFFFFFF);
+		//	else
+		//		return Color.FromArgb(color.ToArgb() ^ 0xFFFFFF);
+		//}
+
+		#region Constructor
+
+			/// <summary>
+			/// Creates a WizardPage inside the Windows Form Designer
+			/// </summary>
 		public WizardPage()
 		{
 			arguments = new Hashtable();
@@ -93,9 +124,9 @@ namespace Microsoft.Practices.WizardFramework
 			InitializeComponent();
 		}
 
-		#endregion Constructor
-		
-		#region Overrides
+        #endregion Constructor
+
+        #region Overrides
 
         /// <summary>
         /// Is called to ask the page whether or not it is OK to deactivate the page.  True means OK to
@@ -165,9 +196,9 @@ namespace Microsoft.Practices.WizardFramework
 			return newSize;
 		}
 
-		#endregion
+#endregion
 
-		#region Properties
+#region Properties
 
 		/// <summary>
 		/// Returns whether this Page have some argument with a null value
@@ -227,23 +258,27 @@ namespace Microsoft.Practices.WizardFramework
 			get { return arguments; }
 		} Hashtable arguments;
 
-		#endregion Properties
+#endregion Properties
 
-		#region Abstract Members
+#region Abstract Members
 
-		/// <summary>
-		/// Fills the arguments hashtable with ArgumentMetaData objects corresponsing to the arguments that this Page collects.
-		/// </summary>
-		protected abstract void BuildRecipeArguments();
+        /// <summary>
+        /// Fills the arguments hashtable with ArgumentMetaData objects corresponsing to the arguments that this Page collects.
+        /// </summary>
+#if DEBUG
+        protected virtual void BuildRecipeArguments() { throw new NotImplementedException("abstract method."); }
+#else
+        protected abstract void BuildRecipeArguments();
+#endif
 
-		#endregion
+#endregion
 
-		#region ISupportInitialize Members
+#region ISupportInitialize Members
 
-		/// <summary>
-		/// Begins component initialization
-		/// </summary>
-		public virtual void BeginInit()
+        /// <summary>
+        /// Begins component initialization
+        /// </summary>
+        public virtual void BeginInit()
 		{
 			initializing = true;
 		}
@@ -282,6 +317,13 @@ namespace Microsoft.Practices.WizardFramework
 
 		#endregion ISupportInitialize Members
 
+		public bool SuncInfoRTWidth { get; set; } = true;
+
+		private void WizardPage_SizeChanged(object sender, EventArgs e)
+		{ 
+			if(SuncInfoRTWidth && this.InfoRTBoxSize. Width != this.infoPanel.Width)
+				this.InfoRTBoxSize = new Size(this.infoPanel.Width, this.InfoRTBoxSize.Height);
+		}
 	}
 }
 

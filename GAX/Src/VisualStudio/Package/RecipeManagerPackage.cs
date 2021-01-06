@@ -19,27 +19,15 @@ using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Diagnostics;
-using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Windows.Forms.Design;
-using System.Xml;
-
-using Microsoft.Win32;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
-using Microsoft.VisualStudio.OLE;
-using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.Practices.RecipeFramework.Services;
 using Microsoft.Practices.ComponentModel;
-using Microsoft.Practices.RecipeFramework.VisualStudio.Services;
-using Microsoft.Practices.Common;
-using Microsoft.Practices.Common.Services;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Templates;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Common;
-using Microsoft.Practices.RecipeFramework.VisualStudio.Library;
 using Microsoft.Practices.RecipeFramework.VisualStudio.Properties;
 using Microsoft.Practices.RecipeFramework.VisualStudio.ToolWindow;
 using EnvDTE;
@@ -67,14 +55,14 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
     [ServiceDependency(typeof(SVsRegisterNewDialogFilters))]
     [ProvideToolWindow(typeof(GuidanceNavigatorWindow))]
     [PackageRegistration(UseManagedResourcesOnly = false, SatellitePath = "$PackageFolder$")]
-    [RegisterAutoLoad(UIContextGuids.NoSolution)]
+    [ProvideAutoLoad(UIContextGuids.NoSolution)]
 #if DEBUG
-    [ProvidePackageSetting("TraceLevel", "Verbose")]
+    [ProvidePackageSetting("SourceLevels", "Verbose")]
 #else
-    [ProvidePackageSetting("TraceLevel", "Verbose")]
+    [ProvidePackageSetting("SourceLevels", "Verbose")]
 #endif
-    [ProvidePackageSetting("AutoShowGuidanceNavigator", 1)]
-    internal sealed class RecipeManagerPackage : Package, IVsSolutionEvents, IVsSolutionEvents4, IVsTrackProjectDocumentsEvents2
+	[ProvidePackageSetting("AutoShowGuidanceNavigator", 1)]
+    internal sealed class RecipeManagerPackage : Package, IVsSolutionEvents, IVsSolutionEvents4, IVsTrackProjectDocumentsEvents2, IVsSolutionLoadEvents
     {
         #region Fields
 
@@ -111,7 +99,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+                ErrorHelper.Show(this, e);
             }
         }
 
@@ -125,7 +113,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             try
             {
                 Environment.SetEnvironmentVariable("RecipeFrameworkPath", Path.GetDirectoryName(this.GetType().Assembly.Location));
-                LoadTraceLevelSetting();
+				LoadSourceLevelsSetting();
 
                 AdviseSolutionEvents();
                 AdviseTrackProjectDocumentsEvents();
@@ -149,7 +137,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+                ErrorHelper.Show(this, e);
                 throw;
             }
         }
@@ -266,7 +254,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+                ErrorHelper.Show(this, e);
             }
         }
 
@@ -281,7 +269,7 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             }
             catch (Exception e)
             {
-                ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), e);
+                ErrorHelper.Show(this, e);
             }
         }
 
@@ -391,20 +379,9 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
                 isOpeningSolution = true;
             }
 
-            if (guidanceNavigatorManager == null)
-            {
-                guidanceNavigatorManager = new GuidanceNavigatorManager(this as System.IServiceProvider);
-            }
-
-            IRecipeManagerService rms = (IRecipeManagerService)GetService(typeof(IRecipeManagerService));
-            rms.EnabledPackage += new PackageEventHandler(OnEnabledPackage);
-
             IVsSolutionEvents hostService =
                 (IVsSolutionEvents)GetService(typeof(IHostService));
-            int result = hostService.OnAfterOpenSolution(pUnkReserved, fNewSolution);
-
-            isOpeningSolution = false;
-            return result;
+            return hostService.OnAfterOpenSolution(pUnkReserved, fNewSolution);
         }
 
 
@@ -542,11 +519,10 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
         {
             if (recipeFrameworkOutputWindow == null)
             {
-                recipeFrameworkOutputWindow = new OutputWindowService();
+                recipeFrameworkOutputWindow = TraceUtil.GaxOutputWindowService;
                 recipeFrameworkOutputWindow.Site = new Site((IServiceContainer)this, recipeFrameworkOutputWindow, recipeFrameworkOutputWindow.WindowName);
                 ((IServiceContainer)this).AddService(typeof(IOutputWindowService), recipeFrameworkOutputWindow);
-            }
-
+			}	
 
             // if a new solution is being created this means packages are enabled for the first time
             // so gNav should show by default
@@ -573,6 +549,8 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
                 }
             }
         }
+
+        #region Guidance Navigator
 
         internal void ShowGuidanceNavigatorWindow()
         {
@@ -651,6 +629,8 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             return shouldAutoShow;
         }
 
+        #endregion
+
         #region IVsTrackProjectDocumentsEvents2 Members
 
         int IVsTrackProjectDocumentsEvents2.OnAfterAddDirectoriesEx(int cProjects, int cDirectories, IVsProject[] rgpProjects, int[] rgFirstIndices, string[] rgpszMkDocuments, VSADDDIRECTORYFLAGS[] rgFlags)
@@ -724,15 +704,17 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
             return VSConstants.S_OK;
         }
 
-        #endregion
+		#endregion
 
+		static bool sourceSwitchLoaded = false;
 
-        private static void LoadTraceLevelSetting()
+		private static void LoadSourceLevelsSetting()
         {
-            var traceSwitch = new TraceSwitch(ThisAssembly.Title, ThisAssembly.Description);
-
-            // Set the default
-            traceSwitch.Level = TraceLevel.Error;
+			if (sourceSwitchLoaded)
+				return;
+			sourceSwitchLoaded = true;
+			// Set the default
+			SourceLevels level = SourceLevels.Error;
             try
             {
                 using (var vsRegistryKey = RegistryHelper.GetCurrentVsRegistryKey(false))
@@ -741,25 +723,81 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio
                     {
                         if (settingsKey != null)
                         {
-                            var traceLevelValue = settingsKey.GetValue("TraceLevel", "Error") as string;
+                            var sourceLevelsValue = settingsKey.GetValue("SourceLevels", "Error") as string;
 
-                            TraceLevel result;
-                            if (Enum.TryParse<TraceLevel>(traceLevelValue, out result))
+							SourceLevels result;
+                            if (Enum.TryParse<SourceLevels>(sourceLevelsValue, out result))
                             {
-                                traceSwitch.Level = result;
+								level = result;
                             }
                         }
-
                     }
                 }
             }
             catch
             {
                 // Set the default
-                traceSwitch.Level = TraceLevel.Error;
+                level = SourceLevels.Error;
             }
 
-            RecipeManager.TraceSwitch = traceSwitch;
+            TraceUtil.GaxSourceSwitch.Level = level;
         }
+
+        #region IVsSolutionLoadEvents Members
+
+        int IVsSolutionLoadEvents.OnAfterBackgroundSolutionLoadComplete()
+        {
+            if (guidanceNavigatorManager == null)
+            {
+                guidanceNavigatorManager = new GuidanceNavigatorManager(this as System.IServiceProvider);
+            }
+
+            IRecipeManagerService rms = (IRecipeManagerService)GetService(typeof(IRecipeManagerService));
+            rms.EnabledPackage += new PackageEventHandler(OnEnabledPackage);
+
+            IVsSolutionLoadEvents hostService =
+                (IVsSolutionLoadEvents)GetService(typeof(IHostService));
+            int result = hostService.OnAfterBackgroundSolutionLoadComplete();
+
+            isOpeningSolution = false;
+            return result;
+        }
+
+        int IVsSolutionLoadEvents.OnAfterLoadProjectBatch(bool fIsBackgroundIdleBatch)
+        {
+            IVsSolutionLoadEvents hostService =
+                (IVsSolutionLoadEvents)GetService(typeof(IHostService));
+            return hostService.OnAfterLoadProjectBatch(fIsBackgroundIdleBatch);
+        }
+
+        int IVsSolutionLoadEvents.OnBeforeBackgroundSolutionLoadBegins()
+        {
+            IVsSolutionLoadEvents hostService =
+                (IVsSolutionLoadEvents)GetService(typeof(IHostService));
+            return hostService.OnBeforeBackgroundSolutionLoadBegins();
+        }
+
+        int IVsSolutionLoadEvents.OnBeforeLoadProjectBatch(bool fIsBackgroundIdleBatch)
+        {
+            IVsSolutionLoadEvents hostService =
+                (IVsSolutionLoadEvents)GetService(typeof(IHostService));
+            return hostService.OnBeforeLoadProjectBatch(fIsBackgroundIdleBatch);
+        }
+
+        int IVsSolutionLoadEvents.OnBeforeOpenSolution(string pszSolutionFilename)
+        {
+            IVsSolutionLoadEvents hostService =
+                (IVsSolutionLoadEvents)GetService(typeof(IHostService));
+            return hostService.OnBeforeOpenSolution(pszSolutionFilename);
+        }
+
+        int IVsSolutionLoadEvents.OnQueryBackgroundLoadProjectBatch(out bool pfShouldDelayLoadToNextIdle)
+        {
+            IVsSolutionLoadEvents hostService =
+                (IVsSolutionLoadEvents)GetService(typeof(IHostService));
+            return hostService.OnQueryBackgroundLoadProjectBatch(out pfShouldDelayLoadToNextIdle);
+        }
+
+        #endregion
     }
 }

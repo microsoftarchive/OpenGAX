@@ -1,16 +1,3 @@
-//===================================================================================
-// Microsoft patterns & practices
-// Guidance Automation Extensions
-//===================================================================================
-// Copyright (c) Microsoft Corporation.  All rights reserved.
-// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY
-// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
-// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
-// FITNESS FOR A PARTICULAR PURPOSE.
-//===================================================================================
-// License: MS-LPL
-//===================================================================================
-
 namespace Microsoft.Practices.RecipeFramework.VisualStudio.CTC
 {
 	internal partial class ShellCmdDef
@@ -106,10 +93,11 @@ namespace Microsoft.Practices.RecipeFramework.VisualStudio.CTC
 				    mapCSharpPackage.Add(0x000011ED, 0x049);
 				    mapCSharpPackage.Add(0x000011EE, 0x04A);
 				    mapCSharpPackage.Add(0x000011EF, 0x04B);
-				    mapCSharpPackage.Add(0x000011F8, 0x04C);
-				    mapCSharpPackage.Add(0x000011F9, 0x04D);
-				    mapCSharpPackage.Add(0x000011FA, 0x04E);
-				    mapCSharpPackage.Add(0x000011FB, 0x04F);
+				    mapCSharpPackage.Add(0x000011F0, 0x04C);
+				    mapCSharpPackage.Add(0x000011F8, 0x04D);
+				    mapCSharpPackage.Add(0x000011F9, 0x04E);
+				    mapCSharpPackage.Add(0x000011FA, 0x04F);
+				    mapCSharpPackage.Add(0x000011FB, 0x050);
 				}
 				return mapCSharpPackage;
 			}

@@ -86,158 +86,156 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PackageManager));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items"), ((System.Int32)(resources.GetObject("lstRecipes.Items1"))));
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items2"), ((System.Int32)(resources.GetObject("lstRecipes.Items3"))));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items4"), ((System.Int32)(resources.GetObject("lstRecipes.Items5"))));
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items6"), ((System.Int32)(resources.GetObject("lstRecipes.Items7"))));
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items8"), ((System.Int32)(resources.GetObject("lstRecipes.Items9"))));
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items10"), ((System.Int32)(resources.GetObject("lstRecipes.Items11"))));
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(resources.GetString("lstRecipes.Items12"), ((System.Int32)(resources.GetObject("lstRecipes.Items13"))));
-            this.imgImages = new System.Windows.Forms.ImageList(this.components);
-            this.executeButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.closeButton = new System.Windows.Forms.Button();
-            this.PackagesButton = new System.Windows.Forms.Button();
-            this.splitter = new System.Windows.Forms.SplitContainer();
-            this.lstRecipes = new System.Windows.Forms.ListView();
-            this.Reference = new System.Windows.Forms.ColumnHeader(resources.GetString("lstRecipes.Columns"));
-            this.AppliesTo = new System.Windows.Forms.ColumnHeader(resources.GetString("lstRecipes.Columns1"));
-            this.Package = new System.Windows.Forms.ColumnHeader(resources.GetString("lstRecipes.Columns2"));
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.splitter.Panel1.SuspendLayout();
-            this.splitter.Panel2.SuspendLayout();
-            this.splitter.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // imgImages
-            // 
-            this.imgImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgImages.ImageStream")));
-            this.imgImages.Images.SetKeyName(0, "IBoundAssetReference.bmp");
-            this.imgImages.Images.SetKeyName(1, "IUnboundAssetReference.bmp");
-            this.imgImages.Images.SetKeyName(2, "ProjectItemReference.bmp");
-            this.imgImages.Images.SetKeyName(3, "ProjectReference.bmp");
-            this.imgImages.Images.SetKeyName(4, "SolutionReference.bmp");
-            this.imgImages.Images.SetKeyName(5, "BoundTemplateReference.bmp");
-            this.imgImages.Images.SetKeyName(6, "UnboundTemplateReference.bmp");
-            // 
-            // executeButton
-            // 
-            resources.ApplyResources(this.executeButton, "executeButton");
-            this.executeButton.Name = "executeButton";
-            this.executeButton.Click += new System.EventHandler(this.OnExecuteRecipe);
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
-            // 
-            // closeButton
-            // 
-            resources.ApplyResources(this.closeButton, "closeButton");
-            this.closeButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Click += new System.EventHandler(this.OnCloseButtonClick);
-            // 
-            // PackagesButton
-            // 
-            resources.ApplyResources(this.PackagesButton, "PackagesButton");
-            this.PackagesButton.Name = "PackagesButton";
-            this.PackagesButton.Click += new System.EventHandler(this.OnEnableDisablePackages);
-            // 
-            // splitter
-            // 
-            resources.ApplyResources(this.splitter, "splitter");
-            this.splitter.Name = "splitter";
-            this.splitter.TabStop = false;
-            // 
-            // splitter.Panel1
-            // 
-            this.splitter.Panel1.Controls.Add(this.lstRecipes);
-            // 
-            // splitter.Panel2
-            // 
-            this.splitter.Panel2.Controls.Add(this.groupBox4);
-            // 
-            // lstRecipes
-            // 
-            this.lstRecipes.AllowColumnReorder = true;
-            this.lstRecipes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PackageManager));
+			this.imgImages = new System.Windows.Forms.ImageList(this.components);
+			this.executeButton = new System.Windows.Forms.Button();
+			this.label6 = new System.Windows.Forms.Label();
+			this.closeButton = new System.Windows.Forms.Button();
+			this.PackagesButton = new System.Windows.Forms.Button();
+			this.splitter = new System.Windows.Forms.SplitContainer();
+			this.lstRecipes = new System.Windows.Forms.ListView();
+			this.Reference = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.AppliesTo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.Package = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.txtDescription = new System.Windows.Forms.TextBox();
+			((System.ComponentModel.ISupportInitialize)(this.splitter)).BeginInit();
+			this.splitter.Panel1.SuspendLayout();
+			this.splitter.Panel2.SuspendLayout();
+			this.splitter.SuspendLayout();
+			this.groupBox4.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// imgImages
+			// 
+			this.imgImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgImages.ImageStream")));
+			this.imgImages.TransparentColor = System.Drawing.Color.Transparent;
+			this.imgImages.Images.SetKeyName(0, "IBoundAssetReference.bmp");
+			this.imgImages.Images.SetKeyName(1, "IUnboundAssetReference.bmp");
+			this.imgImages.Images.SetKeyName(2, "ProjectItemReference.bmp");
+			this.imgImages.Images.SetKeyName(3, "ProjectReference.bmp");
+			this.imgImages.Images.SetKeyName(4, "SolutionReference.bmp");
+			this.imgImages.Images.SetKeyName(5, "BoundTemplateReference.bmp");
+			this.imgImages.Images.SetKeyName(6, "UnboundTemplateReference.bmp");
+			// 
+			// executeButton
+			// 
+			resources.ApplyResources(this.executeButton, "executeButton");
+			this.executeButton.Name = "executeButton";
+			this.executeButton.Click += new System.EventHandler(this.OnExecuteRecipe);
+			// 
+			// label6
+			// 
+			resources.ApplyResources(this.label6, "label6");
+			this.label6.BackColor = System.Drawing.SystemColors.ControlDark;
+			this.label6.Name = "label6";
+			// 
+			// closeButton
+			// 
+			resources.ApplyResources(this.closeButton, "closeButton");
+			this.closeButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.closeButton.Name = "closeButton";
+			this.closeButton.Click += new System.EventHandler(this.OnCloseButtonClick);
+			// 
+			// PackagesButton
+			// 
+			resources.ApplyResources(this.PackagesButton, "PackagesButton");
+			this.PackagesButton.Name = "PackagesButton";
+			this.PackagesButton.Click += new System.EventHandler(this.OnEnableDisablePackages);
+			// 
+			// splitter
+			// 
+			resources.ApplyResources(this.splitter, "splitter");
+			this.splitter.Name = "splitter";
+			// 
+			// splitter.Panel1
+			// 
+			this.splitter.Panel1.Controls.Add(this.lstRecipes);
+			// 
+			// splitter.Panel2
+			// 
+			this.splitter.Panel2.Controls.Add(this.groupBox4);
+			this.splitter.TabStop = false;
+			// 
+			// lstRecipes
+			// 
+			this.lstRecipes.AllowColumnReorder = true;
+			this.lstRecipes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Reference,
             this.AppliesTo,
             this.Package});
-            resources.ApplyResources(this.lstRecipes, "lstRecipes");
-            this.lstRecipes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7});
-            this.lstRecipes.MultiSelect = false;
-            this.lstRecipes.Name = "lstRecipes";
-            this.lstRecipes.SmallImageList = this.imgImages;
-            this.lstRecipes.Sorting = System.Windows.Forms.SortOrder.None;
-            this.lstRecipes.View = System.Windows.Forms.View.Details;
-            this.lstRecipes.SelectedIndexChanged += new System.EventHandler(this.lstRecipes_SelectedIndexChanged);
-            this.lstRecipes.DoubleClick += new System.EventHandler(this.lstRecipes_DoubleClick);
-            this.lstRecipes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstRecipes_KeyDown);
+			resources.ApplyResources(this.lstRecipes, "lstRecipes");
+			this.lstRecipes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items"))),
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items1"))),
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items2"))),
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items3"))),
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items4"))),
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items5"))),
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lstRecipes.Items6")))});
+			this.lstRecipes.MultiSelect = false;
+			this.lstRecipes.Name = "lstRecipes";
+			this.lstRecipes.SmallImageList = this.imgImages;
+			this.lstRecipes.UseCompatibleStateImageBehavior = false;
+			this.lstRecipes.View = System.Windows.Forms.View.Details;
+			this.lstRecipes.SelectedIndexChanged += new System.EventHandler(this.lstRecipes_SelectedIndexChanged);
+			this.lstRecipes.DoubleClick += new System.EventHandler(this.lstRecipes_DoubleClick);
+			this.lstRecipes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstRecipes_KeyDown);
 			this.lstRecipes.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstRecipes_MouseDown);
 			// 
-            // Reference
-            // 
-            resources.ApplyResources(this.Reference, "Reference");
-            // 
-            // AppliesTo
-            // 
-            resources.ApplyResources(this.AppliesTo, "AppliesTo");
-            // 
-            // Package
-            // 
-            resources.ApplyResources(this.Package, "Package");
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.txtDescription);
-            resources.ApplyResources(this.groupBox4, "groupBox4");
-            this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.TabStop = false;
-            // 
-            // txtDescription
-            // 
-            resources.ApplyResources(this.txtDescription, "txtDescription");
-            this.txtDescription.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.ReadOnly = true;
-            this.txtDescription.TabStop = true;
-            // 
-            // PackageManager
-            // 
-            this.AcceptButton = this.executeButton;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.CancelButton = this.closeButton;
-            resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.splitter);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.executeButton);
-            this.Controls.Add(this.closeButton);
-            this.Controls.Add(this.PackagesButton);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "PackageManager";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.splitter.Panel1.ResumeLayout(false);
-            this.splitter.Panel2.ResumeLayout(false);
-            this.splitter.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.ResumeLayout(false);
+			// Reference
+			// 
+			resources.ApplyResources(this.Reference, "Reference");
+			// 
+			// AppliesTo
+			// 
+			resources.ApplyResources(this.AppliesTo, "AppliesTo");
+			// 
+			// Package
+			// 
+			resources.ApplyResources(this.Package, "Package");
+			// 
+			// groupBox4
+			// 
+			this.groupBox4.BackColor = System.Drawing.SystemColors.ControlDark;
+			this.groupBox4.Controls.Add(this.txtDescription);
+			resources.ApplyResources(this.groupBox4, "groupBox4");
+			this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.System;
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.TabStop = false;
+			// 
+			// txtDescription
+			// 
+			resources.ApplyResources(this.txtDescription, "txtDescription");
+			this.txtDescription.BackColor = System.Drawing.SystemColors.Control;
+			this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtDescription.Name = "txtDescription";
+			this.txtDescription.ReadOnly = true;
+			// 
+			// PackageManager
+			// 
+			this.AcceptButton = this.executeButton;
+			this.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.CancelButton = this.closeButton;
+			resources.ApplyResources(this, "$this");
+			this.Controls.Add(this.splitter);
+			this.Controls.Add(this.label6);
+			this.Controls.Add(this.executeButton);
+			this.Controls.Add(this.closeButton);
+			this.Controls.Add(this.PackagesButton);
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
+			this.Name = "PackageManager";
+			this.ShowIcon = false;
+			this.ShowInTaskbar = false;
+			this.splitter.Panel1.ResumeLayout(false);
+			this.splitter.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.splitter)).EndInit();
+			this.splitter.ResumeLayout(false);
+			this.groupBox4.ResumeLayout(false);
+			this.groupBox4.PerformLayout();
+			this.ResumeLayout(false);
 
         }
 		#endregion
@@ -311,7 +309,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 		}
 
@@ -327,7 +325,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 		}
 
@@ -370,7 +368,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
 			finally
 			{
@@ -394,7 +392,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 			}
 			catch (Exception ex)
 			{
-				ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+				ErrorHelper.Show(this.Site, ex);
 			}
         }
 
@@ -549,7 +547,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 					items.Add(item);
 					if (ex != null)
 					{
-						ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), new RecipeExecutionException(reference.AssetName, 
+						ErrorHelper.Show(this.Site, new RecipeExecutionException(reference.AssetName, 
 							string.Format(CultureInfo.CurrentCulture,
 							Configuration.Resources.Reference_InvalidAttributes,
 							errors), ex));
@@ -643,7 +641,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 				}
 				catch (Exception ex)
 				{
-					ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+					ErrorHelper.Show(this.Site, ex);
 				}
 			}
 		}
@@ -678,7 +676,7 @@ namespace Microsoft.Practices.RecipeFramework.PackageManagement
 				}
 				catch (Exception ex)
 				{
-					ErrorHelper.Show((IUIService)GetService(typeof(IUIService)), ex);
+					ErrorHelper.Show(this.Site, ex);
 				}
 			}
 		}
